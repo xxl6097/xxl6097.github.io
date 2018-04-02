@@ -314,7 +314,7 @@
 
 
             <div class="entry pink-link-context">
-                <p>Android导入第三方静态库.a编译成动态库.so<br><a id="more"></a><br><img src="/2016/05/11/android-ndk-so-a/img1.png" alt="img1"></p>
+                <p>Android导入第三方静态库.a编译成动态库.so<br><a id="more"></a><br><img src="android-ndk-so-a/img1.png" alt="img1"></p>
 <p>下面我以一个简单的实际例子来讲解如何在动态库中导入静态库。</p>
 <p>静态库中的源代码有两个文件：static.h, static.c，有一个add方法 static.h<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt; </span><br><span class="line">int add(int x, int y);</span><br><span class="line">static.c</span><br><span class="line">#include &quot;static.h&quot; </span><br><span class="line">int add(int x, int y) </span><br><span class="line">&#123; </span><br><span class="line">    return x + y; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>将它编译成静态库，Android.mk如下：</p>
