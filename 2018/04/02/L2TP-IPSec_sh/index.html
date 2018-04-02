@@ -7,7 +7,7 @@
 
     
 
-    <title>搬瓦工（bandwagon）搭建VPN | uuxia</title>
+    <title>L2TP/IPSec一键安装脚本 | uuxia</title>
     <meta name="author" content="uuxia">
     
     <meta name="description" content="在浮躁的世界安安静静地敲代码">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="搬瓦工（bandwagon）搭建VPN"/>
+    <meta property="og:title" content="L2TP/IPSec一键安装脚本"/>
     <meta property="og:site_name" content="uuxia的技术博客"/>
 
     
@@ -265,7 +265,7 @@
             
     
     
-    <a class="breadcrumb" href="/categories/vpn/">vpn</a>
+    <a class="breadcrumb" href="/categories/翻墙/">翻墙</a>
 
 
         
@@ -282,12 +282,12 @@
             <div class="article-title">
                 
     
-        <h1>搬瓦工（bandwagon）搭建VPN</h1>
+        <h1>L2TP/IPSec一键安装脚本</h1>
     
 
 
             </div>
-            <time class="pink-link-context" datetime="2016-05-09T05:59:13.000Z"><a href="/2016/05/09/buildvpn/">2016-05-09</a></time>
+            <time class="pink-link-context" datetime="2018-04-02T11:04:50.000Z"><a href="/2018/04/02/L2TP-IPSec_sh/">2018-04-02</a></time>
 
             <span id="busuanzi_container_page_pv" class="read-times-container">
     <i class="fa fa-eye"></i>
@@ -299,56 +299,58 @@
         
             <a href="/tags/shadowsocks/" class="chip pink lighten-1">shadowsocks</a>
         
-            <a href="/tags/vpn/" class="chip pink lighten-1">vpn</a>
+            <a href="/tags/翻墙/" class="chip pink lighten-1">翻墙</a>
         
     </div>
 
 
             <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#安装服务（VPN-PPTP）"><span class="section table-of-contents-text">安装服务（VPN-PPTP）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#添加自己的VPN账号"><span class="section table-of-contents-text">添加自己的VPN账号</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#reference"><span class="section table-of-contents-text">reference</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Appendix"><span class="section table-of-contents-text">Appendix</span></a></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#本脚本适用环境："><span class="section table-of-contents-text">本脚本适用环境：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#关于本脚本："><span class="section table-of-contents-text">关于本脚本：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#使用方法："><span class="section table-of-contents-text">使用方法：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#其他事项："><span class="section table-of-contents-text">其他事项：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#使用命令："><span class="section table-of-contents-text">使用命令：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#更新日志"><span class="section table-of-contents-text">更新日志</span></a></li></ol>
 </div>
 
 
             <div class="entry pink-link-context">
-                <p>最近注册了一个搬瓦工，开始只为了翻墙，方便查资料和上网。后来发现了搬瓦工功能还比较强大，一年19美元10G流量（搬瓦工：<a href="https://bandwagonhost.com/" target="_blank" rel="noopener">https://bandwagonhost.com/</a>），我目前配合了shadowsocks使用，ios用的surge，by the way，surge相当的强大，搬瓦工还可以搭件个人网站。关于搬瓦工的注册，在这里就不再阐述了，很简单，百度google都有，好了，下面开工，搭建VPN吧。<br><a id="more"></a></p>
-<p>最近注册了一个搬瓦工，开始只为了翻墙，方便查资料和上网。后来发现了搬瓦工功能还比较强大，一年19美元10G流量（搬瓦工：<a href="https://bandwagonhost.com/" target="_blank" rel="noopener">https://bandwagonhost.com/</a>），我目前配合了shadowsocks使用，ios用的surge，by the way，surge相当的强大，搬瓦工还可以搭件个人网站。关于搬瓦工的注册，在这里就不再阐述了，很简单，百度google都有，好了，下面开工，搭建VPN吧。</p>
-<h2 id="安装服务（VPN-PPTP）"><a href="#安装服务（VPN-PPTP）" class="headerlink" title="安装服务（VPN-PPTP）"></a>安装服务（VPN-PPTP）</h2><p>运行如下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.5yun.org/Soft/linux/Openvz-vpn/openvps_vpn_centos-5-6.sh</span><br><span class="line">chmod a+x openvps_vpn_centos-5-6.sh </span><br><span class="line">bash openvps_vpn_centos-5-6.sh</span><br><span class="line"></span><br><span class="line">#如果以上地址不可用，可尝试以下命令，</span><br><span class="line">#这个脚本只提供三个选项，一般选择1就可以自动完成全部过程</span><br><span class="line">#去掉注释符号</span><br><span class="line">#wget http://www.hi-vps.com/shell/vpn_centos6.sh</span><br><span class="line">#chmod a+x vpn_centos6.sh</span><br><span class="line">#bash vpn_centos6.sh</span><br></pre></td></tr></table></figure>
-<p>结果如下：<br><img src="http://img.blog.csdn.net/20160402163201595" alt="这里写图片描述"></p>
-<p>上边第一步是获取一个自动脚本，第二步是给它运行权限，第三步是运行。有时候会遇到第一步无法成功，这时候在本地先下载这个文件，再使用Putty或者SSH客户端上传到VPS也是可以的。<br>执行以上命令后将会返回一个选择系统版本的提示信息，因为之前我们选择的是centos6 ，因此选择第2项，输入2，回车：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# bash openvps_vpn_centos-5-6.sh</span><br><span class="line">please select your operation system</span><br><span class="line">which do you want to?input the number.</span><br><span class="line">1. my system is centos5 32bit(only support 32bit)</span><br><span class="line">2. my system is centos6 32bit or 64bit(they are support)</span><br><span class="line">3. repaire VPN service</span><br><span class="line">4. add VPN user</span><br></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20160402163645159" alt="这里写图片描述"></p>
-<p>执行命令后将自动安装，成功后返回一下信息：<br>VPN service is installed, your VPN username is vpn_name,VPN password is <strong><br>这句话提示成功创建了一个名为vpn_name的账户，密码为 </strong>。</p>
-<p>执行命令后报404错误，或者提示文件或目录不存在，是因为没能成功下载安装包。<br>这里提供手动下载安装包的方法<br>如果是centos6，执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://linux.dell.com/dkms/permalink/dkms-2.0.17.5-1.noarch.rpm</span><br><span class="line">wget https://acelnmp.googlecode.com/files/kernel_ppp_mppe-1.0.2-3dkms.noarch.rpm</span><br><span class="line">wget https://qiaodahai.googlecode.com/files/pptpd-1.3.4-2.el6.i686.rpm</span><br><span class="line">wget https://logdns.googlecode.com/files/ppp-2.4.5-17.0.rhel6.i686.rpm</span><br></pre></td></tr></table></figure>
-<p>如果是 centos5，则执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://linux.dell.com/dkms/permalink/dkms-2.0.17.5-1.noarch.rpm</span><br><span class="line">wget https://acelnmp.googlecode.com/files/kernel_ppp_mppe-1.0.2-3dkms.noarch.rpm</span><br><span class="line">wget https://acelnmp.googlecode.com/files/pptpd-1.3.4-1.rhel5.1.i386.rpm</span><br><span class="line">wget https://fastlnmp.googlecode.com/files/ppp-2.4.4-9.0.rhel5.i386.rpm</span><br></pre></td></tr></table></figure>
-<h2 id="添加自己的VPN账号"><a href="#添加自己的VPN账号" class="headerlink" title="添加自己的VPN账号"></a>添加自己的VPN账号</h2><p>如何添加自己的vpn账户名？ 比如我想用 anonymous 这个帐号，密码设置为 abc@123 (注意，危险！仅作为演示用，千万别设置这样的密码！)</p>
-<p>执行下面这句代码来添加vpn账户： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash openvps_vpn_centos-5-6.sh</span><br></pre></td></tr></table></figure>
-<p>返回的信息选项中，选择第4项：4.add VPN user<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# bash openvps_vpn_centos-5-6.sh</span><br><span class="line">please select your operation system</span><br><span class="line">which do you want to?input the number.</span><br><span class="line">1. my system is centos5 32bit(only support 32bit)</span><br><span class="line">2. my system is centos6 32bit or 64bit(they are support)</span><br><span class="line">3. repaire VPN service</span><br><span class="line">4. add VPN user</span><br></pre></td></tr></table></figure></p>
-<p>根据提示输入用户名，如 anonymous，再输入密码 即可完成vpn的架设了。<br>使用时，在本地新建VPN连接，地址和端口填写VPS的地址和端口，用户名密码填写自己设置的VPN的用户名和密码，然后连接，就可以了。<br>如有疑问，请留言讨论。</p>
-<p>在Terminal里面添加VPN帐号：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ppp/chap-secrets</span><br></pre></td></tr></table></figure>
-<p>键盘选择插入键：Insert 进行编辑， 使用键盘上下左右将光标插入另一行按照以下格式输入<br><em>vpn pptpd Xk0jk78f </em><br>注释：vpn  用户名<br>Xk0jk78f   密码<br>pptpd 和 <em> 不变，字符中间必须用一个空格隔开。数字123，选用键盘字母键上方，不要用数字小键盘</em><br><img src="http://img.blog.csdn.net/20160402170911906" alt="这里写图片描述"><br>如上输入完成，按下键盘左上方ESC键盘，英文状态下输入红色字体  ：wq     即保存好了。<br>现在只要电脑设置好，就可以自由的畅享网络了。</p>
-<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a href="http://www.jjhr.net/2013/12/centos6-x-vpn-pptp-build-method/" target="_blank" rel="noopener">Centos6.X vpn pptp 搭建方法</a><br><a href="http://www.phpsong.com/1.html" target="_blank" rel="noopener">搬瓦工vps vpn架设</a></p>
-<p><a href="http://www.phpsong.com/1126.html" target="_blank" rel="noopener">http://www.phpsong.com/1126.html</a></p>
-<p><a href="http://www.figotan.org/2016/05/04/cook-your-own-vpn/?ref=myread" target="_blank" rel="noopener">http://www.figotan.org/2016/05/04/cook-your-own-vpn/?ref=myread</a></p>
-<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><p>最近妖风太盛，所以如果自己有能力的童鞋，请移步Github的这个项目MPTUN自己研究怎么搭建VPN吧，当然VPS还是必要的。<br>单单这篇文章访问量超高，让我陷入了沉思……<br>补充一点东西：有能力的同学，可以研究一下ssh的端口流量转发，浏览器或网络连接的socks5代理，基本上可以解决VPN被封杀时候的情况。ssh的协议特征很明显，我觉得迟早还是会被解决，同学们如果不嫌麻烦，VPN还有几种通信协议，可以研究一下。希望不会被查水表吧，我也不喜欢喝茶。</p>
-<p>如果只需要浏览器翻墙，而不需要全局翻墙，那么SSH代理配合SwitchyOmega插件使用chrome浏览器就可以做到。<br>最近发现一个方便的工具，Chrome插件Secure Shell，在浏览器完成SSH代理。</p>
+                <p>基于 OpenVZ 虚拟化技术的 VPS 需要开启TUN/TAP才能正常使用，购买 VPS 时请先咨询服务商是否支持开启 TUN/TAP。</p>
+<p>OpenVZ 虚拟的 VPS 需要系统内核支持 IPSec 才行。也就是说，母服务器的内核如果不支持的话那就没办法，只能换 VPS。<br>因此，一般不建议在 OpenVZ 的 VPS 上安装本脚本。脚本如果检测到该 VPS 为 OpenVZ 架构，会出现警告提醒。</p>
+<p>如何检测是否支持TUN模块？<br>执行命令：<br>cat /dev/net/tun<br>如果返回信息为：cat: /dev/net/tun: File descriptor in bad state 说明正常</p>
+<p>如何检测是否支持ppp模块？<br>执行命令：<br>cat /dev/ppp<br>如果返回信息为：cat: /dev/ppp: No such device or address 说明正常<br>当然，脚本在安装时也会执行检查，如果不适用于安装，脚本会予以提示。</p>
+<a id="more"></a>
+<h2 id="本脚本适用环境："><a href="#本脚本适用环境：" class="headerlink" title="本脚本适用环境："></a>本脚本适用环境：</h2><p>系统支持：CentOS6+，Debian7+，Ubuntu12+<br>内存要求：≥128M</p>
+<font color="red">更新日期：2017 年 05 月 28 日</font>
+
+<h2 id="关于本脚本："><a href="#关于本脚本：" class="headerlink" title="关于本脚本："></a>关于本脚本：</h2><p>名词解释如下<br>L2TP（Layer 2 Tunneling Protocol）<br>IPSec（Internet Protocol Security）<br>IKEv2 (Internet Key Exchange v2)<br>能实现 IPsec 的目前总体上有 openswan，libreswan，strongswan 这3种。<br>libreswan 是基于 openswan 的 fork，所以现在各个发行版基本已经看不到 openswan 的身影了。<br>当然也有使用 strongswan 的。</p>
+<p>之所以要更新 L2TP 一键安装脚本，是因为随着各个 Linux 发行版不断推陈出新，原有的脚本已经不适应现在的需求。<br>本脚本通过编译安装最新版 libreswan 来实现 IPSec（CentOS7 下则是全部 yum 安装），yum 或 apt-get 来安装 xl2tpd，再根据各个发行版的使用方法不同，部署防火墙规则。</p>
+<h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a><font color="red">使用方法：</font></h2><p>root 用户登录后，运行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/across/master/l2tp.sh</span><br><span class="line">chmod +x l2tp.sh</span><br><span class="line">./l2tp.sh</span><br></pre></td></tr></table></figure></p>
+<p>执行后，会有如下交互界面</p>
+<p><img src="/2018/04/02/L2TP-IPSec_sh/l2tp_1.png" alt="img1"></p>
+<p>Please input IP-Range:<br>(Default Range: 192.168.18):<br>输入本地IP段范围（本地电脑连接到VPS后给分配的一个本地IP地址），直接回车意味着输入默认值192.168.18</p>
+<p>Please input PSK:<br>(Default PSK: teddysun.com):<br>PSK意为预共享密钥，即指定一个密钥将来在连接时需要用到，直接回车意味着输入默认值teddysun.com</p>
+<p>Please input Username:<br>(Default Username: teddysun):<br>Username意为用户名，即第一个默认用户。直接回车意味着输入默认值teddysun</p>
+<p>Please input teddysun’s password:<br>(Default Password: Q4SKhu2EXQ):<br>输入用户的密码，默认会随机生成一个10位包含大小写字母和数字的密码，当然你也可以指定密码。</p>
+<p>ServerIP:your_server_main_IP<br>显示你的 VPS 的主 IP（如果是多 IP 的 VPS 也只显示一个）</p>
+<p>Server Local IP:192.168.18.1<br>显示你的 VPS 的本地 IP（默认即可）</p>
+<p>Client Remote IP Range:192.168.18.2-192.168.18.254<br>显示 IP 段范围</p>
+<p>PSK:teddysun.com<br>显示 PSK</p>
+<p>Press any key to start…or Press Ctrl+c to cancel<br>按下任意按键继续，如果想取消安装，请按Ctrl+c键</p>
+<p>安装完成后，脚本会执行 ipsec verify 命令并提示如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">If there are no [FAILED] above, then you can connect to your</span><br><span class="line">L2TP VPN Server with the default Username/Password is below:</span><br><span class="line"></span><br><span class="line">ServerIP:your_server_IP</span><br><span class="line">PSK:your PSK</span><br><span class="line">Username:your usename</span><br><span class="line">Password:your password</span><br><span class="line"></span><br><span class="line">If you want to modify user settings, please use command(s):</span><br><span class="line">l2tp -a (Add a user)</span><br><span class="line">l2tp -d (Delete a user)</span><br><span class="line">l2tp -l (List all users)</span><br><span class="line">l2tp -m (Modify a user password)</span><br><span class="line">Welcome to visit https://teddysun.com/448.html</span><br><span class="line">Enjoy it!</span><br></pre></td></tr></table></figure>
+<p>如果你要想对用户进行操作，可以使用如下命令：<br>l2tp -a 新增用户<br>l2tp -d 删除用户<br>l2tp -m 修改现有的用户的密码<br>l2tp -l 列出所有用户名和密码<br>l2tp -h 列出帮助信息</p>
+<h2 id="其他事项："><a href="#其他事项：" class="headerlink" title="其他事项："></a><font color="red">其他事项：</font></h2><p>1、脚本在安装完成后，已自动启动进程，并加入了开机自启动。<br>2、脚本会改写 iptables 或 firewalld 的规则。<br>3、脚本安装时，会即时将安装日志写到 /root/l2tp.log 文件里，如果你安装失败，可以通过此文件来寻找错误信息。</p>
+<h2 id="使用命令："><a href="#使用命令：" class="headerlink" title="使用命令："></a><font color="red">使用命令：</font></h2><p>ipsec status （查看 IPSec 运行状态）<br>ipsec verify （查看 IPSec 检查结果）<br>/etc/init.d/ipsec start|stop|restart|status （CentOS6 下使用）<br>/etc/init.d/xl2tpd start|stop|restart （CentOS6 下使用）<br>systemctl start|stop|restart|status ipsec （CentOS7 下使用）<br>systemctl start|stop|restart xl2tpd （CentOS7 下使用）<br>service ipsec start|stop|restart|status （Debian/Ubuntu 下使用）<br>service xl2tpd start|stop|restart （Debian/Ubuntu 下使用）</p>
+<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a><font color="red">更新日志</font></h2><p>2017 年 05 月 28 日：<br>升级 libreswan 到版本 3.20。<br>修正 libreswan 的若干配置问题。<br>修正 xl2tpd 的端口监听配置问题。<br>修正在 CentOS 6 对 libevent2 的依赖问题，改为 yum 安装 libevent2-devel。<br>测试表明，在内网环境的 VPS 里（如AWS， IDCF，GCE，腾讯云，阿里云等）也可以正常使用了。</p>
+<p><font color="red">2017 年 02 月 25 日：</font><br>升级 libreswan 到版本 3.19。</p>
+<p><font color="red">2016 年 09 月 12 日：</font><br>修正了在 CentOS 6 下 libevent2 依赖的问题；<br>新增了一个 -m 选项，用以修改现有用户的密码。</p>
+<p><font color="red">2016 年 08 月 13 日：</font><br>修正 Debian 8 下的 sd-daemon.h: No such file or directory 问题，是由于缺少依赖包 libsystemd-daemon-dev 导致的。</p>
+<p><font color="red">2016 年 08 月 05 日：</font><br>升级 libreswan 到版本 3.18。</p>
+<p><font color="red">2016 年 06 月 10 日：</font><br>脚本在安装完成后，新增了几个命令，便于操作用户<br>l2tp -a 新增用户<br>l2tp -d 删除用户<br>l2tp -l 列出所有用户<br>l2tp -h 列出帮助信息</p>
+<p>参考链接：<br><a href="https://libreswan.org/wiki/3.14_on_Debian_Wheezy" target="_blank" rel="noopener">https://libreswan.org/wiki/3.14_on_Debian_Wheezy</a><br><a href="https://github.com/libreswan/libreswan" target="_blank" rel="noopener">https://github.com/libreswan/libreswan</a></p>
 
                 
-<p class="pink-link-context">
-    <a href="/2016/05/09/gowaywenzi/" rel="next" title="教你几招，蚊子一个夏天不敢进你的房间！！">
-    上一篇：教你几招，蚊子一个夏天不敢进你的房间！！
-  </a>
-</p>
-
 
 
 <p class="pink-link-context">
-    <a href="/2016/05/09/deamon/" rel="next" title="Android孤儿进程防止清理">
-    下一篇：Android孤儿进程防止清理
+    <a href="/2016/05/11/android-ndk-so-a/" rel="next" title="Android导入第三方静态库.a编译成动态库.so">
+    下一篇：Android导入第三方静态库.a编译成动态库.so
   </a>
 </p>
 
@@ -366,7 +368,7 @@
         <div class="card">
             <div class="card-content">
                 <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="2016/05/09/buildvpn/" data-title="搬瓦工（bandwagon）搭建VPN" data-url="http://uuxia.cn/2016/05/09/buildvpn/"></div>
+                <div class="ds-thread" data-thread-key="2018/04/02/L2TP-IPSec_sh/" data-title="L2TP/IPSec一键安装脚本" data-url="http://uuxia.cn/2018/04/02/L2TP-IPSec_sh/"></div>
 
                 <script type="text/javascript">
                     console.log(document.querySelector('.ds-thread'));

@@ -7,7 +7,7 @@
 
     
 
-    <title>搬瓦工（bandwagon）搭建VPN | uuxia</title>
+    <title>归档：2018/4 | uuxia</title>
     <meta name="author" content="uuxia">
     
     <meta name="description" content="在浮躁的世界安安静静地敲代码">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="搬瓦工（bandwagon）搭建VPN"/>
+    
     <meta property="og:site_name" content="uuxia的技术博客"/>
 
     
@@ -256,140 +256,41 @@
 
 
     <main>
-        <!--add by uuxia 20180402 内容页面的宽度改变-->
-<div class="container main-container1">
-    <nav class="page-nav hide-on-small-only">
+        <div class="container main-container">
+    
+
+<nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
-        <span class="breadcrumb">当前位置（分类目录）</span>
-        
-            
-    
-    
-    <a class="breadcrumb" href="/categories/vpn/">vpn</a>
-
-
+        <span class="breadcrumb">当前位置（归档）</span>
         
 
         
     </div>
 </nav>
 
-<article>
-    <div class="card">
-        <div class="card-content">
-            
-
-            <div class="article-title">
-                
-    
-        <h1>搬瓦工（bandwagon）搭建VPN</h1>
-    
 
 
-            </div>
-            <time class="pink-link-context" datetime="2016-05-09T05:59:13.000Z"><a href="/2016/05/09/buildvpn/">2016-05-09</a></time>
-
-            <span id="busuanzi_container_page_pv" class="read-times-container">
-    <i class="fa fa-eye"></i>
-    <span id="busuanzi_value_page_pv"></span>
-</span>
-
-            
-    <div class="tags-row">
+    <ul class="collapsible mt-0" data-collapsible="accordion">
         
-            <a href="/tags/shadowsocks/" class="chip pink lighten-1">shadowsocks</a>
         
-            <a href="/tags/vpn/" class="chip pink lighten-1">vpn</a>
+            <li>
+                <div class="collapsible-header active">
+                    <i class="fa fa-archive"></i>2018
+                </div>
+                <div class="collapsible-body">
+                    <div class="collection">
+                        
+                            <a href="/2018/04/02/L2TP-IPSec_sh/" class="collection-item grey-text text-darken-1">
+                                <time datetime="2018-04-02T11:04:50.000Z">2018-04-02</time>
+                                <span>&nbsp;&nbsp;&nbsp;</span>
+                                L2TP/IPSec一键安装脚本
+                            </a>
+                        
+                    </div>
+                </div>
+            </li>
         
-    </div>
-
-
-            <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#安装服务（VPN-PPTP）"><span class="section table-of-contents-text">安装服务（VPN-PPTP）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#添加自己的VPN账号"><span class="section table-of-contents-text">添加自己的VPN账号</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#reference"><span class="section table-of-contents-text">reference</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Appendix"><span class="section table-of-contents-text">Appendix</span></a></li></ol>
-</div>
-
-
-            <div class="entry pink-link-context">
-                <p>最近注册了一个搬瓦工，开始只为了翻墙，方便查资料和上网。后来发现了搬瓦工功能还比较强大，一年19美元10G流量（搬瓦工：<a href="https://bandwagonhost.com/" target="_blank" rel="noopener">https://bandwagonhost.com/</a>），我目前配合了shadowsocks使用，ios用的surge，by the way，surge相当的强大，搬瓦工还可以搭件个人网站。关于搬瓦工的注册，在这里就不再阐述了，很简单，百度google都有，好了，下面开工，搭建VPN吧。<br><a id="more"></a></p>
-<p>最近注册了一个搬瓦工，开始只为了翻墙，方便查资料和上网。后来发现了搬瓦工功能还比较强大，一年19美元10G流量（搬瓦工：<a href="https://bandwagonhost.com/" target="_blank" rel="noopener">https://bandwagonhost.com/</a>），我目前配合了shadowsocks使用，ios用的surge，by the way，surge相当的强大，搬瓦工还可以搭件个人网站。关于搬瓦工的注册，在这里就不再阐述了，很简单，百度google都有，好了，下面开工，搭建VPN吧。</p>
-<h2 id="安装服务（VPN-PPTP）"><a href="#安装服务（VPN-PPTP）" class="headerlink" title="安装服务（VPN-PPTP）"></a>安装服务（VPN-PPTP）</h2><p>运行如下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.5yun.org/Soft/linux/Openvz-vpn/openvps_vpn_centos-5-6.sh</span><br><span class="line">chmod a+x openvps_vpn_centos-5-6.sh </span><br><span class="line">bash openvps_vpn_centos-5-6.sh</span><br><span class="line"></span><br><span class="line">#如果以上地址不可用，可尝试以下命令，</span><br><span class="line">#这个脚本只提供三个选项，一般选择1就可以自动完成全部过程</span><br><span class="line">#去掉注释符号</span><br><span class="line">#wget http://www.hi-vps.com/shell/vpn_centos6.sh</span><br><span class="line">#chmod a+x vpn_centos6.sh</span><br><span class="line">#bash vpn_centos6.sh</span><br></pre></td></tr></table></figure>
-<p>结果如下：<br><img src="http://img.blog.csdn.net/20160402163201595" alt="这里写图片描述"></p>
-<p>上边第一步是获取一个自动脚本，第二步是给它运行权限，第三步是运行。有时候会遇到第一步无法成功，这时候在本地先下载这个文件，再使用Putty或者SSH客户端上传到VPS也是可以的。<br>执行以上命令后将会返回一个选择系统版本的提示信息，因为之前我们选择的是centos6 ，因此选择第2项，输入2，回车：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# bash openvps_vpn_centos-5-6.sh</span><br><span class="line">please select your operation system</span><br><span class="line">which do you want to?input the number.</span><br><span class="line">1. my system is centos5 32bit(only support 32bit)</span><br><span class="line">2. my system is centos6 32bit or 64bit(they are support)</span><br><span class="line">3. repaire VPN service</span><br><span class="line">4. add VPN user</span><br></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20160402163645159" alt="这里写图片描述"></p>
-<p>执行命令后将自动安装，成功后返回一下信息：<br>VPN service is installed, your VPN username is vpn_name,VPN password is <strong><br>这句话提示成功创建了一个名为vpn_name的账户，密码为 </strong>。</p>
-<p>执行命令后报404错误，或者提示文件或目录不存在，是因为没能成功下载安装包。<br>这里提供手动下载安装包的方法<br>如果是centos6，执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://linux.dell.com/dkms/permalink/dkms-2.0.17.5-1.noarch.rpm</span><br><span class="line">wget https://acelnmp.googlecode.com/files/kernel_ppp_mppe-1.0.2-3dkms.noarch.rpm</span><br><span class="line">wget https://qiaodahai.googlecode.com/files/pptpd-1.3.4-2.el6.i686.rpm</span><br><span class="line">wget https://logdns.googlecode.com/files/ppp-2.4.5-17.0.rhel6.i686.rpm</span><br></pre></td></tr></table></figure>
-<p>如果是 centos5，则执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://linux.dell.com/dkms/permalink/dkms-2.0.17.5-1.noarch.rpm</span><br><span class="line">wget https://acelnmp.googlecode.com/files/kernel_ppp_mppe-1.0.2-3dkms.noarch.rpm</span><br><span class="line">wget https://acelnmp.googlecode.com/files/pptpd-1.3.4-1.rhel5.1.i386.rpm</span><br><span class="line">wget https://fastlnmp.googlecode.com/files/ppp-2.4.4-9.0.rhel5.i386.rpm</span><br></pre></td></tr></table></figure>
-<h2 id="添加自己的VPN账号"><a href="#添加自己的VPN账号" class="headerlink" title="添加自己的VPN账号"></a>添加自己的VPN账号</h2><p>如何添加自己的vpn账户名？ 比如我想用 anonymous 这个帐号，密码设置为 abc@123 (注意，危险！仅作为演示用，千万别设置这样的密码！)</p>
-<p>执行下面这句代码来添加vpn账户： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash openvps_vpn_centos-5-6.sh</span><br></pre></td></tr></table></figure>
-<p>返回的信息选项中，选择第4项：4.add VPN user<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# bash openvps_vpn_centos-5-6.sh</span><br><span class="line">please select your operation system</span><br><span class="line">which do you want to?input the number.</span><br><span class="line">1. my system is centos5 32bit(only support 32bit)</span><br><span class="line">2. my system is centos6 32bit or 64bit(they are support)</span><br><span class="line">3. repaire VPN service</span><br><span class="line">4. add VPN user</span><br></pre></td></tr></table></figure></p>
-<p>根据提示输入用户名，如 anonymous，再输入密码 即可完成vpn的架设了。<br>使用时，在本地新建VPN连接，地址和端口填写VPS的地址和端口，用户名密码填写自己设置的VPN的用户名和密码，然后连接，就可以了。<br>如有疑问，请留言讨论。</p>
-<p>在Terminal里面添加VPN帐号：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ppp/chap-secrets</span><br></pre></td></tr></table></figure>
-<p>键盘选择插入键：Insert 进行编辑， 使用键盘上下左右将光标插入另一行按照以下格式输入<br><em>vpn pptpd Xk0jk78f </em><br>注释：vpn  用户名<br>Xk0jk78f   密码<br>pptpd 和 <em> 不变，字符中间必须用一个空格隔开。数字123，选用键盘字母键上方，不要用数字小键盘</em><br><img src="http://img.blog.csdn.net/20160402170911906" alt="这里写图片描述"><br>如上输入完成，按下键盘左上方ESC键盘，英文状态下输入红色字体  ：wq     即保存好了。<br>现在只要电脑设置好，就可以自由的畅享网络了。</p>
-<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a href="http://www.jjhr.net/2013/12/centos6-x-vpn-pptp-build-method/" target="_blank" rel="noopener">Centos6.X vpn pptp 搭建方法</a><br><a href="http://www.phpsong.com/1.html" target="_blank" rel="noopener">搬瓦工vps vpn架设</a></p>
-<p><a href="http://www.phpsong.com/1126.html" target="_blank" rel="noopener">http://www.phpsong.com/1126.html</a></p>
-<p><a href="http://www.figotan.org/2016/05/04/cook-your-own-vpn/?ref=myread" target="_blank" rel="noopener">http://www.figotan.org/2016/05/04/cook-your-own-vpn/?ref=myread</a></p>
-<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><p>最近妖风太盛，所以如果自己有能力的童鞋，请移步Github的这个项目MPTUN自己研究怎么搭建VPN吧，当然VPS还是必要的。<br>单单这篇文章访问量超高，让我陷入了沉思……<br>补充一点东西：有能力的同学，可以研究一下ssh的端口流量转发，浏览器或网络连接的socks5代理，基本上可以解决VPN被封杀时候的情况。ssh的协议特征很明显，我觉得迟早还是会被解决，同学们如果不嫌麻烦，VPN还有几种通信协议，可以研究一下。希望不会被查水表吧，我也不喜欢喝茶。</p>
-<p>如果只需要浏览器翻墙，而不需要全局翻墙，那么SSH代理配合SwitchyOmega插件使用chrome浏览器就可以做到。<br>最近发现一个方便的工具，Chrome插件Secure Shell，在浏览器完成SSH代理。</p>
-
-                
-<p class="pink-link-context">
-    <a href="/2016/05/09/gowaywenzi/" rel="next" title="教你几招，蚊子一个夏天不敢进你的房间！！">
-    上一篇：教你几招，蚊子一个夏天不敢进你的房间！！
-  </a>
-</p>
-
-
-
-<p class="pink-link-context">
-    <a href="/2016/05/09/deamon/" rel="next" title="Android孤儿进程防止清理">
-    下一篇：Android孤儿进程防止清理
-  </a>
-</p>
-
-
-            </div>
-			
-        </div>
-    </div>
-</article>
-
-
-
-
-    <section id="comment">
-        <div class="card">
-            <div class="card-content">
-                <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="2016/05/09/buildvpn/" data-title="搬瓦工（bandwagon）搭建VPN" data-url="http://uuxia.cn/2016/05/09/buildvpn/"></div>
-
-                <script type="text/javascript">
-                    console.log(document.querySelector('.ds-thread'));
-                    var duoshuoQuery = {
-                        short_name: 'uuxia'
-                    };
-                    (function() {
-                        var ds = document.createElement('script');
-                        ds.type = 'text/javascript';
-                        ds.async = true;
-                        ds.src = (document.location.protocol == 'https:'
-                            ? 'https:'
-                            : 'http:') + '//static.duoshuo.com/embed.js';
-                        ds.charset = 'UTF-8';
-                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-                    })();
-                </script>
-                <!-- Duoshuo Comment END -->
-            </div>
-        </div>
-    </section>
-
-
+    </ul>
 
 
 </div>
