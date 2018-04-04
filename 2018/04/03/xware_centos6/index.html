@@ -179,14 +179,6 @@
         
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/Service/">
-                    Service <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/NDK/">
                     NDK <span class="right">1 篇</span></a>
                 </a>
@@ -203,8 +195,16 @@
         
 
             <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Service/">
+                    Service <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/生活/">
-                    生活 <span class="right">1 篇</span></a>
+                    生活 <span class="right">2 篇</span></a>
                 </a>
             </li>
 
@@ -227,16 +227,16 @@
         
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/迅雷/">
-                    迅雷 <span class="right">1 篇</span></a>
+                <a class="no-padding" href="/categories/智能家居/">
+                    智能家居 <span class="right">2 篇</span></a>
                 </a>
             </li>
 
         
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/智能家居/">
-                    智能家居 <span class="right">2 篇</span></a>
+                <a class="no-padding" href="/categories/迅雷/">
+                    迅雷 <span class="right">1 篇</span></a>
                 </a>
             </li>
 
@@ -295,7 +295,7 @@
 
 
             </div>
-            <time class="pink-link-context" datetime="2018-04-03T10:32:37.895Z"><a href="/2018/04/03/xware_centos6/">2018-04-03</a></time>
+            <time class="pink-link-context" datetime="2018-04-03T10:52:14.996Z"><a href="/2018/04/03/xware_centos6/">2018-04-03</a></time>
 
             <span id="busuanzi_container_page_pv" class="read-times-container">
     <i class="fa fa-eye"></i>
@@ -313,41 +313,67 @@
 
 
             <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#vi-etc-rc-d-rc-local"><span class="section table-of-contents-text">vi /etc/rc.d/rc.local</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#遇到的问题"><span class="section table-of-contents-text">遇到的问题</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#问题1："><span class="section table-of-contents-text">问题1：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#问题2："><span class="section table-of-contents-text">问题2：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#问题3："><span class="section table-of-contents-text">问题3：</span></a></li></ol></li></ol></li></ol></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#遇到的问题"><span class="section table-of-contents-text">遇到的问题</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#问题1："><span class="section table-of-contents-text">问题1：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#问题2："><span class="section table-of-contents-text">问题2：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#问题3："><span class="section table-of-contents-text">问题3：</span></a></li></ol></li></ol>
 </div>
 
 
             <div class="entry pink-link-context">
                 <p>安装配置好了一台CentOS6.6的服务器，以下为本人配置迅雷远程的记录，供雷友们借鉴。<br>环境：CentOS 6.6 32位 mini安装 无图形界面<br>以下操作均以系统管理员 root进行<br>参照了以下几篇文章而配置成功的。<br><a href="http://luyou.xunlei.com/forum.php?mod=viewthread&amp;tid=1902" target="_blank" rel="noopener">http://luyou.xunlei.com/forum.php?mod=viewthread&amp;tid=1902</a>  你若不想让迅雷以root权限运行，用我这个脚本吧<br><a href="http://luyou.xunlei.com/forum.php?mod=viewthread&amp;tid=3290&amp;extra=page%3D1%26filter%3Dtypeid%26typeid%3D3" target="_blank" rel="noopener">http://luyou.xunlei.com/forum.php?mod=viewthread&amp;tid=3290&amp;extra=page%3D1%26filter%3Dtypeid%26typeid%3D3</a> Linux(x86)下安装教程，以及init.d服务脚本，可自启动  （这篇启发最大）<br><a id="more"></a></p>
-<p>1.建立用户 thunder （不用设置密码）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser thunder</span><br></pre></td></tr></table></figure></p>
-<p>2.在根目录下创建TDDOWNLOAD文件夹(~/TDDOWNLOAD)<br>3.下载文件 Xware1.0.31_x86_32_glibc  链接：<br><a href="http://uuxia.cn:8123/thunder/Xware1.0.31_x86_32_glibc.zip">http://uuxia.cn:8123/thunder/Xware1.0.31_x86_32_glibc.zip</a><br>4.解压Xware1.0.31_x86_32_glibc.zip为Xware，使用WinSCP上传文件夹至/home/thunder下<br>5.给文件夹设置权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R thunder:thunder /home/thunder/Xware</span><br></pre></td></tr></table></figure></p>
-<p>6.给~/TDDOWNLOAD设置为thunder权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chown thunder:thunder /TDDOWNLOAD</span><br><span class="line">``` </span><br><span class="line">7 修改迅雷默认下载目录启动后自动挂载至/TDDOWNLOAD</span><br></pre></td></tr></table></figure></p>
-<p>vi /etc/fstab 添加以下一条</p>
-<p>TDDOWNLOAD     /TDDOWNLOAD   none  bind  0 0</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">设置完成后</span><br><span class="line"></span><br><span class="line">8.重启服务器</span><br><span class="line"></span><br><span class="line">    ```reboot</span><br></pre></td></tr></table></figure>
-<p>9.重启后使用mount 查看挂载情况，如挂载成功如下：<br>    <figure class="highlight plain"><figcaption><span>on / type ext4 (rw)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">proc on /proc type proc (rw)</span><br><span class="line">sysfs on /sys type sysfs (rw)</span><br><span class="line">devpts on /dev/pts type devpts (rw,gid=5,mode=620)</span><br><span class="line">tmpfs on /dev/shm type tmpfs (rw,rootcontext=&quot;system_ubject_r:tmpfs_t:s0&quot;)</span><br><span class="line">/dev/sda1 on /boot type ext4 (rw)</span><br><span class="line">TDDOWNLOAD on /TDDOWNLOAD type none (rw,bind)</span><br><span class="line">none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)</span><br><span class="line">sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw)</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><p>建立用户 thunder （不用设置密码） </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser thunder</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在根目录下创建TDDOWNLOAD文件夹(~/TDDOWNLOAD)</p>
+</li>
+<li>下载文件 Xware1.0.31_x86_32_glibc  链接：<br><a href="http://uuxia.cn:8123/thunder/Xware1.0.31_x86_32_glibc.zip">http://uuxia.cn:8123/thunder/Xware1.0.31_x86_32_glibc.zip</a></li>
+<li>解压Xware1.0.31_x86_32_glibc.zip为Xware，使用WinSCP上传文件夹至/home/thunder下</li>
+<li><p>给文件夹设置权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R thunder:thunder /home/thunder/Xware</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给~/TDDOWNLOAD设置为thunder权限</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">chown thunder:thunder /TDDOWNLOAD</span><br></pre></td></tr></table></figure>
+<p>7.修改迅雷默认下载目录启动后自动挂载至/TDDOWNLOAD</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/fstab 添加以下一条</span><br><span class="line">TDDOWNLOAD /TDDOWNLOAD   none  bind  0 0</span><br></pre></td></tr></table></figure>
+<p>设置完成后</p>
+<p>8.重启服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<p>9.重启后使用mount 查看挂载情况，如挂载成功如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/dev/sda3 on / type ext4 (rw)</span><br><span class="line">proc on /proc type proc (rw)</span><br><span class="line">sysfs on /sys type sysfs (rw)</span><br><span class="line">devpts on /dev/pts type devpts (rw,gid=5,mode=620)</span><br><span class="line">tmpfs on /dev/shm type tmpfs (rw,rootcontext=&quot;system_ubject_r:tmpfs_t:s0&quot;)</span><br><span class="line">/dev/sda1 on /boot type ext4 (rw)</span><br><span class="line">TDDOWNLOAD on /TDDOWNLOAD type none (rw,bind)</span><br><span class="line">none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)</span><br><span class="line">sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw)</span><br></pre></td></tr></table></figure>
 <p>从上面看出，已经挂载成功。<br>如果是分区挂载的话，则显示：<br>/dev/sdb1 on /TDDOWNLOAD type ext4 (rw,bind)</p>
-<p>10 启动迅雷远程下载。<br>    <figure class="highlight plain"><figcaption><span>/home/thunder/Xware/</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">./portal</span><br></pre></td></tr></table></figure></p>
+<ol start="10">
+<li>启动迅雷远程下载。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/thunder/Xware/</span><br><span class="line">./portal</span><br></pre></td></tr></table></figure>
 <p>记住最后的那个六位的码，然后使用浏览器登陆 <a href="http://yuancheng.xunlei.com" target="_blank" rel="noopener">http://yuancheng.xunlei.com</a> 输入六位的的字符进行绑定设备。</p>
-<p>11 如果绑定成功后，再次运行portal 的话会显示 绑定的用户名。<br>端口默认为9000</p>
-<ol start="12">
-<li>配置为开机自动启动portal<br>在开机配置文件中增加以下行，如下：<h1 id="vi-etc-rc-d-rc-local"><a href="#vi-etc-rc-d-rc-local" class="headerlink" title="vi /etc/rc.d/rc.local"></a>vi /etc/rc.d/rc.local</h1>/home/thunder/Xware/portal</li>
+<ol start="11">
+<li><p>如果绑定成功后，再次运行portal 的话会显示 绑定的用户名。<br>端口默认为9000</p>
+</li>
+<li><p>配置为开机自动启动portal<br>在开机配置文件中增加以下行，如下：<br>vi /etc/rc.d/rc.local<br>/home/thunder/Xware/portal</p>
+</li>
 </ol>
 <p>文件内容如下：</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line"># This script will be executed *after* all the other init scripts.</span><br><span class="line"># You can put your own initialization stuff in here if you don&apos;t</span><br><span class="line"># want to do the full Sys V style init stuff.</span><br><span class="line"></span><br><span class="line">/home/thunder/Xware/portal</span><br><span class="line"></span><br><span class="line">ouch /var/lock/subsys/local</span><br></pre></td></tr></table></figure>
-</code></pre><p>至此服务器重启后迅雷远程下载自动启动。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">#</span><br><span class="line"># This script will be executed *after* all the other init scripts.</span><br><span class="line"># You can put your own initialization stuff in here if you don&apos;t</span><br><span class="line"># want to do the full Sys V style init stuff.</span><br><span class="line"></span><br><span class="line">/home/thunder/Xware/portal</span><br><span class="line"></span><br><span class="line">ouch /var/lock/subsys/local</span><br></pre></td></tr></table></figure>
+<p>至此服务器重启后迅雷远程下载自动启动。</p>
 <p>本人亲自配置成功。</p>
 <p>希望能通过此平台与广大雷友们分享共成长。</p>
 <p>后来对别的服务器重新配置过，也重新整理了一下。对于上面提到的建立thunder用户，其实非必需的，因为运行远程迅雷时是以root用户运行的。</p>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h4 id="问题1："><a href="#问题1：" class="headerlink" title="问题1："></a>问题1：</h4><p>在执行最后一步portal时，可能会产生各种各样的bug<br>bug1：-bash: ./portal: /lib/ld-linux.so.2: bad ELF interpreter: No such file or directory<br>原因是在64位系统装安装32位程序<br>解决办法：<br>    <code>yum install glibc.i686</code></p>
-<h4 id="问题2："><a href="#问题2：" class="headerlink" title="问题2："></a>问题2：</h4><p>bug2：/home/Eli/xunlei/portal: error while loading shared libraries: libz.so.1: cannot open shared object file: No such file or directory</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="问题1："><a href="#问题1：" class="headerlink" title="问题1："></a>问题1：</h3><p>在执行最后一步portal时，可能会产生各种各样的bug<br>bug1：-bash: ./portal: /lib/ld-linux.so.2: bad ELF interpreter: No such file or directory<br>原因是在64位系统装安装32位程序<br>解决办法：<br>    <code>yum install glibc.i686</code></p>
+<h3 id="问题2："><a href="#问题2：" class="headerlink" title="问题2："></a>问题2：</h3><p>bug2：/home/Eli/xunlei/portal: error while loading shared libraries: libz.so.1: cannot open shared object file: No such file or directory</p>
 <p>问题原因在于在64位系统中使用32位的库</p>
 <p>解决办法：<code>yum -y install libz.so.1 --setopt=protected_multilib=false</code></p>
-<h4 id="问题3："><a href="#问题3：" class="headerlink" title="问题3："></a>问题3：</h4><p>bug3：home/xunlei目录下明明有portal等文件，但是就是提示说目录下没这文件</p>
+<h3 id="问题3："><a href="#问题3：" class="headerlink" title="问题3："></a>问题3：</h3><p>bug3：home/xunlei目录下明明有portal等文件，但是就是提示说目录下没这文件</p>
 <p>原因可能是解压过程中出错文件损坏，或者没有给予home/xunlei目录最高权限就解压文件</p>
 <p>解决办法：先给予home/xunlei目录最高权限，然后再次解压文件</p>
 
                 
+<p class="pink-link-context">
+    <a href="/2018/04/04/hobby/" rel="next" title="业余时间做什么，决定了你的生活品质">
+    上一篇：业余时间做什么，决定了你的生活品质
+  </a>
+</p>
+
 
 
 <p class="pink-link-context">
