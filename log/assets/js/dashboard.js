@@ -101,6 +101,11 @@
         // get client's topics
         topics: function (params, callback) {
             this._ajax('v1/mqtt/topics', params, callback);
+        },
+
+        // http://uuxia.cn:8421/v1/ip/getlocationbyip?ip=61.141.158.189
+        getLocation: function (params, callback) {
+            this._ajax('v1/ip/getlocationbyip', params, callback);
         }
     });
 
@@ -246,6 +251,7 @@
                     sessions: [],
                     topics: [],
                     logTopic: '',
+                    deviceLocation: '',
                     tarInfos: {
                         host: location.hostname,
                         port: 8083,
@@ -675,6 +681,20 @@
         };
     };
 
+    Sessions.prototype.getLocaionByIp = function (ip) {
+        var _this = this;
+        var params = {
+            ip: ip
+        };
+        dashboard.webapi.getLocation(params, function (ret, err) {
+            console.log("#### getLocaionByIp :" + JSON.stringify(ret) + " err:" + err)
+            if (ret) {
+                var rData = ret.result.data;
+                _this.vmSessions.deviceLocation = rData.country+rData.region+rData.city;
+            }
+        });
+    };
+
     Sessions.prototype.selectClient = function () {
         var _this = this;
         var myselect = document.getElementById("client_select_id");
@@ -682,6 +702,7 @@
         var curClient = _this.vmSessions.sessions[index];
         _this.pageInfo.currentClient = curClient;
         _this.vmSessions.logTopic = 'log/' + _this.pageInfo.currentClient.client_id;
+        _this.getLocaionByIp(curClient.ipaddress);
         var params = {
             client_id: curClient.client_id
         };
@@ -724,6 +745,7 @@
                 _this.pageInfo.currentClient = curClient;
                 _this.vmSessions.logTopic = 'log/' + _this.pageInfo.currentClient.client_id;
                 _this.vmSessions.subInfo.topic = _this.vmSessions.logTopic;
+                _this.getLocaionByIp(curClient.ipaddress);
                 var params = {
                     client_id: curClient.client_id
                 };
