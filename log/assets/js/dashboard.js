@@ -20,7 +20,7 @@
     };
 
     WebAPI.DEFAULTS = {
-        apiPath: 'http://192.168.1.100:8421/',
+        apiPath: 'http://uuxia.cn:8421/',
         method: 'GET',
         cache: false,
         /*dataType: 'json',*/
