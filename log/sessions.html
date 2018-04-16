@@ -13,7 +13,7 @@
 
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="client_select_id">设备名称:<font color="red">({{deviceLocation}})</font> </label>
+                                <label for="client_select_id">设备名称:(<font color="red">{{deviceLocation}}</font>) </label>
                                 <select class="form-control" id="client_select_id" @change="selectClient(this)">
                                     <option value="0" v-for="session in sessions">
                                         {{session.client_id}}
