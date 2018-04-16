@@ -689,7 +689,7 @@
         dashboard.webapi.getLocation(params, function (ret, err) {
             console.log("#### getLocaionByIp :" + JSON.stringify(ret) + " err:" + err)
             if (ret) {
-                var rData = ret.result.data;
+                var rData = ret.data;
                 _this.vmSessions.deviceLocation = rData.country+rData.region+rData.city;
             }
         });
