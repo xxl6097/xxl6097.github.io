@@ -1,0 +1,148 @@
+<div class="panel panel-default" id="sessions_list">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            日志查看系统
+        </h3>
+
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="panel-body">
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="client_select_id">设备名称:</label>
+                                <select class="form-control" id="client_select_id" @change="selectClient(this)">
+                                    <option value="0" v-for="session in sessions">
+                                        {{session.client_id}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="topic_list">主题(Topic):</label>
+                                <select class="form-control" id="topic_list" @change="selectTopic(this)">
+                                    <option value="0" v-for="t in topics">{{t.topic}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!--subscriptions list-->
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="col-sm-12">
+                        <div class="form-group" style=" display: inline-block;">
+                            <template v-if="connState == false">
+                                <button type="button" class="btn btn-success btn-single" @click="connect">连接</button>
+                                <button type="button" class="btn btn-gray btn-single disabled">断开</button>
+                            </template>
+                            <template v-else>
+                                <button type="button" class="btn btn-gray btn-single disabled">连接</button>
+                                <button type="button" class="btn btn-success btn-single" @click="disconnect">断开</button>
+                            </template>
+                        </div>
+
+
+                        <div class="form-group" style=" display: inline-block;">
+                            <button type="button" class="btn btn-success btn-single" @click="sub">订阅</button>
+                            <button type="button" class="btn btn-success btn-single" @click="unsub">取消订阅</button>
+                        </div>
+
+                        <button type="button" class="btn btn-success btn-single" @click="onSaveLog">保存日志</button>
+                        <button type="button" class="btn btn-success btn-single" @click="onClearLog">清楚日志</button>
+
+                        <template v-if="logOpenState == false">
+                            <button type="button" class="btn btn-danger btn-single" @click="onOpenLog">启动日志</button>
+                        </template>
+                        <template v-else>
+                            <button type="button" class="btn btn-gray btn-single disabled">启动日志</button>
+                        </template>
+
+                        <button type="button" class="btn btn-success btn-single" @click="onRefresh">刷新</button>
+
+
+                        <div class="form-group" style=" display: inline-block;">
+                            <template v-if="logScrollState == false">
+                                <button type="button" class="btn btn-success btn-single" @click="onScroll">滚动日志</button>
+                                <button type="button" class="btn btn-gray btn-single disabled">停止滚动</button>
+                            </template>
+                            <template v-else>
+                                <button type="button" class="btn btn-gray btn-single disabled">滚动日志</button>
+                                <button type="button" class="btn btn-success btn-single" @click="stopScroll">停止滚动
+                                </button>
+                            </template>
+                        </div>
+
+
+                        <button type="button" class="btn btn-success btn-single" @click="requestDetail()">请求详情</button>
+                        <button type="button" class="btn btn-success btn-single" @click="reboot()">重启</button>
+                        <div class="form-group" style=" display: inline-block;">
+                            <template v-if="isStopLog == true">
+                                <button type="button" class="btn btn-danger btn-single" @click="logctrl()">开启log
+                                </button>
+                            </template>
+                            <template v-else>
+                                <button type="button" class="btn btn-gray btn-single" @click="logctrl()">关闭log</button>
+                            </template>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--底部-->
+
+        <div style="width:82%; height:800px; float:left; display:inline;background: linen;">
+            <table style="width: 100%;">
+                <tbody id="container" class="scrollTbody" :onmousewheel="onMouseWheel()">
+                <tr v-for="(index, message) in logMsgs" track-by="$index">
+                    <!--<td>{{message}}</td>-->
+                    <td :onload="logType(message,index,this)" :id="gernerateId(index)"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="width:17%; height:100%; float:left; display:inline;position: absolute;left:82%;">
+            <textarea id="txtContent" readonly="readonly"
+                      style="color:red;background-color:#CCCCCC;width: 100%;height: 590px;word-break: break-all;">{{deviceDetail}}</textarea>
+
+
+            <div class="form-group" style="display:flex;">
+                <p style="text-align: center; padding: 6px 10px;">Host:</p>
+                <input style="width: 50%;height: auto;" type="text" class="form-control" placeholder="Host IP"
+                       v-model="tarInfos.host"/>
+                <input style="width: 15%;height: auto;" type="text" placeholder="port" v-model="tarInfos.port"/>
+            </div>
+
+            <div class="form-group" style="display:flex;">
+                <p style="text-align: center; padding: 6px 10px;">UserName:</p>
+                <input style="width: 60%;height: auto;" type="text" class="form-control" placeholder="userName"
+                       v-model="tarInfos.userName"/>
+            </div>
+            <div class="form-group" style="display:flex;">
+                <p style="text-align: center; padding: 6px 10px;">Password:</p>
+                <input style="width: 60%;height: auto;" type="text" class="form-control" placeholder="password"
+                       v-model="tarInfos.password"/>
+            </div>
+
+            <button type="button" class="btn btn-success btn-single" style="width: 100%;" @click="onSwMqttServer">切换MQTT服务器
+            </button>
+
+        </div>
+    </div>
+</div>
