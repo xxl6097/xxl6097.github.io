@@ -59,7 +59,7 @@
                         </div>
 
                         <button type="button" class="btn btn-success btn-single" @click="onSaveLog">保存日志</button>
-                        <button type="button" class="btn btn-success btn-single" @click="onClearLog">清楚日志</button>
+                        <button type="button" class="btn btn-success btn-single" @click="onClearLog">清除日志</button>
 
                         <template v-if="logOpenState == false">
                             <button type="button" class="btn btn-danger btn-single" @click="onOpenLog">启动日志</button>
@@ -96,6 +96,9 @@
                             </template>
                         </div>
 
+
+                        <button type="button" class="btn btn-success btn-single" @click="cacheLog()">缓冲日志</button>
+                        <button type="button" class="btn btn-success btn-single" @click="clsCache()">清除缓冲</button>
 
                     </div>
 

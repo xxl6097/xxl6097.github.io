@@ -353,6 +353,12 @@
                     },
                     onSwMqttServer: function () {
                         _this.onSwMqttServer();
+                    },
+                    cacheLog: function () {
+                        _this.cacheLog();
+                    },
+                    clsCache: function () {
+                        _this.clsCache();
                     }
                 }
             });
@@ -407,16 +413,44 @@
         }
     };
 
+    Sessions.prototype.cacheLog = function () {
+        var _this = this;
+        var json = {"type": 4};
+        var str = JSON.stringify(json);
+        _this.vmSessions.sendInfo.text = str;
+        console.log('===========================cacheLog===================================' + str)
+        _this.sendMessage();
+        _this.requestDetail();
+    };
+
+    Sessions.prototype.clsCache = function () {
+        var _this = this;
+        var json = {"type": 5};
+        var str = JSON.stringify(json);
+        _this.vmSessions.sendInfo.text = str;
+        console.log('===========================clsCache===================================' + str)
+        _this.sendMessage();
+        _this.requestDetail();
+    };
+
     Sessions.prototype.onSwMqttServer = function () {
         var r = confirm("是否决定确定MQTT服务器，请慎重思考!!!");
-        if (r){
+        if (r) {
             var _this = this;
-            var json = {"type": 3,"data":{"host":_this.vmSessions.tarInfos.host,"port":_this.vmSessions.tarInfos.port,"username":_this.vmSessions.tarInfos.userName,"password":_this.vmSessions.tarInfos.password}};
+            var json = {
+                "type": 3,
+                "data": {
+                    "host": _this.vmSessions.tarInfos.host,
+                    "port": _this.vmSessions.tarInfos.port,
+                    "username": _this.vmSessions.tarInfos.userName,
+                    "password": _this.vmSessions.tarInfos.password
+                }
+            };
             var str = JSON.stringify(json);
             _this.vmSessions.sendInfo.text = str;
-            console.log('===========================onSwMqttServer==================================='+str)
+            console.log('===========================onSwMqttServer===================================' + str)
             _this.sendMessage();
-        }else{
+        } else {
         }
         _this.requestDetail();
     };
@@ -690,7 +724,7 @@
             console.log("#### getLocaionByIp :" + JSON.stringify(ret) + " err:" + err)
             if (ret) {
                 var rData = ret.data;
-                _this.vmSessions.deviceLocation = rData.country+rData.region+rData.city;
+                _this.vmSessions.deviceLocation = rData.country + rData.region + rData.city;
             }
         });
     };
