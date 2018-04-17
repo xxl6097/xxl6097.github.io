@@ -389,7 +389,7 @@
 
     Sessions.prototype.onSaveLog = function () {
         var _this = this;
-        var arrays = _this.vmSessions.receiveMsgs;
+        var arrays = _this.vmSessions.logMsgs;
         var string = arrays.join("\r\n");
         saveLogFile(string);
     };
