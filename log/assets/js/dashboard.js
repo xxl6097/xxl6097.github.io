@@ -580,9 +580,9 @@
                 }
             } catch (e) {
                 console.log("####非Json格式: " + payloadString);
-                _this.vmSessions.logMsgs.push(payloadString);
-                _this.scrollUI();
             }
+            _this.vmSessions.logMsgs.push(payloadString);
+            _this.scrollUI();
         }
 
         var options = {
