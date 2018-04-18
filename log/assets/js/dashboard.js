@@ -359,6 +359,18 @@
                     },
                     clsCache: function () {
                         _this.clsCache();
+                    },
+                    getLocationById: function (id,ip) {
+                        var params = {
+                            ip: ip
+                        };
+                        dashboard.webapi.getLocation(params, function (ret, err) {
+                            if (ret) {
+                                var td = document.getElementById(id);
+                                var rData = ret.data;
+                                td.value = rData.country + rData.region + rData.city;
+                            }
+                        });
                     }
                 }
             });

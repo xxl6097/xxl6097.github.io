@@ -52,7 +52,7 @@
                 <tbody>
                     <tr v-for="client in clients">
                         <td>{{ client.client_id }}</td>
-                        <td>{{ client.username }}</td>
+                        <td :id="client.client_id">{{ getLocationById(client.client_id,client.ipaddress) }}</td>
                         <td>{{ client.ipaddress }}</td>
                         <td>{{ client.port }}</td>
                         <td>{{ client.clean_sess }}</td>
