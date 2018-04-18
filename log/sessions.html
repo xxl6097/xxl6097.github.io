@@ -54,11 +54,11 @@
 
 
                         <div class="form-group" style=" display: inline-block;">
-                            <button type="button" class="btn btn-success btn-single" @click="sub">订阅</button>
-                            <button type="button" class="btn btn-success btn-single" @click="unsub">取消订阅</button>
+                            <button type="button" class="btn btn-link btn-single" @click="sub">订阅</button>
+                            <button type="button" class="btn btn-link btn-single" @click="unsub">取消订阅</button>
                         </div>
 
-                        <button type="button" class="btn btn-success btn-single" @click="onSaveLog">保存日志</button>
+                        <button type="button" class="btn btn-danger btn-single" @click="onSaveLog">保存日志</button>
                         <button type="button" class="btn btn-success btn-single" @click="onClearLog">清除日志</button>
 
                         <template v-if="logOpenState == false">
@@ -84,8 +84,8 @@
                         </div>
 
 
-                        <button type="button" class="btn btn-success btn-single" @click="requestDetail()">请求详情</button>
-                        <button type="button" class="btn btn-success btn-single" @click="reboot()">重启</button>
+                        <button type="button" class="btn btn-warning btn-single" @click="requestDetail()">请求详情</button>
+                        <button type="button" class="btn btn-warning btn-single" @click="reboot()">重启</button>
                         <div class="form-group" style=" display: inline-block;">
                             <template v-if="isStopLog == true">
                                 <button type="button" class="btn btn-danger btn-single" @click="logctrl()">开启log
@@ -97,8 +97,8 @@
                         </div>
 
 
-                        <button type="button" class="btn btn-success btn-single" @click="cacheLog()">缓冲日志</button>
-                        <button type="button" class="btn btn-success btn-single" @click="clsCache()">清除缓冲</button>
+                        <button type="button" class="btn btn-info btn-single" @click="cacheLog()">缓冲日志</button>
+                        <button type="button" class="btn btn-info btn-single" @click="clsCache()">清除缓冲</button>
 
                     </div>
 
@@ -143,7 +143,7 @@
                        v-model="tarInfos.password"/>
             </div>
 
-            <button type="button" class="btn btn-success btn-single" style="width: 100%;" @click="onSwMqttServer">切换MQTT服务器
+            <button type="button" class="btn btn-danger btn-single" style="width: 100%;" @click="onSwMqttServer">切换MQTT服务器
             </button>
 
         </div>
