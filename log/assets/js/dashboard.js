@@ -361,22 +361,27 @@
                         _this.clsCache();
                     },
                     getLocationById: function (id,ip) {
-                        var params = {
-                            ip: ip
-                        };
-                        dashboard.webapi.getLocation(params, function (ret, err) {
-                            if (ret) {
-                                var td = document.getElementById(id);
-                                var rData = ret.data;
-                                td.innerHTML = rData.country + rData.region + rData.city;
-                            }
-                        });
+                        _this.getLocationById(id,ip);
                     }
                 }
             });
 
             _this.list();
         }, _this.$html);
+    };
+
+    Sessions.prototype.getLocationById = function (id,ip) {
+        var _this = this;
+        var params = {
+            ip: ip
+        };
+        dashboard.webapi.getLocation(params, function (ret, err) {
+            if (ret) {
+                var td = document.getElementById(id);
+                var rData = ret.data;
+                td.innerHTML = rData.country + rData.region + rData.city;
+            }
+        });
     };
 
     Sessions.prototype.clear = function () {
