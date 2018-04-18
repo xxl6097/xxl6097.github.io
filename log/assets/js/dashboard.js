@@ -206,7 +206,7 @@
             if (ret) {
                 var td = document.getElementById(id);
                 var rData = ret.data;
-                td.innerHTML = rData.country + rData.region + rData.city;
+                td.innerHTML = rData.country +"-"+ rData.region+"-" + rData.city;
                 td.style.color = "#FF0A2C"
                 td.style.fontWeight = "bold";//加粗文本
             }
