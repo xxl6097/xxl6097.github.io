@@ -105,7 +105,7 @@
 
         // http://uuxia.cn:8421/v1/ip/getlocationbyip?ip=61.141.158.189
         getLocation: function (params, callback) {
-            this._ajax('v1/ip/getlocationbyip', params, callback);
+            this._ajax('v1/ip/getCity', params, callback);
         }
     });
 
