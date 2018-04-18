@@ -368,7 +368,7 @@
                             if (ret) {
                                 var td = document.getElementById(id);
                                 var rData = ret.data;
-                                td.value = rData.country + rData.region + rData.city;
+                                td.innerHTML = rData.country + rData.region + rData.city;
                             }
                         });
                     }
