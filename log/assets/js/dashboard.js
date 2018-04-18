@@ -186,12 +186,29 @@
                     go: function (currPage) {
                         _this.pageInfo.currPage = currPage;
                         _this.list();
+                    },
+                    getLocationById: function (id,ip) {
+                        _this.getLocationById(id,ip);
                     }
                 }
             });
 
             _this.list();
         }, _this.$html);
+    };
+
+    Clients.prototype.getLocationById = function (id,ip) {
+        var _this = this;
+        var params = {
+            ip: ip
+        };
+        dashboard.webapi.getLocation(params, function (ret, err) {
+            if (ret) {
+                var td = document.getElementById(id);
+                var rData = ret.data;
+                td.innerHTML = rData.country + rData.region + rData.city;
+            }
+        });
     };
     Clients.prototype.clear = function () {
         var _this = this;
@@ -359,29 +376,12 @@
                     },
                     clsCache: function () {
                         _this.clsCache();
-                    },
-                    getLocationById: function (id,ip) {
-                        _this.getLocationById(id,ip);
                     }
                 }
             });
 
             _this.list();
         }, _this.$html);
-    };
-
-    Sessions.prototype.getLocationById = function (id,ip) {
-        var _this = this;
-        var params = {
-            ip: ip
-        };
-        dashboard.webapi.getLocation(params, function (ret, err) {
-            if (ret) {
-                var td = document.getElementById(id);
-                var rData = ret.data;
-                td.innerHTML = rData.country + rData.region + rData.city;
-            }
-        });
     };
 
     Sessions.prototype.clear = function () {
