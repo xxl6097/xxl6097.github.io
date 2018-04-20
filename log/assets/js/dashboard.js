@@ -10,7 +10,7 @@
     'use strict';
 
     dashboard.version = '1.0';
-    var wshost = 'uuxia.cn';
+    var wshost = 'localhost';
 
     var WebAPI = function (options) {
         this.options = $.extend(
@@ -20,7 +20,7 @@
     };
 
     WebAPI.DEFAULTS = {
-        apiPath: 'http://uuxia.cn:8421/',
+        apiPath: 'http://localhost:8421/',
         method: 'GET',
         cache: false,
         /*dataType: 'json',*/
@@ -373,11 +373,11 @@
                     onSwMqttServer: function () {
                         _this.onSwMqttServer();
                     },
-                    cacheLog: function () {
-                        _this.cacheLog();
+                    writeCacheLog: function () {
+                        _this.writeCacheLog();
                     },
-                    clsCache: function () {
-                        _this.clsCache();
+                    uploadCacheLog: function () {
+                        _this.uploadCacheLog();
                     }
                 }
             });
@@ -432,22 +432,22 @@
         }
     };
 
-    Sessions.prototype.cacheLog = function () {
+    Sessions.prototype.writeCacheLog = function () {
         var _this = this;
         var json = {"type": 4};
         var str = JSON.stringify(json);
         _this.vmSessions.sendInfo.text = str;
-        console.log('===========================cacheLog===================================' + str)
+        console.log('===========================writeCacheLog===================================' + str)
         _this.sendMessage();
         _this.requestDetail();
     };
 
-    Sessions.prototype.clsCache = function () {
+    Sessions.prototype.uploadCacheLog = function () {
         var _this = this;
         var json = {"type": 5};
         var str = JSON.stringify(json);
         _this.vmSessions.sendInfo.text = str;
-        console.log('===========================clsCache===================================' + str)
+        console.log('===========================uploadCacheLog===================================' + str)
         _this.sendMessage();
         _this.requestDetail();
     };
