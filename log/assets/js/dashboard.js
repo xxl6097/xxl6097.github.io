@@ -268,6 +268,7 @@
                 data: {
                     connState: false,
                     logScrollState: true,
+                    uploadLogState: false,
                     logOpenState: false,
                     isStopLog: false,
                     clientKey: null,
@@ -464,6 +465,7 @@
 
     Sessions.prototype.writeCacheLog = function () {
         var _this = this;
+        _this.vmSessions.uploadLogState = true;
         var json = {"type": 4};
         var str = JSON.stringify(json);
         _this.vmSessions.sendInfo.text = str;
@@ -474,6 +476,7 @@
 
     Sessions.prototype.uploadCacheLog = function () {
         var _this = this;
+        _this.vmSessions.uploadLogState = false;
         var json = {"type": 5};
         var str = JSON.stringify(json);
         _this.vmSessions.sendInfo.text = str;

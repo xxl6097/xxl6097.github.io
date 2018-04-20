@@ -97,9 +97,19 @@
                             </template>
                         </div>
 
+                        <div class="form-group" style=" display: inline-block;">
+                            <template v-if="uploadLogState == false">
+                                <button type="button" class="btn btn-info btn-single" @click="writeCacheLog">写日志</button>
+                                <button type="button" class="btn btn-gray btn-single disabled">上传日志</button>
+                            </template>
+                            <template v-else>
+                                <button type="button" class="btn btn-gray btn-single disabled">写日志</button>
+                                <button type="button" class="btn btn-info btn-single" @click="uploadCacheLog">上传日志
+                                </button>
+                            </template>
+                        </div>
 
-                        <button type="button" class="btn btn-info btn-single" @click="writeCacheLog()">日志写文件</button>
-                        <button type="button" class="btn btn-info btn-single" @click="uploadCacheLog()">上传日志</button>
+
 
                         <button type="button" class="btn btn-warning btn-single" @click="getFiles()">查看文件</button>
 
