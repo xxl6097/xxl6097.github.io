@@ -8229,6 +8229,13 @@ button.close {
     width: 100%;
 }
 
+.fileTbody {
+    display: block;
+    height: 300px;
+    overflow: auto;
+    width: 100%;
+}
+
 .table td {
     word-break: break-all;
     width: 100%;

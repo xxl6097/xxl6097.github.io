@@ -106,6 +106,11 @@
         // http://uuxia.cn:8421/v1/ip/getlocationbyip?ip=61.141.158.189
         getLocation: function (params, callback) {
             this._ajax('v1/ip/getCity', params, callback);
+        },
+
+        // http://uuxia.cn:8421/v1/api/files?clientid=MI%205_38A4EDB8849D
+        getFiles: function (params, callback) {
+            this._ajax('v1/api/files', params, callback);
         }
     });
 
@@ -271,6 +276,7 @@
                     topics: [],
                     logTopic: '',
                     deviceLocation: '',
+                    files: [],
                     tarInfos: {
                         host: location.hostname,
                         port: 8083,
@@ -378,6 +384,9 @@
                     },
                     uploadCacheLog: function () {
                         _this.uploadCacheLog();
+                    },
+                    getFiles: function (clientid) {
+                        _this.getFiles(clientid);
                     }
                 }
             });
@@ -398,6 +407,24 @@
         this.$html.hide();
     };
 
+    Sessions.prototype.getFiles = function (clientid) {
+        var _this = this;
+        var params = {
+            clientid: clientid
+        };
+        dashboard.webapi.getFiles(params, function (ret, err) {
+            if (ret) {
+                var rData = ret.data;
+                var code = ret.code;
+                if (code == 0){
+                    if(rData){
+                        _this.vmSessions.files = rData;
+                    }
+                }
+            }
+        });
+    };
+
     Sessions.prototype.scrollUI = function () {
         var _this = this;
         var content = document.getElementById('container');
@@ -416,6 +443,8 @@
         var _this = this;
         _this.vmSessions.receiveMsgs = [];
         _this.vmSessions.logMsgs = [];
+
+        _this.vmSessions.logMsgs.push('uuuuuuuu');
     };
 
     Sessions.prototype.onOpenLog = function () {
