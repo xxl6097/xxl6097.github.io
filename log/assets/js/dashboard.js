@@ -385,8 +385,8 @@
                     uploadCacheLog: function () {
                         _this.uploadCacheLog();
                     },
-                    getFiles: function (clientid) {
-                        _this.getFiles(clientid);
+                    getFiles: function () {
+                        _this.getFiles();
                     }
                 }
             });
@@ -407,10 +407,10 @@
         this.$html.hide();
     };
 
-    Sessions.prototype.getFiles = function (clientid) {
+    Sessions.prototype.getFiles = function () {
         var _this = this;
         var params = {
-            clientid: clientid
+            clientid: _this.pageInfo.currentClient.client_id
         };
         dashboard.webapi.getFiles(params, function (ret, err) {
             if (ret) {
