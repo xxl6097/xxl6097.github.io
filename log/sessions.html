@@ -134,7 +134,7 @@
                 <table style="width: 100%;">
                     <tbody id="containers" class="fileTbody" :onmousewheel="onMouseWheel()">
                     <tr v-for="(index, file) in files" track-by="$index">
-                        <td ><a href="file.fileUrl"target="_blank">{{file.fileName}}</a></td>
+                        <td ><a href="{{file.fileUrl}}"target="_blank">{{file.fileName}}</a></td>
                     </tr>
                     </tbody>
                 </table>
