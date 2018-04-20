@@ -10,7 +10,7 @@
     'use strict';
 
     dashboard.version = '1.0';
-    var wshost = 'localhost';
+    var wshost = location.host;
 
     var WebAPI = function (options) {
         this.options = $.extend(
@@ -20,7 +20,7 @@
     };
 
     WebAPI.DEFAULTS = {
-        apiPath: 'http://localhost:8421/',
+        apiPath: 'http://' + location.host + ':8421/',
         method: 'GET',
         cache: false,
         /*dataType: 'json',*/
