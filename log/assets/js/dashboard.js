@@ -392,7 +392,6 @@
             });
 
             _this.list();
-            _this.getFiles();
         }, _this.$html);
     };
 
@@ -450,6 +449,7 @@
 
     Sessions.prototype.onOpenLog = function () {
         var _this = this;
+        _this.getFiles();
         if (!_this.client || !_this.client.isConnected()) {
             _this.connect();
         } else {
@@ -596,6 +596,7 @@
     };
     Sessions.prototype.connect = function () {
         var _this = this;
+        _this.getFiles();
         _this.newClient();
 
         if (!_this.client) {
