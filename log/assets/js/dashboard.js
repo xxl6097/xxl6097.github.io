@@ -392,6 +392,7 @@
             });
 
             _this.list();
+            _this.getFiles();
         }, _this.$html);
     };
 
