@@ -418,18 +418,21 @@
 
     Sessions.prototype.delAllLog = function () {
         var _this = this;
-        alert('delAllLog')
-        var params = {
-            clientid: _this.pageInfo.currentClient.client_id
-        };
-        dashboard.webapi.delAllLog(params, function (ret, err) {
-            if (ret) {
-                var code = ret.code;
-                if (code == 0){
-                    _this.getFiles();
+        var r = confirm("是否确定删除所有日志文件，请慎重思考!!!");
+        if (r) {
+            var params = {
+                clientid: _this.pageInfo.currentClient.client_id
+            };
+            dashboard.webapi.delAllLog(params, function (ret, err) {
+                if (ret) {
+                    var code = ret.code;
+                    if (code == 0){
+                        _this.getFiles();
+                    }
                 }
-            }
-        });
+            });
+        }
+
     };
 
     Sessions.prototype.getFiles = function () {
