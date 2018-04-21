@@ -111,6 +111,11 @@
         // http://uuxia.cn:8421/v1/api/files?clientid=MI%205_38A4EDB8849D
         getFiles: function (params, callback) {
             this._ajax('v1/api/files', params, callback);
+        },
+
+        // http://uuxia.cn:8421/v1/api/delfiles?clientid=MI%205_38A4EDB8849D
+        delAllLog: function (params, callback) {
+            this._ajax('v1/api/delfiles', params, callback);
         }
     });
 
@@ -388,6 +393,9 @@
                     },
                     getFiles: function () {
                         _this.getFiles();
+                    },
+                    delAllLog: function () {
+                        _this.delAllLog();
                     }
                 }
             });
@@ -406,6 +414,22 @@
     };
     Sessions.prototype.hide = function () {
         this.$html.hide();
+    };
+
+    Sessions.prototype.delAllLog = function () {
+        var _this = this;
+        alert('delAllLog')
+        var params = {
+            clientid: _this.pageInfo.currentClient.client_id
+        };
+        dashboard.webapi.delAllLog(params, function (ret, err) {
+            if (ret) {
+                var code = ret.code;
+                if (code == 0){
+                    _this.getFiles();
+                }
+            }
+        });
     };
 
     Sessions.prototype.getFiles = function () {
