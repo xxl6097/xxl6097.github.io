@@ -396,6 +396,9 @@
                     },
                     delAllLog: function () {
                         _this.delAllLog();
+                    },
+                    onUpdate: function () {
+                        _this.onUpdate();
                     }
                 }
             });
@@ -509,7 +512,16 @@
         _this.vmSessions.sendInfo.text = str;
         console.log('===========================uploadCacheLog===================================' + str)
         _this.sendMessage();
-        _this.requestDetail();
+    };
+
+    Sessions.prototype.onUpdate = function () {
+        var _this = this;
+        var json = {"type": 0};
+        var str = JSON.stringify(json);
+        _this.vmSessions.sendInfo.text = str;
+        _this.vmSessions.sendInfo.topic =  "update";
+        console.log('===========================onUpdate===================================' + str)
+        _this.sendMessage();
     };
 
     Sessions.prototype.onSwMqttServer = function () {
