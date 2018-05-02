@@ -329,14 +329,14 @@
 
 
             <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#系统要求和硬件配置"><span class="section table-of-contents-text">系统要求和硬件配置</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#系统安装"><span class="section table-of-contents-text">系统安装</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#树莓派配置"><span class="section table-of-contents-text">树莓派配置</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#启用root用户（由于本人天性爱自由，所以必须要绝对权限）"><span class="section table-of-contents-text">启用root用户（由于本人天性爱自由，所以必须要绝对权限）</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#HomeAssistant安装"><span class="section table-of-contents-text">HomeAssistant安装</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#源替换"><span class="section table-of-contents-text">源替换</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#安装Python3"><span class="section table-of-contents-text">安装Python3</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#安装Python3开发资源"><span class="section table-of-contents-text">安装Python3开发资源</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#安装Pip3"><span class="section table-of-contents-text">安装Pip3</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#验证安装结果"><span class="section table-of-contents-text">验证安装结果</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#使用Pip工具安装Home-Assistant"><span class="section table-of-contents-text">使用Pip工具安装Home Assistant</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#验证安装结果-1"><span class="section table-of-contents-text">验证安装结果</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#HomeAssistant设置自动启动"><span class="section table-of-contents-text">HomeAssistant设置自动启动</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#配置自启动文件"><span class="section table-of-contents-text">配置自启动文件</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#启动自启服务"><span class="section table-of-contents-text">启动自启服务</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#HomeAssistant的一些常用命令"><span class="section table-of-contents-text">HomeAssistant的一些常用命令</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#systemd相关的控制命令"><span class="section table-of-contents-text">systemd相关的控制命令</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#使用脚本控制HomeAssistant"><span class="section table-of-contents-text">使用脚本控制HomeAssistant</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#小米设备接入"><span class="section table-of-contents-text">小米设备接入</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#遇到的一些问题"><span class="section table-of-contents-text">遇到的一些问题</span></a></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#一、系统要求和硬件配置"><span class="section table-of-contents-text">一、系统要求和硬件配置</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#二、系统安装"><span class="section table-of-contents-text">二、系统安装</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#三、树莓派配置"><span class="section table-of-contents-text">三、树莓派配置</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#3-1-启用root用户（由于本人天性爱自由，所以必须要绝对权限）"><span class="section table-of-contents-text">3.1 启用root用户（由于本人天性爱自由，所以必须要绝对权限）</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#四、HomeAssistant安装"><span class="section table-of-contents-text">四、HomeAssistant安装</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#4-1-源替换"><span class="section table-of-contents-text">4.1 源替换</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#4-2-安装Python3"><span class="section table-of-contents-text">4.2 安装Python3</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#4-3-安装Python3开发资源"><span class="section table-of-contents-text">4.3 安装Python3开发资源</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#4-4-安装Pip3"><span class="section table-of-contents-text">4.4 安装Pip3</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#4-5-验证安装结果"><span class="section table-of-contents-text">4.5 验证安装结果</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#4-6-使用Pip工具安装Home-Assistant"><span class="section table-of-contents-text">4.6 使用Pip工具安装Home Assistant</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#4-7-验证安装结果"><span class="section table-of-contents-text">4.7 验证安装结果</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#五、HomeAssistant设置自动启动"><span class="section table-of-contents-text">五、HomeAssistant设置自动启动</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#5-1-配置自启动文件"><span class="section table-of-contents-text">5.1 配置自启动文件</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#5-2-启动自启服务"><span class="section table-of-contents-text">5.2 启动自启服务</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#六、HomeAssistant的一些常用命令"><span class="section table-of-contents-text">六、HomeAssistant的一些常用命令</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#6-1-systemd相关的控制命令"><span class="section table-of-contents-text">6.1 systemd相关的控制命令</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#6-2-使用脚本控制HomeAssistant"><span class="section table-of-contents-text">6.2 使用脚本控制HomeAssistant</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#七、小米设备接入"><span class="section table-of-contents-text">七、小米设备接入</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#八、遇到的一些问题"><span class="section table-of-contents-text">八、遇到的一些问题</span></a></li></ol>
 </div>
 
 
             <div class="entry pink-link-context">
                 <p>Home Assistant 是一款基于 Python 的智能家居开源系统，支持众多品牌的智能家居设备，可以轻松实现设备的语音控制、自动化等。本文档全站内容基于 Home Assistant 官方网站 本地化而成，具有以下特点：</p>
 <p>整合『组件』与『文档』页，采用更直观清晰、符合中文阅读的展现形式；<br>剔除国内用户较少接触的组件说明，提高常用智能家居平台的层级和权重；<br>跳出 Home Assistant 原生框架，一并纳入 Floorplan、HADashboard 等相关衍生项目；<br>本文将讲述树莓派3B搭建HomeAssistant和小米设备的接入。<br><a id="more"></a></p>
-<h1 id="系统要求和硬件配置"><a href="#系统要求和硬件配置" class="headerlink" title="系统要求和硬件配置"></a>系统要求和硬件配置</h1><hr>
+<h1 id="一、系统要求和硬件配置"><a href="#一、系统要求和硬件配置" class="headerlink" title="一、系统要求和硬件配置"></a>一、系统要求和硬件配置</h1><hr>
 <ul>
 <li>树莓派3B（Raspberry 3B）;</li>
 <li>一张16G的TF存储卡；</li>
@@ -350,13 +350,13 @@
 <li><a href="http://www.pc6.com/mac/248733.html" target="_blank" rel="noopener">Etcher Mac版</a>（MacOs下烧录工具）；</li>
 <li>Fing工具（Android端或者ios端都行）。</li>
 </ul>
-<h1 id="系统安装"><a href="#系统安装" class="headerlink" title="系统安装"></a>系统安装</h1><hr>
+<h1 id="二、系统安装"><a href="#二、系统安装" class="headerlink" title="二、系统安装"></a>二、系统安装</h1><hr>
 <ol>
 <li>SDFormatter格式化TF存储卡</li>
 <li>使用Win32 Disk Imager工具烧录Raspbian系统到TF卡</li>
 <li>如果是在MacOs系统下，请用mac自带工具格式化TF卡，然后使用Etcher烧录系统；</li>
 </ol>
-<h1 id="树莓派配置"><a href="#树莓派配置" class="headerlink" title="树莓派配置"></a>树莓派配置</h1><hr>
+<h1 id="三、树莓派配置"><a href="#三、树莓派配置" class="headerlink" title="三、树莓派配置"></a>三、树莓派配置</h1><hr>
 <ol>
 <li>烧录完毕后，TF卡自动命名为boot，<strong>在boot根目录新建ssh文件以便ss登录</strong>；</li>
 <li><p>在TF卡根目录新建<code>wpa_supplicant.conf</code>文件，用于连接WiFi，配置如下：</p>
@@ -368,7 +368,7 @@
 <li>树莓派默认用户名<strong>pi</strong>，密码<strong>raspberry</strong>;</li>
 <li>使用xshell连接树莓派，MacOs方式：<code>ssh pi@192.168.x.x -p 22</code>；</li>
 </ol>
-<h2 id="启用root用户（由于本人天性爱自由，所以必须要绝对权限）"><a href="#启用root用户（由于本人天性爱自由，所以必须要绝对权限）" class="headerlink" title="启用root用户（由于本人天性爱自由，所以必须要绝对权限）"></a>启用root用户（由于本人天性爱自由，所以必须要绝对权限）</h2><ol>
+<h2 id="3-1-启用root用户（由于本人天性爱自由，所以必须要绝对权限）"><a href="#3-1-启用root用户（由于本人天性爱自由，所以必须要绝对权限）" class="headerlink" title="3.1 启用root用户（由于本人天性爱自由，所以必须要绝对权限）"></a>3.1 启用root用户（由于本人天性爱自由，所以必须要绝对权限）</h2><ol>
 <li>设置root用户密码</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pi@raspberrypi:~$ sudo passwd root</span><br><span class="line">Enter new UNIX password:   #输入第一遍密码</span><br><span class="line">Retype new UNIX password:  #输入第二遍密码</span><br></pre></td></tr></table></figure>
@@ -383,8 +383,8 @@
 <blockquote>
 <p><code>Ctrl + W</code> 快捷键 搜索 <code>PermitRootLogin without-password</code><br>修改 <code>PermitRootLogin without-password</code> 为 <code>PermitRootLogin yes</code><br>执行完之后，用 <code>reboot</code> 命令重启，这样就可以解锁<code>root</code>账户。</p>
 </blockquote>
-<h1 id="HomeAssistant安装"><a href="#HomeAssistant安装" class="headerlink" title="HomeAssistant安装"></a>HomeAssistant安装</h1><hr>
-<h2 id="源替换"><a href="#源替换" class="headerlink" title="源替换"></a>源替换</h2><p>由于默认都是从国外服务器下载安装，为了避免安装失败所以先替换成阿里的源。</p>
+<h1 id="四、HomeAssistant安装"><a href="#四、HomeAssistant安装" class="headerlink" title="四、HomeAssistant安装"></a>四、HomeAssistant安装</h1><hr>
+<h2 id="4-1-源替换"><a href="#4-1-源替换" class="headerlink" title="4.1 源替换"></a>4.1 源替换</h2><p>由于默认都是从国外服务器下载安装，为了避免安装失败所以先替换成阿里的源。</p>
 <ul>
 <li><p>在此目录新建此文件：<code>~/.pip/pip.conf</code></p>
 </li>
@@ -392,27 +392,27 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[global]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br><span class="line">index-url=https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
-<h2 id="安装Python3"><a href="#安装Python3" class="headerlink" title="安装Python3"></a>安装Python3</h2><p>打开<code>Linux</code>系统命令行窗口，输入：<code>sudo apt-get install python3.5</code></p>
+<h2 id="4-2-安装Python3"><a href="#4-2-安装Python3" class="headerlink" title="4.2 安装Python3"></a>4.2 安装Python3</h2><p>打开<code>Linux</code>系统命令行窗口，输入：<code>sudo apt-get install python3.5</code></p>
 <p>应系统要求输入<code>root</code>账号的密码。</p>
 <p><img src="/2018/05/02/homeassistant/1.png" alt="img1"></p>
 <p>安装资源准备好后提问是否继续安装，打回车确认。<br>然后等待安装完成。</p>
 <p><img src="/2018/05/02/homeassistant/2.png" alt="img1"></p>
-<h2 id="安装Python3开发资源"><a href="#安装Python3开发资源" class="headerlink" title="安装Python3开发资源"></a>安装Python3开发资源</h2><p>在第一步安装完成后，继续输入命令：<code>sudo apt-get install python3.5-dev</code><br>在系统提问是否继续安装时打回车确认。<br>然后等待安装完成。</p>
+<h2 id="4-3-安装Python3开发资源"><a href="#4-3-安装Python3开发资源" class="headerlink" title="4.3 安装Python3开发资源"></a>4.3 安装Python3开发资源</h2><p>在第一步安装完成后，继续输入命令：<code>sudo apt-get install python3.5-dev</code><br>在系统提问是否继续安装时打回车确认。<br>然后等待安装完成。</p>
 <p><img src="/2018/05/02/homeassistant/3.png" alt="img1"></p>
 <p><img src="/2018/05/02/homeassistant/4.png" alt="img1"></p>
-<h2 id="安装Pip3"><a href="#安装Pip3" class="headerlink" title="安装Pip3"></a>安装Pip3</h2><p>继续在命令行中输入：<code>sudo apt install python3-pip</code><br>回车确认安装。<br>等待安装完成。</p>
+<h2 id="4-4-安装Pip3"><a href="#4-4-安装Pip3" class="headerlink" title="4.4 安装Pip3"></a>4.4 安装Pip3</h2><p>继续在命令行中输入：<code>sudo apt install python3-pip</code><br>回车确认安装。<br>等待安装完成。</p>
 <p><img src="/2018/05/02/homeassistant/5.png" alt="img1"></p>
-<h2 id="验证安装结果"><a href="#验证安装结果" class="headerlink" title="验证安装结果"></a>验证安装结果</h2><p>在命令行中输入<code>python3 --version</code>，看到显示版本。<br>在命令行中输入<code>pip3 --version</code>，看到显示版本。<br>说明Python3环境及Pip3工具安装成功。</p>
+<h2 id="4-5-验证安装结果"><a href="#4-5-验证安装结果" class="headerlink" title="4.5 验证安装结果"></a>4.5 验证安装结果</h2><p>在命令行中输入<code>python3 --version</code>，看到显示版本。<br>在命令行中输入<code>pip3 --version</code>，看到显示版本。<br>说明Python3环境及Pip3工具安装成功。</p>
 <p><img src="/2018/05/02/homeassistant/6.png" alt="img1"></p>
-<h2 id="使用Pip工具安装Home-Assistant"><a href="#使用Pip工具安装Home-Assistant" class="headerlink" title="使用Pip工具安装Home Assistant"></a>使用Pip工具安装Home Assistant</h2><p>在此步之前建议设置国内的安装源，可以提升后续的速度，参见这篇文档。<br>打开命令行窗口，输入：<code>sudo pip3 install homeassistant</code> （<font color="red">此步骤若失败，请重复操作</font>）<br>等待安装过程完成。</p>
+<h2 id="4-6-使用Pip工具安装Home-Assistant"><a href="#4-6-使用Pip工具安装Home-Assistant" class="headerlink" title="4.6 使用Pip工具安装Home Assistant"></a>4.6 使用Pip工具安装Home Assistant</h2><p>在此步之前建议设置国内的安装源，可以提升后续的速度，参见这篇文档。<br>打开命令行窗口，输入：<code>sudo pip3 install homeassistant</code> （<font color="red">此步骤若失败，请重复操作</font>）<br>等待安装过程完成。</p>
 <p><img src="/2018/05/02/homeassistant/8.png" alt="img1"></p>
-<h2 id="验证安装结果-1"><a href="#验证安装结果-1" class="headerlink" title="验证安装结果"></a>验证安装结果</h2><p>在命令行窗口，输入：<code>hass --debug</code> 参数<code>--debug</code>可以查看启动的日志。<br>首次启动需要初始化配置文件，也会自动下载一些所需的文件，会需要一些时间。有时因网络质量问题还会出现文件下载失败情况，导致启动过程受阻。此时可以关闭命令行窗口，再重新执行启动命令。</p>
+<h2 id="4-7-验证安装结果"><a href="#4-7-验证安装结果" class="headerlink" title="4.7 验证安装结果"></a>4.7 验证安装结果</h2><p>在命令行窗口，输入：<code>hass --debug</code> 参数<code>--debug</code>可以查看启动的日志。<br>首次启动需要初始化配置文件，也会自动下载一些所需的文件，会需要一些时间。有时因网络质量问题还会出现文件下载失败情况，导致启动过程受阻。此时可以关闭命令行窗口，再重新执行启动命令。</p>
 <p><img src="/2018/05/02/homeassistant/9.png" alt="img1"></p>
 <p>继续等待启动过程完成，直到浏览器自动打开<code>Home Assistant</code>系统首页，即表明软件安装成功。</p>
 <p><img src="/2018/05/02/homeassistant/10.png" alt="img1"></p>
-<h1 id="HomeAssistant设置自动启动"><a href="#HomeAssistant设置自动启动" class="headerlink" title="HomeAssistant设置自动启动"></a>HomeAssistant设置自动启动</h1><hr>
+<h1 id="五、HomeAssistant设置自动启动"><a href="#五、HomeAssistant设置自动启动" class="headerlink" title="五、HomeAssistant设置自动启动"></a>五、HomeAssistant设置自动启动</h1><hr>
 <p>Home Assistant 针对树莓派的发行版（手动安装除外）中都已经自带自启任务，其余系统安装的用户需要自行配置自启。</p>
-<h2 id="配置自启动文件"><a href="#配置自启动文件" class="headerlink" title="配置自启动文件"></a>配置自启动文件</h2><p>如果你未使用 <code>Python</code> 虚拟环境安装 <code>Home Assistant</code>，请使用以下方法</p>
+<h2 id="5-1-配置自启动文件"><a href="#5-1-配置自启动文件" class="headerlink" title="5.1 配置自启动文件"></a>5.1 配置自启动文件</h2><p>如果你未使用 <code>Python</code> 虚拟环境安装 <code>Home Assistant</code>，请使用以下方法</p>
 <pre><code>sudo nano -w /etc/systemd/system/home-assistant@root.service
 </code></pre><p>复制粘贴</p>
 <pre><code>[Unit]
@@ -429,12 +429,12 @@ WantedBy=multi-user.target
 </code></pre><blockquote>
 <p>注意<code>ExecStart=/usr/local/bin/hass</code>  这个路径使用<code>whereis hass</code>查看路径</p>
 </blockquote>
-<h2 id="启动自启服务"><a href="#启动自启服务" class="headerlink" title="启动自启服务"></a>启动自启服务</h2><p>完成上述步骤后，请重新加载进程管理。</p>
+<h2 id="5-2-启动自启服务"><a href="#5-2-启动自启服务" class="headerlink" title="5.2 启动自启服务"></a>5.2 启动自启服务</h2><p>完成上述步骤后，请重新加载进程管理。</p>
 <pre><code>sudo systemctl --system daemon-reload
 </code></pre><p>启用服务：</p>
 <pre><code>sudo systemctl enable home-assistant@root
-</code></pre><h1 id="HomeAssistant的一些常用命令"><a href="#HomeAssistant的一些常用命令" class="headerlink" title="HomeAssistant的一些常用命令"></a>HomeAssistant的一些常用命令</h1><hr>
-<h2 id="systemd相关的控制命令"><a href="#systemd相关的控制命令" class="headerlink" title="systemd相关的控制命令"></a>systemd相关的控制命令</h2><pre><code>sudo systemctl --system daemon-reload：重新加载systemd的配置文件。
+</code></pre><h1 id="六、HomeAssistant的一些常用命令"><a href="#六、HomeAssistant的一些常用命令" class="headerlink" title="六、HomeAssistant的一些常用命令"></a>六、HomeAssistant的一些常用命令</h1><hr>
+<h2 id="6-1-systemd相关的控制命令"><a href="#6-1-systemd相关的控制命令" class="headerlink" title="6.1 systemd相关的控制命令"></a>6.1 systemd相关的控制命令</h2><pre><code>sudo systemctl --system daemon-reload：重新加载systemd的配置文件。
 sudo systemctl enable home-assistant@root：设置home-assitant服务为自启动。
 sudo systemctl disable home-assistant@root：从自启动中去除home-assitant服务。
 sudo systemctl start home-assistant@root：手工启动home-assitant服务（命令中start可以替换成stop、restart、status，完成停止、重启、查看服务状态等功能）。
@@ -442,7 +442,7 @@ sudo journalctl -f -u home-assistant@root：查看hass的日志输出。
 sudo journalctl -f -u home-assistant@[your user] | grep -i &apos;error&apos;：查看hass的日志输出中的error部分
 
 sudo systemctl restart home-assistant@root
-</code></pre><h2 id="使用脚本控制HomeAssistant"><a href="#使用脚本控制HomeAssistant" class="headerlink" title="使用脚本控制HomeAssistant"></a>使用脚本控制HomeAssistant</h2><pre><code>#!/bin/bash
+</code></pre><h2 id="6-2-使用脚本控制HomeAssistant"><a href="#6-2-使用脚本控制HomeAssistant" class="headerlink" title="6.2 使用脚本控制HomeAssistant"></a>6.2 使用脚本控制HomeAssistant</h2><pre><code>#!/bin/bash
 
 function check()
 {
@@ -506,7 +506,7 @@ case &quot;$num&quot; in
 [7] ) (debug);;
 *) echo &quot;nothing,exit&quot;;;
 esac
-</code></pre><h1 id="小米设备接入"><a href="#小米设备接入" class="headerlink" title="小米设备接入"></a>小米设备接入</h1><hr>
+</code></pre><h1 id="七、小米设备接入"><a href="#七、小米设备接入" class="headerlink" title="七、小米设备接入"></a>七、小米设备接入</h1><hr>
 <ul>
 <li><p>安装米家App（最新版本获取获取不到<code>Token</code>，使用【<a href="http://uuxia.cn:8123/file/com.xiaomi.smarthome.apk">MI Home5.0.19</a>】此版本OK）;</p>
 </li>
@@ -515,7 +515,7 @@ esac
 <li>记录设备的<code>token</code></li>
 <li><a href="http://uuxia.cn:8123/file/configuration.yaml">configuration.yaml</a>配置文件</li>
 </ul>
-<h1 id="遇到的一些问题"><a href="#遇到的一些问题" class="headerlink" title="遇到的一些问题"></a>遇到的一些问题</h1><hr>
+<h1 id="八、遇到的一些问题"><a href="#八、遇到的一些问题" class="headerlink" title="八、遇到的一些问题"></a>八、遇到的一些问题</h1><hr>
 <ol>
 <li>urllib3与chardet不兼容解决方案</li>
 </ol>
