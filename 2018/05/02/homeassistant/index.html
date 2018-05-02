@@ -371,14 +371,23 @@
 <h2 id="3-1-启用root用户（由于本人天性爱自由，所以必须要绝对权限）"><a href="#3-1-启用root用户（由于本人天性爱自由，所以必须要绝对权限）" class="headerlink" title="3.1 启用root用户（由于本人天性爱自由，所以必须要绝对权限）"></a>3.1 启用root用户（由于本人天性爱自由，所以必须要绝对权限）</h2><ol>
 <li>设置root用户密码</li>
 </ol>
+<blockquote>
+<p>sudo passwd root</p>
+</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pi@raspberrypi:~$ sudo passwd root</span><br><span class="line">Enter new UNIX password:   #输入第一遍密码</span><br><span class="line">Retype new UNIX password:  #输入第二遍密码</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>启用 root 账号登录</li>
+<li>启用 root 账号登录<blockquote>
+<p>sudo passwd –unlock root</p>
+</blockquote>
+</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pi@raspberrypi:~$ sudo passwd --unlock root</span><br><span class="line">passwd: password expiry information changed.</span><br></pre></td></tr></table></figure>
 <ol start="3">
 <li>设置root登陆</li>
 </ol>
+<blockquote>
+<p>sudo nano /etc/ssh/sshd_config  </p>
+</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pi@raspberrypi:~$ sudo nano /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>Ctrl + W</code> 快捷键 搜索 <code>PermitRootLogin without-password</code><br>修改 <code>PermitRootLogin without-password</code> 为 <code>PermitRootLogin yes</code><br>执行完之后，用 <code>reboot</code> 命令重启，这样就可以解锁<code>root</code>账户。</p>
