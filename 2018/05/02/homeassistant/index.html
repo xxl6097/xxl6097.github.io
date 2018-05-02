@@ -311,7 +311,7 @@
 
 
             </div>
-            <time class="pink-link-context" datetime="2018-04-04T10:24:57.000Z"><a href="/2018/04/04/homeassistant/">2018-04-04</a></time>
+            <time class="pink-link-context" datetime="2018-05-02T12:14:57.000Z"><a href="/2018/05/02/homeassistant/">2018-05-02</a></time>
 
             <span id="busuanzi_container_page_pv" class="read-times-container">
     <i class="fa fa-eye"></i>
@@ -383,22 +383,22 @@
 </ul>
 <h2 id="安装Python3"><a href="#安装Python3" class="headerlink" title="安装Python3"></a>安装Python3</h2><p>打开Linux系统命令行窗口，输入：<code>sudo apt-get install python3.5</code></p>
 <p>应系统要求输入root账号的密码。</p>
-<p><img src="/2018/04/04/homeassistant/1.png" alt="img1"></p>
+<p><img src="/2018/05/02/homeassistant/1.png" alt="img1"></p>
 <p>安装资源准备好后提问是否继续安装，打回车确认。<br>然后等待安装完成。</p>
-<p><img src="/2018/04/04/homeassistant/2.png" alt="img1"></p>
+<p><img src="/2018/05/02/homeassistant/2.png" alt="img1"></p>
 <h2 id="安装Python3开发资源"><a href="#安装Python3开发资源" class="headerlink" title="安装Python3开发资源"></a>安装Python3开发资源</h2><p>在第一步安装完成后，继续输入命令：<code>sudo apt-get install python3.5-dev</code><br>在系统提问是否继续安装时打回车确认。<br>然后等待安装完成。</p>
-<p><img src="/2018/04/04/homeassistant/3.png" alt="img1"></p>
-<p><img src="/2018/04/04/homeassistant/4.png" alt="img1"></p>
+<p><img src="/2018/05/02/homeassistant/3.png" alt="img1"></p>
+<p><img src="/2018/05/02/homeassistant/4.png" alt="img1"></p>
 <h2 id="安装Pip3"><a href="#安装Pip3" class="headerlink" title="安装Pip3"></a>安装Pip3</h2><p>继续在命令行中输入：<code>sudo apt install python3-pip</code><br>回车确认安装。<br>等待安装完成。</p>
-<p><img src="/2018/04/04/homeassistant/5.png" alt="img1"></p>
+<p><img src="/2018/05/02/homeassistant/5.png" alt="img1"></p>
 <h2 id="验证安装结果"><a href="#验证安装结果" class="headerlink" title="验证安装结果"></a>验证安装结果</h2><p>在命令行中输入<code>python3 --version</code>，看到显示版本。<br>在命令行中输入<code>pip3 --version</code>，看到显示版本。<br>说明Python3环境及Pip3工具安装成功。</p>
-<p><img src="/2018/04/04/homeassistant/6.png" alt="img1"></p>
+<p><img src="/2018/05/02/homeassistant/6.png" alt="img1"></p>
 <h2 id="使用Pip工具安装Home-Assistant"><a href="#使用Pip工具安装Home-Assistant" class="headerlink" title="使用Pip工具安装Home Assistant"></a>使用Pip工具安装Home Assistant</h2><p>在此步之前建议设置国内的安装源，可以提升后续的速度，参见这篇文档。<br>打开命令行窗口，输入：<code>sudo pip3 install homeassistant</code> （<font color="red">此步骤若失败，请重复操作</font>）<br>等待安装过程完成。</p>
-<p><img src="/2018/04/04/homeassistant/8.png" alt="img1"></p>
+<p><img src="/2018/05/02/homeassistant/8.png" alt="img1"></p>
 <h2 id="验证安装结果-1"><a href="#验证安装结果-1" class="headerlink" title="验证安装结果"></a>验证安装结果</h2><p>在命令行窗口，输入：hass –debug。参数–debug可以查看启动的日志。<br>首次启动需要初始化配置文件，也会自动下载一些所需的文件，会需要一些时间。有时因网络质量问题还会出现文件下载失败情况，导致启动过程受阻。此时可以关闭命令行窗口，再重新执行启动命令。</p>
-<p><img src="/2018/04/04/homeassistant/9.png" alt="img1"></p>
+<p><img src="/2018/05/02/homeassistant/9.png" alt="img1"></p>
 <p>继续等待启动过程完成，直到浏览器自动打开Home Assistant系统首页，即表明软件安装成功。</p>
-<p><img src="/2018/04/04/homeassistant/10.png" alt="img1"></p>
+<p><img src="/2018/05/02/homeassistant/10.png" alt="img1"></p>
 <h1 id="HomeAssistant设置自动启动"><a href="#HomeAssistant设置自动启动" class="headerlink" title="HomeAssistant设置自动启动"></a>HomeAssistant设置自动启动</h1><p>Home Assistant 针对树莓派的发行版（手动安装除外）中都已经自带自启任务，其余系统安装的用户需要自行配置自启。</p>
 <h2 id="配置自启动文件"><a href="#配置自启动文件" class="headerlink" title="配置自启动文件"></a>配置自启动文件</h2><p>如果你未使用 Python 虚拟环境安装 Home Assistant，请使用以下方法</p>
 <pre><code>sudo nano -w /etc/systemd/system/home-assistant@root.service
@@ -511,17 +511,11 @@ esac
 在选择项中选No，搞定了！
 </code></pre>
                 
+
+
 <p class="pink-link-context">
     <a href="/2018/04/05/centos_run_jar/" rel="next" title="Centos后台运行jar">
-    上一篇：Centos后台运行jar
-  </a>
-</p>
-
-
-
-<p class="pink-link-context">
-    <a href="/2018/04/04/hobby/" rel="next" title="业余时间做什么，决定了你的生活品质">
-    下一篇：业余时间做什么，决定了你的生活品质
+    下一篇：Centos后台运行jar
   </a>
 </p>
 
@@ -539,7 +533,7 @@ esac
         <div class="card">
             <div class="card-content">
                 <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="2018/04/04/homeassistant/" data-title="树莓派3B(Raspberry 3B)搭建HomeAssistant" data-url="http://uuxia.cn/2018/04/04/homeassistant/"></div>
+                <div class="ds-thread" data-thread-key="2018/05/02/homeassistant/" data-title="树莓派3B(Raspberry 3B)搭建HomeAssistant" data-url="http://uuxia.cn/2018/05/02/homeassistant/"></div>
 
                 <script type="text/javascript">
                     console.log(document.querySelector('.ds-thread'));
