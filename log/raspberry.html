@@ -7,6 +7,17 @@
     </div>
     <div class="panel-body">
         <div class="row">
+            <div class="form-group" style=" display: inline-block;">
+                <template v-if="connState == false">
+                    <button type="button" class="btn btn-success btn-single" @click="connect">连接</button>
+                    <button type="button" class="btn btn-gray btn-single disabled">断开</button>
+                </template>
+                <template v-else>
+                    <button type="button" class="btn btn-gray btn-single disabled">连接</button>
+                    <button type="button" class="btn btn-success btn-single" @click="disconnect">断开</button>
+                </template>
+            </div>
+            
             <!--subscriptions list-->
                         <button type="button" class="btn btn-danger btn-single" @click="onSaveLog">唤醒我的Mac电脑</button>
                         <button type="button" class="btn btn-success btn-single" @click="onClearLog">开启Yeelight吸顶灯</button>
