@@ -1134,7 +1134,7 @@
     Raspberry.prototype._init = function () {
         var _this = this;
         loading('raspberry.html', function () {
-            _this.vmWS = new Vue({
+            _this.vmPi = new Vue({
                 el: _this.$html[0],
                 data: {
                     connState: false,
@@ -1142,9 +1142,9 @@
                         host: wshost,//location.hostname,
                         port: 8083,
                         clientId: 'raspberry_' + new Date().getTime(),
-                        userName: null,
-                        password: null,
-                        keepAlive: null,
+                        userName: 'admin',
+                        password: 'public',
+                        keepAlive: '60',
                         cleanSession: true,
                         useSSL: false
                     },
@@ -1201,16 +1201,16 @@
     };
     Raspberry.prototype.newClient = function () {
         this.client = new Paho.MQTT.Client(
-            this.vmWS.cInfo.host,
-            Number(this.vmWS.cInfo.port),
-            this.vmWS.cInfo.clientId);
+            this.vmPi.cInfo.host,
+            Number(this.vmPi.cInfo.port),
+            this.vmPi.cInfo.clientId);
     };
     Raspberry.prototype.sslPort = function () {
-        var useSSL = this.vmWS.cInfo.useSSL;
+        var useSSL = this.vmPi.cInfo.useSSL;
         if (useSSL) {
-            this.vmWS.cInfo.port = 8084
+            this.vmPi.cInfo.port = 8084
         } else {
-            this.vmWS.cInfo.port = 8083
+            this.vmPi.cInfo.port = 8083
         }
     };
     Raspberry.prototype.connect = function () {
@@ -1236,27 +1236,27 @@
             } catch (e) {
                 message.msgString = "Binary message(" + message.payloadBytes.length + ")";
             }
-            _this.vmWS.receiveMsgs.push(message);
+            _this.vmPi.receiveMsgs.push(message);
         }
 
         var options = {
             onSuccess: function () {
                 console.log("The client connect success.");
-                _this.vmWS.connState = true;
+                _this.vmPi.connState = true;
             },
             onFailure: function (err) {
                 alert("The client connect failure " + err.errorMessage);
                 // console.log("==========." + err.errorMessage);
                 // console.log("==========." + JSON.stringify(err));
                 // console.log("The client connect failure.");
-                _this.vmWS.connState = false;
+                _this.vmPi.connState = false;
             }
         };
-        var userName = _this.vmWS.cInfo.userName;
-        var password = _this.vmWS.cInfo.password;
-        var keepAlive = _this.vmWS.cInfo.keepAlive;
-        var cleanSession = _this.vmWS.cInfo.cleanSession;
-        var useSSL = _this.vmWS.cInfo.useSSL;
+        var userName = _this.vmPi.cInfo.userName;
+        var password = _this.vmPi.cInfo.password;
+        var keepAlive = _this.vmPi.cInfo.keepAlive;
+        var cleanSession = _this.vmPi.cInfo.cleanSession;
+        var useSSL = _this.vmPi.cInfo.useSSL;
         if (userName) {
             options.userName = userName;
         }
@@ -1277,7 +1277,7 @@
             _this.client = null;
         }
         console.log("The client disconnect success.");
-        _this.vmWS.connState = false;
+        _this.vmPi.connState = false;
     };
     Raspberry.prototype.subscribe = function () {
         var _this = this;
@@ -1285,18 +1285,18 @@
             alert('The client does not connect to the broker');
             return;
         }
-        if (!_this.vmWS.subInfo.topic) {
+        if (!_this.vmPi.subInfo.topic) {
             alert('Please fill in the topic.');
             return;
         }
 
-        this.client.subscribe(_this.vmWS.subInfo.topic, {
-            qos: Number(_this.vmWS.subInfo.qos),
+        this.client.subscribe(_this.vmPi.subInfo.topic, {
+            qos: Number(_this.vmPi.subInfo.qos),
             onSuccess: function (msg) {
                 console.log(JSON.stringify(msg));
-                _this.vmWS.subInfo.time = (new Date()).format("yyyy-MM-dd hh:mm:ss");
-                _this.vmWS.subscriptions.push(_this.vmWS.subInfo);
-                _this.vmWS.subInfo = {qos: _this.vmWS.subInfo.qos};
+                _this.vmPi.subInfo.time = (new Date()).format("yyyy-MM-dd hh:mm:ss");
+                _this.vmPi.subscriptions.push(_this.vmPi.subInfo);
+                _this.vmPi.subInfo = {qos: _this.vmPi.subInfo.qos};
             },
             onFailure: function (err) {
                 if (err.errorCode[0] == 128) {
@@ -1312,14 +1312,14 @@
             alert('The client does not connect to the broker');
             return;
         }
-        if (!_this.vmWS.subInfo.topic) {
+        if (!_this.vmPi.subInfo.topic) {
             alert('Please fill in the topic.');
             return;
         }
-        this.client.unsubscribe(_this.vmWS.subInfo.topic, {
+        this.client.unsubscribe(_this.vmPi.subInfo.topic, {
             onSuccess: function (msg) {
                 console.log(JSON.stringify(msg));
-                _this.vmWS.subInfo = {qos: _this.vmWS.subInfo.qos};
+                _this.vmPi.subInfo = {qos: _this.vmPi.subInfo.qos};
             },
             onFailure: function (err) {
                 console.log(JSON.stringify(err));
@@ -1328,12 +1328,12 @@
     };
     Raspberry.prototype.sendMessage = function () {
         var _this = this;
-        var text = _this.vmWS.sendInfo.text;
+        var text = _this.vmPi.sendInfo.text;
         if (!_this.client || !_this.client.isConnected()) {
             alert('The client does not connect to the broker');
             return;
         }
-        if (!_this.vmWS.sendInfo.topic) {
+        if (!_this.vmPi.sendInfo.topic) {
             alert('Please fill in the message topic.');
             return;
         }
@@ -1342,16 +1342,16 @@
             return;
         }
         var message = new Paho.MQTT.Message(text);
-        message.destinationName = _this.vmWS.sendInfo.topic;
-        message.qos = Number(_this.vmWS.sendInfo.qos);
-        message.retained = _this.vmWS.sendInfo.retained;
+        message.destinationName = _this.vmPi.sendInfo.topic;
+        message.qos = Number(_this.vmPi.sendInfo.qos);
+        message.retained = _this.vmPi.sendInfo.retained;
         _this.client.send(message);
-        _this.vmWS.sendInfo.time = (new Date()).format("yyyy-MM-dd hh:mm:ss");
-        _this.vmWS.sendMsgs.push(this.vmWS.sendInfo);
-        _this.vmWS.sendInfo = {
-            topic: _this.vmWS.sendInfo.topic,
-            qos: _this.vmWS.sendInfo.qos,
-            retained: _this.vmWS.sendInfo.retained
+        _this.vmPi.sendInfo.time = (new Date()).format("yyyy-MM-dd hh:mm:ss");
+        _this.vmPi.sendMsgs.push(this.vmPi.sendInfo);
+        _this.vmPi.sendInfo = {
+            topic: _this.vmPi.sendInfo.topic,
+            qos: _this.vmPi.sendInfo.qos,
+            retained: _this.vmPi.sendInfo.retained
         };
     };
     // HttpApi-------------------------------------------
