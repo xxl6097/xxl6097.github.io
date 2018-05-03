@@ -905,7 +905,7 @@
                     cInfo: {
                         host: wshost,//location.hostname,
                         port: 8083,
-                        clientId: 'C_' + new Date().getTime(),
+                        clientId: 'websocket_' + new Date().getTime(),
                         userName: null,
                         password: null,
                         keepAlive: null,
@@ -1119,8 +1119,241 @@
         };
     };
 
-    // Users---------------------------------------------
 
+
+    // Users---------------------------------------------
+// Raspberry----------------------------------------
+
+    var Raspberry = function () {
+        this.modName = 'raspberry';
+        this.$html = $('#dashboard_raspberry',
+            sog.mainCenter.$html);
+        this.client = null;
+        this._init();
+    };
+    Raspberry.prototype._init = function () {
+        var _this = this;
+        loading('raspberry.html', function () {
+            _this.vmWS = new Vue({
+                el: _this.$html[0],
+                data: {
+                    connState: false,
+                    cInfo: {
+                        host: wshost,//location.hostname,
+                        port: 8083,
+                        clientId: 'raspberry_' + new Date().getTime(),
+                        userName: null,
+                        password: null,
+                        keepAlive: null,
+                        cleanSession: true,
+                        useSSL: false
+                    },
+                    subInfo: {
+                        topic: 'world',
+                        qos: 0
+                    },
+                    subscriptions: [],
+                    sendInfo: {
+                        topic: 'world',
+                        text: 'Hello world!',
+                        qos: 0,
+                        retained: true
+                    },
+                    sendMsgs: [],
+                    receiveMsgs: []
+                },
+                filters: {
+                    reverse: function (arr) {
+                        return arr.reverse();
+                    }
+                },
+                methods: {
+                    connect: function () {
+                        _this.connect();
+                    },
+                    disconnect: function () {
+                        _this.disconnect();
+                    },
+                    sub: function () {
+                        _this.subscribe();
+                    },
+                    unsub: function () {
+                        _this.unsubscribe();
+                    },
+                    send: function () {
+                        _this.sendMessage();
+                    },
+                    sslPort: function () {
+                        _this.sslPort();
+                    }
+                }
+            });
+        }, _this.$html);
+    };
+    Raspberry.prototype.show = function () {
+        if (this.client && !this.client.isConnected()) {
+            this.disconnect();
+        }
+        this.$html.show();
+    };
+    Raspberry.prototype.hide = function () {
+        this.$html.hide();
+    };
+    Raspberry.prototype.newClient = function () {
+        this.client = new Paho.MQTT.Client(
+            this.vmWS.cInfo.host,
+            Number(this.vmWS.cInfo.port),
+            this.vmWS.cInfo.clientId);
+    };
+    Raspberry.prototype.sslPort = function () {
+        var useSSL = this.vmWS.cInfo.useSSL;
+        if (useSSL) {
+            this.vmWS.cInfo.port = 8084
+        } else {
+            this.vmWS.cInfo.port = 8083
+        }
+    };
+    Raspberry.prototype.connect = function () {
+        var _this = this;
+        _this.newClient();
+
+        if (!_this.client) {
+            return;
+        }
+        // called when the client loses its connection
+        _this.client.onConnectionLost = function (responseObject) {
+            if (responseObject.errorCode !== 0) {
+                console.log("onConnectionLost: " + responseObject.errorMessage);
+            }
+            _this.disconnect();
+        }
+        // called when a message arrives
+        _this.client.onMessageArrived = function (message) {
+            // console.log("onMessageArrived: " + message.payloadString);
+            message.arrived_at = (new Date()).format("yyyy-MM-dd hh:mm:ss");
+            try {
+                message.msgString = message.payloadString;
+            } catch (e) {
+                message.msgString = "Binary message(" + message.payloadBytes.length + ")";
+            }
+            _this.vmWS.receiveMsgs.push(message);
+        }
+
+        var options = {
+            onSuccess: function () {
+                console.log("The client connect success.");
+                _this.vmWS.connState = true;
+            },
+            onFailure: function (err) {
+                alert("The client connect failure " + err.errorMessage);
+                // console.log("==========." + err.errorMessage);
+                // console.log("==========." + JSON.stringify(err));
+                // console.log("The client connect failure.");
+                _this.vmWS.connState = false;
+            }
+        };
+        var userName = _this.vmWS.cInfo.userName;
+        var password = _this.vmWS.cInfo.password;
+        var keepAlive = _this.vmWS.cInfo.keepAlive;
+        var cleanSession = _this.vmWS.cInfo.cleanSession;
+        var useSSL = _this.vmWS.cInfo.useSSL;
+        if (userName) {
+            options.userName = userName;
+        }
+        if (password) {
+            options.password = password;
+        }
+        if (keepAlive) {
+            options.keepAliveInterval = Number(keepAlive);
+        }
+        options.cleanSession = cleanSession;
+        options.useSSL = useSSL;
+        _this.client.connect(options);
+    };
+    Raspberry.prototype.disconnect = function () {
+        var _this = this;
+        if (_this.client && _this.client.isConnected()) {
+            _this.client.disconnect();
+            _this.client = null;
+        }
+        console.log("The client disconnect success.");
+        _this.vmWS.connState = false;
+    };
+    Raspberry.prototype.subscribe = function () {
+        var _this = this;
+        if (!_this.client || !_this.client.isConnected()) {
+            alert('The client does not connect to the broker');
+            return;
+        }
+        if (!_this.vmWS.subInfo.topic) {
+            alert('Please fill in the topic.');
+            return;
+        }
+
+        this.client.subscribe(_this.vmWS.subInfo.topic, {
+            qos: Number(_this.vmWS.subInfo.qos),
+            onSuccess: function (msg) {
+                console.log(JSON.stringify(msg));
+                _this.vmWS.subInfo.time = (new Date()).format("yyyy-MM-dd hh:mm:ss");
+                _this.vmWS.subscriptions.push(_this.vmWS.subInfo);
+                _this.vmWS.subInfo = {qos: _this.vmWS.subInfo.qos};
+            },
+            onFailure: function (err) {
+                if (err.errorCode[0] == 128) {
+                    alert('The topic cannot SUBSCRIBE for ACL Deny');
+                    console.log(JSON.stringify(err));
+                }
+            }
+        });
+    };
+    Raspberry.prototype.unsubscribe = function () {
+        var _this = this;
+        if (!_this.client || !_this.client.isConnected()) {
+            alert('The client does not connect to the broker');
+            return;
+        }
+        if (!_this.vmWS.subInfo.topic) {
+            alert('Please fill in the topic.');
+            return;
+        }
+        this.client.unsubscribe(_this.vmWS.subInfo.topic, {
+            onSuccess: function (msg) {
+                console.log(JSON.stringify(msg));
+                _this.vmWS.subInfo = {qos: _this.vmWS.subInfo.qos};
+            },
+            onFailure: function (err) {
+                console.log(JSON.stringify(err));
+            }
+        });
+    };
+    Raspberry.prototype.sendMessage = function () {
+        var _this = this;
+        var text = _this.vmWS.sendInfo.text;
+        if (!_this.client || !_this.client.isConnected()) {
+            alert('The client does not connect to the broker');
+            return;
+        }
+        if (!_this.vmWS.sendInfo.topic) {
+            alert('Please fill in the message topic.');
+            return;
+        }
+        if (!text) {
+            alert('Please fill in the message content.');
+            return;
+        }
+        var message = new Paho.MQTT.Message(text);
+        message.destinationName = _this.vmWS.sendInfo.topic;
+        message.qos = Number(_this.vmWS.sendInfo.qos);
+        message.retained = _this.vmWS.sendInfo.retained;
+        _this.client.send(message);
+        _this.vmWS.sendInfo.time = (new Date()).format("yyyy-MM-dd hh:mm:ss");
+        _this.vmWS.sendMsgs.push(this.vmWS.sendInfo);
+        _this.vmWS.sendInfo = {
+            topic: _this.vmWS.sendInfo.topic,
+            qos: _this.vmWS.sendInfo.qos,
+            retained: _this.vmWS.sendInfo.retained
+        };
+    };
     // HttpApi-------------------------------------------
 
     // Functions----------------------------------------
@@ -1262,6 +1495,14 @@
                     modules.websocket = new Websocket();
                 }
                 modules.websocket.show();
+                break;
+            case 'raspberry':
+                if (!modules.raspberry) {
+                    modules.raspberry = new Raspberry();
+                } else {
+                    modules.raspberry.list();
+                }
+                modules.raspberry.show();
                 break;
             case 'users':
                 if (!modules.users) {
