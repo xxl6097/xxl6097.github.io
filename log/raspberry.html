@@ -11,78 +11,13 @@
             <div class="col-sm-6">
                 <div class="panel panel-default">
                     <div class="col-sm-12">
-                        <div class="form-group" style=" display: inline-block;">
-                            <template v-if="connState == false">
-                                <button type="button" class="btn btn-success btn-single" @click="connect">连接</button>
-                                <button type="button" class="btn btn-gray btn-single disabled">断开</button>
-                            </template>
-                            <template v-else>
-                                <button type="button" class="btn btn-gray btn-single disabled">连接</button>
-                                <button type="button" class="btn btn-success btn-single" @click="disconnect">断开</button>
-                            </template>
-                        </div>
 
+                        <button type="button" class="btn btn-danger btn-single" @click="onSaveLog">唤醒我的Mac电脑</button>
+                        <button type="button" class="btn btn-success btn-single" @click="onClearLog">开启Yeelight吸顶灯</button>
+                        <button type="button" class="btn btn-success btn-single" @click="onRefresh">关闭Yeelight吸顶灯</button>
 
-                        <!--暂时感觉无用-->
-                        <!--<div class="form-group" style=" display: inline-block;">
-                            <button type="button" class="btn btn-link btn-single" @click="sub">订阅</button>
-                            <button type="button" class="btn btn-link btn-single" @click="unsub">取消订阅</button>
-                        </div>-->
-
-                        <button type="button" class="btn btn-danger btn-single" @click="onSaveLog">保存日志</button>
-                        <button type="button" class="btn btn-success btn-single" @click="onClearLog">清除日志</button>
-
-                        <template v-if="logOpenState == false">
-                            <button type="button" class="btn btn-danger btn-single" @click="onOpenLog">启动日志</button>
-                        </template>
-                        <template v-else>
-                            <button type="button" class="btn btn-gray btn-single disabled">启动日志</button>
-                        </template>
-
-                        <button type="button" class="btn btn-success btn-single" @click="onRefresh">刷新</button>
-
-
-                        <div class="form-group" style=" display: inline-block;">
-                            <template v-if="logScrollState == false">
-                                <button type="button" class="btn btn-success btn-single" @click="onScroll">滚动日志</button>
-                                <button type="button" class="btn btn-gray btn-single disabled">停止滚动</button>
-                            </template>
-                            <template v-else>
-                                <button type="button" class="btn btn-gray btn-single disabled">滚动日志</button>
-                                <button type="button" class="btn btn-success btn-single" @click="stopScroll">停止滚动
-                                </button>
-                            </template>
-                        </div>
-
-
-                        <button type="button" class="btn btn-warning btn-single" @click="requestDetail()">请求详情</button>
-                        <button type="button" class="btn btn-warning btn-single" @click="reboot()">重启</button>
-                        <div class="form-group" style=" display: inline-block;">
-                            <template v-if="isStopLog == true">
-                                <button type="button" class="btn btn-danger btn-single" @click="logctrl()">开启log
-                                </button>
-                            </template>
-                            <template v-else>
-                                <button type="button" class="btn btn-gray btn-single" @click="logctrl()">关闭log</button>
-                            </template>
-                        </div>
-
-                        <div class="form-group" style=" display: inline-block;">
-                            <template v-if="uploadLogState == false">
-                                <button type="button" class="btn btn-info btn-single" @click="writeCacheLog">写日志</button>
-                                <button type="button" class="btn btn-gray btn-single disabled">上传日志</button>
-                            </template>
-                            <template v-else>
-                                <button type="button" class="btn btn-gray btn-single disabled">写日志</button>
-                                <button type="button" class="btn btn-info btn-single" @click="uploadCacheLog">上传日志
-                                </button>
-                            </template>
-                        </div>
-
-
-
-                        <button type="button" class="btn btn-warning btn-single" @click="getFiles()">查看文件</button>
-                        <button type="button" class="btn btn-warning btn-single" @click="onUpdate()">升级</button>
+                        <button type="button" class="btn btn-warning btn-single" @click="getFiles()">开启智能插座增强版</button>
+                        <button type="button" class="btn btn-warning btn-single" @click="getFiles()">关闭智能插座增强版</button>
 
                     </div>
 
@@ -93,8 +28,6 @@
 
 
         <!--底部-->
-
-
 
 
         </div>
