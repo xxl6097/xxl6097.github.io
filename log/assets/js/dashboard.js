@@ -1149,12 +1149,12 @@
                         useSSL: false
                     },
                     subInfo: {
-                        topic: 'world',
+                        topic: 'homeassistant',
                         qos: 0
                     },
                     subscriptions: [],
                     sendInfo: {
-                        topic: 'world',
+                        topic: 'homeassistant',
                         text: 'Hello world!',
                         qos: 0,
                         retained: true
