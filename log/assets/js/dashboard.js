@@ -1204,23 +1204,42 @@
     };
 
     Raspberry.prototype.wakeUpMacBook = function () {
-        tips("wakeUpMacBook");
+        tips("唤醒电脑");
+        var _this = this;
+        _this.sendMQ('macbook','on');
     };
 
     Raspberry.prototype.yeelightTurnOn = function () {
-        tips("yeelightTurnOn");
+        tips("开灯");
+        var _this = this;
+        _this.sendMQ('yeelight','on');
     };
 
     Raspberry.prototype.yeelightTurnOff = function () {
-        tips("yeelightTurnOff");
+        tips("关灯");
+        var _this = this;
+        _this.sendMQ('yeelight','off');
     };
 
     Raspberry.prototype.socketPlusOn = function () {
-        tips("socketPlusOn");
+        tips("开插座");
+        var _this = this;
+        _this.sendMQ('socket','on');
     };
 
     Raspberry.prototype.socketPlusOff = function () {
-        tips("socketPlusOff");
+        tips("关插座");
+        var _this = this;
+        _this.sendMQ('socket','off');
+    };
+
+
+    Raspberry.prototype.sendMQ = function (tt,txt) {
+        var _this = this;
+        _this.vmPi.sendInfo.topic = tt;
+        _this.vmPi.sendInfo.text = txt;
+        console.log('===========================writeCacheLog===================================' + str)
+        _this.sendMessage();
     };
 
     Raspberry.prototype.show = function () {
