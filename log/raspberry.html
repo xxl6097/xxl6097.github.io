@@ -19,12 +19,12 @@
             </div>
 
             <!--subscriptions list-->
-                        <button type="button" class="btn btn-danger btn-single" @click="onSaveLog">唤醒我的Mac电脑</button>
-                        <button type="button" class="btn btn-success btn-single" @click="onClearLog">开启Yeelight吸顶灯</button>
-                        <button type="button" class="btn btn-success btn-single" @click="onRefresh">关闭Yeelight吸顶灯</button>
+                        <button type="button" class="btn btn-danger btn-single" @click="wakeUpMacBook">唤醒我的Mac电脑</button>
+                        <button type="button" class="btn btn-success btn-single" @click="yeelightTurnOn">开启Yeelight吸顶灯</button>
+                        <button type="button" class="btn btn-success btn-single" @click="yeelightTurnOff">关闭Yeelight吸顶灯</button>
 
-                        <button type="button" class="btn btn-warning btn-single" @click="getFiles()">开启智能插座增强版</button>
-                        <button type="button" class="btn btn-warning btn-single" @click="getFiles()">关闭智能插座增强版</button>
+                        <button type="button" class="btn btn-warning btn-single" @click="socketPlusOn()">开启智能插座增强版</button>
+                        <button type="button" class="btn btn-warning btn-single" @click="socketPlusOff()">关闭智能插座增强版</button>
 
         </div>
 

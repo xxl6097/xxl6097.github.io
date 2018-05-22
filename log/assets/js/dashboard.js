@@ -1183,13 +1183,46 @@
                     send: function () {
                         _this.sendMessage();
                     },
-                    sslPort: function () {
-                        _this.sslPort();
+                    wakeUpMacBook: function () {
+                        _this.wakeUpMacBook();
+                    },
+                    yeelightTurnOn: function () {
+                        _this.yeelightTurnOn();
+                    },
+                    yeelightTurnOff: function () {
+                        _this.yeelightTurnOff();
+                    },
+                    socketPlusOn: function () {
+                        _this.socketPlusOn();
+                    },
+                    socketPlusOff: function () {
+                        _this.socketPlusOff();
                     }
                 }
             });
         }, _this.$html);
     };
+
+    Raspberry.prototype.wakeUpMacBook = function () {
+        tips("wakeUpMacBook");
+    };
+
+    Raspberry.prototype.yeelightTurnOn = function () {
+        tips("yeelightTurnOn");
+    };
+
+    Raspberry.prototype.yeelightTurnOff = function () {
+        tips("yeelightTurnOff");
+    };
+
+    Raspberry.prototype.socketPlusOn = function () {
+        tips("socketPlusOn");
+    };
+
+    Raspberry.prototype.socketPlusOff = function () {
+        tips("socketPlusOff");
+    };
+
     Raspberry.prototype.show = function () {
         if (this.client && !this.client.isConnected()) {
             this.disconnect();
