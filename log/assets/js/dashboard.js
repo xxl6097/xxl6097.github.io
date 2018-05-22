@@ -1238,7 +1238,7 @@
         var _this = this;
         _this.vmPi.sendInfo.topic = tt;
         _this.vmPi.sendInfo.text = txt;
-        console.log('===========================writeCacheLog===================================' + str)
+        console.log('=======sendMQ======' + tt+''+txt)
         _this.sendMessage();
     };
 
