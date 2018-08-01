@@ -8224,7 +8224,7 @@ button.close {
 
 .scrollTbody {
     display: block;
-    height: 800px;
+    height: 700px;
     overflow: auto;
     width: 100%;
 }
