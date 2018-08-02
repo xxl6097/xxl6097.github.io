@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[在CentOS6.6(32位）下配置迅雷远程成功]]></title>
+    <url>%2F2018%2F08%2F02%2Fxware_centos6%2F</url>
+    <content type="text"><![CDATA[安装配置好了一台CentOS6.6的服务器，以下为本人配置迅雷远程的记录，供雷友们借鉴。环境：CentOS 6.6 32位 mini安装 无图形界面以下操作均以系统管理员 root进行参照了以下几篇文章而配置成功的。http://luyou.xunlei.com/forum.php?mod=viewthread&amp;tid=1902 你若不想让迅雷以root权限运行，用我这个脚本吧http://luyou.xunlei.com/forum.php?mod=viewthread&amp;tid=3290&amp;extra=page%3D1%26filter%3Dtypeid%26typeid%3D3 Linux(x86)下安装教程，以及init.d服务脚本，可自启动 （这篇启发最大） 建立用户 thunder （不用设置密码） 1adduser thunder 在根目录下创建TDDOWNLOAD文件夹(~/TDDOWNLOAD) 下载文件 Xware1.0.31_x86_32_glibc 链接：http://uuxia.cn:8123/thunder/Xware1.0.31_x86_32_glibc.zip 解压Xware1.0.31_x86_32_glibc.zip为Xware，使用WinSCP上传文件夹至/home/thunder下 给文件夹设置权限 1chown -R thunder:thunder /home/thunder/Xware 给~/TDDOWNLOAD设置为thunder权限 12chown thunder:thunder /TDDOWNLOAD 7.修改迅雷默认下载目录启动后自动挂载至/TDDOWNLOAD 12vi /etc/fstab 添加以下一条TDDOWNLOAD /TDDOWNLOAD none bind 0 0 设置完成后 8.重启服务器 12reboot 9.重启后使用mount 查看挂载情况，如挂载成功如下： 123456789/dev/sda3 on / type ext4 (rw)proc on /proc type proc (rw)sysfs on /sys type sysfs (rw)devpts on /dev/pts type devpts (rw,gid=5,mode=620)tmpfs on /dev/shm type tmpfs (rw,rootcontext=&quot;system_ubject_r:tmpfs_t:s0&quot;)/dev/sda1 on /boot type ext4 (rw)TDDOWNLOAD on /TDDOWNLOAD type none (rw,bind)none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw) 从上面看出，已经挂载成功。如果是分区挂载的话，则显示：/dev/sdb1 on /TDDOWNLOAD type ext4 (rw,bind) 启动迅雷远程下载。 12cd /home/thunder/Xware/./portal 记住最后的那个六位的码，然后使用浏览器登陆 http://yuancheng.xunlei.com 输入六位的的字符进行绑定设备。 如果绑定成功后，再次运行portal 的话会显示 绑定的用户名。端口默认为9000 配置为开机自动启动portal在开机配置文件中增加以下行，如下：vi /etc/rc.d/rc.local/home/thunder/Xware/portal 文件内容如下： 123456789#!/bin/sh## This script will be executed *after* all the other init scripts.# You can put your own initialization stuff in here if you don&apos;t# want to do the full Sys V style init stuff./home/thunder/Xware/portalouch /var/lock/subsys/local 至此服务器重启后迅雷远程下载自动启动。 本人亲自配置成功。 希望能通过此平台与广大雷友们分享共成长。 后来对别的服务器重新配置过，也重新整理了一下。对于上面提到的建立thunder用户，其实非必需的，因为运行远程迅雷时是以root用户运行的。 遇到的问题问题1：在执行最后一步portal时，可能会产生各种各样的bugbug1：-bash: ./portal: /lib/ld-linux.so.2: bad ELF interpreter: No such file or directory原因是在64位系统装安装32位程序解决办法： yum install glibc.i686 问题2：bug2：/home/Eli/xunlei/portal: error while loading shared libraries: libz.so.1: cannot open shared object file: No such file or directory 问题原因在于在64位系统中使用32位的库 解决办法：yum -y install libz.so.1 --setopt=protected_multilib=false 问题3：bug3：home/xunlei目录下明明有portal等文件，但是就是提示说目录下没这文件 原因可能是解压过程中出错文件损坏，或者没有给予home/xunlei目录最高权限就解压文件 解决办法：先给予home/xunlei目录最高权限，然后再次解压文件]]></content>
+      <categories>
+        <category>迅雷</category>
+      </categories>
+      <tags>
+        <tag>迅雷</tag>
+        <tag>centos</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[健身运动]]></title>
     <url>%2F2018%2F05%2F21%2Flifehealth%2F</url>
     <content type="text"><![CDATA[健身圈从来就是一个强者的舞台，有的人通过健身强健了体魄，有的人通过健身找到了自信。正所谓“一入健身深似海”，健身就是有这样的魔力让你欲罢不能。 深蹲跳 锻炼部位：股四头肌、腘绳肌、臀大肌、腓肠肌。 俯卧撑 锻炼部位：胸大肌、肱三头肌。 开合跳 锻炼部位：股四头肌、三角肌、比目鱼肌、腓肠肌。 登山者 锻炼部位：股四头肌、腘绳肌、胸肌。 波比跳 锻炼部位：股四头肌、三角肌、腹直肌。 —贵在坚持—]]></content>
@@ -46,18 +58,6 @@
       <tags>
         <tag>hobby</tag>
         <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[在CentOS6.6(32位）下配置迅雷远程成功]]></title>
-    <url>%2F2018%2F04%2F03%2Fxware_centos6%2F</url>
-    <content type="text"><![CDATA[安装配置好了一台CentOS6.6的服务器，以下为本人配置迅雷远程的记录，供雷友们借鉴。环境：CentOS 6.6 32位 mini安装 无图形界面以下操作均以系统管理员 root进行参照了以下几篇文章而配置成功的。http://luyou.xunlei.com/forum.php?mod=viewthread&amp;tid=1902 你若不想让迅雷以root权限运行，用我这个脚本吧http://luyou.xunlei.com/forum.php?mod=viewthread&amp;tid=3290&amp;extra=page%3D1%26filter%3Dtypeid%26typeid%3D3 Linux(x86)下安装教程，以及init.d服务脚本，可自启动 （这篇启发最大） 建立用户 thunder （不用设置密码） 1adduser thunder 在根目录下创建TDDOWNLOAD文件夹(~/TDDOWNLOAD) 下载文件 Xware1.0.31_x86_32_glibc 链接：http://uuxia.cn:8123/thunder/Xware1.0.31_x86_32_glibc.zip 解压Xware1.0.31_x86_32_glibc.zip为Xware，使用WinSCP上传文件夹至/home/thunder下 给文件夹设置权限 1chown -R thunder:thunder /home/thunder/Xware 给~/TDDOWNLOAD设置为thunder权限 12chown thunder:thunder /TDDOWNLOAD 7.修改迅雷默认下载目录启动后自动挂载至/TDDOWNLOAD 12vi /etc/fstab 添加以下一条TDDOWNLOAD /TDDOWNLOAD none bind 0 0 设置完成后 8.重启服务器 12reboot 9.重启后使用mount 查看挂载情况，如挂载成功如下： 123456789/dev/sda3 on / type ext4 (rw)proc on /proc type proc (rw)sysfs on /sys type sysfs (rw)devpts on /dev/pts type devpts (rw,gid=5,mode=620)tmpfs on /dev/shm type tmpfs (rw,rootcontext=&quot;system_ubject_r:tmpfs_t:s0&quot;)/dev/sda1 on /boot type ext4 (rw)TDDOWNLOAD on /TDDOWNLOAD type none (rw,bind)none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw) 从上面看出，已经挂载成功。如果是分区挂载的话，则显示：/dev/sdb1 on /TDDOWNLOAD type ext4 (rw,bind) 启动迅雷远程下载。 12cd /home/thunder/Xware/./portal 记住最后的那个六位的码，然后使用浏览器登陆 http://yuancheng.xunlei.com 输入六位的的字符进行绑定设备。 如果绑定成功后，再次运行portal 的话会显示 绑定的用户名。端口默认为9000 配置为开机自动启动portal在开机配置文件中增加以下行，如下：vi /etc/rc.d/rc.local/home/thunder/Xware/portal 文件内容如下： 123456789#!/bin/sh## This script will be executed *after* all the other init scripts.# You can put your own initialization stuff in here if you don&apos;t# want to do the full Sys V style init stuff./home/thunder/Xware/portalouch /var/lock/subsys/local 至此服务器重启后迅雷远程下载自动启动。 本人亲自配置成功。 希望能通过此平台与广大雷友们分享共成长。 后来对别的服务器重新配置过，也重新整理了一下。对于上面提到的建立thunder用户，其实非必需的，因为运行远程迅雷时是以root用户运行的。 遇到的问题问题1：在执行最后一步portal时，可能会产生各种各样的bugbug1：-bash: ./portal: /lib/ld-linux.so.2: bad ELF interpreter: No such file or directory原因是在64位系统装安装32位程序解决办法： yum install glibc.i686 问题2：bug2：/home/Eli/xunlei/portal: error while loading shared libraries: libz.so.1: cannot open shared object file: No such file or directory 问题原因在于在64位系统中使用32位的库 解决办法：yum -y install libz.so.1 --setopt=protected_multilib=false 问题3：bug3：home/xunlei目录下明明有portal等文件，但是就是提示说目录下没这文件 原因可能是解压过程中出错文件损坏，或者没有给予home/xunlei目录最高权限就解压文件 解决办法：先给予home/xunlei目录最高权限，然后再次解压文件]]></content>
-      <categories>
-        <category>迅雷</category>
-      </categories>
-      <tags>
-        <tag>迅雷</tag>
-        <tag>centos</tag>
       </tags>
   </entry>
   <entry>
