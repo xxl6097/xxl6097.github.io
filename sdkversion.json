@@ -1,0 +1,42 @@
+{
+    "libs": [
+        {
+            "name": "hetbindsdk",
+            "group": "com.github.szhittech",
+            "alias": "hetbindsdk",
+            "versions": [
+                {
+                    "description": "1.新增汉风模组\n2.新增marvell",
+                    "version": "0.0.0",
+                    "snapshot": "-SNAPSHOT"
+                },
+                {
+                    "description": "1.修改ap绑定bug\n2.新增smartlink",
+                    "version": "0.0.0",
+                    "snapshot": "-SNAPSHOT"
+                }
+            ],
+            "docLink": "http://www.baidu.com",
+            "detail": "用于接入和而泰设备库"
+        },
+        {
+            "name": "hetdevicesdk",
+            "group": "com.github.szhittech",
+            "alias": "hetdevicesdk",
+            "versions": [
+                {
+                    "description": "1.新增Zigbee\n2.新增NB设备ll",
+                    "version": "0.0.0",
+                    "snapshot": "-SNAPSHOT"
+                },
+                {
+                    "description": "1.修改WiFi设备控制\n2.修改蓝牙设备控制",
+                    "version": "0.0.0",
+                    "snapshot": "-SNAPSHOT"
+                }
+            ],
+            "docLink": "http://www.baidu.com",
+            "detail": "设备控制库"
+        }
+    ]
+}
