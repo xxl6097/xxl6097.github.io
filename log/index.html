@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MQTT查看日志</title>
+<meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<link rel="shortcut icon" href="assets/imgs/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="assets/css/bootstrap.css" />
+<link rel="stylesheet" href="assets/css/sog.min.css" />
+<link rel="stylesheet" href="assets/css/dashboard.css" />
+<link rel="stylesheet" href="assets/css/nv.d3.css" />
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="page-body">
+    <div class="page-container">
+        
+        <div class="sidebar-menu toggle-others fixed">
+
+        <div class="sidebar-menu-inner">
+
+            <header class="logo-env">
+            <div class="logo">
+                <a href="/" class="logo-expanded"> <img
+                    src="assets/imgs/emqlogo-green.png" alt="logo"/>
+                    <span>日志管理</span>
+                </a>
+                <a href="/" class="logo-collapsed"> <img class="logo-img"
+                    src="assets/imgs/emqlogo-white.png" alt="logo"/>
+                </a>
+            </div>
+
+            <div class="mobile-menu-toggle visible-xs">
+                <a href="#" data-toggle="user-info-menu"> <i class="glyphicon glyphicon-user"></i>
+                </a> <a href="#" data-toggle="mobile-menu"> <i class="glyphicon glyphicon-menu-hamburger"></i>
+                </a>
+            </div>
+            </header>
+
+            <ul id="main-menu" class="main-menu">
+                <li module="clients"><a href="/log/#/clients">
+                        <i class="dash-icon dash-icon-clients"></i> <span class="title">Clients</span>
+                </a></li>
+                <li module="sessions"><a href="/log/#/sessions"> <i
+                        class="dash-icon dash-icon-sessions"></i> <span class="title">查看日志</span>
+                </a></li>
+                <li module="websocket"><a href="/log/#/websocket"> <i
+                        class="dash-icon dash-icon-websocket"></i> <span class="title">Websocket</span>
+                </a></li>
+                <li module="raspberry"><a href="/log/#/raspberry"> <i
+                        class="dash-icon dash-icon-websocket"></i> <span class="title">Raspberry</span>
+                </a></li>
+            </ul>
+
+        </div> <!-- /.sidebar-menu-inner -->
+
+        </div> <!-- /.sidebar-menu -->
+        
+        <div class="main-content">
+        
+
+            <!-- main center -->
+            <div id="main_center">
+                <div id="dashboard_clients" class="collapse"></div>
+                <div id="dashboard_sessions" class="collapse"></div>
+                <div id="dashboard_websocket" class="collapse"></div>
+                <div id="dashboard_raspberry" class="collapse"></div>
+            </div>
+            
+            <!-- Main Footer -->
+            <footer class="main-footer sticky footer-type-1">
+            <div class="footer-inner">
+                <!-- Add your copyright text here -->
+                <div class="footer-text">
+                    &copy; 2012 -
+                    <script type="text/javascript">
+                        document.write(new Date().getFullYear());
+                    </script>
+                    Powered by <strong> <a href="uu"
+                        target="_blank" title="emqtt">uu</a></strong>
+                </div>
+
+                <div class="go-up">
+                    <a href="javascript:;" rel="go-top"> <i class="glyphicon glyphicon-chevron-up"></i></a>
+                </div>
+            </div>
+            </footer>
+        
+        </div>
+        
+    </div>
+</body>
+<!-- Bottom Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/mqttws31.js"></script>
+<script src="assets/js/TweenMax.min.js"></script>
+<script src="assets/js/joinable.js"></script>
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/sog.js"></script>
+<script src="assets/js/FileSaver.js"></script>
+<!-- JavaScripts initializations and stuff -->
+<script src="assets/js/dashboard.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        dashboard.init(document.location.href);
+    });
+</script>
+</html>

@@ -1,0 +1,936 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>ios开发笔记 | uuxia</title>
+    <meta name="author" content="uuxia">
+    
+    <meta name="description" content="在浮躁的世界安安静静地敲代码">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="ios开发笔记"/>
+    <meta property="og:site_name" content="uuxia的技术博客"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="uuxia的技术博客" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">uuxia的技术博客</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://uuxia.cn/image/icon.png" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">uuxia</p>
+                        <p class="desc">前端/Android/Java/C++/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/翻墙/">
+                    翻墙 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/NDK/">
+                    NDK <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vpn/">
+                    vpn <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Java/">
+                    Java <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Service/">
+                    Service <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/生活/">
+                    生活 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/智能家居/">
+                    智能家居 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/迅雷/">
+                    迅雷 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/IoT/">
+                    IoT <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/ios/">
+                    ios <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/android/">
+                    android <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <!--add by uuxia 20180402 内容页面的宽度改变-->
+<div class="container main-container1">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/ios/">ios</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>ios开发笔记</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2016-05-09T19:24:00.000Z"><a href="/2016/05/10/iosdev/">2016-05-10</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/ios/" class="chip pink lighten-1">ios</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#目录导航"><span class="section table-of-contents-text">目录导航</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#证书知识及准备工作"><span class="section table-of-contents-text">证书知识及准备工作</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#基础问题答疑"><span class="section table-of-contents-text">基础问题答疑</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#什么是证书"><span class="section table-of-contents-text">什么是证书</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#什么时候需要证书"><span class="section table-of-contents-text">什么时候需要证书</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#证书如何获得"><span class="section table-of-contents-text">证书如何获得</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#如何对代码进行签名"><span class="section table-of-contents-text">如何对代码进行签名</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#我生成的私钥如何共享给团队成员"><span class="section table-of-contents-text">我生成的私钥如何共享给团队成员</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#各流程中证书的需求情况"><span class="section table-of-contents-text">各流程中证书的需求情况</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#模拟器调试"><span class="section table-of-contents-text">模拟器调试</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#真机调试"><span class="section table-of-contents-text">真机调试</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#打包和发布"><span class="section table-of-contents-text">打包和发布</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#消息推送后端服务"><span class="section table-of-contents-text">消息推送后端服务</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#开发中常见的证书及相关文件介绍"><span class="section table-of-contents-text">开发中常见的证书及相关文件介绍</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#CSR-certificate-request-文件"><span class="section table-of-contents-text">CSR(certificate request) 文件</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#生成方法"><span class="section table-of-contents-text">生成方法</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#开发者证书"><span class="section table-of-contents-text">开发者证书</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#生成方法-1"><span class="section table-of-contents-text">生成方法</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#apns-Apple-Push-Notification-Service-证书"><span class="section table-of-contents-text">apns(Apple Push Notification Service) 证书</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#生成方法-2"><span class="section table-of-contents-text">生成方法</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#p12-Personal-Information-Exchange-证书"><span class="section table-of-contents-text">p12(Personal Information Exchange) 证书</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#生成方法-3"><span class="section table-of-contents-text">生成方法</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#描述文件-Provisioning-Profiles"><span class="section table-of-contents-text">描述文件(Provisioning Profiles)</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#生成方法-4"><span class="section table-of-contents-text">生成方法</span></a></li></ol></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#附录1-开发准备相关的网址"><span class="section table-of-contents-text">附录1: 开发准备相关的网址</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#几种开发者帐号区别"><span class="section table-of-contents-text">几种开发者帐号区别</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#关键区别"><span class="section table-of-contents-text">关键区别</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#真机调试流程"><span class="section table-of-contents-text">真机调试流程</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#基本概念"><span class="section table-of-contents-text">基本概念</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#条件和流程"><span class="section table-of-contents-text">条件和流程</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#拥有独立开发者帐号"><span class="section table-of-contents-text">拥有独立开发者帐号</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#共享开发者帐号"><span class="section table-of-contents-text">共享开发者帐号</span></a></li></ol></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#内测发布流程"><span class="section table-of-contents-text">内测发布流程</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#基本概念-1"><span class="section table-of-contents-text">基本概念</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#实现条件"><span class="section table-of-contents-text">实现条件</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#几种常见的分发途径"><span class="section table-of-contents-text">几种常见的分发途径</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#附录2-常见分发渠道及工具地址"><span class="section table-of-contents-text">附录2: 常见分发渠道及工具地址</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Appstore-上架流程"><span class="section table-of-contents-text">Appstore 上架流程</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#附录3-App-store最新审核标准-2015-3"><span class="section table-of-contents-text">附录3: App store最新审核标准(2015.3)</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <p><a href="http://www.williamlong.info/archives/4319.html" target="_blank" rel="noopener">http://www.williamlong.info/archives/4319.html</a></p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> 证书知识及准备工作</li>
+<li style="list-style: none"><input type="checkbox" checked> 几种开发者帐号区别</li>
+<li style="list-style: none"><input type="checkbox" checked> 真机调试流程</li>
+<li style="list-style: none"><input type="checkbox" checked> 内测发布流程</li>
+<li style="list-style: none"><input type="checkbox"> Appstore 上架流程<a id="more"></a>
+</li>
+</ul>
+<h2 id="目录导航"><a href="#目录导航" class="headerlink" title="目录导航"></a>目录导航</h2><ul>
+<li><a href="#证书知识及准备工作">证书知识及准备工作</a><ul>
+<li><a href="#基础问题答疑">基础问题答疑</a><ul>
+<li><a href="#什么是证书">什么是证书</a></li>
+<li><a href="#什么时候需要证书">什么时候需要证书</a></li>
+<li><a href="#证书如何获得">证书如何获得</a></li>
+<li><a href="#如何对代码进行签名">如何对代码进行签名</a></li>
+<li><a href="#我生成的私钥如何共享给团队成员">我生成的私钥如何共享给团队成员</a></li>
+</ul>
+</li>
+<li><a href="#各流程中证书的需求情况">各流程中证书的需求情况</a><ul>
+<li><a href="#模拟器调试">模拟器调试</a></li>
+<li><a href="#真机调试">真机调试</a></li>
+<li><a href="#打包和发布">打包和发布</a></li>
+<li><a href="#消息推送后端服务">消息推送后端服务</a></li>
+</ul>
+</li>
+<li><a href="#开发中常见的证书及相关文件介绍">开发中常见的证书及相关文件介绍</a><ul>
+<li><a href="#csrcertificate-request-%E6%96%87%E4%BB%B6">CSR(certificate request) 文件</a></li>
+<li><a href="#开发者证书">开发者证书</a></li>
+<li><a href="#apnsapple-push-notification-service-%E8%AF%81%E4%B9%A6">apns(Apple Push Notification Service) 证书</a></li>
+<li><a href="#p12personal-information-exchange-%E8%AF%81%E4%B9%A6">p12(Personal Information Exchange) 证书</a></li>
+<li><a href="##%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6provisioning-profiles">描述文件(Provisioning Profiles)</a></li>
+</ul>
+</li>
+<li><a href="#%E9%99%84%E5%BD%951-%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87%E7%9B%B8%E5%85%B3%E7%9A%84%E7%BD%91%E5%9D%80">附录1: 开发准备相关的网址</a></li>
+</ul>
+</li>
+<li><a href="#几种开发者帐号区别">几种开发者帐号区别</a><ul>
+<li><a href="#关键区别">关键区别</a></li>
+</ul>
+</li>
+<li><a href="#真机调试流程">真机调试流程</a><ul>
+<li><a href="##%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">基本概念</a></li>
+<li><a href="#条件和流程">条件和流程</a></li>
+</ul>
+</li>
+<li><a href="#内测发布流程">内测发布流程</a><ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-1">基本概念</a></li>
+<li><a href="#实现条件">实现条件</a></li>
+<li><a href="#几种常见的分发途径">几种常见的分发途径</a></li>
+<li><a href="#%E9%99%84%E5%BD%952-%E5%B8%B8%E8%A7%81%E5%88%86%E5%8F%91%E6%B8%A0%E9%81%93%E5%8F%8A%E5%B7%A5%E5%85%B7%E5%9C%B0%E5%9D%80">附录2: 常见分发渠道及工具地址</a></li>
+</ul>
+</li>
+<li><a href="#appstore-%E4%B8%8A%E6%9E%B6%E6%B5%81%E7%A8%8B">Appstore 上架流程</a><ul>
+<li><a href="#%E9%99%84%E5%BD%953-app-store%E6%9C%80%E6%96%B0%E5%AE%A1%E6%A0%B8%E6%A0%87%E5%87%8620153">附录3: App store最新审核标准(2015.3)</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="证书知识及准备工作"><a href="#证书知识及准备工作" class="headerlink" title="证书知识及准备工作"></a>证书知识及准备工作</h2><h3 id="基础问题答疑"><a href="#基础问题答疑" class="headerlink" title="基础问题答疑"></a>基础问题答疑</h3><h4 id="什么是证书"><a href="#什么是证书" class="headerlink" title="什么是证书"></a>什么是证书</h4><p>由 apple 官方颁发, 用以证明开发者身份的特殊文件, 在 iOS 开发中主要用于代码签名, 保障 iOS 生态的健康安全, 分为开发者证书和发布者证书</p>
+<h4 id="什么时候需要证书"><a href="#什么时候需要证书" class="headerlink" title="什么时候需要证书"></a>什么时候需要证书</h4><p>只有在本机模拟器调试时无需代码签名, 当 App 需要在真机运行和发布时需要使用相应证书进行签名</p>
+<h4 id="证书如何获得"><a href="#证书如何获得" class="headerlink" title="证书如何获得"></a>证书如何获得</h4><p>首先需要拥有相应权限的开发者帐号, 通过在本地生成配对的密钥, 向 <a href="https://developer.apple.com/ios/manage/overview/index.action" target="_blank" rel="noopener">provisioning portal</a> 提交公钥后换取, 后续证书在使用时会验证本地私钥</p>
+<h4 id="如何对代码进行签名"><a href="#如何对代码进行签名" class="headerlink" title="如何对代码进行签名"></a>如何对代码进行签名</h4><p>在 xcode 中, 使用描述文件(provision profile 包含调试者证书, 授权设备清单, 应用ID), 在 <code>Build Settings</code> 中选择存于 <code>Keychain Access</code> 中的证书文件设置调试和发布任务时的代码签名</p>
+<h4 id="我生成的私钥如何共享给团队成员"><a href="#我生成的私钥如何共享给团队成员" class="headerlink" title="我生成的私钥如何共享给团队成员"></a>我生成的私钥如何共享给团队成员</h4><p>在 <code>Keychain Access</code> 中找到导入的证书, 右击导出为包含私钥的 Personal Information Exchange(.p12)文件(导出时可以创建密码), 团队成员再导入 <code>p12</code> 证书后就完整包含了证书和私钥</p>
+<h3 id="各流程中证书的需求情况"><a href="#各流程中证书的需求情况" class="headerlink" title="各流程中证书的需求情况"></a>各流程中证书的需求情况</h3><h4 id="模拟器调试"><a href="#模拟器调试" class="headerlink" title="模拟器调试"></a>模拟器调试</h4><p>不需要</p>
+<h4 id="真机调试"><a href="#真机调试" class="headerlink" title="真机调试"></a>真机调试</h4><ul>
+<li><p>描述文件(Provisioning Profiles)</p>
+</li>
+<li><p>开发者证书(ios_development.cer)</p>
+</li>
+</ul>
+<h4 id="打包和发布"><a href="#打包和发布" class="headerlink" title="打包和发布"></a>打包和发布</h4><ul>
+<li><p>描述文件(Provisioning Profiles)</p>
+</li>
+<li><p>可用于发布的开发者证书(ios_distribution.cer)</p>
+</li>
+</ul>
+<h4 id="消息推送后端服务"><a href="#消息推送后端服务" class="headerlink" title="消息推送后端服务"></a>消息推送后端服务</h4><ul>
+<li>apns 证书</li>
+</ul>
+<h3 id="开发中常见的证书及相关文件介绍"><a href="#开发中常见的证书及相关文件介绍" class="headerlink" title="开发中常见的证书及相关文件介绍"></a>开发中常见的证书及相关文件介绍</h3><h4 id="CSR-certificate-request-文件"><a href="#CSR-certificate-request-文件" class="headerlink" title="CSR(certificate request) 文件"></a>CSR(certificate request) 文件</h4><p>用于换取证书的公钥文件, 实际是在本地基于 <code>RSA</code> 加密得到配对的密钥, 私钥存于 <code>Keychain Access</code> 用于签名, 公钥作为换取证书的凭证</p>
+<h5 id="生成方法"><a href="#生成方法" class="headerlink" title="生成方法"></a>生成方法</h5><ul>
+<li><p>OSX 系统自带的 <strong>Keychain Access</strong></p>
+<ul>
+<li><p>选择 “Request a Certificate From a Certificate Authority…”</p>
+</li>
+<li><p>输入 email 等信息后保存为 <code>.certSigningRequest</code> 文件</p>
+</li>
+</ul>
+</li>
+<li><p>命令行下使用 <strong>openssl</strong> 生成</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ openssl genrsa -out private.key 2048</span><br><span class="line">$ openssl req -new -sha256 -key private.key -out my.certSigningRequest</span><br></pre></td></tr></table></figure>
+<h4 id="开发者证书"><a href="#开发者证书" class="headerlink" title="开发者证书"></a>开发者证书</h4><p>由 apple 官方颁发, 用来证明开发者资格的证书文件, 分开发(ios_development.cer)和发布(ios_distribution.cer)两种</p>
+<p><code>cer</code> 证书跟开发机(私钥)绑定只能在拥有私钥的机器上使用, 如果要迁移机器需要导出为 <code>p12</code> 文件</p>
+<h5 id="生成方法-1"><a href="#生成方法-1" class="headerlink" title="生成方法"></a>生成方法</h5><p>在 <a href="https://developer.apple.com/devcenter/ios/index.action" target="_blank" rel="noopener">开发者中心</a> “certificates” 面板中添加 <code>certificate</code> 并上传刚刚生成的 <code>CSR</code> 文件, 获取 <code>ios_development.cer</code></p>
+<h4 id="apns-Apple-Push-Notification-Service-证书"><a href="#apns-Apple-Push-Notification-Service-证书" class="headerlink" title="apns(Apple Push Notification Service) 证书"></a>apns(Apple Push Notification Service) 证书</h4><p>用于服务端消息推送, 类似 ssl 证书使用, 和 App 端的开发打包没有关系</p>
+<h5 id="生成方法-2"><a href="#生成方法-2" class="headerlink" title="生成方法"></a>生成方法</h5><p>在 <a href="https://developer.apple.com/devcenter/ios/index.action" target="_blank" rel="noopener">开发者中心</a> “Identifiers” 面板中添加 <code>App ID</code> 并上传刚刚生成的 <code>CSR</code> 文件, 获取 <code>aps_production.cer</code></p>
+<h4 id="p12-Personal-Information-Exchange-证书"><a href="#p12-Personal-Information-Exchange-证书" class="headerlink" title="p12(Personal Information Exchange) 证书"></a>p12(Personal Information Exchange) 证书</h4><p><code>p12</code> 证书实际是包含了 <code>cer</code> 证书及私钥信息, 可以分发给团队成员</p>
+<h5 id="生成方法-3"><a href="#生成方法-3" class="headerlink" title="生成方法"></a>生成方法</h5><p>在 <strong>Keychain Access</strong> 中找到已经导入的 <code>cer</code> 证书, 点右键导出为 <code>p12</code> 格式</p>
+<h4 id="描述文件-Provisioning-Profiles"><a href="#描述文件-Provisioning-Profiles" class="headerlink" title="描述文件(Provisioning Profiles)"></a>描述文件(Provisioning Profiles)</h4><p>包含 <code>certificate</code> <code>appID</code> <code>devices id</code> 的文件用于在 xcode 调试打包时提供授权的配置信息</p>
+<h5 id="生成方法-4"><a href="#生成方法-4" class="headerlink" title="生成方法"></a>生成方法</h5><ul>
+<li><p>在 <a href="https://developer.apple.com/devcenter/ios/index.action" target="_blank" rel="noopener">开发者中心</a> “Provisioning Profiles” 面板中添加 <code>iOS Provisioning Profiles</code> 并上传刚刚生成的 <code>CSR</code> 文件, 获取 <code>.mobileprovision</code> 文件</p>
+</li>
+<li><p>在 xcode 登录开发者帐号后可以连接开发者中心获取</p>
+</li>
+</ul>
+<h3 id="附录1-开发准备相关的网址"><a href="#附录1-开发准备相关的网址" class="headerlink" title="附录1: 开发准备相关的网址"></a>附录1: 开发准备相关的网址</h3><blockquote>
+<p>开发者中心<br><a href="https://developer.apple.com/devcenter/ios/index.action" target="_blank" rel="noopener">https://developer.apple.com/devcenter/ios/index.action</a></p>
+<p>iOS 描述管理(配置证书、描述文件、推送服务)<br><a href="https://developer.apple.com/ios/manage/overview/index.action" target="_blank" rel="noopener">https://developer.apple.com/ios/manage/overview/index.action</a></p>
+<p>切换团队(在 web 界面上死活没有找到)<br><a href="https://developer.apple.com/account/selectTeam.action" target="_blank" rel="noopener">https://developer.apple.com/account/selectTeam.action</a></p>
+<p>iOS 上架 Appstore<br><a href="http://itunesconnect.apple.com/" target="_blank" rel="noopener">http://itunesconnect.apple.com/</a></p>
+</blockquote>
+<h2 id="几种开发者帐号区别"><a href="#几种开发者帐号区别" class="headerlink" title="几种开发者帐号区别"></a>几种开发者帐号区别</h2><blockquote>
+<p>详见: <a href="https://developer.apple.com/programs/start/ios/" target="_blank" rel="noopener">https://developer.apple.com/programs/start/ios/</a></p>
+</blockquote>
+<ul>
+<li><a href="https://developer.apple.com/programs/ios/" target="_blank" rel="noopener">个人(individual)</a> <strong>$99</strong>/year</li>
+<li><a href="https://developer.apple.com/programs/ios/" target="_blank" rel="noopener">公司(company)</a> <strong>$99</strong>/year</li>
+<li><a href="https://developer.apple.com/programs/ios/enterprise/" target="_blank" rel="noopener">企业(enterprise)</a> <strong>$299</strong>/year</li>
+<li><a href="https://developer.apple.com/programs/start/university/" target="_blank" rel="noopener">大学(University)</a> <strong>free</strong></li>
+</ul>
+<h3 id="关键区别"><a href="#关键区别" class="headerlink" title="关键区别"></a>关键区别</h3><ul>
+<li>个人帐号可以真机调试, 发布 appstore, 每年 最多为 100台设备分发</li>
+<li>公司帐号和个人帐号类似, 只有这两种帐号可以发布 appstore, 主要特权是可以添加多个开发者子账号, 但只允许主账号提交, 发布等操作, 在协同开发时比较灵活, 可以各自管理授权设备等</li>
+<li>企业帐号<strong>无法用于 appstore 发布</strong>, 但可以不通过 appstore 发布任意 iphone 都可以安装的应用</li>
+<li>大学帐号不能发布 appstore, 主要拥有真机调试的权限</li>
+</ul>
+<h2 id="真机调试流程"><a href="#真机调试流程" class="headerlink" title="真机调试流程"></a>真机调试流程</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>真机调试指 mac 连上 iphone, xcode 可以直接以这台 iphone 设备为 build target, 能在 iphone 里执行编译结果</p>
+<h3 id="条件和流程"><a href="#条件和流程" class="headerlink" title="条件和流程"></a>条件和流程</h3><p>分为拥有独立开发者帐号(也包括公司帐号或企业帐号成员)和共享开发者帐号两种情况</p>
+<h4 id="拥有独立开发者帐号"><a href="#拥有独立开发者帐号" class="headerlink" title="拥有独立开发者帐号"></a>拥有独立开发者帐号</h4><ul>
+<li><ol>
+<li>在 <a href="https://developer.apple.com/ios/manage/overview/index.action" target="_blank" rel="noopener">provisioning portal</a> 新建应用, 配置授权设备等</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>开发机上导入证书</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>在 xcode 上登录开发者帐号, 不需要准备描述文件, xcode 会自动生成(如果是公司帐号可以自动生成 <code>iOS Team Provisioning Profile</code>)</li>
+</ol>
+</li>
+</ul>
+<h4 id="共享开发者帐号"><a href="#共享开发者帐号" class="headerlink" title="共享开发者帐号"></a>共享开发者帐号</h4><p>如果无法在 xcode 登录一个开发者帐号, 也可以通过他人对你手机和应用 id 的授权, 得到 <code>.mobileprovision</code> 描述文件再导入其含私钥的证书(<code>p12</code>) 即可, 具体步骤如下:</p>
+<ul>
+<li><ol>
+<li>获得手机的 <code>udid</code> (可以连上 mac, 在 itunes 中查看)</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>告知对方 <code>udid</code> (用以设备授权) 和 应用 id</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>得到对方生成的证书和描述文件后, 先导入 <code>p12</code> 证书, 再双击 <code>mobileprovision</code> 文件</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>连接手机, 在 xcode 中选择 build target 为已连接的手机</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>对刚入门的个人开发者而言, 可以在淘宝搜 <code>iOS真机调试</code> 花几元购买一份授权, 包含(<code>p12</code> 证书 和 <code>.mobileprovision</code> 描述文件)</p>
+</blockquote>
+<h2 id="内测发布流程"><a href="#内测发布流程" class="headerlink" title="内测发布流程"></a>内测发布流程</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><p>当 App 开发进行到一定程度, 需要更多的人参与测试, 需要谋求一种方式方便应用能安装进更多的设备中</p>
+<h3 id="实现条件"><a href="#实现条件" class="headerlink" title="实现条件"></a>实现条件</h3><p>进行内测发布主要的关键点是:</p>
+<ul>
+<li><ol>
+<li>是如何将应用打包为 <code>.ipa</code></li>
+</ol>
+</li>
+</ul>
+<p>xcode6 以后, 个人/公司帐号无法对应用打包为 <code>.ipa</code>, 要么用 xcode5 打包要么拥有企业帐号级别的授权</p>
+<ul>
+<li><ol start="2">
+<li>设备需不需要授权</li>
+</ol>
+</li>
+</ul>
+<p>个人/公司帐号权限只有在 <code>TestFlight</code> / 越狱渠道下完成不授权安装; 企业帐号授权可以在 <code>ad-hoc</code> / <code>in-house</code> 渠道下分发, 完成不授权设备安装</p>
+<h3 id="几种常见的分发途径"><a href="#几种常见的分发途径" class="headerlink" title="几种常见的分发途径"></a>几种常见的分发途径</h3><ul>
+<li>ad-hoc</li>
+</ul>
+<p>打包时必须在登录企业帐号(或其成员)并已导入证书和描述文件的情况下, 任何用户(未授权)都可以在手机上用浏览器访问一个 url(例: itms-services://?action=download-manifest&amp;url=<a href="https://example.com/manifest.plist" target="_blank" rel="noopener">https://example.com/manifest.plist</a>) 完成安装</p>
+<p>最大的问题是安装量有 100 的上限, 无法作为一个量很大的分发渠道</p>
+<ul>
+<li>in-house</li>
+</ul>
+<p>针对企业内部用户进行分发, 相比 <code>ad-hoc</code> 无安装量上限</p>
+<blockquote>
+<p>iOS 8.1.3 开始不能企业证书 Iresign 方式重新签名的应用无法安装<br><a href="https://support.apple.com/en-us/HT204245" target="_blank" rel="noopener">https://support.apple.com/en-us/HT204245</a></p>
+</blockquote>
+<ul>
+<li>TestFlight</li>
+</ul>
+<p>仅支持 <strong>iOS8.0</strong> 以上, 不需要对设备 <code>udid</code> 进行授权, 适合个人 / 公司开发者, 在应用发布前可以开启 TestFlight Beta 测试并添加测试者的 iTunes Connect 帐号, 需要待测用户拥有 iTunes Connect 帐号并在设备安装 <code>TestFlight</code> 客户端</p>
+<p>这种方式非常便于推送应用更新和收集测试信息</p>
+<ul>
+<li>导出 ipa 包, 越狱安装</li>
+</ul>
+<p>如果测试设备都越狱了, 这种方式非常灵活简单, 只有能导出 ipa 包就能通过 <a href="http://www.itools.cn/" target="_blank" rel="noopener">itools</a> 等第三方工具安装</p>
+<h3 id="附录2-常见分发渠道及工具地址"><a href="#附录2-常见分发渠道及工具地址" class="headerlink" title="附录2: 常见分发渠道及工具地址"></a>附录2: 常见分发渠道及工具地址</h3><blockquote>
+<p>fir-第三方应用托管平台<br><a href="http://fir.im/" target="_blank" rel="noopener">http://fir.im/</a></p>
+<p>TestFlight<br><a href="https://developer.apple.com/testflight/" target="_blank" rel="noopener">https://developer.apple.com/testflight/</a></p>
+<p>Agile-百度内部 ios 分发测试平台<br><a href="http://agile.baidu.com" target="_blank" rel="noopener">http://agile.baidu.com</a></p>
+<p>fir-分发相关工具<br><a href="http://fir.im/dev/tools" target="_blank" rel="noopener">http://fir.im/dev/tools</a></p>
+<p>itools<br><a href="http://www.itools.cn/" target="_blank" rel="noopener">http://www.itools.cn/</a></p>
+</blockquote>
+<h2 id="Appstore-上架流程"><a href="#Appstore-上架流程" class="headerlink" title="Appstore 上架流程"></a>Appstore 上架流程</h2><p>@TODO</p>
+<h3 id="附录3-App-store最新审核标准-2015-3"><a href="#附录3-App-store最新审核标准-2015-3" class="headerlink" title="附录3: App store最新审核标准(2015.3)"></a>附录3: App store最新审核标准(2015.3)</h3><blockquote>
+<p><a href="Appstore最新审核标准_2015-3.md">App store最新审核标准(2015.3) 中文翻译</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://developer.apple.com/app-store/review/guidelines" target="_blank" rel="noopener">App store最新审核标准(2015.3) 英文原版</a></p>
+</blockquote>
+
+                
+<p class="pink-link-context">
+    <a href="/2016/05/11/installshadowsocks/" rel="next" title="CentOS下shadowsocks-libev一键安装脚本">
+    上一篇：CentOS下shadowsocks-libev一键安装脚本
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2016/05/09/okhttphelp/" rel="next" title="OkHttp使用教程">
+    下一篇：OkHttp使用教程
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/05/10/iosdev/" data-title="ios开发笔记" data-url="http://uuxia.cn/2016/05/10/iosdev/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'uuxia'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="菜单"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="http://weibo.com/" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://github.com/xxl6097" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="http://raytaylorlin.com/" target="_blank">raytaylorism主题作者的技术博客</a>
+                
+                    <a class="social-link" href="https://github.com/xxl6097" target="_blank">Github地址（测试友情链接）</a>
+                
+                <div style="display: flex;width: 800px;position:absolute;left:44.5%;margin-bottom: 90px;">
+                     <img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png">
+                     <a style="margin-top: 15px;margin-left: 15px;" href="http://www.beian.miit.gov.cn/"  style="color:#f72b07" target="_blank"></a>
+                </div>
+            </div>
+            
+
+
+        </div>
+    </div>
+    
+
+
+
+
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2018~2021 uuxia.top, All rights reserved.
+
+            <p class="right" style="margin-top: 0;">
+            本博客由
+            <a href="https://hexo.io">Hexo</a>
+            强力驱动 | 主题
+            <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a>
+            </p>
+
+
+        </div>
+    </div>
+
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=56133145" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
