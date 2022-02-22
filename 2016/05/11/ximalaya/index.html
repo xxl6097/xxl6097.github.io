@@ -348,32 +348,32 @@
 <h1 id="通讯协议"><a href="#通讯协议" class="headerlink" title="通讯协议"></a><strong>通讯协议</strong></h1><table>
 <thead>
 <tr>
-<th>0x5A</th>
-<th style="text-align:center">数据长度</th>
-<th>框架版本</th>
-<th>协议类型</th>
-<th>设备编码</th>
-<th>Mac地址</th>
-<th>数据帧序列号</th>
-<th>保留字</th>
-<th>数据类型</th>
-<th>数据内容</th>
-<th>检验码FCS</th>
+<th style="text-align:left">0x5A</th>
+<th style="text-align:left">数据长度</th>
+<th style="text-align:left">框架版本</th>
+<th style="text-align:left">协议类型</th>
+<th style="text-align:left">设备编码</th>
+<th style="text-align:left">Mac地址</th>
+<th style="text-align:left">数据帧序列号</th>
+<th style="text-align:left">保留字</th>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">数据内容</th>
+<th style="text-align:left">检验码FCS</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1字节</td>
-<td style="text-align:center">2字节</td>
-<td>1字节</td>
-<td>1字节</td>
-<td>8字节</td>
-<td>6字节</td>
-<td>4字节</td>
-<td>8字节</td>
-<td>2字节</td>
-<td>N字节</td>
-<td>2字节</td>
+<td style="text-align:left">1字节</td>
+<td style="text-align:left">2字节</td>
+<td style="text-align:left">1字节</td>
+<td style="text-align:left">1字节</td>
+<td style="text-align:left">8字节</td>
+<td style="text-align:left">6字节</td>
+<td style="text-align:left">4字节</td>
+<td style="text-align:left">8字节</td>
+<td style="text-align:left">2字节</td>
+<td style="text-align:left">N字节</td>
+<td style="text-align:left">2字节</td>
 </tr>
 </tbody>
 </table>
@@ -591,29 +591,125 @@
    ]
 }
 </code></pre><h2 id="指令说明"><a href="#指令说明" class="headerlink" title="指令说明"></a><strong>指令说明</strong></h2><h3 id="一、设备基础指令"><a href="#一、设备基础指令" class="headerlink" title="一、设备基础指令"></a><strong>一、设备基础指令</strong></h3><ol>
-<li><strong>App扫描设备</strong><br>|0x5A    |数据长度    |框架版本    |协议类型    |设备编码    |Mac地址    |数据帧序列号    |保留字    |数据类型    |数据内容    |检验码FCS|<br>|:—-|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|<br>|5A    |0022|    40|    01|    0000000000000000|    000000000000|    20000000|    0000000000000000    |0405|    data|    381a|</li>
+<li><strong>App扫描设备</strong></li>
 </ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">0x5A</th>
+<th style="text-align:left">数据长度</th>
+<th style="text-align:left">框架版本</th>
+<th style="text-align:left">协议类型</th>
+<th style="text-align:left">设备编码</th>
+<th style="text-align:left">Mac地址</th>
+<th style="text-align:left">数据帧序列号</th>
+<th style="text-align:left">保留字</th>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">数据内容</th>
+<th style="text-align:left">检验码FCS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">5A</td>
+<td style="text-align:left">0022</td>
+<td style="text-align:left">40</td>
+<td style="text-align:left">01</td>
+<td style="text-align:left">0000000000000000</td>
+<td style="text-align:left">000000000000</td>
+<td style="text-align:left">20000000</td>
+<td style="text-align:left">0000000000000000</td>
+<td style="text-align:left">0405</td>
+<td style="text-align:left">data</td>
+<td style="text-align:left">381a</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li><font color="#c00"><strong>命令字：0x0405</strong></font></li>
 <li><font color="#c00"><strong>data区：NULL</strong></font>
 </li>
 </ul>
 <ol start="2">
-<li><strong>设备回复自身信息</strong><br>|0x5A    |数据长度    |框架版本    |协议类型    |设备编码    |Mac地址    |数据帧序列号    |保留字    |数据类型    |数据内容    |检验码FCS|<br>|:—-|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|<br>|5A    |xxxx    |    40|    01|    00000199001b0300    |    d8f710e019b0    |    00000000|    0000000000000000    |0305    |    data|    xxxx|</li>
+<li><strong>设备回复自身信息</strong></li>
 </ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">0x5A</th>
+<th style="text-align:left">数据长度</th>
+<th style="text-align:left">框架版本</th>
+<th style="text-align:left">协议类型</th>
+<th style="text-align:left">设备编码</th>
+<th style="text-align:left">Mac地址</th>
+<th style="text-align:left">数据帧序列号</th>
+<th style="text-align:left">保留字</th>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">数据内容</th>
+<th style="text-align:left">检验码FCS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">5A</td>
+<td style="text-align:left">xxxx</td>
+<td style="text-align:left">40</td>
+<td style="text-align:left">01</td>
+<td style="text-align:left">00000199001b0300</td>
+<td style="text-align:left">d8f710e019b0</td>
+<td style="text-align:left">00000000</td>
+<td style="text-align:left">0000000000000000</td>
+<td style="text-align:left">0305</td>
+<td style="text-align:left">data</td>
+<td style="text-align:left">xxxx</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li><font color="#c00"><strong>命令字：0x0305</strong></font></li>
 <li><font color="#c00"><strong>厂商ID：0x0199</strong> </font></li>
 <li><font color="#c00"><strong>大分类：0x1b</strong>  </font></li>
-<li><font color="#c00"><strong>小分类：0x03</strong></font> 
+<li><font color="#c00"><strong>小分类：0x03</strong></font>
 </li>
 </ul>
 <ol start="3">
-<li><strong>App发送心跳包</strong><br>|0x5A    |数据长度    |框架版本    |协议类型    |设备编码    |Mac地址    |数据帧序列号    |保留字    |数据类型    |数据内容    |检验码FCS|<br>|:—-|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|<br>|5A    |xxxx    |    40|    01|    0000000000000000|    000000000000|    20000000|    0000000000000000    |0104|    data|    xxxx|</li>
+<li><strong>App发送心跳包</strong></li>
 </ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">0x5A</th>
+<th style="text-align:left">数据长度</th>
+<th style="text-align:left">框架版本</th>
+<th style="text-align:left">协议类型</th>
+<th style="text-align:left">设备编码</th>
+<th style="text-align:left">Mac地址</th>
+<th style="text-align:left">数据帧序列号</th>
+<th style="text-align:left">保留字</th>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">数据内容</th>
+<th style="text-align:left">检验码FCS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">5A</td>
+<td style="text-align:left">xxxx</td>
+<td style="text-align:left">40</td>
+<td style="text-align:left">01</td>
+<td style="text-align:left">0000000000000000</td>
+<td style="text-align:left">000000000000</td>
+<td style="text-align:left">20000000</td>
+<td style="text-align:left">0000000000000000</td>
+<td style="text-align:left">0104</td>
+<td style="text-align:left">data</td>
+<td style="text-align:left">xxxx</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li><font color="#c00"><strong>命令字：0x0104</strong></font> </li>
-<li><font color="#c00"><strong>data区：json</strong></font> 
+<li><font color="#c00"><strong>命令字：0x0104</strong></font></li>
+<li><font color="#c00"><strong>data区：json</strong></font>
 
 </li>
 </ul>
@@ -625,8 +721,40 @@
 &quot;data&quot;: ......    //数据节点
 }
 </code></pre><ol start="4">
-<li><strong>设备回复心跳</strong><br>|0x5A    |数据长度    |框架版本    |协议类型    |设备编码    |Mac地址    |数据帧序列号    |保留字    |数据类型    |数据内容    |检验码FCS|<br>|:—-|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|<br>|5A    |xxxx    |    40|    01|    0000000000000000|    000000000000|    00000000|    0000000000000000    |0204|    data|    xxxx|</li>
+<li><strong>设备回复心跳</strong></li>
 </ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">0x5A</th>
+<th style="text-align:left">数据长度</th>
+<th style="text-align:left">框架版本</th>
+<th style="text-align:left">协议类型</th>
+<th style="text-align:left">设备编码</th>
+<th style="text-align:left">Mac地址</th>
+<th style="text-align:left">数据帧序列号</th>
+<th style="text-align:left">保留字</th>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">数据内容</th>
+<th style="text-align:left">检验码FCS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">5A</td>
+<td style="text-align:left">xxxx</td>
+<td style="text-align:left">40</td>
+<td style="text-align:left">01</td>
+<td style="text-align:left">0000000000000000</td>
+<td style="text-align:left">000000000000</td>
+<td style="text-align:left">00000000</td>
+<td style="text-align:left">0000000000000000</td>
+<td style="text-align:left">0204</td>
+<td style="text-align:left">data</td>
+<td style="text-align:left">xxxx</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li><font color="#c00"> <strong>命令字：0x0204</strong></font> </li>
 <li><font color="#c00"> <strong>data区：json</strong></font> 
@@ -680,6 +808,8 @@
 <li><font color="#c00"> <strong>命令字：0x0104</strong></font> </li>
 <li><font color="#c00"> <strong>data区：json数据</strong></font> 
 
+</li>
+</ul>
 <p>示例：</p>
 <pre><code>{ 
  &quot;cmd&quot;: 0x00xx ,//命令码
@@ -687,9 +817,7 @@
 &quot;msg&quot;: &quot;&quot;,    //状态消息
 &quot;data&quot;: ......    //数据节点
 }
-</code></pre></li>
-</ul>
-<p><strong>2.终端回复App</strong></p>
+</code></pre><p><strong>2.终端回复App</strong></p>
 <table>
 <thead>
 <tr>
@@ -726,6 +854,8 @@
 <li><font color="#c00"> <strong>命令字：0x0204</strong></font> </li>
 <li><font color="#c00"> <strong>data区：json数据</strong></font> 
 
+</li>
+</ul>
 <p>示例：</p>
 <pre><code>{ 
  &quot;cmd&quot;: 0x00xx ,//命令码
@@ -733,9 +863,7 @@
 &quot;msg&quot;: &quot;&quot;,    //状态消息
 &quot;data&quot;: ......    //数据节点
 }
-</code></pre></li>
-</ul>
-<h3 id="三、终端主动发送控制数据给App"><a href="#三、终端主动发送控制数据给App" class="headerlink" title="三、终端主动发送控制数据给App"></a><strong>三、终端主动发送控制数据给App</strong></h3><p><strong>1.周期上传运行数据</strong></p>
+</code></pre><h3 id="三、终端主动发送控制数据给App"><a href="#三、终端主动发送控制数据给App" class="headerlink" title="三、终端主动发送控制数据给App"></a><strong>三、终端主动发送控制数据给App</strong></h3><p><strong>1.周期上传运行数据</strong></p>
 <table>
 <thead>
 <tr>
@@ -1045,7 +1173,7 @@
 <h4 id="全局命令码说明如下：-1"><a href="#全局命令码说明如下：-1" class="headerlink" title="全局命令码说明如下："></a>全局命令码说明如下：</h4><table>
 <thead>
 <tr>
-<th style="text-align:left">命令码（十六进制）</th>
+<th style="text-align:left">命令码（十六进制)</th>
 <th style="text-align:left">十进制</th>
 <th style="text-align:left">说明</th>
 </tr>
@@ -1211,16 +1339,80 @@
    ]
 }
 </code></pre><h2 id="指令说明-1"><a href="#指令说明-1" class="headerlink" title="指令说明"></a><strong>指令说明</strong></h2><h3 id="一、设备基础指令-1"><a href="#一、设备基础指令-1" class="headerlink" title="一、设备基础指令"></a><strong>一、设备基础指令</strong></h3><ol>
-<li><strong>App扫描设备</strong><br>|0x5A    |数据长度    |框架版本    |协议类型    |设备编码    |Mac地址    |数据帧序列号    |保留字    |数据类型    |数据内容    |检验码FCS|<br>|:—-|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|<br>|5A    |0022|    40|    01|    0000000000000000|    000000000000|    20000000|    0000000000000000    |0405|    data|    381a|</li>
+<li><strong>App扫描设备</strong></li>
 </ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">0x5A</th>
+<th style="text-align:left">数据长度</th>
+<th style="text-align:left">框架版本</th>
+<th style="text-align:left">协议类型</th>
+<th style="text-align:left">设备编码</th>
+<th style="text-align:left">Mac地址</th>
+<th style="text-align:left">数据帧序列号</th>
+<th style="text-align:left">保留字</th>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">数据内容</th>
+<th style="text-align:left">检验码FCS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">5A</td>
+<td style="text-align:left">0022</td>
+<td style="text-align:left">40</td>
+<td style="text-align:left">01</td>
+<td style="text-align:left">0000000000000000</td>
+<td style="text-align:left">000000000000</td>
+<td style="text-align:left">20000000</td>
+<td style="text-align:left">0000000000000000</td>
+<td style="text-align:left">0405</td>
+<td style="text-align:left">data</td>
+<td style="text-align:left">381a</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li><font color="#c00"><strong>命令字：0x0405</strong></font></li>
 <li><font color="#c00"><strong>data区：NULL</strong></font>
 </li>
 </ul>
 <ol start="2">
-<li><strong>设备回复自身信息</strong><br>|0x5A    |数据长度    |框架版本    |协议类型    |设备编码    |Mac地址    |数据帧序列号    |保留字    |数据类型    |数据内容    |检验码FCS|<br>|:—-|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|<br>|5A    |xxxx    |    40|    01|    00000199001b0300    |    d8f710e019b0    |    00000000|    0000000000000000    |0305    |    data|    xxxx|</li>
+<li><strong>设备回复自身信息</strong></li>
 </ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">0x5A</th>
+<th style="text-align:left">数据长度</th>
+<th style="text-align:left">框架版本</th>
+<th style="text-align:left">协议类型</th>
+<th style="text-align:left">设备编码</th>
+<th style="text-align:left">Mac地址</th>
+<th style="text-align:left">数据帧序列号</th>
+<th style="text-align:left">保留字</th>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">数据内容</th>
+<th style="text-align:left">检验码FCS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">5A</td>
+<td style="text-align:left">xxxx</td>
+<td style="text-align:left">40</td>
+<td style="text-align:left">01</td>
+<td style="text-align:left">00000199001b0300</td>
+<td style="text-align:left">d8f710e019b0</td>
+<td style="text-align:left">00000000</td>
+<td style="text-align:left">0000000000000000</td>
+<td style="text-align:left">0305</td>
+<td style="text-align:left">data</td>
+<td style="text-align:left">xxxx</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li><font color="#c00"><strong>命令字：0x0305</strong></font></li>
 <li><font color="#c00"><strong>厂商ID：0x0199</strong> </font></li>
@@ -1245,8 +1437,40 @@
 &quot;data&quot;: ......    //数据节点
 }
 </code></pre><ol start="4">
-<li><strong>设备回复心跳</strong><br>|0x5A    |数据长度    |框架版本    |协议类型    |设备编码    |Mac地址    |数据帧序列号    |保留字    |数据类型    |数据内容    |检验码FCS|<br>|:—-|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|:—–|<br>|5A    |xxxx    |    40|    01|    0000000000000000|    000000000000|    00000000|    0000000000000000    |0204|    data|    xxxx|</li>
+<li><strong>设备回复心跳</strong></li>
 </ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">0x5A</th>
+<th style="text-align:left">数据长度</th>
+<th style="text-align:left">框架版本</th>
+<th style="text-align:left">协议类型</th>
+<th style="text-align:left">设备编码</th>
+<th style="text-align:left">Mac地址</th>
+<th style="text-align:left">数据帧序列号</th>
+<th style="text-align:left">保留字</th>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">数据内容</th>
+<th style="text-align:left">检验码FCS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">5A</td>
+<td style="text-align:left">xxxx</td>
+<td style="text-align:left">40</td>
+<td style="text-align:left">01</td>
+<td style="text-align:left">0000000000000000</td>
+<td style="text-align:left">000000000000</td>
+<td style="text-align:left">00000000</td>
+<td style="text-align:left">0000000000000000</td>
+<td style="text-align:left">0204</td>
+<td style="text-align:left">data</td>
+<td style="text-align:left">xxxx</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li><font color="#c00"> <strong>命令字：0x0204</strong></font> </li>
 <li><font color="#c00"> <strong>data区：json</strong></font> 
