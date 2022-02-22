@@ -355,14 +355,17 @@
 
             <div class="entry pink-link-context">
                 <p>git使用SSH进行无密码身份验证<br><a id="more"></a></p>
-<h2 id="生成key"><a href="#生成key" class="headerlink" title="生成key"></a>生成key</h2><h4 id="1-ed25519方式"><a href="#1-ed25519方式" class="headerlink" title="1. ed25519方式"></a>1. ed25519方式</h4><pre><code>ssh-keygen -t ed25519 -C &quot;uuxia@uuxia.cn&quot;
+<h2 id="生成key"><a href="#生成key" class="headerlink" title="生成key"></a>生成key</h2><hr>
+<h4 id="1-ed25519方式"><a href="#1-ed25519方式" class="headerlink" title="1. ed25519方式"></a>1. ed25519方式</h4><pre><code>ssh-keygen -t ed25519 -C &quot;uuxia@uuxia.cn&quot;
 cat ~/.ssh/id_ed25519.pub
 </code></pre><h4 id="2-rsa方式"><a href="#2-rsa方式" class="headerlink" title="2. rsa方式"></a>2. rsa方式</h4><pre><code>ssh-keygen -t rsa -C &quot;uuxia@uuxia.com&quot;
 cat ~/.ssh/id_rsa.pub
-</code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h4 id="1-github"><a href="#1-github" class="headerlink" title="1. github"></a>1. github</h4><pre><code>ssh -T git@github.com
+</code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><hr>
+<h4 id="1-github"><a href="#1-github" class="headerlink" title="1. github"></a>1. github</h4><pre><code>ssh -T git@github.com
 </code></pre><h4 id="2-gitee"><a href="#2-gitee" class="headerlink" title="2. gitee"></a>2. gitee</h4><pre><code>ssh -T git@gitee.com
 </code></pre><h4 id="2-coding"><a href="#2-coding" class="headerlink" title="2. coding"></a>2. coding</h4><pre><code>ssh -T git@e.coding.net
-</code></pre><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>在个人设置里面添加前，必须删除单独项目中添加的ssh key！！！</p>
+</code></pre><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><hr>
+<p>在个人设置里面添加前，必须删除单独项目中添加的ssh key！！！</p>
 
                 
 <p class="pink-link-context">
