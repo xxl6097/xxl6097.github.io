@@ -29,7 +29,7 @@
   <entry>
     <title><![CDATA[git使用SSH进行无密码身份验证]]></title>
     <url>%2F2022%2F02%2F11%2Fgitssh%2F</url>
-    <content type="text"><![CDATA[git使用SSH进行无密码身份验证 一、生成key 1.ed25519方式123ssh-keygen -t ed25519 -C &quot;uuxia@uuxia.cn&quot;cat ~/.ssh/id_ed25519.pub 2.rsa方式12ssh-keygen -t rsa -C &quot;uuxia@uuxia.com&quot;cat ~/.ssh/id_rsa.pub 二、测试 1.测试github服务器1ssh -T git@github.com 2.测试gitee服务器1ssh -T git@gitee.com 3.测试coding服务1ssh -T git@e.coding.net 注意 在个人设置里面添加前，必须删除单独项目中添加的ssh key！！！]]></content>
+    <content type="text"><![CDATA[git使用SSH进行无密码身份验证 一、生成keyed25519方式123ssh-keygen -t ed25519 -C &quot;uuxia@uuxia.cn&quot;cat ~/.ssh/id_ed25519.pub rsa方式12ssh-keygen -t rsa -C &quot;uuxia@uuxia.com&quot;cat ~/.ssh/id_rsa.pub 二、测试 测试github服务器1ssh -T git@github.com 测试gitee服务器1ssh -T git@gitee.com 测试coding服务1ssh -T git@e.coding.net 注意 在个人设置里面添加前，必须删除单独项目中添加的ssh key！！！]]></content>
       <categories>
         <category>Git</category>
         <category>github</category>
