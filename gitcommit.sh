@@ -1,56 +1,51 @@
 #!/bin/bash
 function todir() {
-  timestamp=$(date '+%Y-%m-%d %H:%M:%S')
-  echo "$timestamp"
   pwd
 }
 
 function pull() {
   todir
+  echo "git pull"
   git pull
 }
 
 function forcepull() {
   todir
+  echo "git fetch --all && git reset --hard origin/master && git pull"
   git fetch --all && git reset --hard origin/master && git pull
 }
 
-function push() {
-  todir
-  arg1=$1
-  arg2=$2
-  echo "1---->$1 $2"
+
+# shellcheck disable=SC2120
+function gitpush() {
+  commit=""
   if [ ! -n "$1" ]; then
-    arg1=$(date '+%Y-%m-%d %H:%M:%S')
+    commit="$(date '+%Y-%m-%d %H:%M:%S') by ${USER}"
   else
-    arg1=$1
-  fi
-  echo "2---->$1 $2"
-
-  if [ ! -n "$2" ]; then
-    arg2="n"
-    echo "2.1---->$1 $arg2"
-  else
-    echo "2.2---->$1 $arg2"
-    arg2=$1
+    commit="$1 by ${USER}"
   fi
 
-  echo "3---->$1 $arg2"
-  if [ "${arg2}" = "f" ]; then
-    forcepull
-  fi
-  echo "3.1---->$commit"
-  commit="$arg1"
-  if [ "${arg1}" = "" ]; then
-    commit=$(date '+%Y-%m-%d %H:%M:%S')
-  else
-    commit="$arg1"
-  fi
-  echo "4---->$commit"
+  echo $commit
   git add .
   git commit -m "$commit"
-#  git push -u origin main
+  #  git push -u origin main
   git push
 }
 
-push $1 $2
+function bootstrap() {
+    case $1 in
+    pull)
+      pull
+      ;;
+    -f)
+      forcepull
+      ;;
+    *)
+      gitpush $1
+      ;;
+    esac
+}
+
+
+bootstrap $1
+
