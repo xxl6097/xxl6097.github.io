@@ -210,14 +210,6 @@
 
         
 
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/Git/gitee/">
-                    gitee <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/生活/">
                     生活 <span class="right">3 篇</span></a>
@@ -305,7 +297,7 @@
             
     
     
-    <a class="breadcrumb" href="/categories/Git/">Git</a><a class="breadcrumb" href="/categories/Git/github/">github</a><a class="breadcrumb" href="/categories/Git/gitee/">gitee</a>
+    <a class="breadcrumb" href="/categories/Git/">Git</a><a class="breadcrumb" href="/categories/Git/github/">github</a>
 
 
         
@@ -355,10 +347,10 @@
 
             <div class="entry pink-link-context">
                 <p>git使用SSH进行无密码身份验证<br><a id="more"></a></p>
-<h2 id="一、生成key"><a href="#一、生成key" class="headerlink" title="一、生成key"></a>一、生成key</h2><h4 id="ed25519方式"><a href="#ed25519方式" class="headerlink" title="ed25519方式"></a>ed25519方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ssh-keygen -t ed25519 -C &quot;uuxia@uuxia.cn&quot;</span><br><span class="line">cat ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+<h2 id="一、生成key"><a href="#一、生成key" class="headerlink" title="一、生成key"></a>一、生成key</h2><h4 id="ed25519方式"><a href="#ed25519方式" class="headerlink" title="ed25519方式"></a>ed25519方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C &quot;uuxia@uuxia.cn&quot;</span><br><span class="line">cat ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
 <h4 id="rsa方式"><a href="#rsa方式" class="headerlink" title="rsa方式"></a>rsa方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;uuxia@uuxia.com&quot;</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<h2 id="二、测试"><a href="#二、测试" class="headerlink" title="二、测试"></a>二、测试</h2><hr>
-<h4 id="测试github服务器"><a href="#测试github服务器" class="headerlink" title="测试github服务器"></a>测试github服务器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="二、测试"><a href="#二、测试" class="headerlink" title="二、测试"></a>二、测试</h2><h4 id="测试github服务器"><a href="#测试github服务器" class="headerlink" title="测试github服务器"></a>测试github服务器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 <h4 id="测试gitee服务器"><a href="#测试gitee服务器" class="headerlink" title="测试gitee服务器"></a>测试gitee服务器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
 <h4 id="测试coding服务"><a href="#测试coding服务" class="headerlink" title="测试coding服务"></a>测试coding服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@e.coding.net</span><br></pre></td></tr></table></figure>
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><hr>
