@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Gradle发布MavenCenter和Nexus私服插件]]></title>
+    <url>%2F2022%2F03%2F10%2Fgradle-maven%2F</url>
+    <content type="text"><![CDATA[一款Gradle插件，可以将你的Java Library、Android Library和Kotlin Library轻松的发布到MavenCenter和自己的Mexus私服。 介绍基于Java语言与Gradle Api开发的Gradle Plugin，本Gradle插件可以让你的library发布到MavenCenter和自己的nexus私服变得非常容易。 功能简介 支持发布多种类型的库, 例如：Java、Android、Kotlin； 支持在新的gradle中依赖方式 api / implementation； 支持签名库资源，包括sources、Javadoc、POM（需要Gradle Version &gt;= 4.8） 本插件内置了signing签名信息与文件(secring.gpg) 发布MavenCenter步骤1. 配置根目录下gradle.properties如果发布到MavenCenter，该文件无需配置 2. 配置library/build.gradle1234567891011ext &#123; groupId = &quot;io.github.szhittech&quot; name = &quot;gradle-maven&quot; version = &quot;0.0.0-SNAPSHOT&quot; description = &quot;A Gradle Plugin For Java、Android、Kotlin.&quot; url = &quot;https://e.coding.net/clife-devops/clifepublic/gradle-maven.git&quot; connection = &quot;scm:git@github.com:szhittech/clifesdk.git&quot; authorId = &quot;uuxia&quot; authorName = &quot;xiamoumou&quot; authorEmail = &quot;xxx@163.com&quot;&#125; 参数 必选 描述 groupId 是 项目组织唯一的标识符 name 是 项目名称 version 是 项目版本。有-SNAPSHOT发布快照，没有发布release版 description 否 项目描述 url 否 项目地址 connection 否 项目地址 authorId 否 作者ID authorName 否 作者姓名 authorEmail 否 作者邮箱 3. 执行发布任务 如上如，点击uploadToMaven，即可将库发布到MavenCenter 发布MavenCenter成功后 Release版步审核步骤如下： 上述步骤成功后，请登录https://s01.oss.sonatype.org/; 页面左侧栏点击Build Promotion-&gt;Staging Repositories； 在Staging Repositories选项卡可以看到刚提交的release版本库，如：iogithubszhittect-xxxx; 勾选iogithubszhittect-xxxx，点击Close； 稍等几十秒 Refresh，再次勾选iogithubszhittect-xxxx，点击Release,即可发布成功，等待大概4小时； 发布Nexus私服步骤1. 配置根目录下gradle.properties12345nexus.name=codingcoding.username=xiaoli.xia@clife.cncoding.password=xxxxxxcoding.snapshot=https://clife-devops-maven.pkg.coding.net/repository/public-repository/maven-snapshots/coding.release=https://clife-devops-maven.pkg.coding.net/repository/public-repository/maven-releases/ 参数 必选 描述 nexus.name 是 私服前缀名称，本例coding，下面字段就都以coding为前缀 nexus.username 是 私服用户名 nexus.password 是 私服密码 nexus.snapshot 是 私服快照版上传地址 nexus.release 是 私服release版上传地址 2. 配置library/build.gradle1234567891011ext &#123; groupId = &quot;io.github.szhittech&quot; name = &quot;gradle-maven&quot; version = &quot;0.0.0-SNAPSHOT&quot; description = &quot;A Gradle Plugin For Java、Android、Kotlin.&quot; url = &quot;https://e.coding.net/clife-devops/clifepublic/gradle-maven.git&quot; connection = &quot;scm:git@github.com:szhittech/clifesdk.git&quot; authorId = &quot;uuxia&quot; authorName = &quot;xiamoumou&quot; authorEmail = &quot;xxx@163.com&quot;&#125; 参数 必选 描述 groupId 是 项目组织唯一的标识符 name 是 项目名称 version 是 项目版本。有-SNAPSHOT发布快照，没有发布release版 description 否 项目描述 url 否 项目地址 connection 否 项目地址 authorId 否 作者ID authorName 否 作者姓名 authorEmail 否 作者邮箱 3. 执行发布任务 如上图，点击uploadToCoding，即可将库发布到Nexus私服 注意：这里的Coding就是上文自定义的前缀(nexus.name) 友情链接： 1. android发布三方库到远程maven仓库详细教程 2. 发布Android Lib到Maven Central]]></content>
+      <tags>
+        <tag>java</tag>
+        <tag>android</tag>
+        <tag>gradle</tag>
+        <tag>maven</tag>
+        <tag>Kotlin</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[netty粘包断包处理]]></title>
     <url>%2F2022%2F02%2F18%2Fnetty-tcp-packet-decoder%2F</url>
     <content type="text"><![CDATA[基于Netty的TCP Server，处理二进制数据断包和粘包，以及tcp发送字符串的截取处理！ 一、5A协议在Netty中处理断包粘包 长度[2] 1 1 设备编码[8] Mac地址[6] 帧序号[4] 保留[8] 命令字[2] Body CRC2[2] 5A 0042 40 00 00000199000B0301 8C18D9FFEB9D 00000046 0000000000000000 0104 0000000001000301000000000000000000000003000200000000000000000000 050B 说明： 1.长度len=0042(HEX)=66=(34+32)不包含5A; 2.空包长度total=35； 3.5A这一个子节不算在len区； int maxFrameLength = 65535; （len是两个子节，所以最大长度是无符号两个子节的最大值） int lengthFieldOffset = 1; （len的索引下表是1，下表从0开始） int lengthFieldLength = 2; （len是两个子节） int lengthAdjustment = -2; （netty从len后面开始读取，5A这一子节又不再len中，len又是2子节，所以这里是-2） int initialBytesToStrip = 0; （这个0表示完整的协议内容，如果不想要5A，那么这里就是1） socketChannel.pipeline().addLast(new LengthFieldBasedFrameDecoder(maxFrameLength, lengthFieldOffset, lengthFieldLength, lengthAdjustment, initialBytesToStrip)); 测试断包发送： 完整数据包：5A0042400000000199000B03018C18D9FFEB9D00000046000000000000000001040000000001000301000000000000000000000003000200000000000000000000050B 第一次发送（一包半）：5A0042400000000199000B03018C18D9FFEB9D00000046000000000000000001040000000001000301000000000000000000000003000200000000000000000000050B 5A0042400000000199000B03018C18D9FFEB9D0000004600000000000000000104 第二次发送（补齐后半包）：0000000001000301000000000000000000000003000200000000000000000000050B 二、水机起始码 功能码 数据长度 Body CRC A2 10 0E 0102030405060708091011121314 050B 说明： 1.len=0E(HEX)=14,这里的len仅仅是Body的长度，不包含head的长度; lengthFieldOffset=2 lengthFieldLength=1 lengthAdjustment=2 initialBytesToStrip=0 maxFrameLength=255 https://blog.csdn.net/lzwglory/article/details/80242209 https://blog.csdn.net/zougen/article/details/79037675 https://www.jianshu.com/p/a0a51fd79f62 https://www.cnblogs.com/workharder/p/12325908.html]]></content>
@@ -49,13 +61,13 @@
         <category>Centos</category>
       </categories>
       <tags>
+        <tag>java</tag>
+        <tag>gradle</tag>
         <tag>centos</tag>
         <tag>hexo</tag>
-        <tag>java</tag>
         <tag>frp</tag>
         <tag>nginx</tag>
         <tag>mysql</tag>
-        <tag>gradle</tag>
       </tags>
   </entry>
   <entry>
@@ -66,8 +78,8 @@
         <category>Hexo</category>
       </categories>
       <tags>
-        <tag>写作</tag>
         <tag>hexo</tag>
+        <tag>写作</tag>
       </tags>
   </entry>
   <entry>
@@ -224,8 +236,8 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>okhttp</tag>
         <tag>android</tag>
+        <tag>okhttp</tag>
       </tags>
   </entry>
   <entry>
