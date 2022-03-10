@@ -7,7 +7,7 @@
 
     
 
-    <title>uuxia</title>
+    <title>Gradle发布MavenCenter和Nexus私服插件 | uuxia</title>
     <meta name="author" content="uuxia">
     
     <meta name="description" content="在浮躁的世界安安静静地敲代码">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
-    
+    <meta property="og:title" content="Gradle发布MavenCenter和Nexus私服插件"/>
     <meta property="og:site_name" content="悠悠博客"/>
 
     
@@ -310,12 +310,12 @@
             <div class="article-title">
                 
     
-        <h1>无题</h1>
+        <h1>Gradle发布MavenCenter和Nexus私服插件</h1>
     
 
 
             </div>
-            <time class="pink-link-context" datetime="2022-03-10T10:46:12.617Z"><a href="/2022/03/10/gradle-maven/">2022-03-10</a></time>
+            <time class="pink-link-context" datetime="2022-03-10T10:46:12.000Z"><a href="/2022/03/10/gradle-maven/">2022-03-10</a></time>
 
             <span id="busuanzi_container_page_pv" class="read-times-container">
     <i class="fa fa-eye"></i>
@@ -323,6 +323,20 @@
 </span>
 
             
+    <div class="tags-row">
+        
+            <a href="/tags/java/" class="chip pink lighten-1">java</a>
+        
+            <a href="/tags/android/" class="chip pink lighten-1">android</a>
+        
+            <a href="/tags/gradle/" class="chip pink lighten-1">gradle</a>
+        
+            <a href="/tags/maven/" class="chip pink lighten-1">maven</a>
+        
+            <a href="/tags/Kotlin/" class="chip pink lighten-1">Kotlin</a>
+        
+    </div>
+
 
             <div class="toc pink-link-context hide-on-med-and-down">
     <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Gradle发布MavenCenter和Nexus私服插件"><span class="section table-of-contents-text">Gradle发布MavenCenter和Nexus私服插件</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#最新版本"><span class="section table-of-contents-text">最新版本</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#功能简介"><span class="section table-of-contents-text">功能简介</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#使用步骤"><span class="section table-of-contents-text">使用步骤</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#1-在根目录build-gradle中新增如下代码"><span class="section table-of-contents-text">1. 在根目录build.gradle中新增如下代码</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#2-在library-build-gradle中新增如下代码"><span class="section table-of-contents-text">2. 在library/build.gradle中新增如下代码</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#发布MavenCenter步骤"><span class="section table-of-contents-text">发布MavenCenter步骤</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#1-配置根目录下gradle-properties"><span class="section table-of-contents-text">1. 配置根目录下gradle.properties</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#2-配置library-build-gradle"><span class="section table-of-contents-text">2. 配置library/build.gradle</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#3-执行发布任务"><span class="section table-of-contents-text">3. 执行发布任务</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#4-自定Maven-oss账号配置"><span class="section table-of-contents-text">4. 自定Maven oss账号配置</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#发布Nexus私服步骤"><span class="section table-of-contents-text">发布Nexus私服步骤</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#1-配置根目录下gradle-properties-1"><span class="section table-of-contents-text">1. 配置根目录下gradle.properties</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#2-配置library-build-gradle-1"><span class="section table-of-contents-text">2. 配置library/build.gradle</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#3-执行发布任务-1"><span class="section table-of-contents-text">3. 执行发布任务</span></a></li></ol></li></ol></li></ol>
@@ -538,7 +552,7 @@
         <div class="card">
             <div class="card-content">
                 <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="2022/03/10/gradle-maven/" data-title="" data-url="https://uuxia.cn/2022/03/10/gradle-maven/"></div>
+                <div class="ds-thread" data-thread-key="2022/03/10/gradle-maven/" data-title="Gradle发布MavenCenter和Nexus私服插件" data-url="https://uuxia.cn/2022/03/10/gradle-maven/"></div>
 
                 <script type="text/javascript">
                     console.log(document.querySelector('.ds-thread'));
