@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[terminal代理设置]]></title>
+    <url>%2F2022%2F04%2F28%2Fproxysetting%2F</url>
+    <content type="text"><![CDATA[ubuntu、linux下terminal终端http和git代理设置 #http代理设置(只在当前 shell 生效) export http_proxy=http://127.0.0.1:1080 export https_proxy=http://127.0.0.1:1080 export http_proxy=socks5://127.0.0.1:1087 export https_proxy=socks5://127.0.0.1:1087 #http代理查看 export http_proxy export https_proxy #git代理设置 git config –global http.proxy http://127.0.0.1:1080 git config –global https.proxy http://127.0.0.1:1080 #查看http、https代理配置情况 git config –global –get http.proxy git config –global –get https.proxy #取消http、https代理配置 git config –global –unset http.proxy git config –global –unset https.proxy]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>ubuntu</tag>
+        <tag>proxy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[汽车搭火教程]]></title>
     <url>%2F2022%2F03%2F24%2Fcar-start%2F</url>
     <content type="text"><![CDATA[汽车搭火教程]]></content>
@@ -49,8 +59,8 @@
       </categories>
       <tags>
         <tag>shadowsocks</tag>
-        <tag>raspberry</tag>
         <tag>proxy</tag>
+        <tag>raspberry</tag>
       </tags>
   </entry>
   <entry>
@@ -279,13 +289,13 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[关于]]></title>
-    <url>%2Fabout%2Findex.html</url>
-    <content type="text"><![CDATA[大家好，我是XXX。欢迎来到我的个人技术博客。 这里用markdown写下你的简介，就跟平时写md一样就可以了。]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[读书]]></title>
     <url>%2Freading%2Findex.html</url>
     <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[关于]]></title>
+    <url>%2Fabout%2Findex.html</url>
+    <content type="text"><![CDATA[大家好，我是XXX。欢迎来到我的个人技术博客。 这里用markdown写下你的简介，就跟平时写md一样就可以了。]]></content>
   </entry>
 </search>
