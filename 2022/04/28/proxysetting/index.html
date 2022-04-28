@@ -171,6 +171,14 @@
             
 
             <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/VPN/">
+                    VPN <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/Android/">
                     Android <span class="right">3 篇</span></a>
                 </a>
@@ -187,8 +195,8 @@
         
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/VPN/">
-                    VPN <span class="right">2 篇</span></a>
+                <a class="no-padding" href="/categories/Centos/">
+                    Centos <span class="right">3 篇</span></a>
                 </a>
             </li>
 
@@ -211,14 +219,6 @@
         
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/Centos/">
-                    Centos <span class="right">3 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/gradle/">
                     gradle <span class="right">1 篇</span></a>
                 </a>
@@ -227,8 +227,8 @@
         
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/IoT/">
-                    IoT <span class="right">3 篇</span></a>
+                <a class="no-padding" href="/categories/netty/">
+                    netty <span class="right">1 篇</span></a>
                 </a>
             </li>
 
@@ -243,16 +243,16 @@
         
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/Hexo/">
-                    Hexo <span class="right">1 篇</span></a>
+                <a class="no-padding" href="/categories/IoT/">
+                    IoT <span class="right">3 篇</span></a>
                 </a>
             </li>
 
         
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/netty/">
-                    netty <span class="right">1 篇</span></a>
+                <a class="no-padding" href="/categories/Hexo/">
+                    Hexo <span class="right">1 篇</span></a>
                 </a>
             </li>
 
@@ -335,9 +335,9 @@
         
             <a href="/tags/git/" class="chip pink lighten-1">git</a>
         
-            <a href="/tags/ubuntu/" class="chip pink lighten-1">ubuntu</a>
-        
             <a href="/tags/proxy/" class="chip pink lighten-1">proxy</a>
+        
+            <a href="/tags/ubuntu/" class="chip pink lighten-1">ubuntu</a>
         
     </div>
 
@@ -350,11 +350,11 @@
             <div class="entry pink-link-context">
                 <p>ubuntu、linux下terminal终端http和git代理设置</p>
 <a id="more"></a>
-<p>#http代理设置(只在当前 shell 生效)<br>    export http_proxy=<a href="http://127.0.0.1:1080" target="_blank" rel="noopener">http://127.0.0.1:1080</a><br>    export https_proxy=<a href="http://127.0.0.1:1080" target="_blank" rel="noopener">http://127.0.0.1:1080</a><br>    export http_proxy=socks5://127.0.0.1:1087<br>    export https_proxy=socks5://127.0.0.1:1087</p>
-<p>#http代理查看<br>    export http_proxy<br>    export https_proxy</p>
-<p>#git代理设置<br>    git config –global http.proxy <a href="http://127.0.0.1:1080" target="_blank" rel="noopener">http://127.0.0.1:1080</a><br>    git config –global https.proxy <a href="http://127.0.0.1:1080" target="_blank" rel="noopener">http://127.0.0.1:1080</a></p>
-<p>#查看http、https代理配置情况<br>    git config –global –get http.proxy<br>    git config –global –get https.proxy</p>
-<p>#取消http、https代理配置<br>    git config –global –unset http.proxy<br>    git config –global –unset https.proxy</p>
+<p>#http代理设置(只在当前 shell 生效)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy=http://127.0.0.1:1080</span><br><span class="line">export https_proxy=http://127.0.0.1:1080</span><br><span class="line">export http_proxy=socks5://127.0.0.1:1087</span><br><span class="line">export https_proxy=socks5://127.0.0.1:1087</span><br></pre></td></tr></table></figure></p>
+<p>#http代理查看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy</span><br><span class="line">export https_proxy</span><br></pre></td></tr></table></figure></p>
+<p>#git代理设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br></pre></td></tr></table></figure></p>
+<p>#查看http、https代理配置情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --get http.proxy</span><br><span class="line">git config --global --get https.proxy</span><br></pre></td></tr></table></figure></p>
+<p>#取消http、https代理配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure></p>
 
                 
 
