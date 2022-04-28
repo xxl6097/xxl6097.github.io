@@ -7,7 +7,7 @@
 
     
 
-    <title>归档：2022/4 | uuxia</title>
+    <title>小米9基于PixelExperience源码编译步骤 | uuxia</title>
     <meta name="author" content="uuxia">
     
     <meta name="description" content="在浮躁的世界安安静静地敲代码">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
-    
+    <meta property="og:title" content="小米9基于PixelExperience源码编译步骤"/>
     <meta property="og:site_name" content="悠悠博客"/>
 
     
@@ -296,47 +296,110 @@
 
 
     <main>
-        <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+        <!--add by uuxia 20180402 内容页面的宽度改变-->
+<div class="container main-container1">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
-        <span class="breadcrumb">当前位置（归档）</span>
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+
         
 
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>小米9基于PixelExperience源码编译步骤</h1>
+    
 
 
-    <ul class="collapsible mt-0" data-collapsible="accordion">
+            </div>
+            <time class="pink-link-context" datetime="2022-04-28T15:05:47.000Z"><a href="/2022/04/28/cepheus/">2022-04-28</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
         
+            <a href="/tags/cepheus/" class="chip pink lighten-1">cepheus</a>
         
-            <li>
-                <div class="collapsible-header active">
-                    <i class="fa fa-archive"></i>2022
-                </div>
-                <div class="collapsible-body">
-                    <div class="collection">
-                        
-                            <a href="/2022/04/28/cepheus/" class="collection-item grey-text text-darken-1">
-                                <time datetime="2022-04-28T15:05:47.000Z">2022-04-28</time>
-                                <span>&nbsp;&nbsp;&nbsp;</span>
-                                小米9基于PixelExperience源码编译步骤
-                            </a>
-                        
-                            <a href="/2022/04/28/proxysetting/" class="collection-item grey-text text-darken-1">
-                                <time datetime="2022-04-28T14:54:33.000Z">2022-04-28</time>
-                                <span>&nbsp;&nbsp;&nbsp;</span>
-                                terminal代理设置
-                            </a>
-                        
-                    </div>
-                </div>
-            </li>
+            <a href="/tags/proxy/" class="chip pink lighten-1">proxy</a>
         
-    </ul>
+            <a href="/tags/android/" class="chip pink lighten-1">android</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#Pixel-Experience"><span class="section table-of-contents-text">Pixel Experience</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Sync"><span class="section table-of-contents-text">Sync</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Build"><span class="section table-of-contents-text">Build</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Submitting-Patches"><span class="section table-of-contents-text">Submitting Patches</span></a></li></ol></li></ol></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h1 id="Pixel-Experience"><a href="#Pixel-Experience" class="headerlink" title="Pixel Experience"></a>Pixel Experience</h1><h3 id="Sync"><a href="#Sync" class="headerlink" title="Sync"></a>Sync</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Initialize local repository</span></span><br><span class="line">repo init -u https://github.com/PixelExperience/manifest -b twelve</span><br><span class="line"></span><br><span class="line"><span class="comment"># Sync</span></span><br><span class="line">repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags</span><br></pre></td></tr></table></figure>
+<h3 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Set up environment</span></span><br><span class="line">$ . build/envsetup.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># Choose a target</span></span><br><span class="line">$ lunch aosp_<span class="variable">$device</span>-userdebug</span><br><span class="line"></span><br><span class="line"><span class="comment"># Build the code</span></span><br><span class="line">$ mka bacon -jX</span><br></pre></td></tr></table></figure>
+<h3 id="Submitting-Patches"><a href="#Submitting-Patches" class="headerlink" title="Submitting Patches"></a>Submitting Patches</h3><p>Patches are always welcome! Please submit your patches to our Gerrit.</p>
+<p><a href="https://wiki.pixelexperience.org/help/submit-patch/" target="_blank" rel="noopener">Gerrit push guide</a></p>
+
+                
+
+
+<p class="pink-link-context">
+    <a href="/2022/04/28/proxysetting/" rel="next" title="terminal代理设置">
+    下一篇：terminal代理设置
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2022/04/28/cepheus/" data-title="小米9基于PixelExperience源码编译步骤" data-url="https://uuxia.cn/2022/04/28/cepheus/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'uuxia'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
 
 
 </div>
