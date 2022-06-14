@@ -113,8 +113,8 @@
         <category>Hexo</category>
       </categories>
       <tags>
-        <tag>写作</tag>
         <tag>hexo</tag>
+        <tag>写作</tag>
       </tags>
   </entry>
   <entry>
@@ -306,6 +306,11 @@
   <entry>
     <title><![CDATA[读书]]></title>
     <url>%2Freading%2Findex.html</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[categories]]></title>
+    <url>%2Fcategories%2Findex.html</url>
     <content type="text"></content>
   </entry>
   <entry>
