@@ -4,9 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="树莓派3B(Raspberry 3B)搭建HomeAssistant, 悠悠博客">
-    <meta name="description" content="Home Assistant 是一款基于 Python 的智能家居开源系统，支持众多品牌的智能家居设备，可以轻松实现设备的语音控制、自动化等。本文档全站内容基于 Home Assistant 官方网站 本地化而成，具有以下特点：
-整合『组件">
+    <meta name="keywords" content="Centos后台运行jar, 悠悠博客">
+    <meta name="description" content="jar后台运行
+
+jar后台运行nohup java -jar xx.jar &amp;gt;/dev/null  &amp;amp;
+
+
+此处的“&amp;gt;&amp;#x2F;dev&amp;#x2F;null”作用是将终端输出信息输出到空洞中，即不保存输出信息，若要查看">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +24,7 @@
 
     
 
-    <title>树莓派3B(Raspberry 3B)搭建HomeAssistant | 悠悠博客</title>
+    <title>Centos后台运行jar | 悠悠博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -310,12 +314,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">树莓派3B(Raspberry 3B)搭建HomeAssistant</h1>
+                    <h1 class="description center-align post-title">Centos后台运行jar</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +435,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/IoT/">
-                                <span class="chip bg-color">IoT</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
-                            <a href="/tags/HomeAssistant/">
-                                <span class="chip bg-color">HomeAssistant</span>
+                            <a href="/tags/Jar/">
+                                <span class="chip bg-color">Jar</span>
                             </a>
                         
                     </div>
@@ -447,8 +451,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/IoT/" class="post-category">
-                                IoT
+                            <a href="/categories/Centos/" class="post-category">
+                                Centos
                             </a>
                         
                     </div>
@@ -460,7 +464,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-05-02
+                    2018-04-05
                 </div>
                 
 
@@ -484,252 +488,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Home Assistant 是一款基于 Python 的智能家居开源系统，支持众多品牌的智能家居设备，可以轻松实现设备的语音控制、自动化等。本文档全站内容基于 Home Assistant 官方网站 本地化而成，具有以下特点：</p>
-<p>整合『组件』与『文档』页，采用更直观清晰、符合中文阅读的展现形式；<br>剔除国内用户较少接触的组件说明，提高常用智能家居平台的层级和权重；<br>跳出 Home Assistant 原生框架，一并纳入 Floorplan、HADashboard 等相关衍生项目；<br>本文将讲述树莓派3B搭建HomeAssistant和小米设备的接入。</p>
+                <p>jar后台运行</p>
 <span id="more"></span>
-<h1 id="一、系统要求和硬件配置"><a href="#一、系统要求和硬件配置" class="headerlink" title="一、系统要求和硬件配置"></a>一、系统要求和硬件配置</h1><hr>
-<ul>
-<li>树莓派3B（Raspberry 3B）;</li>
-<li>一张16G的TF存储卡；</li>
-<li>一台电脑（windowns or mac）；</li>
-<li>若干小米设备（小米网关、小米插座、小米吸顶灯等）；</li>
-<li>TF卡读卡器；</li>
-<li>原生 <a target="_blank" rel="noopener" href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a> 系统；</li>
-<li>xshell工具；</li>
-<li><a target="_blank" rel="noopener" href="http://www.upantool.com/hfxf/sd/3137.html">SDFormatter</a>；</li>
-<li><a target="_blank" rel="noopener" href="http://www.onlinedown.net/soft/110173.htm">Win32 Disk Imager</a>。</li>
-<li><a target="_blank" rel="noopener" href="http://www.pc6.com/mac/248733.html">Etcher Mac版</a>（MacOs下烧录工具）；</li>
-<li>Fing工具（Android端或者ios端都行）。</li>
-</ul>
-<h1 id="二、系统安装"><a href="#二、系统安装" class="headerlink" title="二、系统安装"></a>二、系统安装</h1><hr>
-<ol>
-<li>SDFormatter格式化TF存储卡</li>
-<li>使用Win32 Disk Imager工具烧录Raspbian系统到TF卡</li>
-<li>如果是在MacOs系统下，请用mac自带工具格式化TF卡，然后使用Etcher烧录系统；</li>
-</ol>
-<h1 id="三、树莓派配置"><a href="#三、树莓派配置" class="headerlink" title="三、树莓派配置"></a>三、树莓派配置</h1><hr>
-<ol>
-<li><p>烧录完毕后，TF卡自动命名为boot，<strong>在boot根目录新建ssh文件以便ss登录</strong>；</p>
-</li>
-<li><p>在TF卡根目录新建<code>wpa_supplicant.conf</code>文件，用于连接WiFi，配置如下：</p>
- <pre class="line-numbers language-none"><code class="language-none">
-country&#x3D;CN
-ctrl_interface&#x3D;DIR&#x3D;&#x2F;var&#x2F;run&#x2F;wpa_supplicant GROUP&#x3D;netdev
-update_config&#x3D;1
-network&#x3D;&#123;
-    ssid&#x3D;&quot;路由器的ssid&quot;
-    psk&#x3D;&quot;路由器的密码&quot;
-    key_mgmt&#x3D;WPA-PSK
-    priority&#x3D;1
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-</li>
-<li><p>将TF卡插在树莓派后上电启动；</p>
-</li>
-<li><p>使用Fing查询树莓派的IP地址；</p>
-</li>
-<li><p>树莓派默认用户名<strong>pi</strong>，密码<strong>raspberry</strong>;</p>
-</li>
-<li><p>使用xshell连接树莓派，MacOs方式：<code>ssh pi@192.168.x.x -p 22</code>；</p>
-</li>
-</ol>
-<h2 id="3-1-启用root用户（由于本人天性爱自由，所以必须要绝对权限）"><a href="#3-1-启用root用户（由于本人天性爱自由，所以必须要绝对权限）" class="headerlink" title="3.1 启用root用户（由于本人天性爱自由，所以必须要绝对权限）"></a>3.1 启用root用户（由于本人天性爱自由，所以必须要绝对权限）</h2><ol>
-<li>设置root用户密码</li>
-</ol>
-<blockquote>
-<p>sudo passwd root</p>
-</blockquote>
-<pre class="line-numbers language-none"><code class="language-none">
-pi@raspberrypi:~$ sudo passwd root
-Enter new UNIX password:   #输入第一遍密码
-Retype new UNIX password:  #输入第二遍密码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<ol start="2">
-<li>启用 root 账号登录<blockquote>
-<p>sudo passwd –unlock root</p>
-</blockquote>
-</li>
-</ol>
-<pre class="line-numbers language-none"><code class="language-none">
-pi@raspberrypi:~$ sudo passwd --unlock root
-passwd: password expiry information changed.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<ol start="3">
-<li>设置root登陆</li>
-</ol>
-<blockquote>
-<p>sudo nano &#x2F;etc&#x2F;ssh&#x2F;sshd_config  </p>
-</blockquote>
-<pre class="line-numbers language-none"><code class="language-none">
-pi@raspberrypi:~$ sudo nano &#x2F;etc&#x2F;ssh&#x2F;sshd_config    
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<blockquote>
-<p><code>Ctrl + W</code> 快捷键 搜索 <code>PermitRootLogin without-password</code><br>修改 <code>PermitRootLogin without-password</code> 为 <code>PermitRootLogin yes</code><br>执行完之后，用 <code>reboot</code> 命令重启，这样就可以解锁<code>root</code>账户。</p>
-</blockquote>
-<h1 id="四、HomeAssistant安装"><a href="#四、HomeAssistant安装" class="headerlink" title="四、HomeAssistant安装"></a>四、HomeAssistant安装</h1><hr>
-<h2 id="4-1-源替换"><a href="#4-1-源替换" class="headerlink" title="4.1 源替换"></a>4.1 源替换</h2><p>由于默认都是从国外服务器下载安装，为了避免安装失败所以先替换成阿里的源。</p>
-<ul>
-<li><p>在此目录新建此文件：<code> ~/.pip/pip.conf</code></p>
-</li>
-<li><p>复制粘贴以下内容并保存：</p>
-</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">
-[global]
-trusted-host&#x3D;mirrors.aliyun.com
-index-url&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple&#x2F;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h2 id="4-2-安装Python3"><a href="#4-2-安装Python3" class="headerlink" title="4.2 安装Python3"></a>4.2 安装Python3</h2><p>打开<code>Linux</code>系统命令行窗口，输入：<code>sudo apt-get install python3.5</code></p>
-<p>应系统要求输入<code>root</code>账号的密码。</p>
-<p><img src="/homeassistant/1.png" alt="img1"></p>
-<p>安装资源准备好后提问是否继续安装，打回车确认。<br>然后等待安装完成。</p>
-<p><img src="/homeassistant/2.png" alt="img1"></p>
-<h2 id="4-3-安装Python3开发资源"><a href="#4-3-安装Python3开发资源" class="headerlink" title="4.3 安装Python3开发资源"></a>4.3 安装Python3开发资源</h2><p>在第一步安装完成后，继续输入命令：<code>sudo apt-get install python3.5-dev</code><br>在系统提问是否继续安装时打回车确认。<br>然后等待安装完成。</p>
-<p><img src="/homeassistant/3.png" alt="img1"></p>
-<p><img src="/homeassistant/4.png" alt="img1"></p>
-<h2 id="4-4-安装Pip3"><a href="#4-4-安装Pip3" class="headerlink" title="4.4 安装Pip3"></a>4.4 安装Pip3</h2><p>继续在命令行中输入：<code>sudo apt install python3-pip</code><br>回车确认安装。<br>等待安装完成。</p>
-<p><img src="/homeassistant/5.png" alt="img1"></p>
-<h2 id="4-5-验证安装结果"><a href="#4-5-验证安装结果" class="headerlink" title="4.5 验证安装结果"></a>4.5 验证安装结果</h2><p>在命令行中输入<code>python3 --version</code>，看到显示版本。<br>在命令行中输入<code>pip3 --version</code>，看到显示版本。<br>说明Python3环境及Pip3工具安装成功。</p>
-<p><img src="/homeassistant/6.png" alt="img1"></p>
-<h2 id="4-6-使用Pip工具安装Home-Assistant"><a href="#4-6-使用Pip工具安装Home-Assistant" class="headerlink" title="4.6 使用Pip工具安装Home Assistant"></a>4.6 使用Pip工具安装Home Assistant</h2><p>在此步之前建议设置国内的安装源，可以提升后续的速度，参见这篇文档。<br>打开命令行窗口，输入：<code>sudo pip3 install homeassistant</code> （<font color='red'>此步骤若失败，请重复操作</font>）<br>等待安装过程完成。</p>
-<p><img src="/homeassistant/8.png" alt="img1"></p>
-<h2 id="4-7-验证安装结果"><a href="#4-7-验证安装结果" class="headerlink" title="4.7 验证安装结果"></a>4.7 验证安装结果</h2><p>在命令行窗口，输入：<code>hass --debug</code> 参数<code>--debug</code>可以查看启动的日志。<br>首次启动需要初始化配置文件，也会自动下载一些所需的文件，会需要一些时间。有时因网络质量问题还会出现文件下载失败情况，导致启动过程受阻。此时可以关闭命令行窗口，再重新执行启动命令。</p>
-<p><img src="/homeassistant/9.png" alt="img1"></p>
-<p>继续等待启动过程完成，直到浏览器自动打开<code>Home Assistant</code>系统首页，即表明软件安装成功。</p>
-<p><img src="/homeassistant/10.png" alt="img1"></p>
-<h1 id="五、HomeAssistant设置自动启动"><a href="#五、HomeAssistant设置自动启动" class="headerlink" title="五、HomeAssistant设置自动启动"></a>五、HomeAssistant设置自动启动</h1><hr>
-<p>Home Assistant 针对树莓派的发行版（手动安装除外）中都已经自带自启任务，其余系统安装的用户需要自行配置自启。</p>
-<h2 id="5-1-配置自启动文件"><a href="#5-1-配置自启动文件" class="headerlink" title="5.1 配置自启动文件"></a>5.1 配置自启动文件</h2><p>如果你未使用 <code>Python</code> 虚拟环境安装 <code>Home Assistant</code>，请使用以下方法</p>
-<pre><code>sudo nano -w /etc/systemd/system/home-assistant@root.service
-</code></pre>
-<p>复制粘贴</p>
-<pre><code>[Unit]
-Description=Home Assistant
-After=network-online.target
-
-[Service]
-Type=simple
-User=%i
-ExecStart=/usr/local/bin/hass 
-
-[Install]
-WantedBy=multi-user.target
+<h1 id="jar后台运行"><a href="#jar后台运行" class="headerlink" title="jar后台运行"></a>jar后台运行</h1><pre><code>nohup java -jar xx.jar &gt;/dev/null  &amp;
 </code></pre>
 <blockquote>
-<p>注意<code>ExecStart=/usr/local/bin/hass</code>  这个路径使用<code>whereis hass</code>查看路径</p>
+<p>此处的“&gt;&#x2F;dev&#x2F;null”作用是将终端输出信息输出到空洞中，即不保存输出信息，若要查看输出信息需指定输出到那个文件，例如“&gt;&#x2F;xxx&#x2F;yyy.out”</p>
 </blockquote>
-<h2 id="5-2-启动自启服务"><a href="#5-2-启动自启服务" class="headerlink" title="5.2 启动自启服务"></a>5.2 启动自启服务</h2><p>完成上述步骤后，请重新加载进程管理。</p>
-<pre><code>sudo systemctl --system daemon-reload
+<h1 id="关闭后台进程"><a href="#关闭后台进程" class="headerlink" title="关闭后台进程"></a>关闭后台进程</h1><p>先查看后台进程pid</p>
+<pre><code>ps -aux
 </code></pre>
-<p>启用服务：</p>
-<pre><code>sudo systemctl enable home-assistant@root
+<p>记住进程pid，然后kill命令关闭</p>
+<pre><code>kill [pid]
 </code></pre>
-<h1 id="六、HomeAssistant的一些常用命令"><a href="#六、HomeAssistant的一些常用命令" class="headerlink" title="六、HomeAssistant的一些常用命令"></a>六、HomeAssistant的一些常用命令</h1><hr>
-<h2 id="6-1-systemd相关的控制命令"><a href="#6-1-systemd相关的控制命令" class="headerlink" title="6.1 systemd相关的控制命令"></a>6.1 systemd相关的控制命令</h2><pre><code>sudo systemctl --system daemon-reload：重新加载systemd的配置文件。
-sudo systemctl enable home-assistant@root：设置home-assitant服务为自启动。
-sudo systemctl disable home-assistant@root：从自启动中去除home-assitant服务。
-sudo systemctl start home-assistant@root：手工启动home-assitant服务（命令中start可以替换成stop、restart、status，完成停止、重启、查看服务状态等功能）。
-sudo journalctl -f -u home-assistant@root：查看hass的日志输出。
-sudo journalctl -f -u home-assistant@[your user] | grep -i &#39;error&#39;：查看hass的日志输出中的error部分
-
-sudo systemctl restart home-assistant@root
-</code></pre>
-<h2 id="6-2-使用脚本控制HomeAssistant"><a href="#6-2-使用脚本控制HomeAssistant" class="headerlink" title="6.2 使用脚本控制HomeAssistant"></a>6.2 使用脚本控制HomeAssistant</h2><pre><code>#!/bin/bash
-
-function check()
-&#123;
-    echo &quot;检查配置文件是否有错误&quot;
-    sudo hass --script check_config
-&#125;
-
-function dis()
-&#123;
-    echo &quot;显示所有组件的配置信息&quot;
-    sudo hass --script check_config --info all
-&#125;
-
-function hass()
-&#123;
-    echo &quot;启动hass&quot;
-    sudo systemctl start home-assistant@root
-&#125;
-function rehass()
-&#123;
-    echo &quot;重启hass&quot;
-    sudo systemctl restart home-assistant@root
-&#125;
-
-function stophass()
-&#123;
-    echo &quot;停止hass&quot;
-    sudo systemctl stop home-assistant@root
-&#125;
-
-function log()&#123;
-    echo &quot;查看hass日志&quot;
-    sudo journalctl -f -u home-assistant@root
-&#125;
-
-function debug()&#123;
-    echo &quot;debug hass&quot;
-    sudo hass --debug
-&#125;
-
-
-
-echo &quot;输入编号选择&quot;
-echo &quot;1. 检查配置文件是否有错误&quot;
-echo &quot;2. 显示所有组件的配置信息&quot;
-echo &quot;3. 启动hass&quot;
-echo &quot;4. 查看hass日志&quot;
-echo &quot;5. 重启hass&quot;
-echo &quot;6. 停止hass&quot;
-echo &quot;7. debug hass&quot;
-echo &quot;******Enter nothing to exit*****&quot;
-read num
-
-case &quot;$num&quot; in
-[1] ) (check);;
-[2] ) (dis);;
-[3] ) (hass);;
-[4] ) (log);;
-[5] ) (rehass);;
-[6] ) (stophass);;
-[7] ) (debug);;
-*) echo &quot;nothing,exit&quot;;;
-esac
-</code></pre>
-<h1 id="七、小米设备接入"><a href="#七、小米设备接入" class="headerlink" title="七、小米设备接入"></a>七、小米设备接入</h1><hr>
-<ul>
-<li><p>安装米家App（最新版本获取获取不到<code>Token</code>，使用【<a href="http://uuxia.cn:8123/file/com.xiaomi.smarthome.apk">MI Home5.0.19</a>】此版本OK）;</p>
-</li>
-<li><p>使用<a href="http://uuxia.cn:8123/file/RE.apk">RE文件管理器</a>，打开<code>/data/data/com.xiaomi.smarthome/databases/miio2.db</code></p>
-</li>
-<li><p>记录设备的<code>token</code></p>
-</li>
-<li><p><a href="http://uuxia.cn:8123/file/configuration.yaml">configuration.yaml</a>配置文件</p>
-</li>
-</ul>
-<h1 id="八、遇到的一些问题"><a href="#八、遇到的一些问题" class="headerlink" title="八、遇到的一些问题"></a>八、遇到的一些问题</h1><hr>
-<ol>
-<li>urllib3与chardet不兼容解决方案</li>
-</ol>
-<pre class="line-numbers language-none"><code class="language-none">
-pip3 uninstall urllib3
-pip3 uninstall  chardet
-ip3 install requests
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<p>2.执行sh .&#x2F;xxx.sh出现：“Syntax error: “(” unexpected”的解决方法</p>
-<pre><code>sudo dpkg-reconfigure dash
-在选择项中选No，搞定了！
-</code></pre>
-<ol start="3">
-<li>nodejs安装</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xiongtm/article/details/77620005">https://blog.csdn.net/xiongtm/article/details/77620005</a><br><a target="_blank" rel="noopener" href="https://nodejs.org/dist/latest-v9.x/">https://nodejs.org/dist/latest-v9.x/</a></p>
 
                 
             </div>
@@ -756,7 +527,7 @@ ip3 install requests
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://uuxia.cn/2018/05/02/homeassistant/">https://uuxia.cn/2018/05/02/homeassistant/</a>
+                    <a href="https://uuxia.cn/2018/04/05/centos-run-jar/">https://uuxia.cn/2018/04/05/centos-run-jar/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -794,12 +565,12 @@ ip3 install requests
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/IoT/">
-                                    <span class="chip bg-color">IoT</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
-                                <a href="/tags/HomeAssistant/">
-                                    <span class="chip bg-color">HomeAssistant</span>
+                                <a href="/tags/Jar/">
+                                    <span class="chip bg-color">Jar</span>
                                 </a>
                             
                         </div>
@@ -977,26 +748,79 @@ ip3 install requests
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/05/21/lifehealth/">
+                <a href="/2018/05/02/homeassistant/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="健身运动">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="树莓派3B(Raspberry 3B)搭建HomeAssistant">
                         
-                        <span class="card-title">健身运动</span>
+                        <span class="card-title">树莓派3B(Raspberry 3B)搭建HomeAssistant</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-健身圈从来就是一个强者的舞台，有的人通过健身强健了体魄，有的人通过健身找到了自信。正所谓“一入健身深似海”，健身就是有这样的魔力让你欲罢不能。
+                            Home Assistant 是一款基于 Python 的智能家居开源系统，支持众多品牌的智能家居设备，可以轻松实现设备的语音控制、自动化等。本文档全站内容基于 Home Assistant 官方网站 本地化而成，具有以下特点：
+整合『组件
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-05-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-05-02
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/IoT/" class="post-category">
+                                    IoT
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/IoT/">
+                        <span class="chip bg-color">IoT</span>
+                    </a>
+                    
+                    <a href="/tags/HomeAssistant/">
+                        <span class="chip bg-color">HomeAssistant</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/04/04/hobby/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="业余时间做什么，决定了你的生活品质">
+                        
+                        <span class="card-title">业余时间做什么，决定了你的生活品质</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            业余时间做什么，决定了你的生活品质
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-04-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1012,65 +836,12 @@ ip3 install requests
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/hobby/">
+                        <span class="chip bg-color">hobby</span>
+                    </a>
+                    
                     <a href="/tags/%E7%94%9F%E6%B4%BB/">
                         <span class="chip bg-color">生活</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%BF%90%E5%8A%A8/">
-                        <span class="chip bg-color">运动</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2018/04/05/centos-run-jar/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Centos后台运行jar">
-                        
-                        <span class="card-title">Centos后台运行jar</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            jar后台运行
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-04-05
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Centos/" class="post-category">
-                                    Centos
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/Jar/">
-                        <span class="chip bg-color">Jar</span>
                     </a>
                     
                 </div>
