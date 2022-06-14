@@ -1,0 +1,1338 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="OkHttp使用教程, 悠悠博客">
+    <meta name="description" content="这是一个针对技术开发者的一个应用，你可以在掘金上获取最新最优质的技术干货，不仅仅是Android知识、前端、后端以至于产品和设计都有涉猎，想成为全栈工程师的朋友不要错过！
+
+入门Android系统提供了两种HTTP通信类，HttpURLCo">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    
+
+    <title>OkHttp使用教程 | 悠悠博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">悠悠博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">悠悠博客</div>
+        <div class="logo-desc">
+            
+            在浮躁的世界安安静静地敲代码
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">OkHttp使用教程</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/android/">
+                                <span class="chip bg-color">android</span>
+                            </a>
+                        
+                            <a href="/tags/okhttp/">
+                                <span class="chip bg-color">okhttp</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Android/" class="post-category">
+                                Android
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2016-05-09
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>这是一个针对技术开发者的一个应用，你可以在掘金上获取最新最优质的技术干货，不仅仅是Android知识、前端、后端以至于产品和设计都有涉猎，想成为全栈工程师的朋友不要错过！</p>
+<span id="more"></span>
+<h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><p>Android系统提供了两种HTTP通信类，HttpURLConnection和HttpClient。<br><a target="_blank" rel="noopener" href="http://android-developers.blogspot.com/2011/09/androids-http-clients.html">关于HttpURLConnection和HttpClient的选择&gt;&gt;官方博客</a><br>尽管Google在大部分安卓版本中推荐使用HttpURLConnection，但是这个类相比HttpClient实在是太难用，太弱爆了。<br>OkHttp是一个相对成熟的解决方案，据说Android4.4的源码中可以看到HttpURLConnection已经替换成OkHttp实现了。所以我们更有理由相信OkHttp的强大。</p>
+<p>OkHttp 处理了很多网络疑难杂症：会从很多常用的连接问题中自动恢复。如果您的服务器配置了多个IP地址，当第一个IP连接失败的时候，OkHttp会自动尝试下一个IP。OkHttp还处理了代理服务器问题和SSL握手失败问题。</p>
+<p>使用 OkHttp 无需重写您程序中的网络代码。OkHttp实现了几乎和java.net.HttpURLConnection一样的API。如果你用了 Apache HttpClient，则OkHttp也提供了一个对应的okhttp-apache 模块。</p>
+<blockquote>
+<p>注：在国内使用OkHttp会因为这个问题导致部分酷派手机用户无法联网，所以对于大众app来说，需要等待这个bug修复后再使用。或者尝试使用OkHttp的老版本。<br>截止到目前，OkHttp一直没有修复，并把修复计划延迟到了OkHttp2.3中。不是所有设备都能重现，仅少量设备会出现这个问题。（如果问题这么明显，OkHttp早就修复了）</p>
+</blockquote>
+<h2 id="官方资料"><a href="#官方资料" class="headerlink" title="官方资料"></a>官方资料</h2><p><a target="_blank" rel="noopener" href="http://square.github.io/okhttp/">官方介绍</a><br><a target="_blank" rel="noopener" href="https://github.com/square/okhttp">github源码</a></p>
+<h2 id="使用范围"><a href="#使用范围" class="headerlink" title="使用范围"></a>使用范围</h2><p>OkHttp支持Android 2.3及其以上版本。<br>对于Java, JDK1.7以上。</p>
+<h2 id="jar包准备"><a href="#jar包准备" class="headerlink" title="jar包准备"></a>jar包准备</h2><p>官方介绍页面有链接位置。这里把下载链接也写在下面。<br><a target="_blank" rel="noopener" href="http://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=com.squareup.okhttp&a=okhttp&v=LATEST">OkHttp</a><br><a target="_blank" rel="noopener" href="http://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=com.squareup.okio&a=okio&v=LATEST">Okio</a></p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p><strong>HTTP GET</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">OkHttpClient client = new OkHttpClient();</span><br><span class="line"> </span><br><span class="line">String run(String url) throws IOException &#123;</span><br><span class="line">    Request request = new Request.Builder().url(url).build();</span><br><span class="line">    Response response = client.newCall(request).execute();    if (response.isSuccessful()) &#123;        return response.body().string();</span><br><span class="line">    &#125; else &#123;        throw new IOException(&quot;Unexpected code &quot; + response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Request是OkHttp中访问的请求，Builder是辅助类。Response即OkHttp中的响应。<br><strong>Response类：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public boolean isSuccessful()</span><br><span class="line">Returns true if the code is in [200..300),</span><br><span class="line"> which means the request was successfully received, understood, and accepted.</span><br></pre></td></tr></table></figure>
+<p><strong>response.body()返回ResponseBody类</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public final String string() throws IOException</span><br><span class="line">Returns the response as a string decoded with the charset of the Content-Type header. If that header is either absent or lacks a charset,</span><br><span class="line"> this will attempt to decode the response body as UTF-8.Throws:</span><br><span class="line">IOException</span><br></pre></td></tr></table></figure>
+<p>当然也能获取到流的形式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public final InputStream byteStream()</span><br></pre></td></tr></table></figure>
+<p><strong>HTTP POST<br>POST提交Json数据</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static final MediaType JSON = MediaType.parse(&quot;application/json; charset=utf-8&quot;);</span><br><span class="line">OkHttpClient client = new OkHttpClient();</span><br><span class="line">String post(String url, String json) throws IOException &#123;</span><br><span class="line">     RequestBody body = RequestBody.create(JSON, json);</span><br><span class="line">      Request request = new Request.Builder()</span><br><span class="line">      .url(url)</span><br><span class="line">      .post(body)</span><br><span class="line">      .build();</span><br><span class="line">      Response response = client.newCall(request).execute();</span><br><span class="line">    f (response.isSuccessful()) &#123;</span><br><span class="line">        return response.body().string();</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        throw new IOException(&quot;Unexpected code &quot; + response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用Request的post方法来提交请求体RequestBody</p>
+<p>** POST提交键值对**<br>很多时候我们会需要通过POST方式把键值对数据传送到服务器。 OkHttp提供了很方便的方式来做这件事情。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">OkHttpClient client = new OkHttpClient();</span><br><span class="line">String post(String url, String json) throws IOException &#123;</span><br><span class="line"> </span><br><span class="line">     RequestBody formBody = new FormEncodingBuilder()</span><br><span class="line">    .add(&quot;platform&quot;, &quot;android&quot;)</span><br><span class="line">    .add(&quot;name&quot;, &quot;bug&quot;)</span><br><span class="line">    .add(&quot;subject&quot;, &quot;XXXXXXXXXXXXXXX&quot;)</span><br><span class="line">    .build();</span><br><span class="line"> </span><br><span class="line">      Request request = new Request.Builder()</span><br><span class="line">      .url(url)</span><br><span class="line">      .post(body)</span><br><span class="line">      .build();</span><br><span class="line"> </span><br><span class="line">      Response response = client.newCall(request).execute();</span><br><span class="line">    if (response.isSuccessful()) &#123;</span><br><span class="line">        return response.body().string();</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        throw new IOException(&quot;Unexpected code &quot; + response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过上面的例子我们可以发现，OkHttp在很多时候使用都是很方便的，而且很多代码也有重复，因此特地整理了下面的工具类。<br>注意：</p>
+<ul>
+<li>OkHttp官方文档并不建议我们创建多个OkHttpClient，因此全局使用一个。 如果有需要，可以使用clone方法，再进行自定义。这点在后面的高级教程里会提到。</li>
+<li>enqueue为OkHttp提供的异步方法，入门教程中并没有提到，后面的高级教程里会有解释。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.concurrent.TimeUnit;</span><br><span class="line">import org.apache.http.client.utils.URLEncodedUtils;</span><br><span class="line">import org.apache.http.message.BasicNameValuePair;</span><br><span class="line">import cn.wiz.sdk.constant.WizConstant;</span><br><span class="line">import com.squareup.okhttp.Callback;</span><br><span class="line">import com.squareup.okhttp.OkHttpClient;</span><br><span class="line">import com.squareup.okhttp.Request;</span><br><span class="line">import com.squareup.okhttp.Response; </span><br><span class="line">  </span><br><span class="line">public class OkHttpUtil &#123;</span><br><span class="line">    private static final OkHttpClient mOkHttpClient = new OkHttpClient();</span><br><span class="line">    static&#123;</span><br><span class="line">        mOkHttpClient.setConnectTimeout(30, TimeUnit.SECONDS);</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 该不会开启异步线程。</span><br><span class="line">     * @param request</span><br><span class="line">     * @return</span><br><span class="line">     * @throws IOException</span><br><span class="line">     */</span><br><span class="line">    public static Response execute(Request request) throws IOException&#123;</span><br><span class="line">        return mOkHttpClient.newCall(request).execute();</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 开启异步线程访问网络</span><br><span class="line">     * @param request</span><br><span class="line">     * @param responseCallback</span><br><span class="line">     */</span><br><span class="line">    public static void enqueue(Request request, Callback responseCallback)&#123;</span><br><span class="line">        mOkHttpClient.newCall(request).enqueue(responseCallback);</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 开启异步线程访问网络, 且不在意返回结果（实现空callback）</span><br><span class="line">     * @param request</span><br><span class="line">     */</span><br><span class="line">    public static void enqueue(Request request)&#123;</span><br><span class="line">        mOkHttpClient.newCall(request).enqueue(new Callback() &#123;</span><br><span class="line">             </span><br><span class="line">            @Override</span><br><span class="line">            public void onResponse(Response arg0) throws IOException &#123;</span><br><span class="line">                 </span><br><span class="line">            &#125;</span><br><span class="line">             </span><br><span class="line">            @Override</span><br><span class="line">            public void onFailure(Request arg0, IOException arg1) &#123;</span><br><span class="line">                 </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    public static String getStringFromServer(String url) throws IOException&#123;</span><br><span class="line">        Request request = new Request.Builder().url(url).build();</span><br><span class="line">        Response response = execute(request);</span><br><span class="line">        if (response.isSuccessful()) &#123;</span><br><span class="line">            String responseUrl = response.body().string();</span><br><span class="line">            return responseUrl;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            throw new IOException(&quot;Unexpected code &quot; + response);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    private static final String CHARSET_NAME = &quot;UTF-8&quot;;</span><br><span class="line">    /**</span><br><span class="line">     * 这里使用了HttpClinet的API。只是为了方便</span><br><span class="line">     * @param params</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public static String formatParams(List&lt;BasicNameValuePair&gt; params)&#123;</span><br><span class="line">        return URLEncodedUtils.format(params, CHARSET_NAME);</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 为HttpGet 的 url 方便的添加多个name value 参数。</span><br><span class="line">     * @param url</span><br><span class="line">     * @param params</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public static String attachHttpGetParams(String url, List&lt;BasicNameValuePair&gt; params)&#123;</span><br><span class="line">        return url + &quot;?&quot; + formatParams(params);</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 为HttpGet 的 url 方便的添加1个name value 参数。</span><br><span class="line">     * @param url</span><br><span class="line">     * @param name</span><br><span class="line">     * @param value</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public static String attachHttpGetParam(String url, String name, String value)&#123;</span><br><span class="line">        return url + &quot;?&quot; + name + &quot;=&quot; + value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="高级"><a href="#高级" class="headerlink" title="高级"></a>高级</h2><p>高级属性其实用的不多，这里主要是对OkHttp github官方教程进行了翻译。</p>
+<h2 id="同步get"><a href="#同步get" class="headerlink" title="同步get"></a>同步get</h2><p>下载一个文件，打印他的响应头，以string形式打印响应体。<br>响应体的 string() 方法对于小文档来说十分方便、高效。但是如果响应体太大（超过1MB），应避免适应 string()方法 ，因为他会将把整个文档加载到内存中。<br>对于超过1MB的响应body，应使用流的方式来处理body。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">private final OkHttpClient client = new OkHttpClient();</span><br><span class="line"> </span><br><span class="line">public void run() throws Exception &#123;</span><br><span class="line">    Request request = new Request.Builder()</span><br><span class="line">        .url(&quot;http://publicobject.com/helloworld.txt&quot;)</span><br><span class="line">        .build();</span><br><span class="line"> </span><br><span class="line">    Response response = client.newCall(request).execute();</span><br><span class="line">    if (!response.isSuccessful()) throw new IOException(&quot;Unexpected code &quot; + response);</span><br><span class="line"> </span><br><span class="line">    Headers responseHeaders = response.headers();</span><br><span class="line">    for (int i = 0; i &lt; responseHeaders.size(); i++) &#123;</span><br><span class="line">      System.out.println(responseHeaders.name(i) + &quot;: &quot; + responseHeaders.value(i));</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    System.out.println(response.body().string());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="异步get"><a href="#异步get" class="headerlink" title="异步get"></a>异步get</h2><p>在一个工作线程中下载文件，当响应可读时回调Callback接口。读取响应时会阻塞当前线程。OkHttp现阶段不提供异步api来接收响应体。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">private final OkHttpClient client = new OkHttpClient();</span><br><span class="line"> </span><br><span class="line">public void run() throws Exception &#123;</span><br><span class="line">    Request request = new Request.Builder()</span><br><span class="line">        .url(&quot;http://publicobject.com/helloworld.txt&quot;)</span><br><span class="line">        .build();</span><br><span class="line"> </span><br><span class="line">    client.newCall(request).enqueue(new Callback() &#123;</span><br><span class="line">      @Override public void onFailure(Request request, Throwable throwable) &#123;</span><br><span class="line">        throwable.printStackTrace();</span><br><span class="line">      &#125;</span><br><span class="line"> </span><br><span class="line">      @Override public void onResponse(Response response) throws IOException &#123;</span><br><span class="line">        if (!response.isSuccessful()) throw new IOException(&quot;Unexpected code &quot; + response);</span><br><span class="line"> </span><br><span class="line">        Headers responseHeaders = response.headers();</span><br><span class="line">        for (int i = 0; i &lt; responseHeaders.size(); i++) &#123;</span><br><span class="line">          System.out.println(responseHeaders.name(i) + &quot;: &quot; + responseHeaders.value(i));</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        System.out.println(response.body().string());</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="提取响应头"><a href="#提取响应头" class="headerlink" title="提取响应头"></a>提取响应头</h2><p>典型的HTTP头 像是一个 Map&lt;String, String&gt; :每个字段都有一个或没有值。但是一些头允许多个值，像Guava的Multimap。例如：HTTP响应里面提供的Vary响应头，就是多值的。OkHttp的api试图让这些情况都适用。<br>当写请求头的时候，使用header(name, value)可以设置唯一的name、value。如果已经有值，旧的将被移除，然后添加新的。使用addHeader(name, value)可以添加多值（添加，不移除已有的）。<br>当读取响应头时，使用header(name)返回最后出现的name、value。通常情况这也是唯一的name、value。如果没有值，那么header(name)将返回null。如果想读取字段对应的所有值，使用headers(name)会返回一个list。<br>为了获取所有的Header，Headers类支持按index访问。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">private final OkHttpClient client = new OkHttpClient();</span><br><span class="line"> </span><br><span class="line">public void run() throws Exception &#123;</span><br><span class="line">    Request request = new Request.Builder()</span><br><span class="line">        .url(&quot;https://api.github.com/repos/square/okhttp/issues&quot;)</span><br><span class="line">        .header(&quot;User-Agent&quot;, &quot;OkHttp Headers.java&quot;)</span><br><span class="line">        .addHeader(&quot;Accept&quot;, &quot;application/json; q=0.5&quot;)</span><br><span class="line">        .addHeader(&quot;Accept&quot;, &quot;application/vnd.github.v3+json&quot;)</span><br><span class="line">        .build();</span><br><span class="line"> </span><br><span class="line">    Response response = client.newCall(request).execute();</span><br><span class="line">    if (!response.isSuccessful()) throw new IOException(&quot;Unexpected code &quot; + response);</span><br><span class="line"> </span><br><span class="line">    System.out.println(&quot;Server: &quot; + response.header(&quot;Server&quot;));</span><br><span class="line">    System.out.println(&quot;Date: &quot; + response.header(&quot;Date&quot;));</span><br><span class="line">    System.out.println(&quot;Vary: &quot; + response.headers(&quot;Vary&quot;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Post方式提交String"><a href="#Post方式提交String" class="headerlink" title="Post方式提交String"></a>Post方式提交String</h2><p>使用HTTP POST提交请求到服务。这个例子提交了一个markdown文档到web服务，以HTML方式渲染markdown。因为整个请求体都在内存中，因此避免使用此api提交大文档（大于1MB）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public static final MediaType MEDIA_TYPE_MARKDOWN</span><br><span class="line">  = MediaType.parse(&quot;text/x-markdown; charset=utf-8&quot;);</span><br><span class="line"> </span><br><span class="line">private final OkHttpClient client = new OkHttpClient();</span><br><span class="line"> </span><br><span class="line">public void run() throws Exception &#123;</span><br><span class="line">    String postBody = &quot;&quot;</span><br><span class="line">        + &quot;Releases\n&quot;</span><br><span class="line">        + &quot;--------\n&quot;</span><br><span class="line">        + &quot;\n&quot;</span><br><span class="line">        + &quot; * _1.0_ May 6, 2013\n&quot;</span><br><span class="line">        + &quot; * _1.1_ June 15, 2013\n&quot;</span><br><span class="line">        + &quot; * _1.2_ August 11, 2013\n&quot;;</span><br><span class="line"> </span><br><span class="line">    Request request = new Request.Builder()</span><br><span class="line">        .url(&quot;https://api.github.com/markdown/raw&quot;)</span><br><span class="line">        .post(RequestBody.create(MEDIA_TYPE_MARKDOWN, postBody))</span><br><span class="line">        .build();</span><br><span class="line"> </span><br><span class="line">    Response response = client.newCall(request).execute();</span><br><span class="line">    if (!response.isSuccessful()) throw new IOException(&quot;Unexpected code &quot; + response);</span><br><span class="line"> </span><br><span class="line">    System.out.println(response.body().string());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Post方式提交流"><a href="#Post方式提交流" class="headerlink" title="Post方式提交流"></a>Post方式提交流</h2><p>以流的方式POST提交请求体。请求体的内容由流写入产生。这个例子是流直接写入Okio的BufferedSink。你的程序可能会使用OutputStream，你可以使用BufferedSink.outputStream()来获取。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">public static final MediaType MEDIA_TYPE_MARKDOWN</span><br><span class="line">      = MediaType.parse(&quot;text/x-markdown; charset=utf-8&quot;);</span><br><span class="line"> </span><br><span class="line">private final OkHttpClient client = new OkHttpClient();</span><br><span class="line"> </span><br><span class="line">public void run() throws Exception &#123;</span><br><span class="line">    RequestBody requestBody = new RequestBody() &#123;</span><br><span class="line">      @Override public MediaType contentType() &#123;</span><br><span class="line">        return MEDIA_TYPE_MARKDOWN;</span><br><span class="line">      &#125;</span><br><span class="line"> </span><br><span class="line">      @Override public void writeTo(BufferedSink sink) throws IOException &#123;</span><br><span class="line">        sink.writeUtf8(&quot;Numbers\n&quot;);</span><br><span class="line">        sink.writeUtf8(&quot;-------\n&quot;);</span><br><span class="line">        for (int i = 2; i &lt;= 997; i++) &#123;</span><br><span class="line">          sink.writeUtf8(String.format(&quot; * %s = %s\n&quot;, i, factor(i)));</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"> </span><br><span class="line">      private String factor(int n) &#123;</span><br><span class="line">        for (int i = 2; i &lt; n; i++) &#123;</span><br><span class="line">          int x = n / i;</span><br><span class="line">          if (x * i == n) return factor(x) + &quot; × &quot; + i;</span><br><span class="line">        &#125;</span><br><span class="line">        return Integer.toString(n);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    Request request = new Request.Builder()</span><br><span class="line">        .url(&quot;https://api.github.com/markdown/raw&quot;)</span><br><span class="line">        .post(requestBody)</span><br><span class="line">        .build();</span><br><span class="line"> </span><br><span class="line">    Response response = client.newCall(request).execute();</span><br><span class="line">    if (!response.isSuccessful()) throw new IOException(&quot;Unexpected code &quot; + response);</span><br><span class="line"> </span><br><span class="line">    System.out.println(response.body().string());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Post方式提交文件"><a href="#Post方式提交文件" class="headerlink" title="Post方式提交文件"></a>Post方式提交文件</h2><p>以文件作为请求体是十分简单的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public static final MediaType MEDIA_TYPE_MARKDOWN</span><br><span class="line">  = MediaType.parse(&quot;text/x-markdown; charset=utf-8&quot;);</span><br><span class="line"> </span><br><span class="line">private final OkHttpClient client = new OkHttpClient();</span><br><span class="line"> </span><br><span class="line">public void run() throws Exception &#123;</span><br><span class="line">    File file = new File(&quot;README.md&quot;);</span><br><span class="line"> </span><br><span class="line">    Request request = new Request.Builder()</span><br><span class="line">        .url(&quot;https://api.github.com/markdown/raw&quot;)</span><br><span class="line">        .post(RequestBody.create(MEDIA_TYPE_MARKDOWN, file))</span><br><span class="line">        .build();</span><br><span class="line"> </span><br><span class="line">    Response response = client.newCall(request).execute();</span><br><span class="line">    if (!response.isSuccessful()) throw new IOException(&quot;Unexpected code &quot; + response);</span><br><span class="line"> </span><br><span class="line">    System.out.println(response.body().string());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Post方式提交表单"><a href="#Post方式提交表单" class="headerlink" title="Post方式提交表单"></a>Post方式提交表单</h2><p>使用FormEncodingBuilder来构建和HTML<form>标签相同效果的请求体。键值对将使用一种HTML兼容形式的URL编码来进行编码。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">private final OkHttpClient client = new OkHttpClient();</span><br><span class="line"> </span><br><span class="line">public void run() throws Exception &#123;</span><br><span class="line">    RequestBody formBody = new FormEncodingBuilder()</span><br><span class="line">        .add(&quot;search&quot;, &quot;Jurassic Park&quot;)</span><br><span class="line">        .build();</span><br><span class="line">    Request request = new Request.Builder()</span><br><span class="line">        .url(&quot;https://en.wikipedia.org/w/index.php&quot;)</span><br><span class="line">        .post(formBody)</span><br><span class="line">        .build();</span><br><span class="line"> </span><br><span class="line">    Response response = client.newCall(request).execute();</span><br><span class="line">    if (!response.isSuccessful()) throw new IOException(&quot;Unexpected code &quot; + response);</span><br><span class="line"> </span><br><span class="line">    System.out.println(response.body().string());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Post方式提交分块请求"><a href="#Post方式提交分块请求" class="headerlink" title="Post方式提交分块请求"></a>Post方式提交分块请求</h2><p>MultipartBuilder可以构建复杂的请求体，与HTML文件上传形式兼容。多块请求体中每块请求都是一个请求体，可以定义自己的请求头。这些请求头可以用来描述这块请求，例如他的Content-Disposition。如果Content-Length和Content-Type可用的话，他们会被自动添加到请求头中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">private static final String IMGUR_CLIENT_ID = &quot;...&quot;;</span><br><span class="line">private static final MediaType MEDIA_TYPE_PNG = MediaType.parse(&quot;image/png&quot;);</span><br><span class="line"> </span><br><span class="line">private final OkHttpClient client = new OkHttpClient();</span><br><span class="line"> </span><br><span class="line">public void run() throws Exception &#123;</span><br><span class="line">    // Use the imgur image upload API as documented at https://api.imgur.com/endpoints/image</span><br><span class="line">    RequestBody requestBody = new MultipartBuilder()</span><br><span class="line">        .type(MultipartBuilder.FORM)</span><br><span class="line">        .addPart(</span><br><span class="line">            Headers.of(&quot;Content-Disposition&quot;, &quot;form-data; name=\&quot;title\&quot;&quot;),</span><br><span class="line">            RequestBody.create(null, &quot;Square Logo&quot;))</span><br><span class="line">        .addPart(</span><br><span class="line">            Headers.of(&quot;Content-Disposition&quot;, &quot;form-data; name=\&quot;image\&quot;&quot;),</span><br><span class="line">            RequestBody.create(MEDIA_TYPE_PNG, new File(&quot;website/static/logo-square.png&quot;)))</span><br><span class="line">        .build();</span><br><span class="line"> </span><br><span class="line">    Request request = new Request.Builder()</span><br><span class="line">        .header(&quot;Authorization&quot;, &quot;Client-ID &quot; + IMGUR_CLIENT_ID)</span><br><span class="line">        .url(&quot;https://api.imgur.com/3/image&quot;)</span><br><span class="line">        .post(requestBody)</span><br><span class="line">        .build();</span><br><span class="line"> </span><br><span class="line">    Response response = client.newCall(request).execute();</span><br><span class="line">    if (!response.isSuccessful()) throw new IOException(&quot;Unexpected code &quot; + response);</span><br><span class="line"> </span><br><span class="line">    System.out.println(response.body().string());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用Gson来解析JSON响应"><a href="#使用Gson来解析JSON响应" class="headerlink" title="使用Gson来解析JSON响应"></a>使用Gson来解析JSON响应</h2><p>Gson是一个在JSON和Java对象之间转换非常方便的api。这里我们用Gson来解析Github API的JSON响应。<br>注意：ResponseBody.charStream()使用响应头Content-Type指定的字符集来解析响应体。默认是UTF-8。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">private final OkHttpClient client = new OkHttpClient();</span><br><span class="line">private final Gson gson = new Gson();</span><br><span class="line"> </span><br><span class="line">public void run() throws Exception &#123;</span><br><span class="line">    Request request = new Request.Builder()</span><br><span class="line">        .url(&quot;https://api.github.com/gists/c2a7c39532239ff261be&quot;)</span><br><span class="line">        .build();</span><br><span class="line">    Response response = client.newCall(request).execute();</span><br><span class="line">    if (!response.isSuccessful()) throw new IOException(&quot;Unexpected code &quot; + response);</span><br><span class="line"> </span><br><span class="line">    Gist gist = gson.fromJson(response.body().charStream(), Gist.class);</span><br><span class="line">    for (Map.Entry&lt;String, GistFile&gt; entry : gist.files.entrySet()) &#123;</span><br><span class="line">      System.out.println(entry.getKey());</span><br><span class="line">      System.out.println(entry.getValue().content);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">static class Gist &#123;</span><br><span class="line">    Map&lt;String, GistFile&gt; files;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">static class GistFile &#123;</span><br><span class="line">    String content;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="响应缓存"><a href="#响应缓存" class="headerlink" title="响应缓存"></a>响应缓存</h2><p>为了缓存响应，你需要一个你可以读写的缓存目录，和缓存大小的限制。这个缓存目录应该是私有的，不信任的程序应不能读取缓存内容。<br>一个缓存目录同时拥有多个缓存访问是错误的。大多数程序只需要调用一次new OkHttp()，在第一次调用时配置好缓存，然后其他地方只需要调用这个实例就可以了。否则两个缓存示例互相干扰，破坏响应缓存，而且有可能会导致程序崩溃。<br>响应缓存使用HTTP头作为配置。你可以在请求头中添加Cache-Control: max-stale&#x3D;3600 ,OkHttp缓存会支持。你的服务通过响应头确定响应缓存多长时间，例如使用Cache-Control: max-age&#x3D;9600。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">private final OkHttpClient client;</span><br><span class="line"> </span><br><span class="line">public CacheResponse(File cacheDirectory) throws Exception &#123;</span><br><span class="line">    int cacheSize = 10 * 1024 * 1024; // 10 MiB</span><br><span class="line">    Cache cache = new Cache(cacheDirectory, cacheSize);</span><br><span class="line"> </span><br><span class="line">    client = new OkHttpClient();</span><br><span class="line">    client.setCache(cache);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">public void run() throws Exception &#123;</span><br><span class="line">    Request request = new Request.Builder()</span><br><span class="line">        .url(&quot;http://publicobject.com/helloworld.txt&quot;)</span><br><span class="line">        .build();</span><br><span class="line"> </span><br><span class="line">    Response response1 = client.newCall(request).execute();</span><br><span class="line">    if (!response1.isSuccessful()) throw new IOException(&quot;Unexpected code &quot; + response1);</span><br><span class="line"> </span><br><span class="line">    String response1Body = response1.body().string();</span><br><span class="line">    System.out.println(&quot;Response 1 response:          &quot; + response1);</span><br><span class="line">    System.out.println(&quot;Response 1 cache response:    &quot; + response1.cacheResponse());</span><br><span class="line">    System.out.println(&quot;Response 1 network response:  &quot; + response1.networkResponse());</span><br><span class="line"> </span><br><span class="line">    Response response2 = client.newCall(request).execute();</span><br><span class="line">    if (!response2.isSuccessful()) throw new IOException(&quot;Unexpected code &quot; + response2);</span><br><span class="line"> </span><br><span class="line">    String response2Body = response2.body().string();</span><br><span class="line">    System.out.println(&quot;Response 2 response:          &quot; + response2);</span><br><span class="line">    System.out.println(&quot;Response 2 cache response:    &quot; + response2.cacheResponse());</span><br><span class="line">    System.out.println(&quot;Response 2 network response:  &quot; + response2.networkResponse());</span><br><span class="line"> </span><br><span class="line">    System.out.println(&quot;Response 2 equals Response 1? &quot; + response1Body.equals(response2Body));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>在这一节还提到了下面一句：<br>There are cache headers to force a cached response, force a network response, or force the network response to be validated with a conditional GET.</p>
+<p>我不是很懂cache，平时用到的也不多，所以把Google在Android Developers一段相关的解析放到这里吧。</p>
+<h2 id="Force-a-Network-Response"><a href="#Force-a-Network-Response" class="headerlink" title="Force a Network Response"></a>Force a Network Response</h2><p>In some situations, such as after a user clicks a ‘refresh’ button, it may be necessary to skip the cache, and fetch data directly from the server. To force a full refresh, add the no-cache directive:</p>
+<blockquote>
+<p>connection.addRequestProperty(“Cache-Control”, “no-cache”);</p>
+</blockquote>
+<p>If it is only necessary to force a cached response to be validated by the server, use the more efficient max-age&#x3D;0 instead:</p>
+<blockquote>
+<p>connection.addRequestProperty(“Cache-Control”, “max-age&#x3D;0”);</p>
+</blockquote>
+<p>##Force a Cache Response<br>Sometimes you’ll want to show resources if they are available immediately, but not otherwise. This can be used so your application can show something while waiting for the latest data to be downloaded. To restrict a request to locally-cached resources, add the only-if-cached directive:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">     connection.addRequestProperty(&quot;Cache-Control&quot;, &quot;only-if-cached&quot;);</span><br><span class="line">     InputStream cached = connection.getInputStream();</span><br><span class="line">     // the resource was cached! show it</span><br><span class="line">  catch (FileNotFoundException e) &#123;</span><br><span class="line">     // the resource was not cached</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This technique works even better in situations where a stale response is better than no response. To permit stale cached responses, use the max-stale directive with the maximum staleness in seconds:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int maxStale = 60 * 60 * 24 * 28; // tolerate 4-weeks staleconnection.addRequestProperty(&quot;Cache-Control&quot;, &quot;max-stale=&quot; + maxStale);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>以上信息来自：<a target="_blank" rel="noopener" href="http://developer.android.com/reference/android/net/http/HttpResponseCache.html">HttpResponseCache - Android SDK | Android Developers</a></p>
+<h2 id="取消一个Call"><a href="#取消一个Call" class="headerlink" title="取消一个Call"></a>取消一个Call</h2><p>使用Call.cancel()可以立即停止掉一个正在执行的call。如果一个线程正在写请求或者读响应，将会引发IOException。当call没有必要的时候，使用这个api可以节约网络资源。例如当用户离开一个应用时。不管同步还是异步的call都可以取消。<br>你可以通过tags来同时取消多个请求。当你构建一请求时，使用RequestBuilder.tag(tag)来分配一个标签。之后你就可以用OkHttpClient.cancel(tag)来取消所有带有这个tag的call。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">private final ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);</span><br><span class="line">private final OkHttpClient client = new OkHttpClient();</span><br><span class="line"> </span><br><span class="line">public void run() throws Exception &#123;</span><br><span class="line">    Request request = new Request.Builder()</span><br><span class="line">        .url(&quot;http://httpbin.org/delay/2&quot;) // This URL is served with a 2 second delay.</span><br><span class="line">        .build();</span><br><span class="line"> </span><br><span class="line">    final long startNanos = System.nanoTime();</span><br><span class="line">    final Call call = client.newCall(request);</span><br><span class="line"> </span><br><span class="line">    // Schedule a job to cancel the call in 1 second.</span><br><span class="line">    executor.schedule(new Runnable() &#123;</span><br><span class="line">      @Override public void run() &#123;</span><br><span class="line">        System.out.printf(&quot;%.2f Canceling call.%n&quot;, (System.nanoTime() - startNanos) / 1e9f);</span><br><span class="line">        call.cancel();</span><br><span class="line">        System.out.printf(&quot;%.2f Canceled call.%n&quot;, (System.nanoTime() - startNanos) / 1e9f);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, 1, TimeUnit.SECONDS);</span><br><span class="line"> </span><br><span class="line">    try &#123;</span><br><span class="line">      System.out.printf(&quot;%.2f Executing call.%n&quot;, (System.nanoTime() - startNanos) / 1e9f);</span><br><span class="line">      Response response = call.execute();</span><br><span class="line">      System.out.printf(&quot;%.2f Call was expected to fail, but completed: %s%n&quot;,</span><br><span class="line">          (System.nanoTime() - startNanos) / 1e9f, response);</span><br><span class="line">    &#125; catch (IOException e) &#123;</span><br><span class="line">      System.out.printf(&quot;%.2f Call failed as expected: %s%n&quot;,</span><br><span class="line">          (System.nanoTime() - startNanos) / 1e9f, e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="超时"><a href="#超时" class="headerlink" title="超时"></a>超时</h2><p>没有响应时使用超时结束call。没有响应的原因可能是客户点链接问题、服务器可用性问题或者这之间的其他东西。OkHttp支持连接，读取和写入超时</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">private final OkHttpClient client;</span><br><span class="line"> </span><br><span class="line">public ConfigureTimeouts() throws Exception &#123;</span><br><span class="line">    client = new OkHttpClient();</span><br><span class="line">    client.setConnectTimeout(10, TimeUnit.SECONDS);</span><br><span class="line">    client.setWriteTimeout(10, TimeUnit.SECONDS);</span><br><span class="line">    client.setReadTimeout(30, TimeUnit.SECONDS);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">public void run() throws Exception &#123;</span><br><span class="line">    Request request = new Request.Builder()</span><br><span class="line">        .url(&quot;http://httpbin.org/delay/2&quot;) // This URL is served with a 2 second delay.</span><br><span class="line">        .build();</span><br><span class="line"> </span><br><span class="line">    Response response = client.newCall(request).execute();</span><br><span class="line">    System.out.println(&quot;Response completed: &quot; + response);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="每个call的配置"><a href="#每个call的配置" class="headerlink" title="每个call的配置"></a>每个call的配置</h2><p>使用OkHttpClient，所有的HTTP Client配置包括代理设置、超时设置、缓存设置。当你需要为单个call改变配置的时候，clone 一个 OkHttpClient。这个api将会返回一个浅拷贝（shallow copy），你可以用来单独自定义。下面的例子中，我们让一个请求是500ms的超时、另一个是3000ms的超时。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">private final OkHttpClient client = new OkHttpClient();</span><br><span class="line"> </span><br><span class="line">public void run() throws Exception &#123;</span><br><span class="line">    Request request = new Request.Builder()</span><br><span class="line">        .url(&quot;http://httpbin.org/delay/1&quot;) // This URL is served with a 1 second delay.</span><br><span class="line">        .build();</span><br><span class="line"> </span><br><span class="line">    try &#123;</span><br><span class="line">      Response response = client.clone() // Clone to make a customized OkHttp for this request.</span><br><span class="line">          .setReadTimeout(500, TimeUnit.MILLISECONDS)</span><br><span class="line">          .newCall(request)</span><br><span class="line">          .execute();</span><br><span class="line">      System.out.println(&quot;Response 1 succeeded: &quot; + response);</span><br><span class="line">    &#125; catch (IOException e) &#123;</span><br><span class="line">      System.out.println(&quot;Response 1 failed: &quot; + e);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    try &#123;</span><br><span class="line">      Response response = client.clone() // Clone to make a customized OkHttp for this request.</span><br><span class="line">          .setReadTimeout(3000, TimeUnit.MILLISECONDS)</span><br><span class="line">          .newCall(request)</span><br><span class="line">          .execute();</span><br><span class="line">      System.out.println(&quot;Response 2 succeeded: &quot; + response);</span><br><span class="line">    &#125; catch (IOException e) &#123;</span><br><span class="line">      System.out.println(&quot;Response 2 failed: &quot; + e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="处理验证"><a href="#处理验证" class="headerlink" title="处理验证"></a>处理验证</h2><p>这部分和HTTP AUTH有关。<br>相关资料：<a target="_blank" rel="noopener" href="http://blog.csdn.net/wwwsq/article/details/7255062">HTTP AUTH 那些事 - 王绍全的博客 - 博客频道 - CSDN.NET</a></p>
+<p>OkHttp会自动重试未验证的请求。当响应是401 Not Authorized时，Authenticator会被要求提供证书。Authenticator的实现中需要建立一个新的包含证书的请求。如果没有证书可用，返回null来跳过尝试。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;Challenge&gt; challenges()</span><br><span class="line">Returns the authorization challenges appropriate for this response&#x27;s code. </span><br><span class="line">If the response code is 401 unauthorized, </span><br><span class="line">this returns the &quot;WWW-Authenticate&quot; challenges.</span><br><span class="line">If the response code is 407 proxy unauthorized, this returns the &quot;Proxy-Authenticate&quot; challenges.</span><br><span class="line">Otherwise this returns an empty list of challenges.</span><br></pre></td></tr></table></figure>
+
+<p>当需要实现一个Basic challenge， 使用Credentials.basic(username, password)来编码请求头。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">private final OkHttpClient client = new OkHttpClient();</span><br><span class="line"> </span><br><span class="line">public void run() throws Exception &#123;</span><br><span class="line">    client.setAuthenticator(new Authenticator() &#123;</span><br><span class="line">      @Override public Request authenticate(Proxy proxy, Response response) &#123;</span><br><span class="line">        System.out.println(&quot;Authenticating for response: &quot; + response);</span><br><span class="line">        System.out.println(&quot;Challenges: &quot; + response.challenges());</span><br><span class="line">        String credential = Credentials.basic(&quot;jesse&quot;, &quot;password1&quot;);</span><br><span class="line">        return response.request().newBuilder()</span><br><span class="line">            .header(&quot;Authorization&quot;, credential)</span><br><span class="line">            .build();</span><br><span class="line">      &#125;</span><br><span class="line"> </span><br><span class="line">      @Override public Request authenticateProxy(Proxy proxy, Response response) &#123;</span><br><span class="line">        return null; // Null indicates no attempt to authenticate.</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"> </span><br><span class="line">    Request request = new Request.Builder()</span><br><span class="line">        .url(&quot;http://publicobject.com/secrets/hellosecret.txt&quot;)</span><br><span class="line">        .build();</span><br><span class="line"> </span><br><span class="line">    Response response = client.newCall(request).execute();</span><br><span class="line">    if (!response.isSuccessful()) throw new IOException(&quot;Unexpected code &quot; + response);</span><br><span class="line"> </span><br><span class="line">    System.out.println(response.body().string());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>转自 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/ct2011/p/4001708.html">OkHttp使用介绍</a> 同时整合了 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/ct2011/p/3997368.html">OkHttp使用进阶</a> 这篇文章以及其中的评论。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">uuxia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://uuxia.cn/2016/05/09/okhttphelp/">https://uuxia.cn/2016/05/09/okhttphelp/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">uuxia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/android/">
+                                    <span class="chip bg-color">android</span>
+                                </a>
+                            
+                                <a href="/tags/okhttp/">
+                                    <span class="chip bg-color">okhttp</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2016/05/10/iosdev/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="ios开发笔记">
+                        
+                        <span class="card-title">ios开发笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            http://www.williamlong.info/archives/4319.html
+
+ 证书知识及准备工作
+ 几种开发者帐号区别
+ 真机调试流程
+ 内测发布流程
+ Appstore 上架流程
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2016-05-10
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Ios/" class="post-category">
+                                    Ios
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ios/">
+                        <span class="chip bg-color">ios</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2016/05/09/gowaywenzi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="教你几招，蚊子一个夏天不敢进你的房间！！">
+                        
+                        <span class="card-title">教你几招，蚊子一个夏天不敢进你的房间！！</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            教你几招，蚊子一个夏天不敢进你的房间！！
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2016-05-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%94%9F%E6%B4%BB/" class="post-category">
+                                    生活
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%A9%B1%E8%9A%8A-life/">
+                        <span class="chip bg-color">驱蚊  life</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <a href="/about" target="_blank">uuxia</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
