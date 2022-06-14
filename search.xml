@@ -314,6 +314,11 @@
     <content type="text"></content>
   </entry>
   <entry>
+    <title><![CDATA[friends]]></title>
+    <url>%2Ffriends%2Findex.html</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[读书]]></title>
     <url>%2Freading%2Findex.html</url>
     <content type="text"></content>
