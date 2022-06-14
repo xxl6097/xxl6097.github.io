@@ -13,7 +13,7 @@ yum install nginx
 
 配置代码
 
-nano &amp;#x2F;etc&amp;#x2F">
+nano /etc/nginx/ngi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -40,7 +40,9 @@ nano &amp;#x2F;etc&amp;#x2F">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
@@ -519,7 +521,7 @@ yum install nginx
 
 配置代码
 
-nano &#x2F;etc&#x2F;nginx&#x2F;nginx.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+nano /etc/nginx/nginx.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -528,22 +530,22 @@ nano &#x2F;etc&#x2F;nginx&#x2F;nginx.conf<span aria-hidden="true" class="line-nu
 <h3 id="nginx-conf"><a href="#nginx-conf" class="headerlink" title="nginx.conf"></a>nginx.conf</h3><pre class="line-numbers language-none"><code class="language-none">
 user root;
 worker_processes auto;
-error_log &#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log;
-pid &#x2F;run&#x2F;nginx.pid;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
 
 
-include &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;modules&#x2F;*.conf;
+include /usr/share/nginx/modules/*.conf;
 
-events &#123;
+events {
 worker_connections 1024;
-&#125;
+}
 
-http &#123;
-log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
-&#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
-&#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
+http {
+log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+'$status $body_bytes_sent "$http_referer" '
+'"$http_user_agent" "$http_x_forwarded_for"';
 
-    access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log  main;
+    access_log  /var/log/nginx/access.log  main;
 
     sendfile            on;
     tcp_nopush          on;
@@ -551,229 +553,229 @@ log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&
     keepalive_timeout   65;
     types_hash_max_size 2048;
     client_max_body_size 500m;
-    include             &#x2F;etc&#x2F;nginx&#x2F;mime.types;
-    default_type        application&#x2F;octet-stream;
+    include             /etc/nginx/mime.types;
+    default_type        application/octet-stream;
 
-    include &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;*.conf;
+    include /etc/nginx/conf.d/*.conf;
 
 
 
-&#125;
+}
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="admin-conf"><a href="#admin-conf" class="headerlink" title="admin.conf"></a>admin.conf</h3><pre class="line-numbers language-none"><code class="language-none">server &#123;
+<h3 id="admin-conf"><a href="#admin-conf" class="headerlink" title="admin.conf"></a>admin.conf</h3><pre class="line-numbers language-none"><code class="language-none">server {
         listen       80;
         server_name  admin.uuxia.cn;
         
-        location &#x2F; &#123;
+        location / {
            index index.html index.htm;
            proxy_set_header Host $host;
-           proxy_pass https:&#x2F;&#x2F;127.0.0.1:8082&#x2F;;
+           proxy_pass https://127.0.0.1:8082/;
            proxy_set_header Upgrade $http_upgrade;
            proxy_http_version 1.1;
-           proxy_set_header Connection &quot;upgrade&quot;;
-           proxy_redirect https:&#x2F;&#x2F;127.0.0.1&#x2F;admin https:&#x2F;&#x2F;127.0.0.1:8080&#x2F;;
-       &#125;
+           proxy_set_header Connection "upgrade";
+           proxy_redirect https://127.0.0.1/admin https://127.0.0.1:8080/;
+       }
        
-&#125;
+}
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="file-conf"><a href="#file-conf" class="headerlink" title="file.conf"></a>file.conf</h3><pre class="line-numbers language-none"><code class="language-none">autoindex on;# 显示目录
 autoindex_exact_size off;# 显示文件大小
 autoindex_localtime on;# 显示文件时间
-server &#123;
+server {
         listen       80;
         server_name  file.uuxia.cn;
 
         charset gbk,utf-8;
         
 
-        location &#x2F; &#123;
-            root &#x2F;home&#x2F;;
+        location / {
+            root /home/;
             index  index.html index.htm;
             charset utf-8;
-        &#125;
+        }
 
- &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h3 id="cloud-conf"><a href="#cloud-conf" class="headerlink" title="cloud.conf"></a>cloud.conf</h3><pre class="line-numbers language-none"><code class="language-none">server &#123;
+<h3 id="cloud-conf"><a href="#cloud-conf" class="headerlink" title="cloud.conf"></a>cloud.conf</h3><pre class="line-numbers language-none"><code class="language-none">server {
         listen       80 default_server;
         server_name  cloud.uuxia.cn;
 
-        location &#x2F; &#123;
+        location / {
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header Host $http_host;
             proxy_redirect off;
-            proxy_pass http:&#x2F;&#x2F;127.0.0.1:5212;
+            proxy_pass http://127.0.0.1:5212;
 
             # 如果您要使用本地存储策略，请将下一行注释符删除，并更改大小为理论最大文件尺寸
             # client_max_body_size 20000m;
-        &#125;
-    &#125;
+        }
+    }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="java-conf"><a href="#java-conf" class="headerlink" title="java.conf"></a>java.conf</h3><pre class="line-numbers language-none"><code class="language-none">
 
-server &#123;
+server {
         listen       80;
         #listen       [::]:80 default_server;
         server_name  uuxia.cn;
-        #root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
+        #root         /usr/share/nginx/html;
         #charset gbk,utf-8;
 #        charset utf-8;
-        location ^~ &#x2F;frp_server_web&#x2F;&#123;
+        location ^~ /frp_server_web/{
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header Host $http_host;
-            proxy_pass http:&#x2F;&#x2F;127.0.0.1:9090;
-        &#125;
+            proxy_pass http://127.0.0.1:9090;
+        }
 
-        location &#x2F; &#123;
-            root &#x2F;home&#x2F;file&#x2F;xxl6097.github.io;
+        location / {
+            root /home/file/xxl6097.github.io;
             index index.html index.htm;
             charset utf-8;
-        &#125;
-        location &#x2F;file &#123;
-            alias &#x2F;home&#x2F;file;
+        }
+        location /file {
+            alias /home/file;
             autoindex on;
             autoindex_exact_size off;
             autoindex_localtime on;
             charset utf-8;
-        &#125;
+        }
 
-        location &#x2F;websocket&#123;
-            proxy_pass https:&#x2F;&#x2F;127.0.0.1:8082;
+        location /websocket{
+            proxy_pass https://127.0.0.1:8082;
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection &quot;upgrade&quot;;
+            proxy_set_header Connection "upgrade";
             proxy_read_timeout 3600s;
-        &#125;
-        location &#x2F;admin&#x2F; &#123;
+        }
+        location /admin/ {
            index index.html index.htm;
            proxy_set_header Host $host;
-           proxy_pass https:&#x2F;&#x2F;127.0.0.1:8082&#x2F;;
+           proxy_pass https://127.0.0.1:8082/;
            proxy_set_header Upgrade $http_upgrade;
            proxy_http_version 1.1;
-           proxy_set_header Connection &quot;upgrade&quot;;
-           proxy_redirect https:&#x2F;&#x2F;127.0.0.1&#x2F;admin https:&#x2F;&#x2F;127.0.0.1:8080&#x2F;;
-       &#125;
+           proxy_set_header Connection "upgrade";
+           proxy_redirect https://127.0.0.1/admin https://127.0.0.1:8080/;
+       }
        
 
-       location ~* ^(&#x2F;v2|&#x2F;webjars|&#x2F;swagger-resources|&#x2F;swagger-ui.html)&#123;
+       location ~* ^(/v2|/webjars|/swagger-resources|/swagger-ui.html){
          proxy_set_header Host $host;
          proxy_set_header  X-Real-IP  $remote_addr;
            proxy_set_header X-Forwarded-For $remote_addr;
          #proxy_set_header Host $host:$server_port;
          proxy_set_header X-Forwarded-Proto $scheme;
          proxy_set_header X-Forwarded-Port $server_port;
-         proxy_pass https:&#x2F;&#x2F;127.0.0.1:8082; # 后端服务地址
-       &#125;
+         proxy_pass https://127.0.0.1:8082; # 后端服务地址
+       }
 
-       location &#x2F;v1 &#123;
+       location /v1 {
          proxy_set_header Host $host;
-         add_header &#39;Access-Control-Allow-Origin&#39; &#39;*&#39;;
-         add_header &#39;Access-Control-Allow-Headers&#39; &#39;X-Requested-With&#39;;
-         add_header &#39;Access-Control-Allow-Methods&#39; &#39;GET,POST,OPTIONS&#39;;
-         proxy_pass https:&#x2F;&#x2F;127.0.0.1:8082;
-        &#125;
+         add_header 'Access-Control-Allow-Origin' '*';
+         add_header 'Access-Control-Allow-Headers' 'X-Requested-With';
+         add_header 'Access-Control-Allow-Methods' 'GET,POST,OPTIONS';
+         proxy_pass https://127.0.0.1:8082;
+        }
 
-        error_page 404 &#x2F;404.html;
-            location &#x3D; &#x2F;40x.html &#123;
-        &#125;
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
 
-        error_page 500 502 503 504 &#x2F;50x.html;
-            location &#x3D; &#x2F;50x.html &#123;
-        &#125;
-    &#125;
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+    }
 
 # Settings for a TLS enabled server.
 #
-    server &#123;
+    server {
         listen       443 ssl http2 default_server;
        # listen       [::]:443 ssl http2 default_server;
         server_name  uuxia.cn;
-       # root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
-        ssl_certificate &quot;&#x2F;etc&#x2F;pki&#x2F;nginx&#x2F;server.crt&quot;;
-        ssl_certificate_key &quot;&#x2F;etc&#x2F;pki&#x2F;nginx&#x2F;private&#x2F;server.key&quot;;
+       # root         /usr/share/nginx/html;
+        ssl_certificate "/etc/pki/nginx/server.crt";
+        ssl_certificate_key "/etc/pki/nginx/private/server.key";
         ssl_session_cache shared:SSL:1m;
         ssl_session_timeout  10m;
         ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
         ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
-        #ssl_ciphers PROFILE&#x3D;SYSTEM;
+        #ssl_ciphers PROFILE=SYSTEM;
         ssl_prefer_server_ciphers on;
 #        charset gbk,utf-8;
 
 
         client_max_body_size 500m;    
-        location &#x2F; &#123;
-            root &#x2F;home&#x2F;file&#x2F;xxl6097.github.io;
+        location / {
+            root /home/file/xxl6097.github.io;
             index index.html index.htm;
-            #proxy_pass https:&#x2F;&#x2F;127.0.0.1:8082&#x2F;;
-            #proxy_redirect https:&#x2F;&#x2F;127.0.0.1&#x2F;admin https:&#x2F;&#x2F;127.0.0.1:8082&#x2F;;
+            #proxy_pass https://127.0.0.1:8082/;
+            #proxy_redirect https://127.0.0.1/admin https://127.0.0.1:8082/;
             charset utf-8;
-        &#125;
-        location &#x2F;file &#123;
-            alias &#x2F;home&#x2F;file;
+        }
+        location /file {
+            alias /home/file;
             autoindex on;
             autoindex_exact_size off;
             autoindex_localtime on;
             charset utf-8;
-        &#125;
+        }
 
-        location &#x2F;v1 &#123;
+        location /v1 {
             proxy_set_header Host $host;
-            add_header &#39;Access-Control-Allow-Origin&#39; &#39;*&#39;;
-            add_header &#39;Access-Control-Allow-Headers&#39; &#39;X-Requested-With&#39;;
-            add_header &#39;Access-Control-Allow-Methods&#39; &#39;GET,POST,OPTIONS&#39;;
-            proxy_pass https:&#x2F;&#x2F;127.0.0.1:8082;
-        &#125;
-        location &#x2F;admin&#x2F; &#123;
+            add_header 'Access-Control-Allow-Origin' '*';
+            add_header 'Access-Control-Allow-Headers' 'X-Requested-With';
+            add_header 'Access-Control-Allow-Methods' 'GET,POST,OPTIONS';
+            proxy_pass https://127.0.0.1:8082;
+        }
+        location /admin/ {
            index index.html index.htm;
            proxy_set_header Host $host;
-           proxy_pass https:&#x2F;&#x2F;127.0.0.1:8082&#x2F;;
+           proxy_pass https://127.0.0.1:8082/;
            proxy_set_header Upgrade $http_upgrade;
            proxy_http_version 1.1;
-           proxy_set_header Connection &quot;upgrade&quot;;
-           proxy_redirect https:&#x2F;&#x2F;127.0.0.1&#x2F;admin https:&#x2F;&#x2F;127.0.0.1:8080&#x2F;;
-       &#125;
+           proxy_set_header Connection "upgrade";
+           proxy_redirect https://127.0.0.1/admin https://127.0.0.1:8080/;
+       }
        
 
-       location ~* ^(&#x2F;v2|&#x2F;webjars|&#x2F;swagger-resources|&#x2F;swagger-ui.html)&#123;
+       location ~* ^(/v2|/webjars|/swagger-resources|/swagger-ui.html){
          proxy_set_header Host $host;
          proxy_set_header  X-Real-IP  $remote_addr;
            proxy_set_header X-Forwarded-For $remote_addr;
          #proxy_set_header Host $host:$server_port;
          proxy_set_header X-Forwarded-Proto $scheme;
          proxy_set_header X-Forwarded-Port $server_port;
-         proxy_pass https:&#x2F;&#x2F;127.0.0.1:8082; # 后端服务地址
-       &#125;
+         proxy_pass https://127.0.0.1:8082; # 后端服务地址
+       }
 
-        location &#x2F;websocket&#123;
-            proxy_pass https:&#x2F;&#x2F;127.0.0.1:8082;
+        location /websocket{
+            proxy_pass https://127.0.0.1:8082;
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection &quot;upgrade&quot;;
+            proxy_set_header Connection "upgrade";
             proxy_read_timeout 3600s;
-        &#125;
+        }
 
-        error_page 404 &#x2F;404.html;
-            location &#x3D; &#x2F;40x.html &#123;
-        &#125;
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
 #
-        error_page 500 502 503 504 &#x2F;50x.html;
-            location &#x3D; &#x2F;50x.html &#123;
-        &#125;
-    &#125;
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+    }
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
 <h2 id="2-mysql安装配置"><a href="#2-mysql安装配置" class="headerlink" title="2. mysql安装配置"></a>2. mysql安装配置</h2><pre class="line-numbers language-none"><code class="language-none">1.下载MySQL
-Red Hat Enterprise Linux &#x2F; Oracle Linux
-2. 选择 &#96;Red Hat Enterprise Linux 8 &#x2F; Oracle Linux 8 (x86, 64-bit), RPM Bundle<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+Red Hat Enterprise Linux / Oracle Linux
+2. 选择 `Red Hat Enterprise Linux 8 / Oracle Linux 8 (x86, 64-bit), RPM Bundle<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <pre class="line-numbers language-none"><code class="language-none">安装
-wget https:&#x2F;&#x2F;cdn.mysql.com&#x2F;&#x2F;Downloads&#x2F;MySQL-8.0&#x2F;mysql-8.0.28-1.el8.x86_64.rpm-bundle.tar
+wget https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-8.0.28-1.el8.x86_64.rpm-bundle.tar
 tar -xvf mysql-8.0.28-1.el8.x86_64.rpm-bundle.tar 
 rpm -ivh mysql-community-common-8.0.28-1.el8.x86_64.rpm --nodeps --force
 rpm -ivh mysql-community-libs-8.0.28-1.el8.x86_64.rpm --nodeps --force
@@ -785,124 +787,124 @@ rpm -ivh mysql-community-server-8.0.28-1.el8.x86_64.rpm --nodeps --force
 通过以下命令，完成对 mysql 数据库的初始化和相关配置
 
 mysqld --initialize;
-chown mysql:mysql &#x2F;var&#x2F;lib&#x2F;mysql -R;
+chown mysql:mysql /var/lib/mysql -R;
 systemctl start mysqld.service;
 systemctl enable mysqld;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>通过 <code>cat /var/log/mysqld.log | grep password</code> 命令查看数据库的密码</p>
 <p>通过 <code>mysql -uroot -p</code> 敲回车键进入数据库登陆界面</p>
-<p>通过 <code>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;Xxl2475431305.&#39;;</code> 命令来修改密码<br><code>ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;Xxl2475431305.&#39;;</code><br>这下密码改成了 root</p>
+<p>通过 <code>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Xxl2475431305.';</code> 命令来修改密码<br><code>ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'Xxl2475431305.';</code><br>这下密码改成了 root</p>
 <p>通过 exit; 命令退出 MySQL，然后通过新密码再次登陆</p>
 <p>通过以下命令，进行远程访问的授权</p>
-<pre class="line-numbers language-none"><code class="language-none">create user &#39;root&#39;@&#39;%&#39; identified with mysql_native_password by &#39;root&#39;;
+<pre class="line-numbers language-none"><code class="language-none">create user 'root'@'%' identified with mysql_native_password by 'root';
 
-grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; with grant option;
+grant all privileges on *.* to 'root'@'%' with grant option;
 
 flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <p>sqlyog链接时出现2058异常</p>
-<p><code>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;password&#39;;</code><br>其中password为自己修改的密码。然后SQLyog中重新连接，则可连接成功，OK。</p>
+<p><code>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';</code><br>其中password为自己修改的密码。然后SQLyog中重新连接，则可连接成功，OK。</p>
 <p>如果报错：ERROR 1396 (HY000): Operation ALTER USER failed for ‘root’@’localhost’则使用下面命令：</p>
-<p><code>ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;Xxl2475431305.&#39;;</code></p>
+<p><code>ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'Xxl2475431305.';</code></p>
 <hr>
 <h2 id="3-JDK安装配置"><a href="#3-JDK安装配置" class="headerlink" title="3. JDK安装配置"></a>3. JDK安装配置</h2><h3 id="方式一（推荐）"><a href="#方式一（推荐）" class="headerlink" title="方式一（推荐）"></a>方式一（推荐）</h3><pre class="line-numbers language-none"><code class="language-none">查询安装的jdk版本
 yum -y list java*
 安装jdk1.8
 yum install -y java-11-openjdk.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;www.oracle.com&#x2F;java&#x2F;technologies&#x2F;downloads&#x2F;#java8
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><pre class="line-numbers language-none"><code class="language-none">https://www.oracle.com/java/technologies/downloads/#java8
 
-选择 &#96;jdk-8u321-linux-x64.tar.gz&#96;
+选择 `jdk-8u321-linux-x64.tar.gz`
 
-解压 &#96;tar -zxvf jdk-8u321-linux-x64.tar.gz&#96;
+解压 `tar -zxvf jdk-8u321-linux-x64.tar.gz`
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <pre class="line-numbers language-none"><code class="language-none">
-修改环境变量 &#96;nano &#x2F;etc&#x2F;profile&#96;
+修改环境变量 `nano /etc/profile`
 
-export JAVA_HOME&#x3D;&#x2F;usr&#x2F;lib&#x2F;jdk1.8.0_321
-export CLASSPATH&#x3D;.:$JAVA_HOME&#x2F;jre&#x2F;lib&#x2F;rt.jar:$JAVA_HOME&#x2F;lib&#x2F;dt.jar:$JAVA_HOME&#x2F;lib&#x2F;tools.jar
-export PATH&#x3D;$PATH:$JAVA_HOME&#x2F;bin
+export JAVA_HOME=/usr/lib/jdk1.8.0_321
+export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$PATH:$JAVA_HOME/bin
 
-source &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+source /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h2 id="4-gralde安装"><a href="#4-gralde安装" class="headerlink" title="4. gralde安装"></a>4. gralde安装</h2><pre class="line-numbers language-none"><code class="language-none">wget https:&#x2F;&#x2F;services.gradle.org&#x2F;distributions&#x2F;gradle-6.7-bin.zip
+<h2 id="4-gralde安装"><a href="#4-gralde安装" class="headerlink" title="4. gralde安装"></a>4. gralde安装</h2><pre class="line-numbers language-none"><code class="language-none">wget https://services.gradle.org/distributions/gradle-6.7-bin.zip
 
 unzip gradle-6.7-bin.zip
 
-nano ~&#x2F;.bash_profile
+nano ~/.bash_profile
 
-PATH&#x3D;$PATH:&#x2F;usr&#x2F;lib&#x2F;gradle-6.7&#x2F;bin
+PATH=$PATH:/usr/lib/gradle-6.7/bin
 
-source ~&#x2F;.bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+source ~/.bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
 <h2 id="5-安装frps安装"><a href="#5-安装frps安装" class="headerlink" title="5. 安装frps安装"></a>5. 安装frps安装</h2><p>服务端配置</p>
 <pre class="line-numbers language-none"><code class="language-none">[common]
-bind_port &#x3D; 8000
-token &#x3D; xxxxxxxxx
-dashboard_port&#x3D;8888
-dashboard_user &#x3D; admin
-dashboard_pwd &#x3D; admin
-vhost_http_port &#x3D; 9090
-vhost_https_port &#x3D; 9091
-subdomain_host &#x3D; uuxia.cn<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+bind_port = 8000
+token = xxxxxxxxx
+dashboard_port=8888
+dashboard_user = admin
+dashboard_pwd = admin
+vhost_http_port = 9090
+vhost_https_port = 9091
+subdomain_host = uuxia.cn<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>客户端配置</p>
 <pre class="line-numbers language-none"><code class="language-none">[common]
-tls_enable &#x3D; true
-admin_addr &#x3D; 0.0.0.0
-admin_port &#x3D; 7400
-admin_user &#x3D; admin
-admin_pwd &#x3D; admin
-token &#x3D; xxxxxx
-#server_addr &#x3D; 127.0.0.1
-server_addr &#x3D; uuxia.cn
-server_port &#x3D; 8000
+tls_enable = true
+admin_addr = 0.0.0.0
+admin_port = 7400
+admin_user = admin
+admin_pwd = admin
+token = xxxxxx
+#server_addr = 127.0.0.1
+server_addr = uuxia.cn
+server_port = 8000
 
 [公司-树莓派3B]
-type &#x3D; tcp
-local_ip &#x3D; 0.0.0.0
-local_port &#x3D; 22
-remote_port &#x3D; 2222
+type = tcp
+local_ip = 0.0.0.0
+local_port = 22
+remote_port = 2222
 
 [公司-FRP客户端管理页面]
-type &#x3D; tcp
-local_ip &#x3D; 0.0.0.0
-local_port &#x3D; 7400
-remote_port &#x3D; 7401
+type = tcp
+local_ip = 0.0.0.0
+local_port = 7400
+remote_port = 7401
 
 [公司-win]
-type &#x3D; tcp
-local_ip &#x3D; 192.168.31.53
-local_port &#x3D; 3389
-remote_port &#x3D; 7001
+type = tcp
+local_ip = 192.168.31.53
+local_port = 3389
+remote_port = 7001
 
 [公司-iMac-VNC]
-type &#x3D; tcp
-local_ip &#x3D; 192.168.31.92
-local_port &#x3D; 5900
-remote_port &#x3D; 7002
+type = tcp
+local_ip = 192.168.31.92
+local_port = 5900
+remote_port = 7002
 
 [公司-iMac-SSH]
-type &#x3D; tcp
-local_ip &#x3D; 192.168.31.92
-local_port &#x3D; 22
-remote_port &#x3D; 7003<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+type = tcp
+local_ip = 192.168.31.92
+local_port = 22
+remote_port = 7003<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <h2 id="6-安装Node-js"><a href="#6-安装Node-js" class="headerlink" title="6. 安装Node.js"></a>6. 安装Node.js</h2><hr>
 <pre class="line-numbers language-none"><code class="language-none">1 下载
 
-官网地址：https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F;download&#x2F;
-wget https:&#x2F;&#x2F;nodejs.org&#x2F;dist&#x2F;v10.24.0&#x2F;node-v10.24.0-linux-x64.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+官网地址：https://nodejs.org/en/download/
+wget https://nodejs.org/dist/v10.24.0/node-v10.24.0-linux-x64.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-none"><code class="language-none">安装
 
 tar -xvf node-v10.24.0-linux-x64.tar.gz
-mv node-v10.24.0-linux-x64 &#x2F;opt&#x2F;Nodejs
-NODE_HOME&#x3D;&#x2F;opt&#x2F;Nodejs
-export PATH&#x3D;$NODE_HOME&#x2F;bin:$PATH
-source &#x2F;etc&#x2F;profile
+mv node-v10.24.0-linux-x64 /opt/Nodejs
+NODE_HOME=/opt/Nodejs
+export PATH=$NODE_HOME/bin:$PATH
+source /etc/profile
 
 npm install -g hexo-cli
 
@@ -910,11 +912,11 @@ npm uninstall hexo-cli -g  推荐这个，成功卸载
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <h2 id="7-页脚备案代码"><a href="#7-页脚备案代码" class="headerlink" title="7. 页脚备案代码"></a>7. 页脚备案代码</h2><pre class="line-numbers language-none"><code class="language-none">
-&lt;div style&#x3D;&quot;color:#666;text-align:center;margin-top:-10px;padding-bottom:35px;&quot;&gt;
-    &lt;p&gt;&lt;a style&#x3D;&quot;color:#666;&quot; text-decoration:underline;&quot; href&#x3D;&quot;http:&#x2F;&#x2F;beian.miit.gov.cn&#x2F;&quot;&gt;工业和信息化部备案管理系统网站 粤ICP备2022014941号&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-    &lt;p&gt;主办单位：&lt;a style&#x3D;&quot;color:#666;&quot; text-decoration:underline;&quot; target&#x3D;&quot;_blank&quot; href&#x3D;&quot;http:&#x2F;&#x2F;uuxia.cn&quot;&gt;悠悠科技&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-    &lt;p&gt;Operated by Guangzhou ChoMeng Computer System Co., Ltd.&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
+&lt;div style="color:#666;text-align:center;margin-top:-10px;padding-bottom:35px;"&gt;
+    &lt;p&gt;&lt;a style="color:#666;" text-decoration:underline;" href="http://beian.miit.gov.cn/"&gt;工业和信息化部备案管理系统网站 粤ICP备2022014941号&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;主办单位：&lt;a style="color:#666;" text-decoration:underline;" target="_blank" href="http://uuxia.cn"&gt;悠悠科技&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;Operated by Guangzhou ChoMeng Computer System Co., Ltd.&lt;/p&gt;
+&lt;/div&gt;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 

@@ -58,7 +58,9 @@ Mac地址
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
@@ -545,12 +547,12 @@ Mac地址
 <td align="left">2字节</td>
 </tr>
 </tbody></table>
-<h1 id="通讯Json格式："><a href="#通讯Json格式：" class="headerlink" title="通讯Json格式："></a><strong>通讯Json格式</strong>：</h1><pre><code>&#123; 
- &quot;cmd&quot;: 0 ,//命令码
-&quot;code&quot;: 0,	//返回码
-&quot;msg&quot;: &quot;&quot;,	//状态消息
-&quot;data&quot;: ......	//数据节点
-&#125;
+<h1 id="通讯Json格式："><a href="#通讯Json格式：" class="headerlink" title="通讯Json格式："></a><strong>通讯Json格式</strong>：</h1><pre><code>{ 
+ "cmd": 0 ,//命令码
+"code": 0,	//返回码
+"msg": "",	//状态消息
+"data": ......	//数据节点
+}
 </code></pre>
 <h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a><strong>参数说明</strong></h2><table>
 <thead>
@@ -625,7 +627,7 @@ Mac地址
 <tr>
 <td align="left">0x0006</td>
 <td align="left">6</td>
-<td align="left">静音&#x2F;解除静音</td>
+<td align="left">静音/解除静音</td>
 </tr>
 <tr>
 <td align="left">0x0007</td>
@@ -680,7 +682,7 @@ Mac地址
 <tr>
 <td align="left">0x0011</td>
 <td align="left">17</td>
-<td align="left">palyMode(顺序播放&#x2F;随机播放&#x2F;列表循环&#x2F;单曲循环&#x2F;)</td>
+<td align="left">palyMode(顺序播放/随机播放/列表循环/单曲循环/)</td>
 </tr>
 <tr>
 <td align="left">0x0012</td>
@@ -726,57 +728,57 @@ Mac地址
 </tr>
 </tbody></table>
 </blockquote>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a><strong>示例</strong></h2><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a><strong>字符串</strong></h3><pre><code>&#123; 
-&quot;cmd&quot;: 0x0001 ,//命令码
-&quot;code&quot;: 0,  //返回码
-&quot;msg&quot;: &quot;&quot;,  //状态消息
-&quot;data&quot;: &quot;This is string&quot;  //数据节点
-&#125;
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a><strong>示例</strong></h2><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a><strong>字符串</strong></h3><pre><code>{ 
+"cmd": 0x0001 ,//命令码
+"code": 0,  //返回码
+"msg": "",  //状态消息
+"data": "This is string"  //数据节点
+}
 </code></pre>
-<h3 id="整形参数"><a href="#整形参数" class="headerlink" title="整形参数"></a><strong>整形参数</strong></h3><pre><code>&#123; 
-&quot;cmd&quot;: 0x0001 ,//命令码
-&quot;code&quot;: 0,  //返回码
-&quot;msg&quot;: &quot;&quot;,  //状态消息
-&quot;data&quot;: 1  //数据节点
-&#125;
+<h3 id="整形参数"><a href="#整形参数" class="headerlink" title="整形参数"></a><strong>整形参数</strong></h3><pre><code>{ 
+"cmd": 0x0001 ,//命令码
+"code": 0,  //返回码
+"msg": "",  //状态消息
+"data": 1  //数据节点
+}
 </code></pre>
-<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a><strong>对象</strong></h3><pre><code>&#123; 
-&quot;cmd&quot;: 0x0001 ,//命令码
-&quot;code&quot;: 0,  //返回码
-&quot;msg&quot;: &quot;&quot;,  //状态消息
-&quot;data&quot;:  &#123;
-      &quot;ssid&quot;:&quot;TP-link&quot;,  //连接的路由名称
-      &quot;password&quot;:&quot;12345678&quot;,  //路由密码,需要加密
-  &#125;  
-&#125;
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a><strong>对象</strong></h3><pre><code>{ 
+"cmd": 0x0001 ,//命令码
+"code": 0,  //返回码
+"msg": "",  //状态消息
+"data":  {
+      "ssid":"TP-link",  //连接的路由名称
+      "password":"12345678",  //路由密码,需要加密
+  }  
+}
 </code></pre>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a><strong>数组</strong></h3><pre><code>&#123; 
-&quot;cmd&quot;: 0x001 ,//命令码
-&quot;code&quot;: 0,  //返回码
-&quot;msg&quot;: &quot;&quot;,  //状态消息
-&quot;data&quot;:[
-  &#123;
-        &quot;id&quot;      ：   &quot;0&quot;
-        &quot;name&quot; ： “xxxx&quot;,
-        &quot;artist&quot; ： “xxxx&quot;,
-        &quot;album_title&quot;： “xxxx&quot;,
-        &quot;cover_url_small”：“xxxx&quot;,
-        &quot;cover_url_middle&quot;:&quot;xxxx&quot;,
-        &quot;cover_url_large&quot;:&quot;xxxx&quot;,
-        &quot;url&quot;:&quot;xxxxxxxxx&quot;  &#123;详细规格见规格说明url部分&#125;,
-  &#125;,
-  &#123;
-        &quot;id&quot;:&quot;1&quot;
-        &quot;name&quot;:&quot;xxxx1&quot;,
-        &quot;artist&quot;:&quot;xxxx1&quot;,
-        &quot;album&quot;:&quot;xxxx1&quot;,
-        &quot;cover_url_small&quot;:&quot;xxxx&quot;,
-        &quot;cover_url_middle&quot;:&quot;xxxx&quot;,
-        &quot;cover_url_large&quot;:&quot;xxxx&quot;,
-        &quot;url&quot;:&quot;xxxxxxxxxx&quot;&#123;详细规格见规格说明url部分&#125;,
-  &#125;
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a><strong>数组</strong></h3><pre><code>{ 
+"cmd": 0x001 ,//命令码
+"code": 0,  //返回码
+"msg": "",  //状态消息
+"data":[
+  {
+        "id"      ：   "0"
+        "name" ： “xxxx",
+        "artist" ： “xxxx",
+        "album_title"： “xxxx",
+        "cover_url_small”：“xxxx",
+        "cover_url_middle":"xxxx",
+        "cover_url_large":"xxxx",
+        "url":"xxxxxxxxx"  {详细规格见规格说明url部分},
+  },
+  {
+        "id":"1"
+        "name":"xxxx1",
+        "artist":"xxxx1",
+        "album":"xxxx1",
+        "cover_url_small":"xxxx",
+        "cover_url_middle":"xxxx",
+        "cover_url_large":"xxxx",
+        "url":"xxxxxxxxxx"{详细规格见规格说明url部分},
+  }
    ]
-&#125;
+}
 </code></pre>
 <h2 id="指令说明"><a href="#指令说明" class="headerlink" title="指令说明"></a><strong>指令说明</strong></h2><h3 id="一、设备基础指令"><a href="#一、设备基础指令" class="headerlink" title="一、设备基础指令"></a><strong>一、设备基础指令</strong></h3><ol>
 <li><strong>App扫描设备</strong></li>
@@ -812,8 +814,8 @@ Mac地址
 </tr>
 </tbody></table>
 <ul>
-<li><font color=#c00><strong>命令字：0x0405</strong></font></li>
-<li><font color=#c00><strong>data区：NULL</strong></font></li>
+<li><font color="#c00"><strong>命令字：0x0405</strong></font></li>
+<li><font color="#c00"><strong>data区：NULL</strong></font></li>
 </ul>
 <ol start="2">
 <li><strong>设备回复自身信息</strong></li>
@@ -849,10 +851,10 @@ Mac地址
 </tr>
 </tbody></table>
 <ul>
-<li><font color=#c00><strong>命令字：0x0305</strong></font></li>
-<li><font color=#c00><strong>厂商ID：0x0199</strong> </font></li>
-<li><font color=#c00><strong>大分类：0x1b</strong>  </font></li>
-<li><font color=#c00><strong>小分类：0x03</strong></font></li>
+<li><font color="#c00"><strong>命令字：0x0305</strong></font></li>
+<li><font color="#c00"><strong>厂商ID：0x0199</strong> </font></li>
+<li><font color="#c00"><strong>大分类：0x1b</strong>  </font></li>
+<li><font color="#c00"><strong>小分类：0x03</strong></font></li>
 </ul>
 <ol start="3">
 <li><strong>App发送心跳包</strong></li>
@@ -888,16 +890,16 @@ Mac地址
 </tr>
 </tbody></table>
 <ul>
-<li><font color=#c00><strong>命令字：0x0104</strong></font></li>
-<li><font color=#c00><strong>data区：json</strong></font></li>
+<li><font color="#c00"><strong>命令字：0x0104</strong></font></li>
+<li><font color="#c00"><strong>data区：json</strong></font></li>
 </ul>
 <p>示例：</p>
-<pre><code>    &#123; 
-     &quot;cmd&quot;: 0x400f ,//命令码
-    &quot;code&quot;: 0,	//返回码
-    &quot;msg&quot;: &quot;&quot;,	//状态消息
-    &quot;data&quot;: ......	//数据节点
-    &#125;
+<pre><code>    { 
+     "cmd": 0x400f ,//命令码
+    "code": 0,	//返回码
+    "msg": "",	//状态消息
+    "data": ......	//数据节点
+    }
 </code></pre>
 <ol start="4">
 <li><strong>设备回复心跳</strong></li>
@@ -933,18 +935,18 @@ Mac地址
 </tr>
 </tbody></table>
 <ul>
-<li><font color=#c00> <strong>命令字：0x0204</strong></font> </li>
-<li><font color=#c00> <strong>data区：json</strong></font></li>
+<li><font color="#c00"> <strong>命令字：0x0204</strong></font> </li>
+<li><font color="#c00"> <strong>data区：json</strong></font></li>
 </ul>
 <p>示例：</p>
-<pre><code>    &#123; 
-     &quot;cmd&quot;: 0x000f ,//命令码
-    &quot;code&quot;: 0,	//返回码
-    &quot;msg&quot;: &quot;&quot;,	//状态消息
-    &quot;data&quot;:  &#123;
-              &quot;deviceId&quot;: &quot;SPK设备序列号&quot;
-          &#125;  
-    &#125;
+<pre><code>    { 
+     "cmd": 0x000f ,//命令码
+    "code": 0,	//返回码
+    "msg": "",	//状态消息
+    "data":  {
+              "deviceId": "SPK设备序列号"
+          }  
+    }
 </code></pre>
 <h3 id="二、App主动控制终端指令"><a href="#二、App主动控制终端指令" class="headerlink" title="二、App主动控制终端指令"></a><strong>二、App主动控制终端指令</strong></h3><p><strong>1.App控制终端</strong></p>
 <table>
@@ -978,16 +980,16 @@ Mac地址
 </tr>
 </tbody></table>
 <ul>
-<li><font color=#c00> <strong>命令字：0x0104</strong></font> </li>
-<li><font color=#c00> <strong>data区：json数据</strong></font></li>
+<li><font color="#c00"> <strong>命令字：0x0104</strong></font> </li>
+<li><font color="#c00"> <strong>data区：json数据</strong></font></li>
 </ul>
 <p>示例：</p>
-<pre><code>    &#123; 
-     &quot;cmd&quot;: 0x00xx ,//命令码
-    &quot;code&quot;: 0,	//返回码
-    &quot;msg&quot;: &quot;&quot;,	//状态消息
-    &quot;data&quot;: ......	//数据节点
-    &#125;
+<pre><code>    { 
+     "cmd": 0x00xx ,//命令码
+    "code": 0,	//返回码
+    "msg": "",	//状态消息
+    "data": ......	//数据节点
+    }
 </code></pre>
 <p><strong>2.终端回复App</strong></p>
 <table>
@@ -1021,16 +1023,16 @@ Mac地址
 </tr>
 </tbody></table>
 <ul>
-<li><font color=#c00> <strong>命令字：0x0204</strong></font> </li>
-<li><font color=#c00> <strong>data区：json数据</strong></font></li>
+<li><font color="#c00"> <strong>命令字：0x0204</strong></font> </li>
+<li><font color="#c00"> <strong>data区：json数据</strong></font></li>
 </ul>
 <p>示例：</p>
-<pre><code>    &#123; 
-     &quot;cmd&quot;: 0x00xx ,//命令码
-    &quot;code&quot;: 0,	//返回码
-    &quot;msg&quot;: &quot;&quot;,	//状态消息
-    &quot;data&quot;: ......	//数据节点
-    &#125;
+<pre><code>    { 
+     "cmd": 0x00xx ,//命令码
+    "code": 0,	//返回码
+    "msg": "",	//状态消息
+    "data": ......	//数据节点
+    }
 </code></pre>
 <h3 id="三、终端主动发送控制数据给App"><a href="#三、终端主动发送控制数据给App" class="headerlink" title="三、终端主动发送控制数据给App"></a><strong>三、终端主动发送控制数据给App</strong></h3><p><strong>1.周期上传运行数据</strong></p>
 <table>
@@ -1064,16 +1066,16 @@ Mac地址
 </tr>
 </tbody></table>
 <ul>
-<li><font color=#c00> <strong>命令字：0x0105</strong></font> </li>
-<li><font color=#c00> <strong>data区：json数据</strong></font></li>
+<li><font color="#c00"> <strong>命令字：0x0105</strong></font> </li>
+<li><font color="#c00"> <strong>data区：json数据</strong></font></li>
 </ul>
 <p>示例：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123; 
-	     &quot;cmd&quot;: 0x0013 ,&#x2F;&#x2F;命令码
-		&quot;code&quot;: 0,	&#x2F;&#x2F;返回码
-		&quot;msg&quot;: &quot;&quot;,	&#x2F;&#x2F;状态消息
-		&quot;data&quot;: ......	&#x2F;&#x2F;数据节点
-&#125;
+<pre class="line-numbers language-none"><code class="language-none">{ 
+	     "cmd": 0x0013 ,//命令码
+		"code": 0,	//返回码
+		"msg": "",	//状态消息
+		"data": ......	//数据节点
+}
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -1199,7 +1201,7 @@ Mac地址
 <td align="left">p_status</td>
 <td align="left">否</td>
 <td align="left">int</td>
-<td align="left">“0&#x2F;1&#x2F;2&#x2F;3&#x2F;4”, &#x2F;&#x2F;准备播放，播放,暂停,停止,播放结束(用于网络收音机)</td>
+<td align="left">“0/1/2/3/4”, //准备播放，播放,暂停,停止,播放结束(用于网络收音机)</td>
 </tr>
 <tr>
 <td align="left">type</td>
@@ -1247,7 +1249,7 @@ Mac地址
 <td align="left">play_mode</td>
 <td align="left">否</td>
 <td align="left">int</td>
-<td align="left">模式（&#x2F;&#x2F;顺序播放&#x2F;随机播放列表循环&#x2F;单曲循环&#x2F;）</td>
+<td align="left">模式（//顺序播放/随机播放列表循环/单曲循环/）</td>
 </tr>
 <tr>
 <td align="left">volume</td>
@@ -1265,12 +1267,12 @@ Mac地址
 <p>喜马拉雅WiFi音响绑定及通讯协议初稿</p>
 <!--more-->
 <h1 id="通讯协议-1"><a href="#通讯协议-1" class="headerlink" title="通讯协议"></a><strong>通讯协议</strong></h1><p>|0x5A|数据长度|框架版本|协议类型|设备编码|Mac地址|数据帧序列号|保留字|数据类型|数据内容|检验码FCS|<br>|—-|:—-:|<br>|1字节|2字节|1字节|1字节|8字节|6字节|4字节|8字节|2字节|N字节|2字节|</p>
-<h1 id="通讯Json格式：-1"><a href="#通讯Json格式：-1" class="headerlink" title="通讯Json格式："></a><strong>通讯Json格式</strong>：</h1><pre><code>&#123; 
- &quot;cmd&quot;: 0 ,//命令码
-&quot;code&quot;: 0,	//返回码
-&quot;msg&quot;: &quot;&quot;,	//状态消息
-&quot;data&quot;: ......	//数据节点
-&#125;
+<h1 id="通讯Json格式：-1"><a href="#通讯Json格式：-1" class="headerlink" title="通讯Json格式："></a><strong>通讯Json格式</strong>：</h1><pre><code>{ 
+ "cmd": 0 ,//命令码
+"code": 0,	//返回码
+"msg": "",	//状态消息
+"data": ......	//数据节点
+}
 </code></pre>
 <h2 id="参数说明-1"><a href="#参数说明-1" class="headerlink" title="参数说明"></a><strong>参数说明</strong></h2><table>
 <thead>
@@ -1345,7 +1347,7 @@ Mac地址
 <tr>
 <td align="left">0x0006</td>
 <td align="left">6</td>
-<td align="left">静音&#x2F;解除静音</td>
+<td align="left">静音/解除静音</td>
 </tr>
 <tr>
 <td align="left">0x0007</td>
@@ -1400,7 +1402,7 @@ Mac地址
 <tr>
 <td align="left">0x0011</td>
 <td align="left">17</td>
-<td align="left">palyMode(顺序播放&#x2F;随机播放&#x2F;列表循环&#x2F;单曲循环&#x2F;)</td>
+<td align="left">palyMode(顺序播放/随机播放/列表循环/单曲循环/)</td>
 </tr>
 <tr>
 <td align="left">0x0012</td>
@@ -1446,57 +1448,57 @@ Mac地址
 </tr>
 </tbody></table>
 </blockquote>
-<h2 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a><strong>示例</strong></h2><h3 id="字符串-1"><a href="#字符串-1" class="headerlink" title="字符串"></a><strong>字符串</strong></h3><pre><code>&#123; 
-&quot;cmd&quot;: 0x0001 ,//命令码
-&quot;code&quot;: 0,  //返回码
-&quot;msg&quot;: &quot;&quot;,  //状态消息
-&quot;data&quot;: &quot;This is string&quot;  //数据节点
-&#125;
+<h2 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a><strong>示例</strong></h2><h3 id="字符串-1"><a href="#字符串-1" class="headerlink" title="字符串"></a><strong>字符串</strong></h3><pre><code>{ 
+"cmd": 0x0001 ,//命令码
+"code": 0,  //返回码
+"msg": "",  //状态消息
+"data": "This is string"  //数据节点
+}
 </code></pre>
-<h3 id="整形参数-1"><a href="#整形参数-1" class="headerlink" title="整形参数"></a><strong>整形参数</strong></h3><pre><code>&#123; 
-&quot;cmd&quot;: 0x0001 ,//命令码
-&quot;code&quot;: 0,  //返回码
-&quot;msg&quot;: &quot;&quot;,  //状态消息
-&quot;data&quot;: 1  //数据节点
-&#125;
+<h3 id="整形参数-1"><a href="#整形参数-1" class="headerlink" title="整形参数"></a><strong>整形参数</strong></h3><pre><code>{ 
+"cmd": 0x0001 ,//命令码
+"code": 0,  //返回码
+"msg": "",  //状态消息
+"data": 1  //数据节点
+}
 </code></pre>
-<h3 id="对象-1"><a href="#对象-1" class="headerlink" title="对象"></a><strong>对象</strong></h3><pre><code>&#123; 
-&quot;cmd&quot;: 0x0001 ,//命令码
-&quot;code&quot;: 0,  //返回码
-&quot;msg&quot;: &quot;&quot;,  //状态消息
-&quot;data&quot;:  &#123;
-      &quot;ssid&quot;:&quot;TP-link&quot;,  //连接的路由名称
-      &quot;password&quot;:&quot;12345678&quot;,  //路由密码,需要加密
-  &#125;  
-&#125;
+<h3 id="对象-1"><a href="#对象-1" class="headerlink" title="对象"></a><strong>对象</strong></h3><pre><code>{ 
+"cmd": 0x0001 ,//命令码
+"code": 0,  //返回码
+"msg": "",  //状态消息
+"data":  {
+      "ssid":"TP-link",  //连接的路由名称
+      "password":"12345678",  //路由密码,需要加密
+  }  
+}
 </code></pre>
-<h3 id="数组-1"><a href="#数组-1" class="headerlink" title="数组"></a><strong>数组</strong></h3><pre><code>&#123; 
-&quot;cmd&quot;: 0x001 ,//命令码
-&quot;code&quot;: 0,  //返回码
-&quot;msg&quot;: &quot;&quot;,  //状态消息
-&quot;data&quot;:[
-  &#123;
-        &quot;id&quot;      ：   &quot;0&quot;
-        &quot;name&quot; ： “xxxx&quot;,
-        &quot;artist&quot; ： “xxxx&quot;,
-        &quot;album_title&quot;： “xxxx&quot;,
-        &quot;cover_url_small”：“xxxx&quot;,
-        &quot;cover_url_middle&quot;:&quot;xxxx&quot;,
-        &quot;cover_url_large&quot;:&quot;xxxx&quot;,
-        &quot;url&quot;:&quot;xxxxxxxxx&quot;  &#123;详细规格见规格说明url部分&#125;,
-  &#125;,
-  &#123;
-        &quot;id&quot;:&quot;1&quot;
-        &quot;name&quot;:&quot;xxxx1&quot;,
-        &quot;artist&quot;:&quot;xxxx1&quot;,
-        &quot;album&quot;:&quot;xxxx1&quot;,
-        &quot;cover_url_small&quot;:&quot;xxxx&quot;,
-        &quot;cover_url_middle&quot;:&quot;xxxx&quot;,
-        &quot;cover_url_large&quot;:&quot;xxxx&quot;,
-        &quot;url&quot;:&quot;xxxxxxxxxx&quot;&#123;详细规格见规格说明url部分&#125;,
-  &#125;
+<h3 id="数组-1"><a href="#数组-1" class="headerlink" title="数组"></a><strong>数组</strong></h3><pre><code>{ 
+"cmd": 0x001 ,//命令码
+"code": 0,  //返回码
+"msg": "",  //状态消息
+"data":[
+  {
+        "id"      ：   "0"
+        "name" ： “xxxx",
+        "artist" ： “xxxx",
+        "album_title"： “xxxx",
+        "cover_url_small”：“xxxx",
+        "cover_url_middle":"xxxx",
+        "cover_url_large":"xxxx",
+        "url":"xxxxxxxxx"  {详细规格见规格说明url部分},
+  },
+  {
+        "id":"1"
+        "name":"xxxx1",
+        "artist":"xxxx1",
+        "album":"xxxx1",
+        "cover_url_small":"xxxx",
+        "cover_url_middle":"xxxx",
+        "cover_url_large":"xxxx",
+        "url":"xxxxxxxxxx"{详细规格见规格说明url部分},
+  }
    ]
-&#125;
+}
 </code></pre>
 <h2 id="指令说明-1"><a href="#指令说明-1" class="headerlink" title="指令说明"></a><strong>指令说明</strong></h2><h3 id="一、设备基础指令-1"><a href="#一、设备基础指令-1" class="headerlink" title="一、设备基础指令"></a><strong>一、设备基础指令</strong></h3><ol>
 <li><strong>App扫描设备</strong></li>
@@ -1532,8 +1534,8 @@ Mac地址
 </tr>
 </tbody></table>
 <ul>
-<li><font color=#c00><strong>命令字：0x0405</strong></font></li>
-<li><font color=#c00><strong>data区：NULL</strong></font></li>
+<li><font color="#c00"><strong>命令字：0x0405</strong></font></li>
+<li><font color="#c00"><strong>data区：NULL</strong></font></li>
 </ul>
 <ol start="2">
 <li><strong>设备回复自身信息</strong></li>
@@ -1569,10 +1571,10 @@ Mac地址
 </tr>
 </tbody></table>
 <ul>
-<li><font color=#c00><strong>命令字：0x0305</strong></font></li>
-<li><font color=#c00><strong>厂商ID：0x0199</strong> </font></li>
-<li><font color=#c00><strong>大分类：0x1b</strong>  </font></li>
-<li><font color=#c00><strong>小分类：0x03</strong></font></li>
+<li><font color="#c00"><strong>命令字：0x0305</strong></font></li>
+<li><font color="#c00"><strong>厂商ID：0x0199</strong> </font></li>
+<li><font color="#c00"><strong>大分类：0x1b</strong>  </font></li>
+<li><font color="#c00"><strong>小分类：0x03</strong></font></li>
 </ul>
 <ol start="3">
 <li><strong>App发送心跳包</strong><table>
@@ -1608,16 +1610,16 @@ Mac地址
 </li>
 </ol>
 <ul>
-<li><font color=#c00><strong>命令字：0x0104</strong></font></li>
-<li><font color=#c00><strong>data区：json</strong></font></li>
+<li><font color="#c00"><strong>命令字：0x0104</strong></font></li>
+<li><font color="#c00"><strong>data区：json</strong></font></li>
 </ul>
 <p>示例：</p>
-<pre><code>    &#123; 
-     &quot;cmd&quot;: 0x400f ,//命令码
-    &quot;code&quot;: 0,	//返回码
-    &quot;msg&quot;: &quot;&quot;,	//状态消息
-    &quot;data&quot;: ......	//数据节点
-    &#125;
+<pre><code>    { 
+     "cmd": 0x400f ,//命令码
+    "code": 0,	//返回码
+    "msg": "",	//状态消息
+    "data": ......	//数据节点
+    }
 </code></pre>
 <ol start="4">
 <li><strong>设备回复心跳</strong></li>
@@ -1653,18 +1655,18 @@ Mac地址
 </tr>
 </tbody></table>
 <ul>
-<li><font color=#c00> <strong>命令字：0x0204</strong></font> </li>
-<li><font color=#c00> <strong>data区：json</strong></font></li>
+<li><font color="#c00"> <strong>命令字：0x0204</strong></font> </li>
+<li><font color="#c00"> <strong>data区：json</strong></font></li>
 </ul>
 <p>示例：</p>
-<pre><code>    &#123; 
-     &quot;cmd&quot;: 0x000f ,//命令码
-    &quot;code&quot;: 0,	//返回码
-    &quot;msg&quot;: &quot;&quot;,	//状态消息
-    &quot;data&quot;:  &#123;
-              &quot;deviceId&quot;: &quot;SPK设备序列号&quot;
-          &#125;  
-    &#125;
+<pre><code>    { 
+     "cmd": 0x000f ,//命令码
+    "code": 0,	//返回码
+    "msg": "",	//状态消息
+    "data":  {
+              "deviceId": "SPK设备序列号"
+          }  
+    }
 </code></pre>
 <h3 id="二、App主动控制终端指令-1"><a href="#二、App主动控制终端指令-1" class="headerlink" title="二、App主动控制终端指令"></a><strong>二、App主动控制终端指令</strong></h3><p><strong>1.App控制终端</strong></p>
 <table>
@@ -1698,16 +1700,16 @@ Mac地址
 </tr>
 </tbody></table>
 <ul>
-<li><font color=#c00> <strong>命令字：0x0104</strong></font> </li>
-<li><font color=#c00> <strong>data区：json数据</strong></font></li>
+<li><font color="#c00"> <strong>命令字：0x0104</strong></font> </li>
+<li><font color="#c00"> <strong>data区：json数据</strong></font></li>
 </ul>
 <p>示例：</p>
-<pre><code>    &#123; 
-     &quot;cmd&quot;: 0x00xx ,//命令码
-    &quot;code&quot;: 0,	//返回码
-    &quot;msg&quot;: &quot;&quot;,	//状态消息
-    &quot;data&quot;: ......	//数据节点
-    &#125;
+<pre><code>    { 
+     "cmd": 0x00xx ,//命令码
+    "code": 0,	//返回码
+    "msg": "",	//状态消息
+    "data": ......	//数据节点
+    }
 </code></pre>
 <p><strong>2.终端回复App</strong></p>
 <table>
@@ -1741,16 +1743,16 @@ Mac地址
 </tr>
 </tbody></table>
 <ul>
-<li><font color=#c00> <strong>命令字：0x0204</strong></font> </li>
-<li><font color=#c00> <strong>data区：json数据</strong></font></li>
+<li><font color="#c00"> <strong>命令字：0x0204</strong></font> </li>
+<li><font color="#c00"> <strong>data区：json数据</strong></font></li>
 </ul>
 <p>示例：</p>
-<pre><code>    &#123; 
-     &quot;cmd&quot;: 0x00xx ,//命令码
-    &quot;code&quot;: 0,	//返回码
-    &quot;msg&quot;: &quot;&quot;,	//状态消息
-    &quot;data&quot;: ......	//数据节点
-    &#125;
+<pre><code>    { 
+     "cmd": 0x00xx ,//命令码
+    "code": 0,	//返回码
+    "msg": "",	//状态消息
+    "data": ......	//数据节点
+    }
 </code></pre>
 <h3 id="三、终端主动发送控制数据给App-1"><a href="#三、终端主动发送控制数据给App-1" class="headerlink" title="三、终端主动发送控制数据给App"></a><strong>三、终端主动发送控制数据给App</strong></h3><p><strong>1.周期上传运行数据</strong></p>
 <table>
@@ -1784,16 +1786,16 @@ Mac地址
 </tr>
 </tbody></table>
 <ul>
-<li><font color=#c00> <strong>命令字：0x0105</strong></font> </li>
-<li><font color=#c00> <strong>data区：json数据</strong></font></li>
+<li><font color="#c00"> <strong>命令字：0x0105</strong></font> </li>
+<li><font color="#c00"> <strong>data区：json数据</strong></font></li>
 </ul>
 <p>示例：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123; 
-	     &quot;cmd&quot;: 0x0013 ,&#x2F;&#x2F;命令码
-		&quot;code&quot;: 0,	&#x2F;&#x2F;返回码
-		&quot;msg&quot;: &quot;&quot;,	&#x2F;&#x2F;状态消息
-		&quot;data&quot;: ......	&#x2F;&#x2F;数据节点
-&#125;
+<pre class="line-numbers language-none"><code class="language-none">{ 
+	     "cmd": 0x0013 ,//命令码
+		"code": 0,	//返回码
+		"msg": "",	//状态消息
+		"data": ......	//数据节点
+}
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -1919,7 +1921,7 @@ Mac地址
 <td align="left">p_status</td>
 <td align="left">否</td>
 <td align="left">int</td>
-<td align="left">“0&#x2F;1&#x2F;2&#x2F;3&#x2F;4”, &#x2F;&#x2F;准备播放，播放,暂停,停止,播放结束(用于网络收音机)</td>
+<td align="left">“0/1/2/3/4”, //准备播放，播放,暂停,停止,播放结束(用于网络收音机)</td>
 </tr>
 <tr>
 <td align="left">type</td>
@@ -1967,7 +1969,7 @@ Mac地址
 <td align="left">play_mode</td>
 <td align="left">否</td>
 <td align="left">int</td>
-<td align="left">模式（&#x2F;&#x2F;顺序播放&#x2F;随机播放列表循环&#x2F;单曲循环&#x2F;）</td>
+<td align="left">模式（//顺序播放/随机播放列表循环/单曲循环/）</td>
 </tr>
 <tr>
 <td align="left">volume</td>

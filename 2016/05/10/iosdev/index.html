@@ -42,7 +42,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
@@ -607,9 +609,9 @@ $ openssl req -new -sha256 -key private.key -out my.certSigningRequest<span aria
 <p>详见: <a target="_blank" rel="noopener" href="https://developer.apple.com/programs/start/ios/">https://developer.apple.com/programs/start/ios/</a></p>
 </blockquote>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://developer.apple.com/programs/ios/">个人(individual)</a> <strong>$99</strong>&#x2F;year</li>
-<li><a target="_blank" rel="noopener" href="https://developer.apple.com/programs/ios/">公司(company)</a> <strong>$99</strong>&#x2F;year</li>
-<li><a target="_blank" rel="noopener" href="https://developer.apple.com/programs/ios/enterprise/">企业(enterprise)</a> <strong>$299</strong>&#x2F;year</li>
+<li><a target="_blank" rel="noopener" href="https://developer.apple.com/programs/ios/">个人(individual)</a> <strong>$99</strong>/year</li>
+<li><a target="_blank" rel="noopener" href="https://developer.apple.com/programs/ios/">公司(company)</a> <strong>$99</strong>/year</li>
+<li><a target="_blank" rel="noopener" href="https://developer.apple.com/programs/ios/enterprise/">企业(enterprise)</a> <strong>$299</strong>/year</li>
 <li><a target="_blank" rel="noopener" href="https://developer.apple.com/programs/start/university/">大学(University)</a> <strong>free</strong></li>
 </ul>
 <h3 id="关键区别"><a href="#关键区别" class="headerlink" title="关键区别"></a>关键区别</h3><ul>
@@ -664,18 +666,18 @@ $ openssl req -new -sha256 -key private.key -out my.certSigningRequest<span aria
 </ol>
 </li>
 </ul>
-<p>xcode6 以后, 个人&#x2F;公司帐号无法对应用打包为 <code>.ipa</code>, 要么用 xcode5 打包要么拥有企业帐号级别的授权</p>
+<p>xcode6 以后, 个人/公司帐号无法对应用打包为 <code>.ipa</code>, 要么用 xcode5 打包要么拥有企业帐号级别的授权</p>
 <ul>
 <li><ol start="2">
 <li>设备需不需要授权</li>
 </ol>
 </li>
 </ul>
-<p>个人&#x2F;公司帐号权限只有在 <code>TestFlight</code> &#x2F; 越狱渠道下完成不授权安装; 企业帐号授权可以在 <code>ad-hoc</code> &#x2F; <code>in-house</code> 渠道下分发, 完成不授权设备安装</p>
+<p>个人/公司帐号权限只有在 <code>TestFlight</code> / 越狱渠道下完成不授权安装; 企业帐号授权可以在 <code>ad-hoc</code> / <code>in-house</code> 渠道下分发, 完成不授权设备安装</p>
 <h3 id="几种常见的分发途径"><a href="#几种常见的分发途径" class="headerlink" title="几种常见的分发途径"></a>几种常见的分发途径</h3><ul>
 <li>ad-hoc</li>
 </ul>
-<p>打包时必须在登录企业帐号(或其成员)并已导入证书和描述文件的情况下, 任何用户(未授权)都可以在手机上用浏览器访问一个 url(例: itms-services:&#x2F;&#x2F;?action&#x3D;download-manifest&amp;url&#x3D;<a target="_blank" rel="noopener" href="https://example.com/manifest.plist">https://example.com/manifest.plist</a>) 完成安装</p>
+<p>打包时必须在登录企业帐号(或其成员)并已导入证书和描述文件的情况下, 任何用户(未授权)都可以在手机上用浏览器访问一个 url(例: itms-services://?action=download-manifest&amp;url=<a target="_blank" rel="noopener" href="https://example.com/manifest.plist">https://example.com/manifest.plist</a>) 完成安装</p>
 <p>最大的问题是安装量有 100 的上限, 无法作为一个量很大的分发渠道</p>
 <ul>
 <li>in-house</li>
@@ -687,7 +689,7 @@ $ openssl req -new -sha256 -key private.key -out my.certSigningRequest<span aria
 <ul>
 <li>TestFlight</li>
 </ul>
-<p>仅支持 <strong>iOS8.0</strong> 以上, 不需要对设备 <code>udid</code> 进行授权, 适合个人 &#x2F; 公司开发者, 在应用发布前可以开启 TestFlight Beta 测试并添加测试者的 iTunes Connect 帐号, 需要待测用户拥有 iTunes Connect 帐号并在设备安装 <code>TestFlight</code> 客户端</p>
+<p>仅支持 <strong>iOS8.0</strong> 以上, 不需要对设备 <code>udid</code> 进行授权, 适合个人 / 公司开发者, 在应用发布前可以开启 TestFlight Beta 测试并添加测试者的 iTunes Connect 帐号, 需要待测用户拥有 iTunes Connect 帐号并在设备安装 <code>TestFlight</code> 客户端</p>
 <p>这种方式非常便于推送应用更新和收集测试信息</p>
 <ul>
 <li>导出 ipa 包, 越狱安装</li>

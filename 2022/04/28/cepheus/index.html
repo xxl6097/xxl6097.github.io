@@ -36,7 +36,9 @@ repo init -u https://github.com/PixelExperience/manifest -b twelve
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
@@ -502,15 +504,15 @@ $ lunch aosp_cepheus-user
 $ mka bacon -j4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Turn-on-caching-to-speed-up-build"><a href="#Turn-on-caching-to-speed-up-build" class="headerlink" title="Turn on caching to speed up build"></a>Turn on caching to speed up build</h3><p>Make use of ccache if you want to speed up subsequent builds by running:</p>
-<pre class="line-numbers language-none"><code class="language-none">export USE_CCACHE&#x3D;1
-export CCACHE_EXEC&#x3D;&#x2F;usr&#x2F;bin&#x2F;ccache<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">export USE_CCACHE=1
+export CCACHE_EXEC=/usr/bin/ccache<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>and adding that line to your ~&#x2F;.bashrc file. Then, specify the maximum amount of disk space you want ccache to use by typing this:</p>
+<p>and adding that line to your ~/.bashrc file. Then, specify the maximum amount of disk space you want ccache to use by typing this:</p>
 <pre class="line-numbers language-none"><code class="language-none">ccache -M 50G<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>where 50G corresponds to 50GB of cache. This needs to be run once. Anywhere from 25GB-100GB will result in very noticeably increased build speeds (for instance, a typical 1hr build time can be reduced to 20min). If you’re only building for one device, 25GB-50GB is fine. If you plan to build for several devices that do not share the same kernel source, aim for 75GB-100GB. This space will be permanently occupied on your drive, so take this into consideration.</p>
 <p>You can also enable the optional ccache compression. While this may involve a slight performance slowdown, it increases the number of files that fit in the cache. To enable it, run:</p>
-<pre class="line-numbers language-none"><code class="language-none">ccache -o compression&#x3D;true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">ccache -o compression=true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 <h3 id="Start-the-build"><a href="#Start-the-build" class="headerlink" title="Start the build"></a>Start the build</h3><p>Time to start building! Now, type:</p>
@@ -526,69 +528,69 @@ mka bacon -j$(nproc --all)<span aria-hidden="true" class="line-numbers-rows"><sp
 <p>There you’ll find all the files that were created. The two files of more interest are:</p>
 <p>recovery.img, which is the PixelExperience recovery image.</p>
 <p>A zip file whose name starts with ‘PixelExperience_’, which is the PixelExperience installer package.</p>
-<p>Success! So… what’s next?<br>You’ve done it! Welcome to the elite club of self-builders. You’ve built your operating system from scratch, from the ground up. You are the master&#x2F;mistress of your domain… and hopefully you’ve learned a bit on the way and had some fun too.</p>
+<p>Success! So… what’s next?<br>You’ve done it! Welcome to the elite club of self-builders. You’ve built your operating system from scratch, from the ground up. You are the master/mistress of your domain… and hopefully you’ve learned a bit on the way and had some fun too.</p>
 <h3 id="Submitting-Patches"><a href="#Submitting-Patches" class="headerlink" title="Submitting Patches"></a>Submitting Patches</h3><p>Patches are always welcome! Please submit your patches to our Gerrit.</p>
 <p><a target="_blank" rel="noopener" href="https://wiki.pixelexperience.org/help/submit-patch/">Gerrit push guide</a></p>
 <pre class="line-numbers language-none"><code class="language-none">
 unzip platform-tools-latest-linux.zip -d ~
 
-# Now you have to add adb and fastboot to your PATH. Open ~&#x2F;.profile and add the following:
+# Now you have to add adb and fastboot to your PATH. Open ~/.profile and add the following:
 # add Android SDK platform tools to path
-if [ -d &quot;$HOME&#x2F;platform-tools&quot; ] ; then
-    PATH&#x3D;&quot;$HOME&#x2F;platform-tools:$PATH&quot;
+if [ -d "$HOME/platform-tools" ] ; then
+    PATH="$HOME/platform-tools:$PATH"
 fi
 
-curl https:&#x2F;&#x2F;storage.googleapis.com&#x2F;git-repo-downloads&#x2F;repo &gt; &#x2F;root&#x2F;code&#x2F;twelve&#x2F;repo
-chmod a+x &#x2F;root&#x2F;code&#x2F;twelve&#x2F;repo
-curl https:&#x2F;&#x2F;storage.googleapis.com&#x2F;git-repo-downloads&#x2F;repo &gt; &#x2F;media&#x2F;psf&#x2F;aosp&#x2F;twelve&#x2F;repo
-chmod a+x &#x2F;media&#x2F;psf&#x2F;aosp&#x2F;twelve&#x2F;repo
+curl https://storage.googleapis.com/git-repo-downloads/repo &gt; /root/code/twelve/repo
+chmod a+x /root/code/twelve/repo
+curl https://storage.googleapis.com/git-repo-downloads/repo &gt; /media/psf/aosp/twelve/repo
+chmod a+x /media/psf/aosp/twelve/repo
 
-.&#x2F;repo init -u https:&#x2F;&#x2F;github.com&#x2F;PixelExperience&#x2F;manifest -b twelve
+./repo init -u https://github.com/PixelExperience/manifest -b twelve
 
-repo init -u https:&#x2F;&#x2F;github.com&#x2F;PixelExperience&#x2F;manifest -b twelve
+repo init -u https://github.com/PixelExperience/manifest -b twelve
 
 
-git config --global user.email &quot;xiaoli.xia@uuxiclife.cn&quot;
-git config --global user.name &quot;uuxia&quot;
+git config --global user.email "xiaoli.xia@uuxiclife.cn"
+git config --global user.name "uuxia"
 
-.&#x2F;repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
+./repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 
 # Running configuration script:
-cd ~&#x2F;
-git clone https:&#x2F;&#x2F;github.com&#x2F;akhilnarang&#x2F;scripts
+cd ~/
+git clone https://github.com/akhilnarang/scripts
 cd scripts
-.&#x2F;setup&#x2F;android_build_env.sh
+./setup/android_build_env.sh
 
 
-.&#x2F;repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
+./repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 
-source build&#x2F;envsetup.sh
+source build/envsetup.sh
 lunch aosp_cepheus-userdebug
 
-export USE_CCACHE&#x3D;1
-export CCACHE_EXEC&#x3D;&#x2F;usr&#x2F;bin&#x2F;ccache
+export USE_CCACHE=1
+export CCACHE_EXEC=/usr/bin/ccache
 
-# and adding that line to your ~&#x2F;.bashrc file. Then, specify the maximum amount of disk space you want ccache to use by typing this:
+# and adding that line to your ~/.bashrc file. Then, specify the maximum amount of disk space you want ccache to use by typing this:
 ccache -M 50G
 
-ccache -o compression&#x3D;true
+ccache -o compression=true
 
 croot
 mka bacon -j$(nproc --all)
 
 
-export http_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:1087
-export https_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:1087
-git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1087
-git config --global https.proxy http:&#x2F;&#x2F;127.0.0.1:1087
-git config --global core.gitproxy http:&#x2F;&#x2F;127.0.0.1:1087
+export http_proxy=http://127.0.0.1:1087
+export https_proxy=http://127.0.0.1:1087
+git config --global http.proxy http://127.0.0.1:1087
+git config --global https.proxy http://127.0.0.1:1087
+git config --global core.gitproxy http://127.0.0.1:1087
 
 
-export http_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:1080
-export https_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:1080
-git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1080
-git config --global https.proxy http:&#x2F;&#x2F;127.0.0.1:1080
-git config --global core.gitproxy http:&#x2F;&#x2F;127.0.0.1:1080
+export http_proxy=http://127.0.0.1:1080
+export https_proxy=http://127.0.0.1:1080
+git config --global http.proxy http://127.0.0.1:1080
+git config --global https.proxy http://127.0.0.1:1080
+git config --global core.gitproxy http://127.0.0.1:1080
 
 git config --global --get http.proxy
 git config --global --get https.proxy
@@ -599,12 +601,12 @@ git config --global --unset https.proxy
 git config --global --unset core.gitproxy
 
 
-https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;AOSP&#x2F;
+https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/
 
 
-https:&#x2F;&#x2F;android.googlesource.com
+https://android.googlesource.com
 
-sudo chown -R root:root &#x2F;root&#x2F;cepheus
+sudo chown -R root:root /root/cepheus
 
 
 

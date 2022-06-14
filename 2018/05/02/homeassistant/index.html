@@ -33,7 +33,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
@@ -513,15 +515,15 @@
 </li>
 <li><p>在TF卡根目录新建<code>wpa_supplicant.conf</code>文件，用于连接WiFi，配置如下：</p>
  <pre class="line-numbers language-none"><code class="language-none">
-country&#x3D;CN
-ctrl_interface&#x3D;DIR&#x3D;&#x2F;var&#x2F;run&#x2F;wpa_supplicant GROUP&#x3D;netdev
-update_config&#x3D;1
-network&#x3D;&#123;
-    ssid&#x3D;&quot;路由器的ssid&quot;
-    psk&#x3D;&quot;路由器的密码&quot;
-    key_mgmt&#x3D;WPA-PSK
-    priority&#x3D;1
-&#125;
+country=CN
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+network={
+    ssid="路由器的ssid"
+    psk="路由器的密码"
+    key_mgmt=WPA-PSK
+    priority=1
+}
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </li>
@@ -557,10 +559,10 @@ passwd: password expiry information changed.<span aria-hidden="true" class="line
 <li>设置root登陆</li>
 </ol>
 <blockquote>
-<p>sudo nano &#x2F;etc&#x2F;ssh&#x2F;sshd_config  </p>
+<p>sudo nano /etc/ssh/sshd_config  </p>
 </blockquote>
 <pre class="line-numbers language-none"><code class="language-none">
-pi@raspberrypi:~$ sudo nano &#x2F;etc&#x2F;ssh&#x2F;sshd_config    
+pi@raspberrypi:~$ sudo nano /etc/ssh/sshd_config    
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <blockquote>
 <p><code>Ctrl + W</code> 快捷键 搜索 <code>PermitRootLogin without-password</code><br>修改 <code>PermitRootLogin without-password</code> 为 <code>PermitRootLogin yes</code><br>执行完之后，用 <code>reboot</code> 命令重启，这样就可以解锁<code>root</code>账户。</p>
@@ -575,8 +577,8 @@ pi@raspberrypi:~$ sudo nano &#x2F;etc&#x2F;ssh&#x2F;sshd_config
 </ul>
 <pre class="line-numbers language-none"><code class="language-none">
 [global]
-trusted-host&#x3D;mirrors.aliyun.com
-index-url&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple&#x2F;
+trusted-host=mirrors.aliyun.com
+index-url=https://mirrors.aliyun.com/pypi/simple/
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -592,7 +594,7 @@ index-url&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple&#x2F;
 <p><img src="/homeassistant/5.png" alt="img1"></p>
 <h2 id="4-5-验证安装结果"><a href="#4-5-验证安装结果" class="headerlink" title="4.5 验证安装结果"></a>4.5 验证安装结果</h2><p>在命令行中输入<code>python3 --version</code>，看到显示版本。<br>在命令行中输入<code>pip3 --version</code>，看到显示版本。<br>说明Python3环境及Pip3工具安装成功。</p>
 <p><img src="/homeassistant/6.png" alt="img1"></p>
-<h2 id="4-6-使用Pip工具安装Home-Assistant"><a href="#4-6-使用Pip工具安装Home-Assistant" class="headerlink" title="4.6 使用Pip工具安装Home Assistant"></a>4.6 使用Pip工具安装Home Assistant</h2><p>在此步之前建议设置国内的安装源，可以提升后续的速度，参见这篇文档。<br>打开命令行窗口，输入：<code>sudo pip3 install homeassistant</code> （<font color='red'>此步骤若失败，请重复操作</font>）<br>等待安装过程完成。</p>
+<h2 id="4-6-使用Pip工具安装Home-Assistant"><a href="#4-6-使用Pip工具安装Home-Assistant" class="headerlink" title="4.6 使用Pip工具安装Home Assistant"></a>4.6 使用Pip工具安装Home Assistant</h2><p>在此步之前建议设置国内的安装源，可以提升后续的速度，参见这篇文档。<br>打开命令行窗口，输入：<code>sudo pip3 install homeassistant</code> （<font color="red">此步骤若失败，请重复操作</font>）<br>等待安装过程完成。</p>
 <p><img src="/homeassistant/8.png" alt="img1"></p>
 <h2 id="4-7-验证安装结果"><a href="#4-7-验证安装结果" class="headerlink" title="4.7 验证安装结果"></a>4.7 验证安装结果</h2><p>在命令行窗口，输入：<code>hass --debug</code> 参数<code>--debug</code>可以查看启动的日志。<br>首次启动需要初始化配置文件，也会自动下载一些所需的文件，会需要一些时间。有时因网络质量问题还会出现文件下载失败情况，导致启动过程受阻。此时可以关闭命令行窗口，再重新执行启动命令。</p>
 <p><img src="/homeassistant/9.png" alt="img1"></p>
@@ -631,65 +633,65 @@ sudo systemctl enable home-assistant@root：设置home-assitant服务为自启�
 sudo systemctl disable home-assistant@root：从自启动中去除home-assitant服务。
 sudo systemctl start home-assistant@root：手工启动home-assitant服务（命令中start可以替换成stop、restart、status，完成停止、重启、查看服务状态等功能）。
 sudo journalctl -f -u home-assistant@root：查看hass的日志输出。
-sudo journalctl -f -u home-assistant@[your user] | grep -i &#39;error&#39;：查看hass的日志输出中的error部分
+sudo journalctl -f -u home-assistant@[your user] | grep -i 'error'：查看hass的日志输出中的error部分
 
 sudo systemctl restart home-assistant@root
 </code></pre>
 <h2 id="6-2-使用脚本控制HomeAssistant"><a href="#6-2-使用脚本控制HomeAssistant" class="headerlink" title="6.2 使用脚本控制HomeAssistant"></a>6.2 使用脚本控制HomeAssistant</h2><pre><code>#!/bin/bash
 
 function check()
-&#123;
-    echo &quot;检查配置文件是否有错误&quot;
+{
+    echo "检查配置文件是否有错误"
     sudo hass --script check_config
-&#125;
+}
 
 function dis()
-&#123;
-    echo &quot;显示所有组件的配置信息&quot;
+{
+    echo "显示所有组件的配置信息"
     sudo hass --script check_config --info all
-&#125;
+}
 
 function hass()
-&#123;
-    echo &quot;启动hass&quot;
+{
+    echo "启动hass"
     sudo systemctl start home-assistant@root
-&#125;
+}
 function rehass()
-&#123;
-    echo &quot;重启hass&quot;
+{
+    echo "重启hass"
     sudo systemctl restart home-assistant@root
-&#125;
+}
 
 function stophass()
-&#123;
-    echo &quot;停止hass&quot;
+{
+    echo "停止hass"
     sudo systemctl stop home-assistant@root
-&#125;
+}
 
-function log()&#123;
-    echo &quot;查看hass日志&quot;
+function log(){
+    echo "查看hass日志"
     sudo journalctl -f -u home-assistant@root
-&#125;
+}
 
-function debug()&#123;
-    echo &quot;debug hass&quot;
+function debug(){
+    echo "debug hass"
     sudo hass --debug
-&#125;
+}
 
 
 
-echo &quot;输入编号选择&quot;
-echo &quot;1. 检查配置文件是否有错误&quot;
-echo &quot;2. 显示所有组件的配置信息&quot;
-echo &quot;3. 启动hass&quot;
-echo &quot;4. 查看hass日志&quot;
-echo &quot;5. 重启hass&quot;
-echo &quot;6. 停止hass&quot;
-echo &quot;7. debug hass&quot;
-echo &quot;******Enter nothing to exit*****&quot;
+echo "输入编号选择"
+echo "1. 检查配置文件是否有错误"
+echo "2. 显示所有组件的配置信息"
+echo "3. 启动hass"
+echo "4. 查看hass日志"
+echo "5. 重启hass"
+echo "6. 停止hass"
+echo "7. debug hass"
+echo "******Enter nothing to exit*****"
 read num
 
-case &quot;$num&quot; in
+case "$num" in
 [1] ) (check);;
 [2] ) (dis);;
 [3] ) (hass);;
@@ -697,7 +699,7 @@ case &quot;$num&quot; in
 [5] ) (rehass);;
 [6] ) (stophass);;
 [7] ) (debug);;
-*) echo &quot;nothing,exit&quot;;;
+*) echo "nothing,exit";;
 esac
 </code></pre>
 <h1 id="七、小米设备接入"><a href="#七、小米设备接入" class="headerlink" title="七、小米设备接入"></a>七、小米设备接入</h1><hr>
@@ -722,7 +724,7 @@ ip3 install requests
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<p>2.执行sh .&#x2F;xxx.sh出现：“Syntax error: “(” unexpected”的解决方法</p>
+<p>2.执行sh ./xxx.sh出现：“Syntax error: “(” unexpected”的解决方法</p>
 <pre><code>sudo dpkg-reconfigure dash
 在选择项中选No，搞定了！
 </code></pre>

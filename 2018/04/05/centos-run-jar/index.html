@@ -10,7 +10,7 @@
 jar后台运行nohup java -jar xx.jar &amp;gt;/dev/null  &amp;amp;
 
 
-此处的“&amp;gt;&amp;#x2F;dev&amp;#x2F;null”作用是将终端输出信息输出到空洞中，即不保存输出信息，若要查看">
+此处的“&amp;gt;/dev/null”作用是将终端输出信息输出到空洞中，即不保存输出信息，若要查看输出信息需指定输出到">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -37,7 +37,9 @@ jar后台运行nohup java -jar xx.jar &amp;gt;/dev/null  &amp;amp;
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
@@ -493,7 +495,7 @@ jar后台运行nohup java -jar xx.jar &amp;gt;/dev/null  &amp;amp;
 <h1 id="jar后台运行"><a href="#jar后台运行" class="headerlink" title="jar后台运行"></a>jar后台运行</h1><pre><code>nohup java -jar xx.jar &gt;/dev/null  &amp;
 </code></pre>
 <blockquote>
-<p>此处的“&gt;&#x2F;dev&#x2F;null”作用是将终端输出信息输出到空洞中，即不保存输出信息，若要查看输出信息需指定输出到那个文件，例如“&gt;&#x2F;xxx&#x2F;yyy.out”</p>
+<p>此处的“&gt;/dev/null”作用是将终端输出信息输出到空洞中，即不保存输出信息，若要查看输出信息需指定输出到那个文件，例如“&gt;/xxx/yyy.out”</p>
 </blockquote>
 <h1 id="关闭后台进程"><a href="#关闭后台进程" class="headerlink" title="关闭后台进程"></a>关闭后台进程</h1><p>先查看后台进程pid</p>
 <pre><code>ps -aux

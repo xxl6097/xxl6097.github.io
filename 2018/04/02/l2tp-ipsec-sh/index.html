@@ -5,8 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="L2TP/IPSec一键安装脚本, 悠悠博客">
-    <meta name="description" content="基于 OpenVZ 虚拟化技术的 VPS 需要开启TUN&amp;#x2F;TAP才能正常使用，购买 VPS 时请先咨询服务商是否支持开启 TUN&amp;#x2F;TAP。
-OpenVZ 虚拟的 VPS 需要系统内核支持 IPSec 才行。也就是说，母服">
+    <meta name="description" content="基于 OpenVZ 虚拟化技术的 VPS 需要开启TUN/TAP才能正常使用，购买 VPS 时请先咨询服务商是否支持开启 TUN/TAP。
+OpenVZ 虚拟的 VPS 需要系统内核支持 IPSec 才行。也就是说，母服务器的内核如果不支持">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -33,7 +33,9 @@ OpenVZ 虚拟的 VPS 需要系统内核支持 IPSec 才行。也就是说，母�
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
@@ -484,18 +486,18 @@ OpenVZ 虚拟的 VPS 需要系统内核支持 IPSec 才行。也就是说，母�
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>基于 OpenVZ 虚拟化技术的 VPS 需要开启TUN&#x2F;TAP才能正常使用，购买 VPS 时请先咨询服务商是否支持开启 TUN&#x2F;TAP。</p>
+                <p>基于 OpenVZ 虚拟化技术的 VPS 需要开启TUN/TAP才能正常使用，购买 VPS 时请先咨询服务商是否支持开启 TUN/TAP。</p>
 <p>OpenVZ 虚拟的 VPS 需要系统内核支持 IPSec 才行。也就是说，母服务器的内核如果不支持的话那就没办法，只能换 VPS。<br>因此，一般不建议在 OpenVZ 的 VPS 上安装本脚本。脚本如果检测到该 VPS 为 OpenVZ 架构，会出现警告提醒。</p>
-<p>如何检测是否支持TUN模块？<br>执行命令：<br>cat &#x2F;dev&#x2F;net&#x2F;tun<br>如果返回信息为：cat: &#x2F;dev&#x2F;net&#x2F;tun: File descriptor in bad state 说明正常</p>
-<p>如何检测是否支持ppp模块？<br>执行命令：<br>cat &#x2F;dev&#x2F;ppp<br>如果返回信息为：cat: &#x2F;dev&#x2F;ppp: No such device or address 说明正常<br>当然，脚本在安装时也会执行检查，如果不适用于安装，脚本会予以提示。</p>
+<p>如何检测是否支持TUN模块？<br>执行命令：<br>cat /dev/net/tun<br>如果返回信息为：cat: /dev/net/tun: File descriptor in bad state 说明正常</p>
+<p>如何检测是否支持ppp模块？<br>执行命令：<br>cat /dev/ppp<br>如果返回信息为：cat: /dev/ppp: No such device or address 说明正常<br>当然，脚本在安装时也会执行检查，如果不适用于安装，脚本会予以提示。</p>
 <span id="more"></span>
-<h2 id="本脚本适用环境："><a href="#本脚本适用环境：" class="headerlink" title="本脚本适用环境："></a>本脚本适用环境：</h2><p>系统支持：CentOS6+，Debian7+，Ubuntu12+<br>内存要求：≥128M<br><font color='red'>更新日期：2017 年 05 月 28 日</font></p>
+<h2 id="本脚本适用环境："><a href="#本脚本适用环境：" class="headerlink" title="本脚本适用环境："></a>本脚本适用环境：</h2><p>系统支持：CentOS6+，Debian7+，Ubuntu12+<br>内存要求：≥128M<br><font color="red">更新日期：2017 年 05 月 28 日</font></p>
 <h2 id="关于本脚本："><a href="#关于本脚本：" class="headerlink" title="关于本脚本："></a>关于本脚本：</h2><p>名词解释如下<br>L2TP（Layer 2 Tunneling Protocol）<br>IPSec（Internet Protocol Security）<br>IKEv2 (Internet Key Exchange v2)<br>能实现 IPsec 的目前总体上有 openswan，libreswan，strongswan 这3种。<br>libreswan 是基于 openswan 的 fork，所以现在各个发行版基本已经看不到 openswan 的身影了。<br>当然也有使用 strongswan 的。</p>
 <p>之所以要更新 L2TP 一键安装脚本，是因为随着各个 Linux 发行版不断推陈出新，原有的脚本已经不适应现在的需求。<br>本脚本通过编译安装最新版 libreswan 来实现 IPSec（CentOS7 下则是全部 yum 安装），yum 或 apt-get 来安装 xl2tpd，再根据各个发行版的使用方法不同，部署防火墙规则。</p>
-<h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a><font color='red'>使用方法：</font></h2><p>root 用户登录后，运行以下命令：</p>
-<pre class="line-numbers language-none"><code class="language-none">wget --no-check-certificate https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;teddysun&#x2F;across&#x2F;master&#x2F;l2tp.sh
+<h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a><font color="red">使用方法：</font></h2><p>root 用户登录后，运行以下命令：</p>
+<pre class="line-numbers language-none"><code class="language-none">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/across/master/l2tp.sh
 chmod +x l2tp.sh
-.&#x2F;l2tp.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+./l2tp.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
 <p>执行后，会有如下交互界面</p>
@@ -511,7 +513,7 @@ chmod +x l2tp.sh
 <p>Press any key to start…or Press Ctrl+c to cancel<br>按下任意按键继续，如果想取消安装，请按Ctrl+c键</p>
 <p>安装完成后，脚本会执行 ipsec verify 命令并提示如下：</p>
 <pre class="line-numbers language-none"><code class="language-none">If there are no [FAILED] above, then you can connect to your
-L2TP VPN Server with the default Username&#x2F;Password is below:
+L2TP VPN Server with the default Username/Password is below:
 
 ServerIP:your_server_IP
 PSK:your PSK
@@ -523,25 +525,25 @@ l2tp -a (Add a user)
 l2tp -d (Delete a user)
 l2tp -l (List all users)
 l2tp -m (Modify a user password)
-Welcome to visit https:&#x2F;&#x2F;teddysun.com&#x2F;448.html
+Welcome to visit https://teddysun.com/448.html
 Enjoy it!
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>如果你要想对用户进行操作，可以使用如下命令：<br>l2tp -a 新增用户<br>l2tp -d 删除用户<br>l2tp -m 修改现有的用户的密码<br>l2tp -l 列出所有用户名和密码<br>l2tp -h 列出帮助信息</p>
-<h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a><font color='red'>注意事项：</font></h2><p>1、错误809：<br>解决：路由线路上有防火墙没有关闭（pptp穿透防火墙的能力较差）<br>2、错误代码619<br>解决：</p>
-<pre class="line-numbers language-none"><code class="language-none">rm -r &#x2F;dev&#x2F;ppp
-mknod &#x2F;dev&#x2F;ppp c 108 0 
+<h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a><font color="red">注意事项：</font></h2><p>1、错误809：<br>解决：路由线路上有防火墙没有关闭（pptp穿透防火墙的能力较差）<br>2、错误代码619<br>解决：</p>
+<pre class="line-numbers language-none"><code class="language-none">rm -r /dev/ppp
+mknod /dev/ppp c 108 0 
 然后重启VPS即可。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>如果还未解决，尝试重启机器。</p>
 <p>3、要根据ppp的版本来选择对应的pptpd版本。<br>ppp-2.4.4  对应   pptpd-1.3.4<br>ppp-2.4.5  对应   pptpd-1.4.0</p>
-<h2 id="其他事项："><a href="#其他事项：" class="headerlink" title="其他事项："></a><font color='red'>其他事项：</font></h2><p>1、脚本在安装完成后，已自动启动进程，并加入了开机自启动。<br>2、脚本会改写 iptables 或 firewalld 的规则。<br>3、脚本安装时，会即时将安装日志写到 &#x2F;root&#x2F;l2tp.log 文件里，如果你安装失败，可以通过此文件来寻找错误信息。</p>
-<h2 id="使用命令："><a href="#使用命令：" class="headerlink" title="使用命令："></a><font color='red'>使用命令：</font></h2><p>ipsec status （查看 IPSec 运行状态）<br>ipsec verify （查看 IPSec 检查结果）<br>&#x2F;etc&#x2F;init.d&#x2F;ipsec start|stop|restart|status （CentOS6 下使用）<br>&#x2F;etc&#x2F;init.d&#x2F;xl2tpd start|stop|restart （CentOS6 下使用）<br>systemctl start|stop|restart|status ipsec （CentOS7 下使用）<br>systemctl start|stop|restart xl2tpd （CentOS7 下使用）<br>service ipsec start|stop|restart|status （Debian&#x2F;Ubuntu 下使用）<br>service xl2tpd start|stop|restart （Debian&#x2F;Ubuntu 下使用）</p>
-<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a><font color='red'>更新日志</font></h2><p>2017 年 05 月 28 日：<br>升级 libreswan 到版本 3.20。<br>修正 libreswan 的若干配置问题。<br>修正 xl2tpd 的端口监听配置问题。<br>修正在 CentOS 6 对 libevent2 的依赖问题，改为 yum 安装 libevent2-devel。<br>测试表明，在内网环境的 VPS 里（如AWS， IDCF，GCE，腾讯云，阿里云等）也可以正常使用了。</p>
-<p><font color='red'>2017 年 02 月 25 日：</font><br>升级 libreswan 到版本 3.19。</p>
-<p><font color='red'>2016 年 09 月 12 日：</font><br>修正了在 CentOS 6 下 libevent2 依赖的问题；<br>新增了一个 -m 选项，用以修改现有用户的密码。</p>
-<p><font color='red'>2016 年 08 月 13 日：</font><br>修正 Debian 8 下的 sd-daemon.h: No such file or directory 问题，是由于缺少依赖包 libsystemd-daemon-dev 导致的。</p>
-<p><font color='red'>2016 年 08 月 05 日：</font><br>升级 libreswan 到版本 3.18。</p>
-<p><font color='red'>2016 年 06 月 10 日：</font><br>脚本在安装完成后，新增了几个命令，便于操作用户<br>l2tp -a 新增用户<br>l2tp -d 删除用户<br>l2tp -l 列出所有用户<br>l2tp -h 列出帮助信息</p>
+<h2 id="其他事项："><a href="#其他事项：" class="headerlink" title="其他事项："></a><font color="red">其他事项：</font></h2><p>1、脚本在安装完成后，已自动启动进程，并加入了开机自启动。<br>2、脚本会改写 iptables 或 firewalld 的规则。<br>3、脚本安装时，会即时将安装日志写到 /root/l2tp.log 文件里，如果你安装失败，可以通过此文件来寻找错误信息。</p>
+<h2 id="使用命令："><a href="#使用命令：" class="headerlink" title="使用命令："></a><font color="red">使用命令：</font></h2><p>ipsec status （查看 IPSec 运行状态）<br>ipsec verify （查看 IPSec 检查结果）<br>/etc/init.d/ipsec start|stop|restart|status （CentOS6 下使用）<br>/etc/init.d/xl2tpd start|stop|restart （CentOS6 下使用）<br>systemctl start|stop|restart|status ipsec （CentOS7 下使用）<br>systemctl start|stop|restart xl2tpd （CentOS7 下使用）<br>service ipsec start|stop|restart|status （Debian/Ubuntu 下使用）<br>service xl2tpd start|stop|restart （Debian/Ubuntu 下使用）</p>
+<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a><font color="red">更新日志</font></h2><p>2017 年 05 月 28 日：<br>升级 libreswan 到版本 3.20。<br>修正 libreswan 的若干配置问题。<br>修正 xl2tpd 的端口监听配置问题。<br>修正在 CentOS 6 对 libevent2 的依赖问题，改为 yum 安装 libevent2-devel。<br>测试表明，在内网环境的 VPS 里（如AWS， IDCF，GCE，腾讯云，阿里云等）也可以正常使用了。</p>
+<p><font color="red">2017 年 02 月 25 日：</font><br>升级 libreswan 到版本 3.19。</p>
+<p><font color="red">2016 年 09 月 12 日：</font><br>修正了在 CentOS 6 下 libevent2 依赖的问题；<br>新增了一个 -m 选项，用以修改现有用户的密码。</p>
+<p><font color="red">2016 年 08 月 13 日：</font><br>修正 Debian 8 下的 sd-daemon.h: No such file or directory 问题，是由于缺少依赖包 libsystemd-daemon-dev 导致的。</p>
+<p><font color="red">2016 年 08 月 05 日：</font><br>升级 libreswan 到版本 3.18。</p>
+<p><font color="red">2016 年 06 月 10 日：</font><br>脚本在安装完成后，新增了几个命令，便于操作用户<br>l2tp -a 新增用户<br>l2tp -d 删除用户<br>l2tp -l 列出所有用户<br>l2tp -h 列出帮助信息</p>
 <p>参考链接：<br><a target="_blank" rel="noopener" href="https://libreswan.org/wiki/3.14_on_Debian_Wheezy">https://libreswan.org/wiki/3.14_on_Debian_Wheezy</a><br><a target="_blank" rel="noopener" href="https://github.com/libreswan/libreswan">https://github.com/libreswan/libreswan</a></p>
 
                 

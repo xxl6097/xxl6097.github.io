@@ -9,8 +9,11 @@
 
 
 一、生成keyed25519方式
-ssh-keygen -t ed25519 -C &amp;quot;uuxia@uuxia.cn&amp;quot;
-cat ~&amp;#x2F;.ssh&amp;#x2F;id_ed25519">
+ssh-keygen -t ed25519 -C &#34;uuxia@uuxia.cn&#34;
+cat ~/.ssh/id_ed25519.pub
+
+
+rsa方式ssh-keyg">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -37,7 +40,9 @@ cat ~&amp;#x2F;.ssh&amp;#x2F;id_ed25519">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
@@ -504,12 +509,12 @@ cat ~&amp;#x2F;.ssh&amp;#x2F;id_ed25519">
 <span id="more"></span>
 
 <h2 id="一、生成key"><a href="#一、生成key" class="headerlink" title="一、生成key"></a>一、生成key</h2><h3 id="ed25519方式"><a href="#ed25519方式" class="headerlink" title="ed25519方式"></a>ed25519方式</h3><pre class="line-numbers language-none"><code class="language-none">
-ssh-keygen -t ed25519 -C &quot;uuxia@uuxia.cn&quot;
-cat ~&#x2F;.ssh&#x2F;id_ed25519.pub
+ssh-keygen -t ed25519 -C "uuxia@uuxia.cn"
+cat ~/.ssh/id_ed25519.pub
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="rsa方式"><a href="#rsa方式" class="headerlink" title="rsa方式"></a>rsa方式</h3><pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;uuxia@uuxia.com&quot;
-cat ~&#x2F;.ssh&#x2F;id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="rsa方式"><a href="#rsa方式" class="headerlink" title="rsa方式"></a>rsa方式</h3><pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C "uuxia@uuxia.com"
+cat ~/.ssh/id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <hr>
 <h2 id="二、测试"><a href="#二、测试" class="headerlink" title="二、测试"></a>二、测试</h2><h3 id="github"><a href="#github" class="headerlink" title="github"></a>github</h3><pre class="line-numbers language-none"><code class="language-none">ssh -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="gitee"><a href="#gitee" class="headerlink" title="gitee"></a>gitee</h3><pre class="line-numbers language-none"><code class="language-none">ssh -T git@gitee.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>

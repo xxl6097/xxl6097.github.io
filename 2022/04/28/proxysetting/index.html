@@ -10,8 +10,8 @@
 
 
 #http代理设置(只在当前 shell 生效)
-export http_proxy&amp;#x3D;http:&amp;#x2F;&amp;#x2F;127.0.0.1:1080
-e">
+export http_proxy=http://127.0.0.1:1080
+export https_pro">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -38,7 +38,9 @@ e">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
@@ -489,19 +491,19 @@ e">
 
 
 <p>#http代理设置(只在当前 shell 生效)</p>
-<pre class="line-numbers language-none"><code class="language-none">export http_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:1080
-export https_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:1080
+<pre class="line-numbers language-none"><code class="language-none">export http_proxy=http://127.0.0.1:1080
+export https_proxy=http://127.0.0.1:1080
 
-export http_proxy&#x3D;socks5:&#x2F;&#x2F;127.0.0.1:1087
-export https_proxy&#x3D;socks5:&#x2F;&#x2F;127.0.0.1:1087<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+export http_proxy=socks5://127.0.0.1:1087
+export https_proxy=socks5://127.0.0.1:1087<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>#http代理查看</p>
 <pre class="line-numbers language-none"><code class="language-none">echo $http_proxy
 echo $https_proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>#git代理设置</p>
-<pre class="line-numbers language-none"><code class="language-none">git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1080
-git config --global https.proxy http:&#x2F;&#x2F;127.0.0.1:1080
-git config --global core.gitproxy http:&#x2F;&#x2F;127.0.0.1:1080<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">git config --global http.proxy http://127.0.0.1:1080
+git config --global https.proxy http://127.0.0.1:1080
+git config --global core.gitproxy http://127.0.0.1:1080<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>#查看http、https代理配置情况</p>
 <pre class="line-numbers language-none"><code class="language-none">git config --global --get http.proxy
@@ -514,15 +516,16 @@ git config --global --unset core.gitproxy<span aria-hidden="true" class="line-nu
 
 
 <pre class="line-numbers language-none"><code class="language-none">
-git config --global user.email &quot;xiaoli.xia@clife.cn&quot;
-git config --global user.name &quot;uuxia&quot;
+git config --global user.email "xiaoli.xia@clife.cn"
+git config --global user.name "uuxia"
 
-repo init -u https:&#x2F;&#x2F;github.com&#x2F;PixelExperience&#x2F;manifest -b twelve
+repo init -u https://github.com/PixelExperience/manifest -b twelve
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 
-cd ~&#x2F;android&#x2F;pe
-repo init -u https:&#x2F;&#x2F;github.com&#x2F;PixelExperience&#x2F;manifest -b twelve
+cd ~/android/pe
+repo init -u https://github.com/PixelExperience/manifest -b twelve
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>

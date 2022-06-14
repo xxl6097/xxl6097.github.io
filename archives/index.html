@@ -32,7 +32,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
@@ -550,8 +552,8 @@ repo init -u https://github.com/PixelExperience/manifest -b twelve
 
 
 #http代理设置(只在当前 shell 生效)
-export http_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:1080
-e
+export http_proxy=http://127.0.0.1:1080
+export https_pro
                                 
                             </div>
                             <div class="publish-info">
@@ -824,7 +826,8 @@ e
 设置步骤：
 1. cd /etc/apt/apt.conf.d
 2. sudo nano 10proxy
-3. Acquire::http::Proxy &quot;http://192.168.31.53:109
+3. Acquire::http::Proxy "http://192.168.31.53:1090";
+4
                                 
                             </div>
                             <div class="publish-info">
@@ -891,8 +894,11 @@ e
 
 
 一、生成keyed25519方式
-ssh-keygen -t ed25519 -C &quot;uuxia@uuxia.cn&quot;
-cat ~&#x2F;.ssh&#x2F;id_ed25519
+ssh-keygen -t ed25519 -C "uuxia@uuxia.cn"
+cat ~/.ssh/id_ed25519.pub
+
+
+rsa方式ssh-keyg
                                 
                             </div>
                             <div class="publish-info">
@@ -969,7 +975,7 @@ yum install nginx
 
 配置代码
 
-nano &#x2F;etc&#x2F
+nano /etc/nginx/ngi
                                 
                             </div>
                             <div class="publish-info">
@@ -1122,9 +1128,9 @@ categories: hexo
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    CentOS 7&#x2F;8 一键安装 shadowsocks-libev, 本教程仅提供学习，请勿用于商业用途和不法行为。
+                                    CentOS 7/8 一键安装 shadowsocks-libev, 本教程仅提供学习，请勿用于商业用途和不法行为。
 由于 Google BBR 需要内核版本 4.9 以上，如果安装时内核版本低于 4.9 建议先升级内核版本。
-提
+提示：Cen
                                 
                             </div>
                             <div class="publish-info">
