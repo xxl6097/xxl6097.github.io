@@ -478,6 +478,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -487,7 +490,32 @@
 <span id="more"></span>
 <h2 id="孤儿进程-因为父进程先退出而导致一个子进程被init进程收养的进程为孤儿进程。"><a href="#孤儿进程-因为父进程先退出而导致一个子进程被init进程收养的进程为孤儿进程。" class="headerlink" title="孤儿进程:因为父进程先退出而导致一个子进程被init进程收养的进程为孤儿进程。"></a>孤儿进程:因为父进程先退出而导致一个子进程被init进程收养的进程为孤儿进程。</h2><p>因此，可以通过创建孤儿进程，改变native进程的父进程，达到防止系统清理。</p>
 <p>关键代码实现:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   pid_t child_pid;</span><br><span class="line">   child_pid=fork();</span><br><span class="line">   if(child_pid&lt;0)</span><br><span class="line">   &#123;</span><br><span class="line">     perror(&quot;fork error&quot;);</span><br><span class="line">     exit(EXIT_FAILURE);</span><br><span class="line">   &#125;</span><br><span class="line">   if(child_pid==0)//子进程处理 事务</span><br><span class="line">   &#123;</span><br><span class="line">      while(1)</span><br><span class="line">      &#123;</span><br><span class="line">         printf(&quot;hello world\n&quot;);</span><br><span class="line">         sleep(1);</span><br><span class="line">      &#125;</span><br><span class="line">      return 0;</span><br><span class="line">   &#125;else</span><br><span class="line">   &#123;</span><br><span class="line">     printf(&quot;father bye byte\n&quot;);</span><br><span class="line">     exit(EXIT_SUCCESS);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+int main()
+&#123;
+   pid_t child_pid;
+   child_pid&#x3D;fork();
+   if(child_pid&lt;0)
+   &#123;
+     perror(&quot;fork error&quot;);
+     exit(EXIT_FAILURE);
+   &#125;
+   if(child_pid&#x3D;&#x3D;0)&#x2F;&#x2F;子进程处理 事务
+   &#123;
+      while(1)
+      &#123;
+         printf(&quot;hello world\n&quot;);
+         sleep(1);
+      &#125;
+      return 0;
+   &#125;else
+   &#123;
+     printf(&quot;father bye byte\n&quot;);
+     exit(EXIT_SUCCESS);
+   &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -842,6 +870,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

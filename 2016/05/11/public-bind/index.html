@@ -477,6 +477,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -485,45 +488,133 @@
                 <p>由于公共模块绑定满足不了TOB项目以及其他项目特殊需求，现对公共模块绑定界面的资源做成可配置，本文介绍一下哪些资源可配置以及如何配置。</p>
 <span id="more"></span>
 <h3 id="颜色配置"><a href="#颜色配置" class="headerlink" title="颜色配置"></a>颜色配置</h3><p>  颜色的配置需要在<strong>res&#x2F;values，res&#x2F;values-v14，res&#x2F;values-v19，res&#x2F;values-v21</strong>等目录下新建<br>  <font color=red face="黑体" size=4>color.xml</font>。<br>  color.xml内容如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;resources&gt;</span><br><span class="line">    &lt;color name=&quot;title_bar_bg_color&quot;&gt;#FFFF4444&lt;/color&gt;</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;resources&gt;
+    &lt;color name&#x3D;&quot;title_bar_bg_color&quot;&gt;#FFFF4444&lt;&#x2F;color&gt;
+&lt;&#x2F;resources&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>  目录结构如图1所示</p>
 <p><img src="/public-bind/values.png" alt="img1"><br><strong>图1</strong></p>
 <p><strong>1.标题颜</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;resources&gt;</span><br><span class="line">    &lt;color name=&quot;title_bar_bg_color&quot;&gt;填入需要配置的颜色值（#FFFF0000）&lt;/color&gt;</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;resources&gt;
+    &lt;color name&#x3D;&quot;title_bar_bg_color&quot;&gt;填入需要配置的颜色值（#FFFF0000）&lt;&#x2F;color&gt;
+&lt;&#x2F;resources&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>2.子分类列表背景色</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;resources&gt;</span><br><span class="line">    &lt;color name=&quot;color_app_themes&quot;&gt;填入需要配置的颜色值（#FFFF0000）&lt;/color&gt;</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;resources&gt;
+    &lt;color name&#x3D;&quot;color_app_themes&quot;&gt;填入需要配置的颜色值（#FFFF0000）&lt;&#x2F;color&gt;
+&lt;&#x2F;resources&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="绑定动画配置"><a href="#绑定动画配置" class="headerlink" title="绑定动画配置"></a>绑定动画配置</h3><blockquote>
 <p>在主工程<strong>res&#x2F;drawable</strong>下分别新建<strong>bind_scanning_anim.xml、bind_bouding_anim.xml、bind_failed_anim.xml、bind_sucess_anim.xml</strong>资源文件；</p>
 </blockquote>
 <p>1.<strong>“扫描中“动画</strong>（bind_scanning_anim.xml），代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">    根标签为animation-list，其中oneshot代表着是否只展示一遍，设置为false会不停的循环播放动画</span><br><span class="line">    根标签下，通过item标签对动画中的每一个图片进行声明</span><br><span class="line">    android:duration 表示展示所用的该图片的时间长度</span><br><span class="line">    </span><br><span class="line"> --&gt;</span><br><span class="line">&lt;animation-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:oneshot=&quot;false&quot;&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/scan1&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/scan2&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">&lt;/animation-list&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;!--
+    根标签为animation-list，其中oneshot代表着是否只展示一遍，设置为false会不停的循环播放动画
+    根标签下，通过item标签对动画中的每一个图片进行声明
+    android:duration 表示展示所用的该图片的时间长度
+    
+ --&gt;
+&lt;animation-list xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;
+    android:oneshot&#x3D;&quot;false&quot;&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;scan1&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;scan2&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+&lt;&#x2F;animation-list&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>扫描中 使用帧动画，默认配置中两帧，即：scan1.png和scan2.png</li>
 <li>图片分辨率:201x307</li>
 </ul>
 <p>2.<strong>绑定中 动画</strong>（bind_bouding_anim.xml），代码如下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">    根标签为animation-list，其中oneshot代表着是否只展示一遍，设置为false会不停的循环播放动画</span><br><span class="line">    根标签下，通过item标签对动画中的每一个图片进行声明</span><br><span class="line">    android:duration 表示展示所用的该图片的时间长度</span><br><span class="line"> --&gt;</span><br><span class="line">&lt;animation-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:oneshot=&quot;false&quot;&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/bouding1&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/bouding2&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/bouding3&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/bouding4&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/bouding5&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">&lt;/animation-list&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;!--
+    根标签为animation-list，其中oneshot代表着是否只展示一遍，设置为false会不停的循环播放动画
+    根标签下，通过item标签对动画中的每一个图片进行声明
+    android:duration 表示展示所用的该图片的时间长度
+ --&gt;
+&lt;animation-list xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;
+    android:oneshot&#x3D;&quot;false&quot;&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;bouding1&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;bouding2&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;bouding3&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;bouding4&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;bouding5&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+&lt;&#x2F;animation-list&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>绑定中 使用帧动画，默认配置使用5帧，即：bouding1.png、bouding2.png、bouding3.png、bouding4.png、bouding5.png</li>
 <li>图片分辨率：392x276</li>
 </ul>
 <p>3.<strong>失败 动画</strong>（bind_failed_anim.xml），代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">    根标签为animation-list，其中oneshot代表着是否只展示一遍，设置为false会不停的循环播放动画</span><br><span class="line">    根标签下，通过item标签对动画中的每一个图片进行声明</span><br><span class="line">    android:duration 表示展示所用的该图片的时间长度</span><br><span class="line"> --&gt;</span><br><span class="line">&lt;animation-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:oneshot=&quot;false&quot;&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/failed1&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/failed2&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">&lt;/animation-list&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;!--
+    根标签为animation-list，其中oneshot代表着是否只展示一遍，设置为false会不停的循环播放动画
+    根标签下，通过item标签对动画中的每一个图片进行声明
+    android:duration 表示展示所用的该图片的时间长度
+ --&gt;
+&lt;animation-list xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;
+    android:oneshot&#x3D;&quot;false&quot;&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;failed1&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;failed2&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+&lt;&#x2F;animation-list&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>扫描中 使用帧动画，默认配置使用2帧，即：failed1.png和failed2.png</li>
 <li>图片分辨率:203x306</li>
 </ul>
 <p>4.<strong>成功 动画</strong>（bind_sucess_anim.xml），代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">    根标签为animation-list，其中oneshot代表着是否只展示一遍，设置为false会不停的循环播放动画</span><br><span class="line">    根标签下，通过item标签对动画中的每一个图片进行声明</span><br><span class="line">    android:duration 表示展示所用的该图片的时间长度</span><br><span class="line"> --&gt;</span><br><span class="line">&lt;animation-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:oneshot=&quot;false&quot;&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/sucess1&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/sucess2&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">&lt;/animation-list&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;!--
+    根标签为animation-list，其中oneshot代表着是否只展示一遍，设置为false会不停的循环播放动画
+    根标签下，通过item标签对动画中的每一个图片进行声明
+    android:duration 表示展示所用的该图片的时间长度
+ --&gt;
+&lt;animation-list xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;
+    android:oneshot&#x3D;&quot;false&quot;&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;sucess1&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;sucess2&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+&lt;&#x2F;animation-list&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>扫描中 使用帧动画，默认配置使用2帧，即：sucess1.png和sucess2.png</li>
 <li>图片分辨率:203x306</li>
 </ul>
 <h3 id="网络请求loadding图标配置"><a href="#网络请求loadding图标配置" class="headerlink" title="网络请求loadding图标配置"></a>网络请求loadding图标配置</h3><p>在主工程<strong>res&#x2F;drawable</strong>下分别新建<strong>bind_network_waiting.xml</strong>资源文件。<br>代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;animation-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:oneshot=&quot;false&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/load1&quot;</span><br><span class="line">        android:duration=&quot;200&quot; /&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/load2&quot;</span><br><span class="line">        android:duration=&quot;200&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/animation-list&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;animation-list xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;
+    android:oneshot&#x3D;&quot;false&quot;&gt;
+
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;load1&quot;
+        android:duration&#x3D;&quot;200&quot; &#x2F;&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;load2&quot;
+        android:duration&#x3D;&quot;200&quot; &#x2F;&gt;
+
+&lt;&#x2F;animation-list&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>网络请求loadding 使用帧动画，默认配置使用2帧，即：load1.png和load2.png</li>
 <li>图片分辨率:126x126</li>
@@ -531,7 +622,31 @@
 <p>缺省配置如图2：</p>
 <p><img src="/public-bind/loading.png" alt="img1"><br><strong>图2</strong></p>
 <h3 id="下拉列表Header动画配置"><a href="#下拉列表Header动画配置" class="headerlink" title="下拉列表Header动画配置"></a>下拉列表Header动画配置</h3><p>在主工程<strong>res&#x2F;drawable</strong>下分别新建<strong>bind_droplistview_anim.xml</strong>资源文件。<br>代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">    根标签为animation-list，其中oneshot代表着是否只展示一遍，设置为false会不停的循环播放动画</span><br><span class="line">    根标签下，通过item标签对动画中的每一个图片进行声明</span><br><span class="line">    android:duration 表示展示所用的该图片的时间长度</span><br><span class="line"> --&gt;</span><br><span class="line">&lt;animation-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:oneshot=&quot;false&quot;&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/list1&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/list2&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/list3&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/list4&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/list5&quot;</span><br><span class="line">        android:duration=&quot;150&quot;&gt;&lt;/item&gt;</span><br><span class="line">&lt;/animation-list&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;!--
+    根标签为animation-list，其中oneshot代表着是否只展示一遍，设置为false会不停的循环播放动画
+    根标签下，通过item标签对动画中的每一个图片进行声明
+    android:duration 表示展示所用的该图片的时间长度
+ --&gt;
+&lt;animation-list xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;
+    android:oneshot&#x3D;&quot;false&quot;&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;list1&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;list2&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;list3&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;list4&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+    &lt;item
+        android:drawable&#x3D;&quot;@drawable&#x2F;list5&quot;
+        android:duration&#x3D;&quot;150&quot;&gt;&lt;&#x2F;item&gt;
+&lt;&#x2F;animation-list&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>下拉列表Header动画 使用帧动画，默认配置使用5帧，即：list1.png、list2.png、list3.png、list4.png、list5.png</li>
 <li>图片分辨率:72x72</li>
@@ -899,6 +1014,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

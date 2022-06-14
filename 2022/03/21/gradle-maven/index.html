@@ -487,6 +487,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -497,7 +500,7 @@
 <span id="more"></span>
 
 
-<h3 id="一、最新版本-根目录build-gradle"><a href="#一、最新版本-根目录build-gradle" class="headerlink" title="一、最新版本(根目录build.gradle)"></a>一、最新版本(根目录build.gradle)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classpath(&quot;io.github.szhittech:gradle-maven:0.0.9&quot;)</span><br></pre></td></tr></table></figure>
+<h3 id="一、最新版本-根目录build-gradle"><a href="#一、最新版本-根目录build-gradle" class="headerlink" title="一、最新版本(根目录build.gradle)"></a>一、最新版本(根目录build.gradle)</h3><pre class="line-numbers language-none"><code class="language-none">classpath(&quot;io.github.szhittech:gradle-maven:0.0.9&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="二、功能简介"><a href="#二、功能简介" class="headerlink" title="二、功能简介"></a>二、功能简介</h3><ul>
 <li>支持发布多种类型的库, 例如：<code>Java</code>、<code>Android</code>、<code>Kotlin</code>；</li>
@@ -505,12 +508,24 @@
 <li>支持签名库资源，<code>包括sources</code>、<code>Javadoc</code>、<code>POM</code>（需要<code>Gradle Version &gt;= 4.8</code>）</li>
 <li>本插件内置了<code>signing</code>签名信息与文件(<code>secring.gpg</code>)</li>
 </ul>
-<h3 id="三、使用步骤"><a href="#三、使用步骤" class="headerlink" title="三、使用步骤"></a>三、使用步骤</h3><h4 id="1-在根目录build-gradle中新增如下代码"><a href="#1-在根目录build-gradle中新增如下代码" class="headerlink" title="1. 在根目录build.gradle中新增如下代码"></a>1. 在根目录<code>build.gradle</code>中新增如下代码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">classpath(&quot;io.github.szhittech:gradle-maven:0.0.9&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="三、使用步骤"><a href="#三、使用步骤" class="headerlink" title="三、使用步骤"></a>三、使用步骤</h3><h4 id="1-在根目录build-gradle中新增如下代码"><a href="#1-在根目录build-gradle中新增如下代码" class="headerlink" title="1. 在根目录build.gradle中新增如下代码"></a>1. 在根目录<code>build.gradle</code>中新增如下代码</h4><pre class="line-numbers language-none"><code class="language-none">classpath(&quot;io.github.szhittech:gradle-maven:0.0.9&quot;)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h4 id="2-在library-build-gradle中新增如下代码"><a href="#2-在library-build-gradle中新增如下代码" class="headerlink" title="2. 在library/build.gradle中新增如下代码"></a>2. 在<code>library/build.gradle</code>中新增如下代码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &#x27;gradle.maven&#x27;</span><br></pre></td></tr></table></figure>
+<h4 id="2-在library-build-gradle中新增如下代码"><a href="#2-在library-build-gradle中新增如下代码" class="headerlink" title="2. 在library/build.gradle中新增如下代码"></a>2. 在<code>library/build.gradle</code>中新增如下代码</h4><pre class="line-numbers language-none"><code class="language-none">apply plugin: &#39;gradle.maven&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="四、发布MavenCenter步骤"><a href="#四、发布MavenCenter步骤" class="headerlink" title="四、发布MavenCenter步骤"></a>四、发布<code>MavenCenter</code>步骤</h3><h4 id="1-配置根目录下gradle-properties"><a href="#1-配置根目录下gradle-properties" class="headerlink" title="1. 配置根目录下gradle.properties"></a>1. 配置根目录下<code>gradle.properties</code></h4><p>如果发布到<code>MavenCenter</code>，该文件无需配置</p>
-<h4 id="2-配置library-build-gradle"><a href="#2-配置library-build-gradle" class="headerlink" title="2. 配置library/build.gradle"></a>2. 配置<code>library/build.gradle</code></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ext &#123;</span><br><span class="line">  groupId = &quot;io.github.szhittech&quot;</span><br><span class="line">  name = &quot;gradle-maven&quot;</span><br><span class="line">  version = &quot;0.0.0-SNAPSHOT&quot;</span><br><span class="line">  description = &quot;A Gradle Plugin For Java、Android、Kotlin.&quot;</span><br><span class="line">  url = &quot;https://e.coding.net/clife-devops/clifepublic/gradle-maven.git&quot;</span><br><span class="line">  connection = &quot;scm:git@github.com:szhittech/clifesdk.git&quot;</span><br><span class="line">  authorId = &quot;uuxia&quot;</span><br><span class="line">  authorName = &quot;xiamoumou&quot;</span><br><span class="line">  authorEmail = &quot;xxx@clife.com&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="2-配置library-build-gradle"><a href="#2-配置library-build-gradle" class="headerlink" title="2. 配置library/build.gradle"></a>2. 配置<code>library/build.gradle</code></h4><pre class="line-numbers language-none"><code class="language-none">ext &#123;
+  groupId &#x3D; &quot;io.github.szhittech&quot;
+  name &#x3D; &quot;gradle-maven&quot;
+  version &#x3D; &quot;0.0.0-SNAPSHOT&quot;
+  description &#x3D; &quot;A Gradle Plugin For Java、Android、Kotlin.&quot;
+  url &#x3D; &quot;https:&#x2F;&#x2F;e.coding.net&#x2F;clife-devops&#x2F;clifepublic&#x2F;gradle-maven.git&quot;
+  connection &#x3D; &quot;scm:git@github.com:szhittech&#x2F;clifesdk.git&quot;
+  authorId &#x3D; &quot;uuxia&quot;
+  authorName &#x3D; &quot;xiamoumou&quot;
+  authorEmail &#x3D; &quot;xxx@clife.com&quot;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <table>
 <thead>
@@ -579,9 +594,18 @@
 <h4 id="4-自定Maven-oss账号配置"><a href="#4-自定Maven-oss账号配置" class="headerlink" title="4. 自定Maven oss账号配置"></a>4. 自定<code>Maven oss</code>账号配置</h4><p>因本插件与<code>groupId = &quot;io.github.szhittech&quot;</code>绑定，如果用户需要添加自己的<code>groupid</code>，则需要在<code>gradle.properties</code>配置<code>Maven oss</code>账号</p>
 <p><code>Maven oss</code>账号注册，请至<a target="_blank" rel="noopener" href="https://s01.oss.sonatype.org/">https://s01.oss.sonatype.org/</a>注册</p>
 <p><code>gradle.properties</code>配置如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">maven.name=maven</span><br><span class="line">maven.username=你的oss账号</span><br><span class="line">maven.password=你的oss密码</span><br><span class="line">maven.release=https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</span><br><span class="line">maven.snapshot=https://s01.oss.sonatype.org/content/repositories/snapshots/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">maven.name&#x3D;maven
+maven.username&#x3D;你的oss账号
+maven.password&#x3D;你的oss密码
+maven.release&#x3D;https:&#x2F;&#x2F;s01.oss.sonatype.org&#x2F;service&#x2F;local&#x2F;staging&#x2F;deploy&#x2F;maven2&#x2F;
+maven.snapshot&#x3D;https:&#x2F;&#x2F;s01.oss.sonatype.org&#x2F;content&#x2F;repositories&#x2F;snapshots&#x2F;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="五、发布Nexus私服步骤"><a href="#五、发布Nexus私服步骤" class="headerlink" title="五、发布Nexus私服步骤"></a>五、发布<code>Nexus</code>私服步骤</h3><h4 id="1-配置根目录下gradle-properties-1"><a href="#1-配置根目录下gradle-properties-1" class="headerlink" title="1. 配置根目录下gradle.properties"></a>1. 配置根目录下<code>gradle.properties</code></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nexus.name=coding</span><br><span class="line">coding.username=xiaoli.xia@clife.cn</span><br><span class="line">coding.password=xxxxxx</span><br><span class="line">coding.snapshot=https://clife-devops-maven.pkg.coding.net/repository/public-repository/maven-snapshots/</span><br><span class="line">coding.release=https://clife-devops-maven.pkg.coding.net/repository/public-repository/maven-releases/</span><br></pre></td></tr></table></figure>
+<h3 id="五、发布Nexus私服步骤"><a href="#五、发布Nexus私服步骤" class="headerlink" title="五、发布Nexus私服步骤"></a>五、发布<code>Nexus</code>私服步骤</h3><h4 id="1-配置根目录下gradle-properties-1"><a href="#1-配置根目录下gradle-properties-1" class="headerlink" title="1. 配置根目录下gradle.properties"></a>1. 配置根目录下<code>gradle.properties</code></h4><pre class="line-numbers language-none"><code class="language-none">nexus.name&#x3D;coding
+coding.username&#x3D;xiaoli.xia@clife.cn
+coding.password&#x3D;xxxxxx
+coding.snapshot&#x3D;https:&#x2F;&#x2F;clife-devops-maven.pkg.coding.net&#x2F;repository&#x2F;public-repository&#x2F;maven-snapshots&#x2F;
+coding.release&#x3D;https:&#x2F;&#x2F;clife-devops-maven.pkg.coding.net&#x2F;repository&#x2F;public-repository&#x2F;maven-releases&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <table>
 <thead>
@@ -617,7 +641,18 @@
 <td>私服<code>release</code>版上传地址</td>
 </tr>
 </tbody></table>
-<h4 id="2-配置library-build-gradle-1"><a href="#2-配置library-build-gradle-1" class="headerlink" title="2. 配置library/build.gradle"></a>2. 配置<code>library/build.gradle</code></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ext &#123;</span><br><span class="line">  groupId = &quot;io.github.szhittech&quot;</span><br><span class="line">  name = &quot;gradle-maven&quot;</span><br><span class="line">  version = &quot;0.0.0-SNAPSHOT&quot;</span><br><span class="line">  description = &quot;A Gradle Plugin For Java、Android、Kotlin.&quot;</span><br><span class="line">  url = &quot;https://e.coding.net/clife-devops/clifepublic/gradle-maven.git&quot;</span><br><span class="line">  connection = &quot;scm:git@github.com:szhittech/clifesdk.git&quot;</span><br><span class="line">  authorId = &quot;uuxia&quot;</span><br><span class="line">  authorName = &quot;xiamoumou&quot;</span><br><span class="line">  authorEmail = &quot;xxx@clife.cn&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="2-配置library-build-gradle-1"><a href="#2-配置library-build-gradle-1" class="headerlink" title="2. 配置library/build.gradle"></a>2. 配置<code>library/build.gradle</code></h4><pre class="line-numbers language-none"><code class="language-none">ext &#123;
+  groupId &#x3D; &quot;io.github.szhittech&quot;
+  name &#x3D; &quot;gradle-maven&quot;
+  version &#x3D; &quot;0.0.0-SNAPSHOT&quot;
+  description &#x3D; &quot;A Gradle Plugin For Java、Android、Kotlin.&quot;
+  url &#x3D; &quot;https:&#x2F;&#x2F;e.coding.net&#x2F;clife-devops&#x2F;clifepublic&#x2F;gradle-maven.git&quot;
+  connection &#x3D; &quot;scm:git@github.com:szhittech&#x2F;clifesdk.git&quot;
+  authorId &#x3D; &quot;uuxia&quot;
+  authorName &#x3D; &quot;xiamoumou&quot;
+  authorEmail &#x3D; &quot;xxx@clife.cn&quot;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <table>
 <thead>
@@ -1053,6 +1088,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

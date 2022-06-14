@@ -10,7 +10,8 @@
 
 
 #http代理设置(只在当前 shell 生效)
-12345export http_proxy=http://127.0.0.1:1080export https">
+export http_proxy&amp;#x3D;http:&amp;#x2F;&amp;#x2F;127.0.0.1:1080
+e">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -475,6 +476,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -485,20 +489,40 @@
 
 
 <p>#http代理设置(只在当前 shell 生效)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy=http://127.0.0.1:1080</span><br><span class="line">export https_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">export http_proxy=socks5://127.0.0.1:1087</span><br><span class="line">export https_proxy=socks5://127.0.0.1:1087</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">export http_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:1080
+export https_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:1080
+
+export http_proxy&#x3D;socks5:&#x2F;&#x2F;127.0.0.1:1087
+export https_proxy&#x3D;socks5:&#x2F;&#x2F;127.0.0.1:1087<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>#http代理查看</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo $http_proxy</span><br><span class="line">echo $https_proxy</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">echo $http_proxy
+echo $https_proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>#git代理设置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global core.gitproxy http://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1080
+git config --global https.proxy http:&#x2F;&#x2F;127.0.0.1:1080
+git config --global core.gitproxy http:&#x2F;&#x2F;127.0.0.1:1080<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>#查看http、https代理配置情况</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global --get http.proxy</span><br><span class="line">git config --global --get https.proxy</span><br><span class="line">git config --global --get core.gitproxy</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git config --global --get http.proxy
+git config --global --get https.proxy
+git config --global --get core.gitproxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>#取消http、https代理配置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br><span class="line">git config --global --unset core.gitproxy</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git config --global --unset http.proxy
+git config --global --unset https.proxy
+git config --global --unset core.gitproxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git config --global user.email &quot;xiaoli.xia@clife.cn&quot;</span><br><span class="line">git config --global user.name &quot;uuxia&quot;</span><br><span class="line"></span><br><span class="line">repo init -u https://github.com/PixelExperience/manifest -b twelve</span><br><span class="line">repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags</span><br><span class="line"></span><br><span class="line">cd ~/android/pe</span><br><span class="line">repo init -u https://github.com/PixelExperience/manifest -b twelve</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">
+git config --global user.email &quot;xiaoli.xia@clife.cn&quot;
+git config --global user.name &quot;uuxia&quot;
+
+repo init -u https:&#x2F;&#x2F;github.com&#x2F;PixelExperience&#x2F;manifest -b twelve
+repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
+
+cd ~&#x2F;android&#x2F;pe
+repo init -u https:&#x2F;&#x2F;github.com&#x2F;PixelExperience&#x2F;manifest -b twelve
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -860,6 +884,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

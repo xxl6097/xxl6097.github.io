@@ -5,7 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="小米9基于PixelExperience源码编译步骤, 悠悠博客">
-    <meta name="description" content="Pixel ExperienceSync123456# Initialize local repositoryrepo init -u https://github.com/PixelExperience/manifest -b twelv">
+    <meta name="description" content="Pixel ExperienceSync
+# Initialize local repository
+repo init -u https://github.com/PixelExperience/manifest -b twelve
+
+#">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -470,32 +474,52 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Pixel-Experience"><a href="#Pixel-Experience" class="headerlink" title="Pixel Experience"></a>Pixel Experience</h1><h3 id="Sync"><a href="#Sync" class="headerlink" title="Sync"></a>Sync</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Initialize local repository</span></span><br><span class="line">repo init -u https://github.com/PixelExperience/manifest -b twelve</span><br><span class="line"></span><br><span class="line"><span class="comment"># Sync</span></span><br><span class="line">repo <span class="built_in">sync</span> -c -j$(<span class="built_in">nproc</span> --all) --force-sync --no-clone-bundle --no-tags</span><br></pre></td></tr></table></figure>
+                <h1 id="Pixel-Experience"><a href="#Pixel-Experience" class="headerlink" title="Pixel Experience"></a>Pixel Experience</h1><h3 id="Sync"><a href="#Sync" class="headerlink" title="Sync"></a>Sync</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+<span class="token comment"># Initialize local repository</span>
+repo init -u https://github.com/PixelExperience/manifest -b twelve
 
-<h3 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Set up environment</span></span><br><span class="line">$ . build/envsetup.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># Choose a target</span></span><br><span class="line">$ lunch aosp_cepheus-userdebug</span><br><span class="line"></span><br><span class="line">$ lunch aosp_cepheus-user</span><br><span class="line"></span><br><span class="line"><span class="comment"># Build the code</span></span><br><span class="line">$ mka bacon -j4</span><br></pre></td></tr></table></figure>
+<span class="token comment"># Sync</span>
+repo <span class="token function">sync</span> -c -j<span class="token variable"><span class="token variable">$(</span>nproc --all<span class="token variable">)</span></span> --force-sync --no-clone-bundle --no-tags<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+<span class="token comment"># Set up environment</span>
+$ <span class="token builtin class-name">.</span> build/envsetup.sh
+
+<span class="token comment"># Choose a target</span>
+$ lunch aosp_cepheus-userdebug
+
+$ lunch aosp_cepheus-user
+
+<span class="token comment"># Build the code</span>
+$ mka bacon -j4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Turn-on-caching-to-speed-up-build"><a href="#Turn-on-caching-to-speed-up-build" class="headerlink" title="Turn on caching to speed up build"></a>Turn on caching to speed up build</h3><p>Make use of ccache if you want to speed up subsequent builds by running:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export USE_CCACHE=1</span><br><span class="line">export CCACHE_EXEC=/usr/bin/ccache</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">export USE_CCACHE&#x3D;1
+export CCACHE_EXEC&#x3D;&#x2F;usr&#x2F;bin&#x2F;ccache<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>and adding that line to your ~&#x2F;.bashrc file. Then, specify the maximum amount of disk space you want ccache to use by typing this:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ccache -M 50G</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">ccache -M 50G<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>where 50G corresponds to 50GB of cache. This needs to be run once. Anywhere from 25GB-100GB will result in very noticeably increased build speeds (for instance, a typical 1hr build time can be reduced to 20min). If you’re only building for one device, 25GB-50GB is fine. If you plan to build for several devices that do not share the same kernel source, aim for 75GB-100GB. This space will be permanently occupied on your drive, so take this into consideration.</p>
 <p>You can also enable the optional ccache compression. While this may involve a slight performance slowdown, it increases the number of files that fit in the cache. To enable it, run:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ccache -o compression=true</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">ccache -o compression&#x3D;true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 <h3 id="Start-the-build"><a href="#Start-the-build" class="headerlink" title="Start the build"></a>Start the build</h3><p>Time to start building! Now, type:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">croot</span><br><span class="line">mka bacon -j$(nproc --all)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">croot
+mka bacon -j$(nproc --all)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 <h3 id="Install-the-build"><a href="#Install-the-build" class="headerlink" title="Install the build"></a>Install the build</h3><p>Assuming the build completed without errors (it will be obvious when it finishes), type the following in the terminal window the build ran in:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd $OUT</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">cd $OUT<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
@@ -505,7 +529,87 @@
 <p>Success! So… what’s next?<br>You’ve done it! Welcome to the elite club of self-builders. You’ve built your operating system from scratch, from the ground up. You are the master&#x2F;mistress of your domain… and hopefully you’ve learned a bit on the way and had some fun too.</p>
 <h3 id="Submitting-Patches"><a href="#Submitting-Patches" class="headerlink" title="Submitting Patches"></a>Submitting Patches</h3><p>Patches are always welcome! Please submit your patches to our Gerrit.</p>
 <p><a target="_blank" rel="noopener" href="https://wiki.pixelexperience.org/help/submit-patch/">Gerrit push guide</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">unzip platform-tools-latest-linux.zip -d ~</span><br><span class="line"></span><br><span class="line"># Now you have to add adb and fastboot to your PATH. Open ~/.profile and add the following:</span><br><span class="line"># add Android SDK platform tools to path</span><br><span class="line">if [ -d &quot;$HOME/platform-tools&quot; ] ; then</span><br><span class="line">    PATH=&quot;$HOME/platform-tools:$PATH&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">curl https://storage.googleapis.com/git-repo-downloads/repo &gt; /root/code/twelve/repo</span><br><span class="line">chmod a+x /root/code/twelve/repo</span><br><span class="line">curl https://storage.googleapis.com/git-repo-downloads/repo &gt; /media/psf/aosp/twelve/repo</span><br><span class="line">chmod a+x /media/psf/aosp/twelve/repo</span><br><span class="line"></span><br><span class="line">./repo init -u https://github.com/PixelExperience/manifest -b twelve</span><br><span class="line"></span><br><span class="line">repo init -u https://github.com/PixelExperience/manifest -b twelve</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git config --global user.email &quot;xiaoli.xia@uuxiclife.cn&quot;</span><br><span class="line">git config --global user.name &quot;uuxia&quot;</span><br><span class="line"></span><br><span class="line">./repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags</span><br><span class="line"></span><br><span class="line"># Running configuration script:</span><br><span class="line">cd ~/</span><br><span class="line">git clone https://github.com/akhilnarang/scripts</span><br><span class="line">cd scripts</span><br><span class="line">./setup/android_build_env.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">./repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags</span><br><span class="line"></span><br><span class="line">source build/envsetup.sh</span><br><span class="line">lunch aosp_cepheus-userdebug</span><br><span class="line"></span><br><span class="line">export USE_CCACHE=1</span><br><span class="line">export CCACHE_EXEC=/usr/bin/ccache</span><br><span class="line"></span><br><span class="line"># and adding that line to your ~/.bashrc file. Then, specify the maximum amount of disk space you want ccache to use by typing this:</span><br><span class="line">ccache -M 50G</span><br><span class="line"></span><br><span class="line">ccache -o compression=true</span><br><span class="line"></span><br><span class="line">croot</span><br><span class="line">mka bacon -j$(nproc --all)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export http_proxy=http://127.0.0.1:1087</span><br><span class="line">export https_proxy=http://127.0.0.1:1087</span><br><span class="line">git config --global http.proxy http://127.0.0.1:1087</span><br><span class="line">git config --global https.proxy http://127.0.0.1:1087</span><br><span class="line">git config --global core.gitproxy http://127.0.0.1:1087</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export http_proxy=http://127.0.0.1:1080</span><br><span class="line">export https_proxy=http://127.0.0.1:1080</span><br><span class="line">git config --global http.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global core.gitproxy http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">git config --global --get http.proxy</span><br><span class="line">git config --global --get https.proxy</span><br><span class="line">git config --global --get core.gitproxy</span><br><span class="line"></span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br><span class="line">git config --global --unset core.gitproxy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">https://android.googlesource.com</span><br><span class="line"></span><br><span class="line">sudo chown -R root:root /root/cepheus</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">
+unzip platform-tools-latest-linux.zip -d ~
+
+# Now you have to add adb and fastboot to your PATH. Open ~&#x2F;.profile and add the following:
+# add Android SDK platform tools to path
+if [ -d &quot;$HOME&#x2F;platform-tools&quot; ] ; then
+    PATH&#x3D;&quot;$HOME&#x2F;platform-tools:$PATH&quot;
+fi
+
+curl https:&#x2F;&#x2F;storage.googleapis.com&#x2F;git-repo-downloads&#x2F;repo &gt; &#x2F;root&#x2F;code&#x2F;twelve&#x2F;repo
+chmod a+x &#x2F;root&#x2F;code&#x2F;twelve&#x2F;repo
+curl https:&#x2F;&#x2F;storage.googleapis.com&#x2F;git-repo-downloads&#x2F;repo &gt; &#x2F;media&#x2F;psf&#x2F;aosp&#x2F;twelve&#x2F;repo
+chmod a+x &#x2F;media&#x2F;psf&#x2F;aosp&#x2F;twelve&#x2F;repo
+
+.&#x2F;repo init -u https:&#x2F;&#x2F;github.com&#x2F;PixelExperience&#x2F;manifest -b twelve
+
+repo init -u https:&#x2F;&#x2F;github.com&#x2F;PixelExperience&#x2F;manifest -b twelve
+
+
+git config --global user.email &quot;xiaoli.xia@uuxiclife.cn&quot;
+git config --global user.name &quot;uuxia&quot;
+
+.&#x2F;repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
+
+# Running configuration script:
+cd ~&#x2F;
+git clone https:&#x2F;&#x2F;github.com&#x2F;akhilnarang&#x2F;scripts
+cd scripts
+.&#x2F;setup&#x2F;android_build_env.sh
+
+
+.&#x2F;repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
+
+source build&#x2F;envsetup.sh
+lunch aosp_cepheus-userdebug
+
+export USE_CCACHE&#x3D;1
+export CCACHE_EXEC&#x3D;&#x2F;usr&#x2F;bin&#x2F;ccache
+
+# and adding that line to your ~&#x2F;.bashrc file. Then, specify the maximum amount of disk space you want ccache to use by typing this:
+ccache -M 50G
+
+ccache -o compression&#x3D;true
+
+croot
+mka bacon -j$(nproc --all)
+
+
+export http_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:1087
+export https_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:1087
+git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1087
+git config --global https.proxy http:&#x2F;&#x2F;127.0.0.1:1087
+git config --global core.gitproxy http:&#x2F;&#x2F;127.0.0.1:1087
+
+
+export http_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:1080
+export https_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:1080
+git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1080
+git config --global https.proxy http:&#x2F;&#x2F;127.0.0.1:1080
+git config --global core.gitproxy http:&#x2F;&#x2F;127.0.0.1:1080
+
+git config --global --get http.proxy
+git config --global --get https.proxy
+git config --global --get core.gitproxy
+
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+git config --global --unset core.gitproxy
+
+
+https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;AOSP&#x2F;
+
+
+https:&#x2F;&#x2F;android.googlesource.com
+
+sudo chown -R root:root &#x2F;root&#x2F;cepheus
+
+
+
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -868,6 +972,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

@@ -476,6 +476,9 @@ OpenVZ 虚拟的 VPS 需要系统内核支持 IPSec 才行。也就是说，母�
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -490,7 +493,9 @@ OpenVZ 虚拟的 VPS 需要系统内核支持 IPSec 才行。也就是说，母�
 <h2 id="关于本脚本："><a href="#关于本脚本：" class="headerlink" title="关于本脚本："></a>关于本脚本：</h2><p>名词解释如下<br>L2TP（Layer 2 Tunneling Protocol）<br>IPSec（Internet Protocol Security）<br>IKEv2 (Internet Key Exchange v2)<br>能实现 IPsec 的目前总体上有 openswan，libreswan，strongswan 这3种。<br>libreswan 是基于 openswan 的 fork，所以现在各个发行版基本已经看不到 openswan 的身影了。<br>当然也有使用 strongswan 的。</p>
 <p>之所以要更新 L2TP 一键安装脚本，是因为随着各个 Linux 发行版不断推陈出新，原有的脚本已经不适应现在的需求。<br>本脚本通过编译安装最新版 libreswan 来实现 IPSec（CentOS7 下则是全部 yum 安装），yum 或 apt-get 来安装 xl2tpd，再根据各个发行版的使用方法不同，部署防火墙规则。</p>
 <h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a><font color='red'>使用方法：</font></h2><p>root 用户登录后，运行以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/across/master/l2tp.sh</span><br><span class="line">chmod +x l2tp.sh</span><br><span class="line">./l2tp.sh</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">wget --no-check-certificate https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;teddysun&#x2F;across&#x2F;master&#x2F;l2tp.sh
+chmod +x l2tp.sh
+.&#x2F;l2tp.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
 <p>执行后，会有如下交互界面</p>
@@ -505,11 +510,28 @@ OpenVZ 虚拟的 VPS 需要系统内核支持 IPSec 才行。也就是说，母�
 <p>PSK:teddysun.com<br>显示 PSK</p>
 <p>Press any key to start…or Press Ctrl+c to cancel<br>按下任意按键继续，如果想取消安装，请按Ctrl+c键</p>
 <p>安装完成后，脚本会执行 ipsec verify 命令并提示如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">If there are no [FAILED] above, then you can connect to your</span><br><span class="line">L2TP VPN Server with the default Username/Password is below:</span><br><span class="line"></span><br><span class="line">ServerIP:your_server_IP</span><br><span class="line">PSK:your PSK</span><br><span class="line">Username:your usename</span><br><span class="line">Password:your password</span><br><span class="line"></span><br><span class="line">If you want to modify user settings, please use command(s):</span><br><span class="line">l2tp -a (Add a user)</span><br><span class="line">l2tp -d (Delete a user)</span><br><span class="line">l2tp -l (List all users)</span><br><span class="line">l2tp -m (Modify a user password)</span><br><span class="line">Welcome to visit https://teddysun.com/448.html</span><br><span class="line">Enjoy it!</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">If there are no [FAILED] above, then you can connect to your
+L2TP VPN Server with the default Username&#x2F;Password is below:
+
+ServerIP:your_server_IP
+PSK:your PSK
+Username:your usename
+Password:your password
+
+If you want to modify user settings, please use command(s):
+l2tp -a (Add a user)
+l2tp -d (Delete a user)
+l2tp -l (List all users)
+l2tp -m (Modify a user password)
+Welcome to visit https:&#x2F;&#x2F;teddysun.com&#x2F;448.html
+Enjoy it!
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>如果你要想对用户进行操作，可以使用如下命令：<br>l2tp -a 新增用户<br>l2tp -d 删除用户<br>l2tp -m 修改现有的用户的密码<br>l2tp -l 列出所有用户名和密码<br>l2tp -h 列出帮助信息</p>
 <h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a><font color='red'>注意事项：</font></h2><p>1、错误809：<br>解决：路由线路上有防火墙没有关闭（pptp穿透防火墙的能力较差）<br>2、错误代码619<br>解决：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -r /dev/ppp</span><br><span class="line">mknod /dev/ppp c 108 0 </span><br><span class="line">然后重启VPS即可。</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">rm -r &#x2F;dev&#x2F;ppp
+mknod &#x2F;dev&#x2F;ppp c 108 0 
+然后重启VPS即可。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>如果还未解决，尝试重启机器。</p>
 <p>3、要根据ppp的版本来选择对应的pptpd版本。<br>ppp-2.4.4  对应   pptpd-1.3.4<br>ppp-2.4.5  对应   pptpd-1.4.0</p>
 <h2 id="其他事项："><a href="#其他事项：" class="headerlink" title="其他事项："></a><font color='red'>其他事项：</font></h2><p>1、脚本在安装完成后，已自动启动进程，并加入了开机自启动。<br>2、脚本会改写 iptables 或 firewalld 的规则。<br>3、脚本安装时，会即时将安装日志写到 &#x2F;root&#x2F;l2tp.log 文件里，如果你安装失败，可以通过此文件来寻找错误信息。</p>
@@ -886,6 +908,9 @@ OpenVZ 虚拟的 VPS 需要系统内核支持 IPSec 才行。也就是说，母�
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

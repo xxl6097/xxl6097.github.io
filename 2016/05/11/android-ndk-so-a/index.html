@@ -10,7 +10,7 @@
 
 下面我以一个简单的实际例子来讲解如何在动态库中导入静态库。
 静态库中的源代码有两个文件：static.h, static.c，有一个add方法 static.h
-12345678#i">
+#include &amp;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -488,6 +488,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -498,23 +501,55 @@
 <p><img src="/android-ndk-so-a/img1.png" alt="img1"></p>
 <p>下面我以一个简单的实际例子来讲解如何在动态库中导入静态库。</p>
 <p>静态库中的源代码有两个文件：static.h, static.c，有一个add方法 static.h</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt; </span><br><span class="line">int add(int x, int y);</span><br><span class="line">static.c</span><br><span class="line">#include &quot;static.h&quot; </span><br><span class="line">int add(int x, int y) </span><br><span class="line">&#123; </span><br><span class="line">    return x + y; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;stdio.h&gt; 
+int add(int x, int y);
+static.c
+#include &quot;static.h&quot; 
+int add(int x, int y) 
+&#123; 
+    return x + y; 
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>将它编译成静态库，Android.mk如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := $(call my-dir) </span><br><span class="line">include $(CLEAR_VARS) </span><br><span class="line">LOCAL_MODULE    := static_add </span><br><span class="line">LOCAL_SRC_FILES := static.c </span><br><span class="line">include $(BUILD_STATIC_LIBRARY)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">LOCAL_PATH :&#x3D; $(call my-dir) 
+include $(CLEAR_VARS) 
+LOCAL_MODULE    :&#x3D; static_add 
+LOCAL_SRC_FILES :&#x3D; static.c 
+include $(BUILD_STATIC_LIBRARY)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>注意编译静态库的时候，必须有一个Application.mk文件：</p>
 <blockquote>
 <p>APP_MODULES:&#x3D;static_add</p>
 </blockquote>
 <p>APP_MODULES的值应该和Android.mk中的LOCAL_MODULE的值保持一样。</p>
 <p>然后调用ndk-build进行编译生成libstatic_add.a静态库</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">hejinlai_iMac:jni hejinlai$ ndk-build</span><br><span class="line">Prebuilt : libstatic_add.a &lt;= jni/ 生成静态库后，然后编写动态库中的源代码: share.h share.c share.h [cpp]#include </span><br><span class="line">int test_add(int x, int y);</span><br><span class="line"></span><br><span class="line">share.c</span><br><span class="line">1234567 #include “share.h”</span><br><span class="line">#include “static.h”</span><br><span class="line">int test_add(int x, int y)</span><br><span class="line">&#123;</span><br><span class="line">// 调用static里面的方法</span><br><span class="line">return add(x, y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">hejinlai_iMac:jni hejinlai$ ndk-build
+Prebuilt : libstatic_add.a &lt;&#x3D; jni&#x2F; 生成静态库后，然后编写动态库中的源代码: share.h share.c share.h [cpp]#include 
+int test_add(int x, int y);
+
+share.c
+1234567 #include “share.h”
+#include “static.h”
+int test_add(int x, int y)
+&#123;
+&#x2F;&#x2F; 调用static里面的方法
+return add(x, y);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>编写导入静态库的Android.mk：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := $(call my-dir) </span><br><span class="line">include $(CLEAR_VARS) </span><br><span class="line">LOCAL_MODULE    := static_add </span><br><span class="line">LOCAL_SRC_FILES := libstatic_add.a </span><br><span class="line">include $(PREBUILT_STATIC_LIBRARY) </span><br><span class="line">include $(CLEAR_VARS) </span><br><span class="line">LOCAL_MODULE    := share_add </span><br><span class="line">LOCAL_STATIC_LIBRARIES := static_add </span><br><span class="line">LOCAL_SRC_FILES := share.c </span><br><span class="line">include $(BUILD_SHARED_LIBRARY)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">LOCAL_PATH :&#x3D; $(call my-dir) 
+include $(CLEAR_VARS) 
+LOCAL_MODULE    :&#x3D; static_add 
+LOCAL_SRC_FILES :&#x3D; libstatic_add.a 
+include $(PREBUILT_STATIC_LIBRARY) 
+include $(CLEAR_VARS) 
+LOCAL_MODULE    :&#x3D; share_add 
+LOCAL_STATIC_LIBRARIES :&#x3D; static_add 
+LOCAL_SRC_FILES :&#x3D; share.c 
+include $(BUILD_SHARED_LIBRARY)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>注意上面生成的libstatic_add.a必须跟Android.mk放在同一目录下，否则需要填写相应的路径，然后进行编译：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hejinlai_iMac:jni hejinlai$ ndk-build</span><br><span class="line">Compile thumb : share_add &lt;= share.c Prebuilt : libstatic_add.a &lt;= jni/ SharedLibrary : libshare_add.so Install : libshare_add.so =&gt; libs/armeabi/libshare_add.so</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">hejinlai_iMac:jni hejinlai$ ndk-build
+Compile thumb : share_add &lt;&#x3D; share.c Prebuilt : libstatic_add.a &lt;&#x3D; jni&#x2F; SharedLibrary : libshare_add.so Install : libshare_add.so &#x3D;&gt; libs&#x2F;armeabi&#x2F;libshare_add.so<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>提示so编译成功。</p>
 <p>需要注意的是我这边share.c和static.c放在同一目录下，如果放在不同的目录下，需要指定</p>
@@ -889,6 +924,9 @@ OpenVZ 虚拟的 VPS 需要系统内核支持 IPSec 才行。也就是说，母�
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

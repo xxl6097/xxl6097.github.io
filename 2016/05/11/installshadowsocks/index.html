@@ -475,6 +475,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -491,24 +494,33 @@
 <ol>
 <li>获取安装文件</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev.sh</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">wget --no-check-certificate https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;teddysun&#x2F;shadowsocks_install&#x2F;master&#x2F;shadowsocks-libev.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ol start="2">
 <li>设置执行权限</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x shadowsocks-libev.sh</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">chmod +x shadowsocks-libev.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ol start="3">
 <li>按照命令</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./shadowsocks-libev.sh 2&gt;&amp;1 | tee shadowsocks-libev.log</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">.&#x2F;shadowsocks-libev.sh 2&gt;&amp;1 | tee shadowsocks-libev.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><em><strong>安装完成后，脚本提示如下：</strong></em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Congratulations, shadowsocks-libev install completed!</span><br><span class="line">Your Server IP:your_server_ip</span><br><span class="line">Your Server Port:your_server_port</span><br><span class="line">Your Password:your_password</span><br><span class="line">Your Local IP:127.0.0.1</span><br><span class="line">Your Local Port:1080</span><br><span class="line">Your Encryption Method:aes-256-cfb</span><br><span class="line"></span><br><span class="line">Welcome to visit:https://teddysun.com/357.html</span><br><span class="line">Enjoy it!</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">Congratulations, shadowsocks-libev install completed!
+Your Server IP:your_server_ip
+Your Server Port:your_server_port
+Your Password:your_password
+Your Local IP:127.0.0.1
+Your Local Port:1080
+Your Encryption Method:aes-256-cfb
+
+Welcome to visit:https:&#x2F;&#x2F;teddysun.com&#x2F;357.html
+Enjoy it!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ol start="4">
 <li>安装完成后即已后台启动 shadowsocks ，运行</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep ss-server | grep -v ps | grep -v grep</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">ps -ef | grep ss-server | grep -v ps | grep -v grep<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ol start="5">
 <li>使用命令</li>
@@ -519,14 +531,22 @@
 <ol start="6">
 <li>卸载方法</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./shadowsocks-libev.sh uninstall</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">.&#x2F;shadowsocks-libev.sh uninstall<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ol start="7">
 <li>更多版本 shadowsocks 安装</li>
 </ol>
 <p><a target="_blank" rel="noopener" href="https://shadowsocks.be/9.html">ShadowsocksR 版一键安装脚本（CentOS，Debian，Ubuntu）</a><br><a target="_blank" rel="noopener" href="https://teddysun.com/342.html">Shadowsocks Python 版一键安装脚本（CentOS，Debian，Ubuntu）</a><br><a target="_blank" rel="noopener" href="https://teddysun.com/358.html">Debian 下 Shadowsocks-libev 一键安装脚本</a><br><a target="_blank" rel="noopener" href="https://teddysun.com/392.html">Shadowsocks-go 一键安装脚本（CentOS，Debian，Ubuntu）</a></p>
 <p>更新说明（2015 年 08 月 01 日）：<br>1、新增自定义服务器端口功能（如不设定，默认为 8989）；<br>更新说明（2015 年 04 月 30 日）：<br>1、本脚本会始终安装最新版的 Shadowsocks；<br>2、修改配置文件 &#x2F;etc&#x2F;shadowsocks-libev&#x2F;config.json 同时启用 IPv4 与 IPv6 支持：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;server&quot;:[&quot;[::0]&quot;,&quot;0.0.0.0&quot;],</span><br><span class="line">    &quot;server_port&quot;:your_server_port,</span><br><span class="line">    &quot;local_address&quot;:&quot;127.0.0.1&quot;,</span><br><span class="line">    &quot;local_port&quot;:1080,</span><br><span class="line">    &quot;password&quot;:&quot;your_password&quot;,</span><br><span class="line">    &quot;timeout&quot;:600,</span><br><span class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#123;
+    &quot;server&quot;:[&quot;[::0]&quot;,&quot;0.0.0.0&quot;],
+    &quot;server_port&quot;:your_server_port,
+    &quot;local_address&quot;:&quot;127.0.0.1&quot;,
+    &quot;local_port&quot;:1080,
+    &quot;password&quot;:&quot;your_password&quot;,
+    &quot;timeout&quot;:600,
+    &quot;method&quot;:&quot;aes-256-cfb&quot;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>3、Shadowsocks libev 版不能通过修改配置文件来多端口（只能开启多进程），如果你需要多端口请安装 Python 或 Go 版；</p>
 <p>特别说明：<br>1、已安装旧版本的 shadowsocks 需要升级的话，需下载本脚本的最新版，运行卸载命令</p>
 <blockquote>
@@ -892,6 +912,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
