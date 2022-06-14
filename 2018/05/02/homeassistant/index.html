@@ -604,22 +604,22 @@ index-url=https://mirrors.aliyun.com/pypi/simple/
 
 <h2 id="4-2-安装Python3"><a href="#4-2-安装Python3" class="headerlink" title="4.2 安装Python3"></a>4.2 安装Python3</h2><p>打开<code>Linux</code>系统命令行窗口，输入：<code>sudo apt-get install python3.5</code></p>
 <p>应系统要求输入<code>root</code>账号的密码。</p>
-<p><img src="/homeassistant/1.png" alt="img1"></p>
+<p><img src="/.cn//1.png" alt="img1"></p>
 <p>安装资源准备好后提问是否继续安装，打回车确认。<br>然后等待安装完成。</p>
-<p><img src="/homeassistant/2.png" alt="img1"></p>
+<p><img src="/.cn//2.png" alt="img1"></p>
 <h2 id="4-3-安装Python3开发资源"><a href="#4-3-安装Python3开发资源" class="headerlink" title="4.3 安装Python3开发资源"></a>4.3 安装Python3开发资源</h2><p>在第一步安装完成后，继续输入命令：<code>sudo apt-get install python3.5-dev</code><br>在系统提问是否继续安装时打回车确认。<br>然后等待安装完成。</p>
-<p><img src="/homeassistant/3.png" alt="img1"></p>
-<p><img src="/homeassistant/4.png" alt="img1"></p>
+<p><img src="/.cn//3.png" alt="img1"></p>
+<p><img src="/.cn//4.png" alt="img1"></p>
 <h2 id="4-4-安装Pip3"><a href="#4-4-安装Pip3" class="headerlink" title="4.4 安装Pip3"></a>4.4 安装Pip3</h2><p>继续在命令行中输入：<code>sudo apt install python3-pip</code><br>回车确认安装。<br>等待安装完成。</p>
-<p><img src="/homeassistant/5.png" alt="img1"></p>
+<p><img src="/.cn//5.png" alt="img1"></p>
 <h2 id="4-5-验证安装结果"><a href="#4-5-验证安装结果" class="headerlink" title="4.5 验证安装结果"></a>4.5 验证安装结果</h2><p>在命令行中输入<code>python3 --version</code>，看到显示版本。<br>在命令行中输入<code>pip3 --version</code>，看到显示版本。<br>说明Python3环境及Pip3工具安装成功。</p>
-<p><img src="/homeassistant/6.png" alt="img1"></p>
+<p><img src="/.cn//6.png" alt="img1"></p>
 <h2 id="4-6-使用Pip工具安装Home-Assistant"><a href="#4-6-使用Pip工具安装Home-Assistant" class="headerlink" title="4.6 使用Pip工具安装Home Assistant"></a>4.6 使用Pip工具安装Home Assistant</h2><p>在此步之前建议设置国内的安装源，可以提升后续的速度，参见这篇文档。<br>打开命令行窗口，输入：<code>sudo pip3 install homeassistant</code> （<font color="red">此步骤若失败，请重复操作</font>）<br>等待安装过程完成。</p>
-<p><img src="/homeassistant/8.png" alt="img1"></p>
+<p><img src="/.cn//8.png" alt="img1"></p>
 <h2 id="4-7-验证安装结果"><a href="#4-7-验证安装结果" class="headerlink" title="4.7 验证安装结果"></a>4.7 验证安装结果</h2><p>在命令行窗口，输入：<code>hass --debug</code> 参数<code>--debug</code>可以查看启动的日志。<br>首次启动需要初始化配置文件，也会自动下载一些所需的文件，会需要一些时间。有时因网络质量问题还会出现文件下载失败情况，导致启动过程受阻。此时可以关闭命令行窗口，再重新执行启动命令。</p>
-<p><img src="/homeassistant/9.png" alt="img1"></p>
+<p><img src="/.cn//9.png" alt="img1"></p>
 <p>继续等待启动过程完成，直到浏览器自动打开<code>Home Assistant</code>系统首页，即表明软件安装成功。</p>
-<p><img src="/homeassistant/10.png" alt="img1"></p>
+<p><img src="/.cn//10.png" alt="img1"></p>
 <h1 id="五、HomeAssistant设置自动启动"><a href="#五、HomeAssistant设置自动启动" class="headerlink" title="五、HomeAssistant设置自动启动"></a>五、HomeAssistant设置自动启动</h1><hr>
 <p>Home Assistant 针对树莓派的发行版（手动安装除外）中都已经自带自启任务，其余系统安装的用户需要自行配置自启。</p>
 <h2 id="5-1-配置自启动文件"><a href="#5-1-配置自启动文件" class="headerlink" title="5.1 配置自启动文件"></a>5.1 配置自启动文件</h2><p>如果你未使用 <code>Python</code> 虚拟环境安装 <code>Home Assistant</code>，请使用以下方法</p>
