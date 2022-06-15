@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>基于Linux(centos/ubuntu)搭建树莓派C/C++程序编译环境</title>
+      <link href="/2022/06/15/raspberry-build-env/"/>
+      <url>/2022/06/15/raspberry-build-env/</url>
+      
+        <content type="html"><![CDATA[<p>记录在Linux系统下搭建树莓派C/C++程序环境搭建的过程。</p><span id="more"></span><h2 id="一、安装gcc-x2F-g"><a href="#一、安装gcc-x2F-g" class="headerlink" title="一、安装gcc/g++"></a>一、安装gcc/g++</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> gcc-c++<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="二、-安装CMake"><a href="#二、-安装CMake" class="headerlink" title="二、 安装CMake"></a>二、 安装CMake</h2><ol><li>下载文件到本地：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://github.com/Kitware/CMake/releases/download/v3.13.4/cmake-3.13.4.tar.gz<span class="token function">tar</span> -xzvf cmake-3.13.4.tar.gz<span class="token builtin class-name">cd</span> cmake-3.13.4/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li><li>逐个运行：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./bootstrap<span class="token function">make</span><span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> C/C++ </category>
+          
+          <category> 树莓派 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> C/C++ </tag>
+            
+            <tag> 树莓派 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>小米9基于PixelExperience源码编译步骤</title>
       <link href="/2022/04/28/cepheus/"/>
       <url>/2022/04/28/cepheus/</url>
