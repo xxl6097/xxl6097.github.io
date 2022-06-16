@@ -489,6 +489,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -522,7 +525,17 @@
 <li><p>烧录完毕后，TF卡自动命名为boot，<strong>在boot根目录新建ssh文件以便ss登录</strong>；</p>
 </li>
 <li><p>在TF卡根目录新建<code>wpa_supplicant.conf</code>文件，用于连接WiFi，配置如下：</p>
- <figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><br><span class="hljs-attribute">country</span>=CN<br><span class="hljs-attribute">ctrl_interface</span>=DIR=/var/run/wpa_supplicant <span class="hljs-attribute">GROUP</span>=netdev<br><span class="hljs-attribute">update_config</span>=1<br>network={<br>    <span class="hljs-attribute">ssid</span>=<span class="hljs-string">"路由器的ssid"</span><br>    <span class="hljs-attribute">psk</span>=<span class="hljs-string">"路由器的密码"</span><br>    <span class="hljs-attribute">key_mgmt</span>=WPA-PSK<br>    <span class="hljs-attribute">priority</span>=1<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+ <pre class="line-numbers language-none"><code class="language-none">
+country=CN
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+network={
+    ssid="路由器的ssid"
+    psk="路由器的密码"
+    key_mgmt=WPA-PSK
+    priority=1
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </li>
 <li><p>将TF卡插在树莓派后上电启动；</p>
@@ -540,21 +553,28 @@
 <blockquote>
 <p>sudo passwd root</p>
 </blockquote>
-<figure class="highlight coffeescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><br>pi@raspberrypi:~$ sudo passwd root<br>Enter <span class="hljs-keyword">new</span> UNIX password:   <span class="hljs-comment">#输入第一遍密码</span><br>Retype <span class="hljs-keyword">new</span> UNIX password:  <span class="hljs-comment">#输入第二遍密码</span><br></code></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">
+pi@raspberrypi:~$ sudo passwd root
+Enter new UNIX password:   #输入第一遍密码
+Retype new UNIX password:  #输入第二遍密码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ol start="2">
 <li>启用 root 账号登录<blockquote>
 <p>sudo passwd –unlock root</p>
 </blockquote>
 </li>
 </ol>
-<figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><br>pi<span class="hljs-variable">@raspberrypi</span><span class="hljs-symbol">:~</span><span class="hljs-variable">$ </span>sudo passwd --unlock root<br><span class="hljs-symbol">passwd:</span> password expiry information changed.<br></code></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">
+pi@raspberrypi:~$ sudo passwd --unlock root
+passwd: password expiry information changed.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ol start="3">
 <li>设置root登陆</li>
 </ol>
 <blockquote>
 <p>sudo nano /etc/ssh/sshd_config  </p>
 </blockquote>
-<figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><br>pi<span class="hljs-variable">@raspberrypi</span><span class="hljs-symbol">:~</span><span class="hljs-variable">$ </span>sudo nano /etc/ssh/sshd_config    <br><br></code></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">
+pi@raspberrypi:~$ sudo nano /etc/ssh/sshd_config    
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <blockquote>
 <p><code>Ctrl + W</code> 快捷键 搜索 <code>PermitRootLogin without-password</code><br>修改 <code>PermitRootLogin without-password</code> 为 <code>PermitRootLogin yes</code><br>执行完之后，用 <code>reboot</code> 命令重启，这样就可以解锁<code>root</code>账户。</p>
 </blockquote>
@@ -566,7 +586,11 @@
 <li><p>复制粘贴以下内容并保存：</p>
 </li>
 </ul>
-<figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br>[<span class="hljs-keyword">global</span>]<br><span class="hljs-keyword">trusted</span>-host=mirrors.aliyun.com<br><span class="hljs-keyword">index</span>-url=https://mirrors.aliyun.com/pypi/simple/<br><br></code></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">
+[global]
+trusted-host=mirrors.aliyun.com
+index-url=https://mirrors.aliyun.com/pypi/simple/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h2 id="4-2-安装Python3"><a href="#4-2-安装Python3" class="headerlink" title="4.2 安装Python3"></a>4.2 安装Python3</h2><p>打开<code>Linux</code>系统命令行窗口，输入：<code>sudo apt-get install python3.5</code></p>
@@ -719,7 +743,11 @@ esac
 <ol>
 <li>urllib3与chardet不兼容解决方案</li>
 </ol>
-<figure class="highlight smali"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs smali"><br>pip3 uninstall urllib3<br>pip3 uninstall  chardet<br>ip3 install requests<br><br></code></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">
+pip3 uninstall urllib3
+pip3 uninstall  chardet
+ip3 install requests
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <p>2.执行sh ./xxx.sh出现：“Syntax error: “(” unexpected”的解决方法</p>
@@ -1090,6 +1118,9 @@ esac
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
 
 <!-- 代码语言 -->
 
@@ -1265,7 +1296,7 @@ esac
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">24.9k</span>
+                        class="white-color">25.1k</span>
             
             
             

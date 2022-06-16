@@ -469,7 +469,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    162
+                    161
                 </div>
                 
 
@@ -491,6 +491,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -500,7 +503,32 @@
 <span id="more"></span>
 <h2 id="孤儿进程-因为父进程先退出而导致一个子进程被init进程收养的进程为孤儿进程。"><a href="#孤儿进程-因为父进程先退出而导致一个子进程被init进程收养的进程为孤儿进程。" class="headerlink" title="孤儿进程:因为父进程先退出而导致一个子进程被init进程收养的进程为孤儿进程。"></a>孤儿进程:因为父进程先退出而导致一个子进程被init进程收养的进程为孤儿进程。</h2><p>因此，可以通过创建孤儿进程，改变native进程的父进程，达到防止系统清理。</p>
 <p>关键代码实现:</p>
-<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment">#include &lt;stdio.h&gt;</span><br><span class="hljs-comment">#include &lt;stdlib.h&gt;</span><br><span class="hljs-comment">#include &lt;unistd.h&gt;</span><br>int main()<br>{<br>   pid_t child_pid;<br>   child_pid=fork();<br>   <span class="hljs-keyword">if</span>(child_pid&lt;<span class="hljs-number">0</span>)<br>   {<br>     perror(<span class="hljs-string">"fork error"</span>);<br>     <span class="hljs-keyword">exit</span>(EXIT_FAILURE);<br>   }<br>   <span class="hljs-keyword">if</span>(child_pid==<span class="hljs-number">0</span>)<span class="hljs-regexp">//</span>子进程处理 事务<br>   {<br>      <span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)<br>      {<br>         printf(<span class="hljs-string">"hello world\n"</span>);<br>         sleep(<span class="hljs-number">1</span>);<br>      }<br>      return <span class="hljs-number">0</span>;<br>   }<span class="hljs-keyword">else</span><br>   {<br>     printf(<span class="hljs-string">"father bye byte\n"</span>);<br>     <span class="hljs-keyword">exit</span>(EXIT_SUCCESS);<br>   }<br>}<br></code></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+int main()
+{
+   pid_t child_pid;
+   child_pid=fork();
+   if(child_pid&lt;0)
+   {
+     perror("fork error");
+     exit(EXIT_FAILURE);
+   }
+   if(child_pid==0)//子进程处理 事务
+   {
+      while(1)
+      {
+         printf("hello world\n");
+         sleep(1);
+      }
+      return 0;
+   }else
+   {
+     printf("father bye byte\n");
+     exit(EXIT_SUCCESS);
+   }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -856,6 +884,9 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
 
 <!-- 代码语言 -->
 
@@ -1031,7 +1062,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">24.9k</span>
+                        class="white-color">25.1k</span>
             
             
             
