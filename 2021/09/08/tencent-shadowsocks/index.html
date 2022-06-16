@@ -502,6 +502,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -511,48 +514,46 @@
 <p>由于 Google BBR 需要内核版本 4.9 以上，如果安装时内核版本低于 4.9 建议先升级内核版本。</p>
 <p>提示：CentOS 7 自带内核版本为 3.10，CentOS 8 自带内核版本为 4.18。</p>
 <p>查看内核版本命令：</p>
-<pre><code class="bash">    uname -r
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">uname</span> -r<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="1、下载脚本"><a href="#1、下载脚本" class="headerlink" title="1、下载脚本"></a>1、下载脚本</h3><p>一键脚本已集成TCP优化、自动开启Google BBR（限 4.9 或更高版本内核）、自动安装 shadowsocks-libev</p>
-<pre><code class="bash">    wget https://down.24kplus.com/linux/shadowsocks/centos-shadowsocks-libev.sh
-</code></pre>
-<h3 id="2、执行脚本进行安装"><a href="#2、执行脚本进行安装" class="headerlink" title="2、执行脚本进行安装"></a>2、执行脚本进行安装</h3><pre><code class="bash">    chmod +x centos-shadowsocks-libev.sh &amp;&amp; ./centos-shadowsocks-libev.sh
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://down.24kplus.com/linux/shadowsocks/centos-shadowsocks-libev.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2、执行脚本进行安装"><a href="#2、执行脚本进行安装" class="headerlink" title="2、执行脚本进行安装"></a>2、执行脚本进行安装</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> +x centos-shadowsocks-libev.sh <span class="token operator">&amp;&amp;</span> ./centos-shadowsocks-libev.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="3、根据shell脚本提示输入相关信息"><a href="#3、根据shell脚本提示输入相关信息" class="headerlink" title="3、根据shell脚本提示输入相关信息"></a>3、根据shell脚本提示输入相关信息</h3><p>1、提示设置SS密码，输入自定义密码后按回车，也可以直接按回车使用默认密码<br>2、接下来选择SS要使用的服务器端口，输入自己喜欢的端口， 也可以直接按回车使用默认端口<br>3、 然后选择加密方式（仅保留相对安全的加密方式），如果选择chacha20的话，就输入对应序号3，按回车继续<br>4、 安装完成后，会有如下图安装成功的提示，记住各项信息，在客户端连接时需要用到</p>
-<h3 id="4、shadowsocks管理"><a href="#4、shadowsocks管理" class="headerlink" title="4、shadowsocks管理"></a>4、shadowsocks管理</h3><pre><code class="bash">
-#!/bin/bash
+<h3 id="4、shadowsocks管理"><a href="#4、shadowsocks管理" class="headerlink" title="4、shadowsocks管理"></a>4、shadowsocks管理</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+<span class="token comment">#!/bin/bash</span>
 
-function status() {
+<span class="token keyword">function</span> <span class="token function-name function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     systemctl status shadowsocks-libev.service
-}
+<span class="token punctuation">}</span>
 
-function restart() {
+<span class="token keyword">function</span> <span class="token function-name function">restart</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     systemctl restart shadowsocks-libev.service
-}
+<span class="token punctuation">}</span>
 
-function log() {
+<span class="token keyword">function</span> <span class="token function-name function">log</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     journalctl -f -u shadowsocks-libev.service
-}
+<span class="token punctuation">}</span>
 
-function m() {
-    echo "1. 重启"
-    echo "2. 重看状态"
-    echo "3. 查看日志"
-    echo "请输入编号:"
-    read index
+<span class="token keyword">function</span> <span class="token function-name function">m</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"1. 重启"</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"2. 重看状态"</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"3. 查看日志"</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"请输入编号:"</span>
+    <span class="token builtin class-name">read</span> index
 
-    case "$index" in
-    [1]) (restart);;
-    [2]) (status);;
-    [3]) (log);;
-    *) echo "exit" ;;
-  esac
-}
+    <span class="token keyword">case</span> <span class="token string">"<span class="token variable">$index</span>"</span> <span class="token keyword">in</span>
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>restart<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+    *<span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">"exit"</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+  <span class="token keyword">esac</span>
+<span class="token punctuation">}</span>
 
 m
 
 
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -914,6 +915,9 @@ m
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

@@ -491,6 +491,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -500,7 +503,7 @@
 <span id="more"></span>
 <h2 id="孤儿进程-因为父进程先退出而导致一个子进程被init进程收养的进程为孤儿进程。"><a href="#孤儿进程-因为父进程先退出而导致一个子进程被init进程收养的进程为孤儿进程。" class="headerlink" title="孤儿进程:因为父进程先退出而导致一个子进程被init进程收养的进程为孤儿进程。"></a>孤儿进程:因为父进程先退出而导致一个子进程被init进程收养的进程为孤儿进程。</h2><p>因此，可以通过创建孤儿进程，改变native进程的父进程，达到防止系统清理。</p>
 <p>关键代码实现:</p>
-<pre><code>#include &lt;stdio.h&gt;
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;unistd.h&gt;
 int main()
@@ -525,8 +528,7 @@ int main()
      printf("father bye byte\n");
      exit(EXIT_SUCCESS);
    }
-}
-</code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -881,6 +883,9 @@ int main()
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

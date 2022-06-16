@@ -502,6 +502,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -513,29 +516,28 @@
 
 <p>下面我以一个简单的实际例子来讲解如何在动态库中导入静态库。</p>
 <p>静态库中的源代码有两个文件：static.h, static.c，有一个add方法 static.h</p>
-<pre><code class="c++">#include &lt;stdio.h&gt; 
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;stdio.h&gt; 
 int add(int x, int y);
 static.c
 #include "static.h" 
 int add(int x, int y) 
 { 
     return x + y; 
-}
-</code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>将它编译成静态库，Android.mk如下：</p>
-<pre><code>LOCAL_PATH := $(call my-dir) 
+<pre class="line-numbers language-none"><code class="language-none">LOCAL_PATH := $(call my-dir) 
 include $(CLEAR_VARS) 
 LOCAL_MODULE    := static_add 
 LOCAL_SRC_FILES := static.c 
-include $(BUILD_STATIC_LIBRARY)
-</code></pre>
+include $(BUILD_STATIC_LIBRARY)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>注意编译静态库的时候，必须有一个Application.mk文件：</p>
 <blockquote>
 <p>APP_MODULES:=static_add</p>
 </blockquote>
 <p>APP_MODULES的值应该和Android.mk中的LOCAL_MODULE的值保持一样。</p>
 <p>然后调用ndk-build进行编译生成libstatic_add.a静态库</p>
-<pre><code>hejinlai_iMac:jni hejinlai$ ndk-build
+<pre class="line-numbers language-none"><code class="language-none">hejinlai_iMac:jni hejinlai$ ndk-build
 Prebuilt : libstatic_add.a &lt;= jni/ 生成静态库后，然后编写动态库中的源代码: share.h share.c share.h [cpp]#include 
 int test_add(int x, int y);
 
@@ -546,10 +548,10 @@ int test_add(int x, int y)
 {
 // 调用static里面的方法
 return add(x, y);
-}
-</code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>编写导入静态库的Android.mk：</p>
-<pre><code>LOCAL_PATH := $(call my-dir) 
+<pre class="line-numbers language-none"><code class="language-none">LOCAL_PATH := $(call my-dir) 
 include $(CLEAR_VARS) 
 LOCAL_MODULE    := static_add 
 LOCAL_SRC_FILES := libstatic_add.a 
@@ -558,12 +560,12 @@ include $(CLEAR_VARS)
 LOCAL_MODULE    := share_add 
 LOCAL_STATIC_LIBRARIES := static_add 
 LOCAL_SRC_FILES := share.c 
-include $(BUILD_SHARED_LIBRARY)
-</code></pre>
+include $(BUILD_SHARED_LIBRARY)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>注意上面生成的libstatic_add.a必须跟Android.mk放在同一目录下，否则需要填写相应的路径，然后进行编译：</p>
-<pre><code>hejinlai_iMac:jni hejinlai$ ndk-build
-Compile thumb : share_add &lt;= share.c Prebuilt : libstatic_add.a &lt;= jni/ SharedLibrary : libshare_add.so Install : libshare_add.so =&gt; libs/armeabi/libshare_add.so
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">hejinlai_iMac:jni hejinlai$ ndk-build
+Compile thumb : share_add &lt;= share.c Prebuilt : libstatic_add.a &lt;= jni/ SharedLibrary : libshare_add.so Install : libshare_add.so =&gt; libs/armeabi/libshare_add.so<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>提示so编译成功。</p>
 <p>需要注意的是我这边share.c和static.c放在同一目录下，如果放在不同的目录下，需要指定</p>
 <p>LOCAL_C_INCLUDES链接到相应的路径。</p>
@@ -937,6 +939,9 @@ OpenVZ 虚拟的 VPS 需要系统内核支持 IPSec 才行。也就是说，母�
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

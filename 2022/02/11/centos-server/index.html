@@ -8,12 +8,12 @@
     <meta name="description" content="主要记录我的centos服务器上的服务环境安装，frp、nginx配置、java程序、mysql安装、个人博客hexo。
 
 
-1. nginx配置    安装
-    yum install nginx
+1. nginx配置安装
+yum install nginx
 
-    配置代码
+配置代码
 
-    nan">
+nano /etc/nginx/ngi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -524,6 +524,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -532,14 +535,18 @@
                 <p>主要记录我的centos服务器上的服务环境安装，frp、nginx配置、java程序、mysql安装、个人博客hexo。</p>
 <span id="more"></span>
 
-<h2 id="1-nginx配置"><a href="#1-nginx配置" class="headerlink" title="1. nginx配置"></a>1. nginx配置</h2><pre><code>    安装
-    yum install nginx
+<h2 id="1-nginx配置"><a href="#1-nginx配置" class="headerlink" title="1. nginx配置"></a>1. nginx配置</h2><pre class="line-numbers language-none"><code class="language-none">安装
+yum install nginx
 
-    配置代码
+配置代码
 
-    nano /etc/nginx/nginx.conf
-</code></pre>
-<h3 id="nginx-conf"><a href="#nginx-conf" class="headerlink" title="nginx.conf"></a>nginx.conf</h3><pre><code>
+nano /etc/nginx/nginx.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="nginx-conf"><a href="#nginx-conf" class="headerlink" title="nginx.conf"></a>nginx.conf</h3><pre class="line-numbers language-none"><code class="language-none">
 user root;
 worker_processes auto;
 error_log /var/log/nginx/error.log;
@@ -573,8 +580,9 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
 
 
 }
-</code></pre>
-<h3 id="admin-conf"><a href="#admin-conf" class="headerlink" title="admin.conf"></a>admin.conf</h3><pre><code>server {
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="admin-conf"><a href="#admin-conf" class="headerlink" title="admin.conf"></a>admin.conf</h3><pre class="line-numbers language-none"><code class="language-none">server {
         listen       80;
         server_name  admin.uuxia.cn;
         
@@ -589,8 +597,9 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
        }
        
 }
-</code></pre>
-<h3 id="file-conf"><a href="#file-conf" class="headerlink" title="file.conf"></a>file.conf</h3><pre><code>autoindex on;# 显示目录
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="file-conf"><a href="#file-conf" class="headerlink" title="file.conf"></a>file.conf</h3><pre class="line-numbers language-none"><code class="language-none">autoindex on;# 显示目录
 autoindex_exact_size off;# 显示文件大小
 autoindex_localtime on;# 显示文件时间
 server {
@@ -606,9 +615,10 @@ server {
             charset utf-8;
         }
 
- }
-</code></pre>
-<h3 id="cloud-conf"><a href="#cloud-conf" class="headerlink" title="cloud.conf"></a>cloud.conf</h3><pre><code>server {
+ }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="cloud-conf"><a href="#cloud-conf" class="headerlink" title="cloud.conf"></a>cloud.conf</h3><pre class="line-numbers language-none"><code class="language-none">server {
         listen       80 default_server;
         server_name  cloud.uuxia.cn;
 
@@ -622,8 +632,9 @@ server {
             # client_max_body_size 20000m;
         }
     }
-</code></pre>
-<h3 id="java-conf"><a href="#java-conf" class="headerlink" title="java.conf"></a>java.conf</h3><pre><code>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="java-conf"><a href="#java-conf" class="headerlink" title="java.conf"></a>java.conf</h3><pre class="line-numbers language-none"><code class="language-none">
 
 server {
         listen       80;
@@ -775,157 +786,157 @@ server {
         }
     }
 
-</code></pre>
-<hr>
-<h2 id="2-mysql安装配置"><a href="#2-mysql安装配置" class="headerlink" title="2. mysql安装配置"></a>2. mysql安装配置</h2><pre><code>    1.下载MySQL
-    Red Hat Enterprise Linux / Oracle Linux
-    2. 选择 `Red Hat Enterprise Linux 8 / Oracle Linux 8 (x86, 64-bit), RPM Bundle
-</code></pre>
-<pre><code>    安装
-    wget https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-8.0.28-1.el8.x86_64.rpm-bundle.tar
-    tar -xvf mysql-8.0.28-1.el8.x86_64.rpm-bundle.tar 
-    rpm -ivh mysql-community-common-8.0.28-1.el8.x86_64.rpm --nodeps --force
-    rpm -ivh mysql-community-libs-8.0.28-1.el8.x86_64.rpm --nodeps --force
-    rpm -ivh mysql-community-client-8.0.28-1.el8.x86_64.rpm --nodeps --force
-    rpm -ivh mysql-community-server-8.0.28-1.el8.x86_64.rpm --nodeps --force
-    通过 rpm -qa | grep mysql 命令查看 mysql 的安装包
-</code></pre>
-<pre><code>
-    通过以下命令，完成对 mysql 数据库的初始化和相关配置
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    mysqld --initialize;
-    chown mysql:mysql /var/lib/mysql -R;
-    systemctl start mysqld.service;
-    systemctl enable mysqld;
-</code></pre>
+<hr>
+<h2 id="2-mysql安装配置"><a href="#2-mysql安装配置" class="headerlink" title="2. mysql安装配置"></a>2. mysql安装配置</h2><pre class="line-numbers language-none"><code class="language-none">1.下载MySQL
+Red Hat Enterprise Linux / Oracle Linux
+2. 选择 `Red Hat Enterprise Linux 8 / Oracle Linux 8 (x86, 64-bit), RPM Bundle<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">安装
+wget https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-8.0.28-1.el8.x86_64.rpm-bundle.tar
+tar -xvf mysql-8.0.28-1.el8.x86_64.rpm-bundle.tar 
+rpm -ivh mysql-community-common-8.0.28-1.el8.x86_64.rpm --nodeps --force
+rpm -ivh mysql-community-libs-8.0.28-1.el8.x86_64.rpm --nodeps --force
+rpm -ivh mysql-community-client-8.0.28-1.el8.x86_64.rpm --nodeps --force
+rpm -ivh mysql-community-server-8.0.28-1.el8.x86_64.rpm --nodeps --force
+通过 rpm -qa | grep mysql 命令查看 mysql 的安装包
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">
+通过以下命令，完成对 mysql 数据库的初始化和相关配置
+
+mysqld --initialize;
+chown mysql:mysql /var/lib/mysql -R;
+systemctl start mysqld.service;
+systemctl enable mysqld;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>通过 <code>cat /var/log/mysqld.log | grep password</code> 命令查看数据库的密码</p>
 <p>通过 <code>mysql -uroot -p</code> 敲回车键进入数据库登陆界面</p>
 <p>通过 <code>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Xxl2475431305.';</code> 命令来修改密码<br><code>ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'Xxl2475431305.';</code><br>这下密码改成了 root</p>
 <p>通过 exit; 命令退出 MySQL，然后通过新密码再次登陆</p>
 <p>通过以下命令，进行远程访问的授权</p>
-<pre><code>    create user 'root'@'%' identified with mysql_native_password by 'root';
-    
-    grant all privileges on *.* to 'root'@'%' with grant option;
-    
-    flush privileges;
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">create user 'root'@'%' identified with mysql_native_password by 'root';
+
+grant all privileges on *.* to 'root'@'%' with grant option;
+
+flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <p>sqlyog链接时出现2058异常</p>
 <p><code>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';</code><br>其中password为自己修改的密码。然后SQLyog中重新连接，则可连接成功，OK。</p>
 <p>如果报错：ERROR 1396 (HY000): Operation ALTER USER failed for ‘root’@’localhost’则使用下面命令：</p>
 <p><code>ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'Xxl2475431305.';</code></p>
 <hr>
-<h2 id="3-JDK安装配置"><a href="#3-JDK安装配置" class="headerlink" title="3. JDK安装配置"></a>3. JDK安装配置</h2><h3 id="方式一（推荐）"><a href="#方式一（推荐）" class="headerlink" title="方式一（推荐）"></a>方式一（推荐）</h3><pre><code>    查询安装的jdk版本
-    yum -y list java*
-    安装jdk1.8
-    yum install -y java-11-openjdk.x86_64
-</code></pre>
-<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><pre><code>    https://www.oracle.com/java/technologies/downloads/#java8
+<h2 id="3-JDK安装配置"><a href="#3-JDK安装配置" class="headerlink" title="3. JDK安装配置"></a>3. JDK安装配置</h2><h3 id="方式一（推荐）"><a href="#方式一（推荐）" class="headerlink" title="方式一（推荐）"></a>方式一（推荐）</h3><pre class="line-numbers language-none"><code class="language-none">查询安装的jdk版本
+yum -y list java*
+安装jdk1.8
+yum install -y java-11-openjdk.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-    选择 `jdk-8u321-linux-x64.tar.gz`
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><pre class="line-numbers language-none"><code class="language-none">https://www.oracle.com/java/technologies/downloads/#java8
 
-    解压 `tar -zxvf jdk-8u321-linux-x64.tar.gz`
-</code></pre>
-<pre><code>
-    修改环境变量 `nano /etc/profile`
+选择 `jdk-8u321-linux-x64.tar.gz`
 
-    export JAVA_HOME=/usr/lib/jdk1.8.0_321
-    export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-    export PATH=$PATH:$JAVA_HOME/bin
+解压 `tar -zxvf jdk-8u321-linux-x64.tar.gz`
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    source /etc/profile
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">
+修改环境变量 `nano /etc/profile`
+
+export JAVA_HOME=/usr/lib/jdk1.8.0_321
+export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$PATH:$JAVA_HOME/bin
+
+source /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h2 id="4-gralde安装"><a href="#4-gralde安装" class="headerlink" title="4. gralde安装"></a>4. gralde安装</h2><pre><code>    wget https://services.gradle.org/distributions/gradle-6.7-bin.zip
+<h2 id="4-gralde安装"><a href="#4-gralde安装" class="headerlink" title="4. gralde安装"></a>4. gralde安装</h2><pre class="line-numbers language-none"><code class="language-none">wget https://services.gradle.org/distributions/gradle-6.7-bin.zip
 
-    unzip gradle-6.7-bin.zip
-    
-    nano ~/.bash_profile
-    
-    PATH=$PATH:/usr/lib/gradle-6.7/bin
-    
-    source ~/.bash_profile
-</code></pre>
+unzip gradle-6.7-bin.zip
+
+nano ~/.bash_profile
+
+PATH=$PATH:/usr/lib/gradle-6.7/bin
+
+source ~/.bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h2 id="5-安装frps安装"><a href="#5-安装frps安装" class="headerlink" title="5. 安装frps安装"></a>5. 安装frps安装</h2><p>服务端配置</p>
-<pre><code>    [common]
-    bind_port = 8000
-    token = xxxxxxxxx
-    dashboard_port=8888
-    dashboard_user = admin
-    dashboard_pwd = admin
-    vhost_http_port = 9090
-    vhost_https_port = 9091
-    subdomain_host = uuxia.cn
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">[common]
+bind_port = 8000
+token = xxxxxxxxx
+dashboard_port=8888
+dashboard_user = admin
+dashboard_pwd = admin
+vhost_http_port = 9090
+vhost_https_port = 9091
+subdomain_host = uuxia.cn<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>客户端配置</p>
-<pre><code>    [common]
-    tls_enable = true
-    admin_addr = 0.0.0.0
-    admin_port = 7400
-    admin_user = admin
-    admin_pwd = admin
-    token = xxxxxx
-    #server_addr = 127.0.0.1
-    server_addr = uuxia.cn
-    server_port = 8000
-    
-    [公司-树莓派3B]
-    type = tcp
-    local_ip = 0.0.0.0
-    local_port = 22
-    remote_port = 2222
-    
-    [公司-FRP客户端管理页面]
-    type = tcp
-    local_ip = 0.0.0.0
-    local_port = 7400
-    remote_port = 7401
-    
-    [公司-win]
-    type = tcp
-    local_ip = 192.168.31.53
-    local_port = 3389
-    remote_port = 7001
-    
-    [公司-iMac-VNC]
-    type = tcp
-    local_ip = 192.168.31.92
-    local_port = 5900
-    remote_port = 7002
-    
-    [公司-iMac-SSH]
-    type = tcp
-    local_ip = 192.168.31.92
-    local_port = 22
-    remote_port = 7003
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">[common]
+tls_enable = true
+admin_addr = 0.0.0.0
+admin_port = 7400
+admin_user = admin
+admin_pwd = admin
+token = xxxxxx
+#server_addr = 127.0.0.1
+server_addr = uuxia.cn
+server_port = 8000
+
+[公司-树莓派3B]
+type = tcp
+local_ip = 0.0.0.0
+local_port = 22
+remote_port = 2222
+
+[公司-FRP客户端管理页面]
+type = tcp
+local_ip = 0.0.0.0
+local_port = 7400
+remote_port = 7401
+
+[公司-win]
+type = tcp
+local_ip = 192.168.31.53
+local_port = 3389
+remote_port = 7001
+
+[公司-iMac-VNC]
+type = tcp
+local_ip = 192.168.31.92
+local_port = 5900
+remote_port = 7002
+
+[公司-iMac-SSH]
+type = tcp
+local_ip = 192.168.31.92
+local_port = 22
+remote_port = 7003<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <h2 id="6-安装Node-js"><a href="#6-安装Node-js" class="headerlink" title="6. 安装Node.js"></a>6. 安装Node.js</h2><hr>
-<pre><code>    1 下载
+<pre class="line-numbers language-none"><code class="language-none">1 下载
 
-    官网地址：https://nodejs.org/en/download/
-    wget https://nodejs.org/dist/v10.24.0/node-v10.24.0-linux-x64.tar.gz
-</code></pre>
-<pre><code>    安装
+官网地址：https://nodejs.org/en/download/
+wget https://nodejs.org/dist/v10.24.0/node-v10.24.0-linux-x64.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">安装
 
-    tar -xvf node-v10.24.0-linux-x64.tar.gz
-    mv node-v10.24.0-linux-x64 /opt/Nodejs
-    NODE_HOME=/opt/Nodejs
-    export PATH=$NODE_HOME/bin:$PATH
-    source /etc/profile
+tar -xvf node-v10.24.0-linux-x64.tar.gz
+mv node-v10.24.0-linux-x64 /opt/Nodejs
+NODE_HOME=/opt/Nodejs
+export PATH=$NODE_HOME/bin:$PATH
+source /etc/profile
 
-    npm install -g hexo-cli
+npm install -g hexo-cli
 
-    npm uninstall hexo-cli -g  推荐这个，成功卸载
-</code></pre>
+npm uninstall hexo-cli -g  推荐这个，成功卸载
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h2 id="7-页脚备案代码"><a href="#7-页脚备案代码" class="headerlink" title="7. 页脚备案代码"></a>7. 页脚备案代码</h2><pre><code>
-    &lt;div style="color:#666;text-align:center;margin-top:-10px;padding-bottom:35px;"&gt;
-        &lt;p&gt;&lt;a style="color:#666;" text-decoration:underline;" href="http://beian.miit.gov.cn/"&gt;工业和信息化部备案管理系统网站 粤ICP备2022014941号&lt;/a&gt;&lt;/p&gt;
-        &lt;p&gt;主办单位：&lt;a style="color:#666;" text-decoration:underline;" target="_blank" href="http://uuxia.cn"&gt;悠悠科技&lt;/a&gt;&lt;/p&gt;
-        &lt;p&gt;Operated by Guangzhou ChoMeng Computer System Co., Ltd.&lt;/p&gt;
-    &lt;/div&gt;
-</code></pre>
+<h2 id="7-页脚备案代码"><a href="#7-页脚备案代码" class="headerlink" title="7. 页脚备案代码"></a>7. 页脚备案代码</h2><pre class="line-numbers language-none"><code class="language-none">
+&lt;div style="color:#666;text-align:center;margin-top:-10px;padding-bottom:35px;"&gt;
+    &lt;p&gt;&lt;a style="color:#666;" text-decoration:underline;" href="http://beian.miit.gov.cn/"&gt;工业和信息化部备案管理系统网站 粤ICP备2022014941号&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;主办单位：&lt;a style="color:#666;" text-decoration:underline;" target="_blank" href="http://uuxia.cn"&gt;悠悠科技&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;Operated by Guangzhou ChoMeng Computer System Co., Ltd.&lt;/p&gt;
+&lt;/div&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1315,6 +1326,9 @@ server {
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

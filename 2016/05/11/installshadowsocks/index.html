@@ -500,6 +500,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -516,20 +519,19 @@
 <ol>
 <li>获取安装文件</li>
 </ol>
-<pre><code class="bash">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev.sh
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <ol start="2">
 <li>设置执行权限</li>
 </ol>
-<pre><code class="bash">chmod +x shadowsocks-libev.sh
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> +x shadowsocks-libev.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <ol start="3">
 <li>按照命令</li>
 </ol>
-<pre><code class="bash">./shadowsocks-libev.sh 2&gt;&amp;1 | tee shadowsocks-libev.log
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./shadowsocks-libev.sh <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">|</span> <span class="token function">tee</span> shadowsocks-libev.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><em><strong>安装完成后，脚本提示如下：</strong></em></p>
-<pre><code class="bash">Congratulations, shadowsocks-libev install completed!
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Congratulations, shadowsocks-libev <span class="token function">install</span> completed<span class="token operator">!</span>
 Your Server IP:your_server_ip
 Your Server Port:your_server_port
 Your Password:your_password
@@ -538,13 +540,13 @@ Your Local Port:1080
 Your Encryption Method:aes-256-cfb
 
 Welcome to visit:https://teddysun.com/357.html
-Enjoy it!
-</code></pre>
+Enjoy it<span class="token operator">!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ol start="4">
 <li>安装完成后即已后台启动 shadowsocks ，运行</li>
 </ol>
-<pre><code class="bash">ps -ef | grep ss-server | grep -v ps | grep -v grep
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span> -ef <span class="token operator">|</span> <span class="token function">grep</span> ss-server <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">ps</span> <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <ol start="5">
 <li>使用命令</li>
 </ol>
@@ -554,23 +556,22 @@ Enjoy it!
 <ol start="6">
 <li>卸载方法</li>
 </ol>
-<pre><code class="bash">./shadowsocks-libev.sh uninstall
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./shadowsocks-libev.sh uninstall<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <ol start="7">
 <li>更多版本 shadowsocks 安装</li>
 </ol>
 <p><a target="_blank" rel="noopener" href="https://shadowsocks.be/9.html">ShadowsocksR 版一键安装脚本（CentOS，Debian，Ubuntu）</a><br><a target="_blank" rel="noopener" href="https://teddysun.com/342.html">Shadowsocks Python 版一键安装脚本（CentOS，Debian，Ubuntu）</a><br><a target="_blank" rel="noopener" href="https://teddysun.com/358.html">Debian 下 Shadowsocks-libev 一键安装脚本</a><br><a target="_blank" rel="noopener" href="https://teddysun.com/392.html">Shadowsocks-go 一键安装脚本（CentOS，Debian，Ubuntu）</a></p>
 <p>更新说明（2015 年 08 月 01 日）：<br>1、新增自定义服务器端口功能（如不设定，默认为 8989）；<br>更新说明（2015 年 04 月 30 日）：<br>1、本脚本会始终安装最新版的 Shadowsocks；<br>2、修改配置文件 /etc/shadowsocks-libev/config.json 同时启用 IPv4 与 IPv6 支持：</p>
-<pre><code class="bash">{
-    "server":["[::0]","0.0.0.0"],
-    "server_port":your_server_port,
-    "local_address":"127.0.0.1",
-    "local_port":1080,
-    "password":"your_password",
-    "timeout":600,
-    "method":"aes-256-cfb"
-}
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">{</span>
+    <span class="token string">"server"</span>:<span class="token punctuation">[</span><span class="token string">"[::0]"</span>,<span class="token string">"0.0.0.0"</span><span class="token punctuation">]</span>,
+    <span class="token string">"server_port"</span>:your_server_port,
+    <span class="token string">"local_address"</span><span class="token builtin class-name">:</span><span class="token string">"127.0.0.1"</span>,
+    <span class="token string">"local_port"</span>:1080,
+    <span class="token string">"password"</span><span class="token builtin class-name">:</span><span class="token string">"your_password"</span>,
+    <span class="token string">"timeout"</span>:600,
+    <span class="token string">"method"</span><span class="token builtin class-name">:</span><span class="token string">"aes-256-cfb"</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>3、Shadowsocks libev 版不能通过修改配置文件来多端口（只能开启多进程），如果你需要多端口请安装 Python 或 Go 版；</p>
 <p>特别说明：<br>1、已安装旧版本的 shadowsocks 需要升级的话，需下载本脚本的最新版，运行卸载命令</p>
 <blockquote>
@@ -940,6 +941,9 @@ Enjoy it!
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

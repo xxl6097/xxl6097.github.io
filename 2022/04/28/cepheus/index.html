@@ -500,55 +500,62 @@ repo init -u https://github.com/PixelExperience/manifest -b twelve
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Pixel-Experience"><a href="#Pixel-Experience" class="headerlink" title="Pixel Experience"></a>Pixel Experience</h1><h3 id="Sync"><a href="#Sync" class="headerlink" title="Sync"></a>Sync</h3><pre><code class="bash">
-# Initialize local repository
+                <h1 id="Pixel-Experience"><a href="#Pixel-Experience" class="headerlink" title="Pixel Experience"></a>Pixel Experience</h1><h3 id="Sync"><a href="#Sync" class="headerlink" title="Sync"></a>Sync</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+<span class="token comment"># Initialize local repository</span>
 repo init -u https://github.com/PixelExperience/manifest -b twelve
 
-# Sync
-repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
-</code></pre>
-<h3 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h3><pre><code class="bash">
-# Set up environment
-$ . build/envsetup.sh
+<span class="token comment"># Sync</span>
+repo <span class="token function">sync</span> -c -j<span class="token variable"><span class="token variable">$(</span>nproc --all<span class="token variable">)</span></span> --force-sync --no-clone-bundle --no-tags<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-# Choose a target
+<h3 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+<span class="token comment"># Set up environment</span>
+$ <span class="token builtin class-name">.</span> build/envsetup.sh
+
+<span class="token comment"># Choose a target</span>
 $ lunch aosp_cepheus-userdebug
 
 $ lunch aosp_cepheus-user
 
-# Build the code
-$ mka bacon -j4
-</code></pre>
+<span class="token comment"># Build the code</span>
+$ mka bacon -j4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="Turn-on-caching-to-speed-up-build"><a href="#Turn-on-caching-to-speed-up-build" class="headerlink" title="Turn on caching to speed up build"></a>Turn on caching to speed up build</h3><p>Make use of ccache if you want to speed up subsequent builds by running:</p>
-<pre><code>export USE_CCACHE=1
-export CCACHE_EXEC=/usr/bin/ccache
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">export USE_CCACHE=1
+export CCACHE_EXEC=/usr/bin/ccache<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>and adding that line to your ~/.bashrc file. Then, specify the maximum amount of disk space you want ccache to use by typing this:</p>
-<pre><code>ccache -M 50G
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">ccache -M 50G<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>where 50G corresponds to 50GB of cache. This needs to be run once. Anywhere from 25GB-100GB will result in very noticeably increased build speeds (for instance, a typical 1hr build time can be reduced to 20min). If you’re only building for one device, 25GB-50GB is fine. If you plan to build for several devices that do not share the same kernel source, aim for 75GB-100GB. This space will be permanently occupied on your drive, so take this into consideration.</p>
 <p>You can also enable the optional ccache compression. While this may involve a slight performance slowdown, it increases the number of files that fit in the cache. To enable it, run:</p>
-<pre><code>ccache -o compression=true
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">ccache -o compression=true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
 <h3 id="Start-the-build"><a href="#Start-the-build" class="headerlink" title="Start the build"></a>Start the build</h3><p>Time to start building! Now, type:</p>
-<pre><code>croot
-mka bacon -j$(nproc --all)
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">croot
+mka bacon -j$(nproc --all)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
 <h3 id="Install-the-build"><a href="#Install-the-build" class="headerlink" title="Install the build"></a>Install the build</h3><p>Assuming the build completed without errors (it will be obvious when it finishes), type the following in the terminal window the build ran in:</p>
-<pre><code>cd $OUT
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">cd $OUT<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
 <p>There you’ll find all the files that were created. The two files of more interest are:</p>
 <p>recovery.img, which is the PixelExperience recovery image.</p>
 <p>A zip file whose name starts with ‘PixelExperience_’, which is the PixelExperience installer package.</p>
 <p>Success! So… what’s next?<br>You’ve done it! Welcome to the elite club of self-builders. You’ve built your operating system from scratch, from the ground up. You are the master/mistress of your domain… and hopefully you’ve learned a bit on the way and had some fun too.</p>
 <h3 id="Submitting-Patches"><a href="#Submitting-Patches" class="headerlink" title="Submitting Patches"></a>Submitting Patches</h3><p>Patches are always welcome! Please submit your patches to our Gerrit.</p>
 <p><a target="_blank" rel="noopener" href="https://wiki.pixelexperience.org/help/submit-patch/">Gerrit push guide</a></p>
-<pre><code>
+<pre class="line-numbers language-none"><code class="language-none">
 unzip platform-tools-latest-linux.zip -d ~
 
 # Now you have to add adb and fastboot to your PATH. Open ~/.profile and add the following:
@@ -628,8 +635,7 @@ sudo chown -R root:root /root/cepheus
 
 
 
-</code></pre>
-
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -1002,6 +1008,9 @@ sudo chown -R root:root /root/cepheus
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
