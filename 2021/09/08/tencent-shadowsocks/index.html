@@ -480,7 +480,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    397
+                    396
                 </div>
                 
 
@@ -502,9 +502,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -514,46 +511,13 @@
 <p>由于 Google BBR 需要内核版本 4.9 以上，如果安装时内核版本低于 4.9 建议先升级内核版本。</p>
 <p>提示：CentOS 7 自带内核版本为 3.10，CentOS 8 自带内核版本为 4.18。</p>
 <p>查看内核版本命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">uname</span> -r<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">uname</span> -r<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="1、下载脚本"><a href="#1、下载脚本" class="headerlink" title="1、下载脚本"></a>1、下载脚本</h3><p>一键脚本已集成TCP优化、自动开启Google BBR（限 4.9 或更高版本内核）、自动安装 shadowsocks-libev</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://down.24kplus.com/linux/shadowsocks/centos-shadowsocks-libev.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="2、执行脚本进行安装"><a href="#2、执行脚本进行安装" class="headerlink" title="2、执行脚本进行安装"></a>2、执行脚本进行安装</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> +x centos-shadowsocks-libev.sh <span class="token operator">&amp;&amp;</span> ./centos-shadowsocks-libev.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://down.24kplus.com/linux/shadowsocks/centos-shadowsocks-libev.sh<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="2、执行脚本进行安装"><a href="#2、执行脚本进行安装" class="headerlink" title="2、执行脚本进行安装"></a>2、执行脚本进行安装</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">chmod</span> +x centos-shadowsocks-libev.sh &amp;&amp; ./centos-shadowsocks-libev.sh<br></code></pre></td></tr></tbody></table></figure>
 <h3 id="3、根据shell脚本提示输入相关信息"><a href="#3、根据shell脚本提示输入相关信息" class="headerlink" title="3、根据shell脚本提示输入相关信息"></a>3、根据shell脚本提示输入相关信息</h3><p>1、提示设置SS密码，输入自定义密码后按回车，也可以直接按回车使用默认密码<br>2、接下来选择SS要使用的服务器端口，输入自己喜欢的端口， 也可以直接按回车使用默认端口<br>3、 然后选择加密方式（仅保留相对安全的加密方式），如果选择chacha20的话，就输入对应序号3，按回车继续<br>4、 安装完成后，会有如下图安装成功的提示，记住各项信息，在客户端连接时需要用到</p>
-<h3 id="4、shadowsocks管理"><a href="#4、shadowsocks管理" class="headerlink" title="4、shadowsocks管理"></a>4、shadowsocks管理</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
-<span class="token comment">#!/bin/bash</span>
-
-<span class="token keyword">function</span> <span class="token function-name function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    systemctl status shadowsocks-libev.service
-<span class="token punctuation">}</span>
-
-<span class="token keyword">function</span> <span class="token function-name function">restart</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    systemctl restart shadowsocks-libev.service
-<span class="token punctuation">}</span>
-
-<span class="token keyword">function</span> <span class="token function-name function">log</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    journalctl -f -u shadowsocks-libev.service
-<span class="token punctuation">}</span>
-
-<span class="token keyword">function</span> <span class="token function-name function">m</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token builtin class-name">echo</span> <span class="token string">"1. 重启"</span>
-    <span class="token builtin class-name">echo</span> <span class="token string">"2. 重看状态"</span>
-    <span class="token builtin class-name">echo</span> <span class="token string">"3. 查看日志"</span>
-    <span class="token builtin class-name">echo</span> <span class="token string">"请输入编号:"</span>
-    <span class="token builtin class-name">read</span> index
-
-    <span class="token keyword">case</span> <span class="token string">"<span class="token variable">$index</span>"</span> <span class="token keyword">in</span>
-    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>restart<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-    <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-    <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-    *<span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">"exit"</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
-  <span class="token keyword">esac</span>
-<span class="token punctuation">}</span>
-
-m
-
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4、shadowsocks管理"><a href="#4、shadowsocks管理" class="headerlink" title="4、shadowsocks管理"></a>4、shadowsocks管理</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br><span class="hljs-comment">#!/bin/bash</span><br><br><span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">status</span></span>() {<br>    systemctl status shadowsocks-libev.service<br>}<br><br><span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">restart</span></span>() {<br>    systemctl restart shadowsocks-libev.service<br>}<br><br><span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">log</span></span>() {<br>    journalctl -f -u shadowsocks-libev.service<br>}<br><br><span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">m</span></span>() {<br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">"1. 重启"</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">"2. 重看状态"</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">"3. 查看日志"</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">"请输入编号:"</span><br>    <span class="hljs-built_in">read</span> index<br><br>    <span class="hljs-keyword">case</span> <span class="hljs-string">"<span class="hljs-variable">$index</span>"</span> <span class="hljs-keyword">in</span><br>    [1]) (restart);;<br>    [2]) (status);;<br>    [3]) (<span class="hljs-built_in">log</span>);;<br>    *) <span class="hljs-built_in">echo</span> <span class="hljs-string">"exit"</span> ;;<br>  <span class="hljs-keyword">esac</span><br>}<br><br>m<br><br><br><br></code></pre></td></tr></tbody></table></figure>
 
                 
             </div>
@@ -916,9 +880,6 @@ m
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1094,7 +1055,7 @@ m
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">25.1k</span>
+                        class="white-color">24.9k</span>
             
             
             

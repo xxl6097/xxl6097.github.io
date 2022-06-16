@@ -8,12 +8,7 @@
     <meta name="description" content="主要记录我的centos服务器上的服务环境安装，frp、nginx配置、java程序、mysql安装、个人博客hexo。
 
 
-1. nginx配置安装
-yum install nginx
-
-配置代码
-
-nano /etc/nginx/ngi">
+1. nginx配置123456安装yum install nginx配置代码nano /etc/nginx/ng">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -509,7 +504,7 @@ nano /etc/nginx/ngi">
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    8 分
                 </div>
                 
 
@@ -524,9 +519,6 @@ nano /etc/nginx/ngi">
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -535,291 +527,34 @@ nano /etc/nginx/ngi">
                 <p>主要记录我的centos服务器上的服务环境安装，frp、nginx配置、java程序、mysql安装、个人博客hexo。</p>
 <span id="more"></span>
 
-<h2 id="1-nginx配置"><a href="#1-nginx配置" class="headerlink" title="1. nginx配置"></a>1. nginx配置</h2><pre class="line-numbers language-none"><code class="language-none">安装
-yum install nginx
-
-配置代码
-
-nano /etc/nginx/nginx.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="1-nginx配置"><a href="#1-nginx配置" class="headerlink" title="1. nginx配置"></a>1. nginx配置</h2><figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk">安装<br>yum install nginx<br><br>配置代码<br><br>nano <span class="hljs-regexp">/etc/</span>nginx/nginx.conf<br></code></pre></td></tr></tbody></table></figure>
 
 
 
 
 
-<h3 id="nginx-conf"><a href="#nginx-conf" class="headerlink" title="nginx.conf"></a>nginx.conf</h3><pre class="line-numbers language-none"><code class="language-none">
-user root;
-worker_processes auto;
-error_log /var/log/nginx/error.log;
-pid /run/nginx.pid;
+<h3 id="nginx-conf"><a href="#nginx-conf" class="headerlink" title="nginx.conf"></a>nginx.conf</h3><figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><br><span class="hljs-attribute">user</span> root;<br><span class="hljs-attribute">worker_processes</span> auto;<br><span class="hljs-attribute">error_log</span> /var/log/nginx/<span class="hljs-literal">error</span>.log;<br><span class="hljs-attribute">pid</span> /run/nginx.pid;<br><br><br><span class="hljs-attribute">include</span> /usr/share/nginx/modules/<span class="hljs-regexp">*.conf</span>;<br><br><span class="hljs-section">events</span> {<br><span class="hljs-attribute">worker_connections</span> <span class="hljs-number">1024</span>;<br>}<br><br><span class="hljs-section">http</span> {<br><span class="hljs-attribute">log_format</span>  main  <span class="hljs-string">'<span class="hljs-variable">$remote_addr</span> - <span class="hljs-variable">$remote_user</span> [<span class="hljs-variable">$time_local</span>] "<span class="hljs-variable">$request</span>" '</span><br><span class="hljs-string">'<span class="hljs-variable">$status</span> <span class="hljs-variable">$body_bytes_sent</span> "<span class="hljs-variable">$http_referer</span>" '</span><br><span class="hljs-string">'"<span class="hljs-variable">$http_user_agent</span>" "<span class="hljs-variable">$http_x_forwarded_for</span>"'</span>;<br><br>    <span class="hljs-attribute">access_log</span>  /var/log/nginx/access.log  main;<br><br>    <span class="hljs-attribute">sendfile</span>            <span class="hljs-literal">on</span>;<br>    <span class="hljs-attribute">tcp_nopush</span>          <span class="hljs-literal">on</span>;<br>    <span class="hljs-attribute">tcp_nodelay</span>         <span class="hljs-literal">on</span>;<br>    <span class="hljs-attribute">keepalive_timeout</span>   <span class="hljs-number">65</span>;<br>    <span class="hljs-attribute">types_hash_max_size</span> <span class="hljs-number">2048</span>;<br>    <span class="hljs-attribute">client_max_body_size</span> <span class="hljs-number">500m</span>;<br>    <span class="hljs-attribute">include</span>             /etc/nginx/mime.types;<br>    <span class="hljs-attribute">default_type</span>        application/octet-stream;<br><br>    <span class="hljs-attribute">include</span> /etc/nginx/conf.d/<span class="hljs-regexp">*.conf</span>;<br><br><br><br>}<br><br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="admin-conf"><a href="#admin-conf" class="headerlink" title="admin.conf"></a>admin.conf</h3><figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">server</span> {<br>        <span class="hljs-attribute">listen</span>       <span class="hljs-number">80</span>;<br>        <span class="hljs-attribute">server_name</span>  admin.uuxia.cn;<br>        <br>        <span class="hljs-section">location</span> / {<br>           <span class="hljs-attribute">index</span> index.html index.htm;<br>           <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$host</span>;<br>           <span class="hljs-attribute">proxy_pass</span> https://127.0.0.1:8082/;<br>           <span class="hljs-attribute">proxy_set_header</span> Upgrade <span class="hljs-variable">$http_upgrade</span>;<br>           <span class="hljs-attribute">proxy_http_version</span> <span class="hljs-number">1</span>.<span class="hljs-number">1</span>;<br>           <span class="hljs-attribute">proxy_set_header</span> Connection <span class="hljs-string">"upgrade"</span>;<br>           <span class="hljs-attribute">proxy_redirect</span> https://127.0.0.1/admin https://127.0.0.1:8080/;<br>       }<br>       <br>}<br><br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="file-conf"><a href="#file-conf" class="headerlink" title="file.conf"></a>file.conf</h3><figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">autoindex</span> <span class="hljs-literal">on</span>;<span class="hljs-comment"># 显示目录</span><br><span class="hljs-attribute">autoindex_exact_size</span> <span class="hljs-literal">off</span>;<span class="hljs-comment"># 显示文件大小</span><br><span class="hljs-attribute">autoindex_localtime</span> <span class="hljs-literal">on</span>;<span class="hljs-comment"># 显示文件时间</span><br><span class="hljs-section">server</span> {<br>        <span class="hljs-attribute">listen</span>       <span class="hljs-number">80</span>;<br>        <span class="hljs-attribute">server_name</span>  file.uuxia.cn;<br><br>        <span class="hljs-attribute">charset</span> gbk,utf-<span class="hljs-number">8</span>;<br>        <br><br>        <span class="hljs-section">location</span> / {<br>            <span class="hljs-attribute">root</span> /home/;<br>            <span class="hljs-attribute">index</span>  index.html index.htm;<br>            <span class="hljs-attribute">charset</span> utf-<span class="hljs-number">8</span>;<br>        }<br><br> }<br></code></pre></td></tr></tbody></table></figure>
 
 
-include /usr/share/nginx/modules/*.conf;
+<h3 id="cloud-conf"><a href="#cloud-conf" class="headerlink" title="cloud.conf"></a>cloud.conf</h3><figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">server</span> {<br>        <span class="hljs-attribute">listen</span>       <span class="hljs-number">80</span> default_server;<br>        <span class="hljs-attribute">server_name</span>  cloud.uuxia.cn;<br><br>        <span class="hljs-section">location</span> / {<br>            <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-For <span class="hljs-variable">$proxy_add_x_forwarded_for</span>;<br>            <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$http_host</span>;<br>            <span class="hljs-attribute">proxy_redirect</span> <span class="hljs-literal">off</span>;<br>            <span class="hljs-attribute">proxy_pass</span> http://127.0.0.1:5212;<br><br>            <span class="hljs-comment"># 如果您要使用本地存储策略，请将下一行注释符删除，并更改大小为理论最大文件尺寸</span><br>            <span class="hljs-comment"># client_max_body_size 20000m;</span><br>        }<br>    }<br><br></code></pre></td></tr></tbody></table></figure>
 
-events {
-worker_connections 1024;
-}
-
-http {
-log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-'$status $body_bytes_sent "$http_referer" '
-'"$http_user_agent" "$http_x_forwarded_for"';
-
-    access_log  /var/log/nginx/access.log  main;
-
-    sendfile            on;
-    tcp_nopush          on;
-    tcp_nodelay         on;
-    keepalive_timeout   65;
-    types_hash_max_size 2048;
-    client_max_body_size 500m;
-    include             /etc/nginx/mime.types;
-    default_type        application/octet-stream;
-
-    include /etc/nginx/conf.d/*.conf;
-
-
-
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="admin-conf"><a href="#admin-conf" class="headerlink" title="admin.conf"></a>admin.conf</h3><pre class="line-numbers language-none"><code class="language-none">server {
-        listen       80;
-        server_name  admin.uuxia.cn;
-        
-        location / {
-           index index.html index.htm;
-           proxy_set_header Host $host;
-           proxy_pass https://127.0.0.1:8082/;
-           proxy_set_header Upgrade $http_upgrade;
-           proxy_http_version 1.1;
-           proxy_set_header Connection "upgrade";
-           proxy_redirect https://127.0.0.1/admin https://127.0.0.1:8080/;
-       }
-       
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="file-conf"><a href="#file-conf" class="headerlink" title="file.conf"></a>file.conf</h3><pre class="line-numbers language-none"><code class="language-none">autoindex on;# 显示目录
-autoindex_exact_size off;# 显示文件大小
-autoindex_localtime on;# 显示文件时间
-server {
-        listen       80;
-        server_name  file.uuxia.cn;
-
-        charset gbk,utf-8;
-        
-
-        location / {
-            root /home/;
-            index  index.html index.htm;
-            charset utf-8;
-        }
-
- }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h3 id="cloud-conf"><a href="#cloud-conf" class="headerlink" title="cloud.conf"></a>cloud.conf</h3><pre class="line-numbers language-none"><code class="language-none">server {
-        listen       80 default_server;
-        server_name  cloud.uuxia.cn;
-
-        location / {
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header Host $http_host;
-            proxy_redirect off;
-            proxy_pass http://127.0.0.1:5212;
-
-            # 如果您要使用本地存储策略，请将下一行注释符删除，并更改大小为理论最大文件尺寸
-            # client_max_body_size 20000m;
-        }
-    }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="java-conf"><a href="#java-conf" class="headerlink" title="java.conf"></a>java.conf</h3><pre class="line-numbers language-none"><code class="language-none">
-
-server {
-        listen       80;
-        #listen       [::]:80 default_server;
-        server_name  uuxia.cn;
-        #root         /usr/share/nginx/html;
-        #charset gbk,utf-8;
-#        charset utf-8;
-        location ^~ /frp_server_web/{
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header Host $http_host;
-            proxy_pass http://127.0.0.1:9090;
-        }
-
-        location / {
-            root /home/file/xxl6097.github.io;
-            index index.html index.htm;
-            charset utf-8;
-        }
-        location /file {
-            alias /home/file;
-            autoindex on;
-            autoindex_exact_size off;
-            autoindex_localtime on;
-            charset utf-8;
-        }
-
-        location /websocket{
-            proxy_pass https://127.0.0.1:8082;
-            proxy_http_version 1.1;
-            proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection "upgrade";
-            proxy_read_timeout 3600s;
-        }
-        location /admin/ {
-           index index.html index.htm;
-           proxy_set_header Host $host;
-           proxy_pass https://127.0.0.1:8082/;
-           proxy_set_header Upgrade $http_upgrade;
-           proxy_http_version 1.1;
-           proxy_set_header Connection "upgrade";
-           proxy_redirect https://127.0.0.1/admin https://127.0.0.1:8080/;
-       }
-       
-
-       location ~* ^(/v2|/webjars|/swagger-resources|/swagger-ui.html){
-         proxy_set_header Host $host;
-         proxy_set_header  X-Real-IP  $remote_addr;
-           proxy_set_header X-Forwarded-For $remote_addr;
-         #proxy_set_header Host $host:$server_port;
-         proxy_set_header X-Forwarded-Proto $scheme;
-         proxy_set_header X-Forwarded-Port $server_port;
-         proxy_pass https://127.0.0.1:8082; # 后端服务地址
-       }
-
-       location /v1 {
-         proxy_set_header Host $host;
-         add_header 'Access-Control-Allow-Origin' '*';
-         add_header 'Access-Control-Allow-Headers' 'X-Requested-With';
-         add_header 'Access-Control-Allow-Methods' 'GET,POST,OPTIONS';
-         proxy_pass https://127.0.0.1:8082;
-        }
-
-        error_page 404 /404.html;
-            location = /40x.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-            location = /50x.html {
-        }
-    }
-
-# Settings for a TLS enabled server.
-#
-    server {
-        listen       443 ssl http2 default_server;
-       # listen       [::]:443 ssl http2 default_server;
-        server_name  uuxia.cn;
-       # root         /usr/share/nginx/html;
-        ssl_certificate "/etc/pki/nginx/server.crt";
-        ssl_certificate_key "/etc/pki/nginx/private/server.key";
-        ssl_session_cache shared:SSL:1m;
-        ssl_session_timeout  10m;
-        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
-        #ssl_ciphers PROFILE=SYSTEM;
-        ssl_prefer_server_ciphers on;
-#        charset gbk,utf-8;
-
-
-        client_max_body_size 500m;    
-        location / {
-            root /home/file/xxl6097.github.io;
-            index index.html index.htm;
-            #proxy_pass https://127.0.0.1:8082/;
-            #proxy_redirect https://127.0.0.1/admin https://127.0.0.1:8082/;
-            charset utf-8;
-        }
-        location /file {
-            alias /home/file;
-            autoindex on;
-            autoindex_exact_size off;
-            autoindex_localtime on;
-            charset utf-8;
-        }
-
-        location /v1 {
-            proxy_set_header Host $host;
-            add_header 'Access-Control-Allow-Origin' '*';
-            add_header 'Access-Control-Allow-Headers' 'X-Requested-With';
-            add_header 'Access-Control-Allow-Methods' 'GET,POST,OPTIONS';
-            proxy_pass https://127.0.0.1:8082;
-        }
-        location /admin/ {
-           index index.html index.htm;
-           proxy_set_header Host $host;
-           proxy_pass https://127.0.0.1:8082/;
-           proxy_set_header Upgrade $http_upgrade;
-           proxy_http_version 1.1;
-           proxy_set_header Connection "upgrade";
-           proxy_redirect https://127.0.0.1/admin https://127.0.0.1:8080/;
-       }
-       
-
-       location ~* ^(/v2|/webjars|/swagger-resources|/swagger-ui.html){
-         proxy_set_header Host $host;
-         proxy_set_header  X-Real-IP  $remote_addr;
-           proxy_set_header X-Forwarded-For $remote_addr;
-         #proxy_set_header Host $host:$server_port;
-         proxy_set_header X-Forwarded-Proto $scheme;
-         proxy_set_header X-Forwarded-Port $server_port;
-         proxy_pass https://127.0.0.1:8082; # 后端服务地址
-       }
-
-        location /websocket{
-            proxy_pass https://127.0.0.1:8082;
-            proxy_http_version 1.1;
-            proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection "upgrade";
-            proxy_read_timeout 3600s;
-        }
-
-        error_page 404 /404.html;
-            location = /40x.html {
-        }
-#
-        error_page 500 502 503 504 /50x.html;
-            location = /50x.html {
-        }
-    }
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="java-conf"><a href="#java-conf" class="headerlink" title="java.conf"></a>java.conf</h3><figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><br><br><span class="hljs-section">server</span> {<br>        <span class="hljs-attribute">listen</span>       <span class="hljs-number">80</span>;<br>        <span class="hljs-comment">#listen       [::]:80 default_server;</span><br>        <span class="hljs-attribute">server_name</span>  uuxia.cn;<br>        <span class="hljs-comment">#root         /usr/share/nginx/html;</span><br>        <span class="hljs-comment">#charset gbk,utf-8;</span><br><span class="hljs-comment">#        charset utf-8;</span><br>        <span class="hljs-section">location</span><span class="hljs-regexp"> ^~</span> /frp_server_web/{<br>            <span class="hljs-attribute">proxy_set_header</span> X-Real-IP <span class="hljs-variable">$remote_addr</span>;<br>            <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$http_host</span>;<br>            <span class="hljs-attribute">proxy_pass</span> http://127.0.0.1:9090;<br>        }<br><br>        <span class="hljs-section">location</span> / {<br>            <span class="hljs-attribute">root</span> /home/file/xxl6097.github.io;<br>            <span class="hljs-attribute">index</span> index.html index.htm;<br>            <span class="hljs-attribute">charset</span> utf-<span class="hljs-number">8</span>;<br>        }<br>        <span class="hljs-section">location</span> /file {<br>            <span class="hljs-attribute">alias</span> /home/file;<br>            <span class="hljs-attribute">autoindex</span> <span class="hljs-literal">on</span>;<br>            <span class="hljs-attribute">autoindex_exact_size</span> <span class="hljs-literal">off</span>;<br>            <span class="hljs-attribute">autoindex_localtime</span> <span class="hljs-literal">on</span>;<br>            <span class="hljs-attribute">charset</span> utf-<span class="hljs-number">8</span>;<br>        }<br><br>        <span class="hljs-section">location</span> /websocket{<br>            <span class="hljs-attribute">proxy_pass</span> https://127.0.0.1:8082;<br>            <span class="hljs-attribute">proxy_http_version</span> <span class="hljs-number">1</span>.<span class="hljs-number">1</span>;<br>            <span class="hljs-attribute">proxy_set_header</span> Upgrade <span class="hljs-variable">$http_upgrade</span>;<br>            <span class="hljs-attribute">proxy_set_header</span> Connection <span class="hljs-string">"upgrade"</span>;<br>            <span class="hljs-attribute">proxy_read_timeout</span> <span class="hljs-number">3600s</span>;<br>        }<br>        <span class="hljs-section">location</span> /admin/ {<br>           <span class="hljs-attribute">index</span> index.html index.htm;<br>           <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$host</span>;<br>           <span class="hljs-attribute">proxy_pass</span> https://127.0.0.1:8082/;<br>           <span class="hljs-attribute">proxy_set_header</span> Upgrade <span class="hljs-variable">$http_upgrade</span>;<br>           <span class="hljs-attribute">proxy_http_version</span> <span class="hljs-number">1</span>.<span class="hljs-number">1</span>;<br>           <span class="hljs-attribute">proxy_set_header</span> Connection <span class="hljs-string">"upgrade"</span>;<br>           <span class="hljs-attribute">proxy_redirect</span> https://127.0.0.1/admin https://127.0.0.1:8080/;<br>       }<br>       <br><br>       <span class="hljs-section">location</span> <span class="hljs-regexp">~* ^(/v2|/webjars|/swagger-resources|/swagger-ui.html)</span>{<br>         <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$host</span>;<br>         <span class="hljs-attribute">proxy_set_header</span>  X-Real-IP  <span class="hljs-variable">$remote_addr</span>;<br>           <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-For <span class="hljs-variable">$remote_addr</span>;<br>         <span class="hljs-comment">#proxy_set_header Host $host:$server_port;</span><br>         <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-Proto <span class="hljs-variable">$scheme</span>;<br>         <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-Port <span class="hljs-variable">$server_port</span>;<br>         <span class="hljs-attribute">proxy_pass</span> https://127.0.0.1:8082; <span class="hljs-comment"># 后端服务地址</span><br>       }<br><br>       <span class="hljs-section">location</span> /v1 {<br>         <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$host</span>;<br>         <span class="hljs-attribute">add_header</span> <span class="hljs-string">'Access-Control-Allow-Origin'</span> <span class="hljs-string">'*'</span>;<br>         <span class="hljs-attribute">add_header</span> <span class="hljs-string">'Access-Control-Allow-Headers'</span> <span class="hljs-string">'X-Requested-With'</span>;<br>         <span class="hljs-attribute">add_header</span> <span class="hljs-string">'Access-Control-Allow-Methods'</span> <span class="hljs-string">'GET,POST,OPTIONS'</span>;<br>         <span class="hljs-attribute">proxy_pass</span> https://127.0.0.1:8082;<br>        }<br><br>        <span class="hljs-attribute">error_page</span> <span class="hljs-number">404</span> /<span class="hljs-number">404</span>.html;<br>            <span class="hljs-section">location</span> = /40x.html {<br>        }<br><br>        <span class="hljs-attribute">error_page</span> <span class="hljs-number">500</span> <span class="hljs-number">502</span> <span class="hljs-number">503</span> <span class="hljs-number">504</span> /50x.html;<br>            <span class="hljs-section">location</span> = /50x.html {<br>        }<br>    }<br><br><span class="hljs-comment"># Settings for a TLS enabled server.</span><br><span class="hljs-comment">#</span><br>    <span class="hljs-section">server</span> {<br>        <span class="hljs-attribute">listen</span>       <span class="hljs-number">443</span> ssl http2 default_server;<br>       <span class="hljs-comment"># listen       [::]:443 ssl http2 default_server;</span><br>        <span class="hljs-attribute">server_name</span>  uuxia.cn;<br>       <span class="hljs-comment"># root         /usr/share/nginx/html;</span><br>        <span class="hljs-attribute">ssl_certificate</span> <span class="hljs-string">"/etc/pki/nginx/server.crt"</span>;<br>        <span class="hljs-attribute">ssl_certificate_key</span> <span class="hljs-string">"/etc/pki/nginx/private/server.key"</span>;<br>        <span class="hljs-attribute">ssl_session_cache</span> shared:SSL:<span class="hljs-number">1m</span>;<br>        <span class="hljs-attribute">ssl_session_timeout</span>  <span class="hljs-number">10m</span>;<br>        <span class="hljs-attribute">ssl_protocols</span> TLSv1 TLSv1.<span class="hljs-number">1</span> TLSv1.<span class="hljs-number">2</span>;<br>        <span class="hljs-attribute">ssl_ciphers</span> ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;<br>        <span class="hljs-comment">#ssl_ciphers PROFILE=SYSTEM;</span><br>        <span class="hljs-attribute">ssl_prefer_server_ciphers</span> <span class="hljs-literal">on</span>;<br><span class="hljs-comment">#        charset gbk,utf-8;</span><br><br><br>        <span class="hljs-attribute">client_max_body_size</span> <span class="hljs-number">500m</span>;    <br>        <span class="hljs-section">location</span> / {<br>            <span class="hljs-attribute">root</span> /home/file/xxl6097.github.io;<br>            <span class="hljs-attribute">index</span> index.html index.htm;<br>            <span class="hljs-comment">#proxy_pass https://127.0.0.1:8082/;</span><br>            <span class="hljs-comment">#proxy_redirect https://127.0.0.1/admin https://127.0.0.1:8082/;</span><br>            <span class="hljs-attribute">charset</span> utf-<span class="hljs-number">8</span>;<br>        }<br>        <span class="hljs-section">location</span> /file {<br>            <span class="hljs-attribute">alias</span> /home/file;<br>            <span class="hljs-attribute">autoindex</span> <span class="hljs-literal">on</span>;<br>            <span class="hljs-attribute">autoindex_exact_size</span> <span class="hljs-literal">off</span>;<br>            <span class="hljs-attribute">autoindex_localtime</span> <span class="hljs-literal">on</span>;<br>            <span class="hljs-attribute">charset</span> utf-<span class="hljs-number">8</span>;<br>        }<br><br>        <span class="hljs-section">location</span> /v1 {<br>            <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$host</span>;<br>            <span class="hljs-attribute">add_header</span> <span class="hljs-string">'Access-Control-Allow-Origin'</span> <span class="hljs-string">'*'</span>;<br>            <span class="hljs-attribute">add_header</span> <span class="hljs-string">'Access-Control-Allow-Headers'</span> <span class="hljs-string">'X-Requested-With'</span>;<br>            <span class="hljs-attribute">add_header</span> <span class="hljs-string">'Access-Control-Allow-Methods'</span> <span class="hljs-string">'GET,POST,OPTIONS'</span>;<br>            <span class="hljs-attribute">proxy_pass</span> https://127.0.0.1:8082;<br>        }<br>        <span class="hljs-section">location</span> /admin/ {<br>           <span class="hljs-attribute">index</span> index.html index.htm;<br>           <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$host</span>;<br>           <span class="hljs-attribute">proxy_pass</span> https://127.0.0.1:8082/;<br>           <span class="hljs-attribute">proxy_set_header</span> Upgrade <span class="hljs-variable">$http_upgrade</span>;<br>           <span class="hljs-attribute">proxy_http_version</span> <span class="hljs-number">1</span>.<span class="hljs-number">1</span>;<br>           <span class="hljs-attribute">proxy_set_header</span> Connection <span class="hljs-string">"upgrade"</span>;<br>           <span class="hljs-attribute">proxy_redirect</span> https://127.0.0.1/admin https://127.0.0.1:8080/;<br>       }<br>       <br><br>       <span class="hljs-section">location</span> <span class="hljs-regexp">~* ^(/v2|/webjars|/swagger-resources|/swagger-ui.html)</span>{<br>         <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$host</span>;<br>         <span class="hljs-attribute">proxy_set_header</span>  X-Real-IP  <span class="hljs-variable">$remote_addr</span>;<br>           <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-For <span class="hljs-variable">$remote_addr</span>;<br>         <span class="hljs-comment">#proxy_set_header Host $host:$server_port;</span><br>         <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-Proto <span class="hljs-variable">$scheme</span>;<br>         <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-Port <span class="hljs-variable">$server_port</span>;<br>         <span class="hljs-attribute">proxy_pass</span> https://127.0.0.1:8082; <span class="hljs-comment"># 后端服务地址</span><br>       }<br><br>        <span class="hljs-section">location</span> /websocket{<br>            <span class="hljs-attribute">proxy_pass</span> https://127.0.0.1:8082;<br>            <span class="hljs-attribute">proxy_http_version</span> <span class="hljs-number">1</span>.<span class="hljs-number">1</span>;<br>            <span class="hljs-attribute">proxy_set_header</span> Upgrade <span class="hljs-variable">$http_upgrade</span>;<br>            <span class="hljs-attribute">proxy_set_header</span> Connection <span class="hljs-string">"upgrade"</span>;<br>            <span class="hljs-attribute">proxy_read_timeout</span> <span class="hljs-number">3600s</span>;<br>        }<br><br>        <span class="hljs-attribute">error_page</span> <span class="hljs-number">404</span> /<span class="hljs-number">404</span>.html;<br>            <span class="hljs-section">location</span> = /40x.html {<br>        }<br><span class="hljs-comment">#</span><br>        <span class="hljs-attribute">error_page</span> <span class="hljs-number">500</span> <span class="hljs-number">502</span> <span class="hljs-number">503</span> <span class="hljs-number">504</span> /50x.html;<br>            <span class="hljs-section">location</span> = /50x.html {<br>        }<br>    }<br><br><br></code></pre></td></tr></tbody></table></figure>
 
 <hr>
-<h2 id="2-mysql安装配置"><a href="#2-mysql安装配置" class="headerlink" title="2. mysql安装配置"></a>2. mysql安装配置</h2><pre class="line-numbers language-none"><code class="language-none">1.下载MySQL
-Red Hat Enterprise Linux / Oracle Linux
-2. 选择 `Red Hat Enterprise Linux 8 / Oracle Linux 8 (x86, 64-bit), RPM Bundle<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-mysql安装配置"><a href="#2-mysql安装配置" class="headerlink" title="2. mysql安装配置"></a>2. mysql安装配置</h2><figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1</span>.下载MySQL<br><span class="hljs-attribute">Red</span> Hat Enterprise Linux / Oracle Linux<br><span class="hljs-attribute">2</span>. 选择 `Red Hat Enterprise Linux <span class="hljs-number">8</span> / Oracle Linux <span class="hljs-number">8</span> (x86, <span class="hljs-number">64</span>-bit), RPM Bundle<br></code></pre></td></tr></tbody></table></figure>
 
-<pre class="line-numbers language-none"><code class="language-none">安装
-wget https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-8.0.28-1.el8.x86_64.rpm-bundle.tar
-tar -xvf mysql-8.0.28-1.el8.x86_64.rpm-bundle.tar 
-rpm -ivh mysql-community-common-8.0.28-1.el8.x86_64.rpm --nodeps --force
-rpm -ivh mysql-community-libs-8.0.28-1.el8.x86_64.rpm --nodeps --force
-rpm -ivh mysql-community-client-8.0.28-1.el8.x86_64.rpm --nodeps --force
-rpm -ivh mysql-community-server-8.0.28-1.el8.x86_64.rpm --nodeps --force
-通过 rpm -qa | grep mysql 命令查看 mysql 的安装包
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-none"><code class="language-none">
-通过以下命令，完成对 mysql 数据库的初始化和相关配置
-
-mysqld --initialize;
-chown mysql:mysql /var/lib/mysql -R;
-systemctl start mysqld.service;
-systemctl enable mysqld;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight subunit"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs subunit">安装<br>wget https://cdn.mysql.com//Downloads/MySQL<span class="hljs-string">-8</span>.0/mysql<span class="hljs-string">-8</span>.0.28<span class="hljs-string">-1</span>.el8.x86_64.rpm-bundle.tar<br>tar -xvf mysql<span class="hljs-string">-8</span>.0.28<span class="hljs-string">-1</span>.el8.x86_64.rpm-bundle.tar <br>rpm -ivh mysql-community-common<span class="hljs-string">-8</span>.0.28<span class="hljs-string">-1</span>.el8.x86_64.rpm --nodeps --force<br>rpm -ivh mysql-community-libs<span class="hljs-string">-8</span>.0.28<span class="hljs-string">-1</span>.el8.x86_64.rpm --nodeps --force<br>rpm -ivh mysql-community-client<span class="hljs-string">-8</span>.0.28<span class="hljs-string">-1</span>.el8.x86_64.rpm --nodeps --force<br>rpm -ivh mysql-community-server<span class="hljs-string">-8</span>.0.28<span class="hljs-string">-1</span>.el8.x86_64.rpm --nodeps --force<br>通过 rpm -qa | grep mysql 命令查看 mysql 的安装包<br><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br>通过以下命令，完成对 mysql 数据库的初始化和相关配置<br><br>mysqld --initialize;<br><span class="hljs-built_in">chown</span> mysql:mysql /var/lib/mysql -R;<br>systemctl start mysqld.service;<br>systemctl <span class="hljs-built_in">enable</span> mysqld;<br><br></code></pre></td></tr></tbody></table></figure>
 <p>通过 <code>cat /var/log/mysqld.log | grep password</code> 命令查看数据库的密码</p>
 <p>通过 <code>mysql -uroot -p</code> 敲回车键进入数据库登陆界面</p>
 <p>通过 <code>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Xxl2475431305.';</code> 命令来修改密码<br><code>ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'Xxl2475431305.';</code><br>这下密码改成了 root</p>
 <p>通过 exit; 命令退出 MySQL，然后通过新密码再次登陆</p>
 <p>通过以下命令，进行远程访问的授权</p>
-<pre class="line-numbers language-none"><code class="language-none">create user 'root'@'%' identified with mysql_native_password by 'root';
-
-grant all privileges on *.* to 'root'@'%' with grant option;
-
-flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'%'</span> identified <span class="hljs-keyword">with</span> mysql_native_password <span class="hljs-keyword">by</span> <span class="hljs-string">'root'</span>;<br><br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">with</span> <span class="hljs-keyword">grant</span> <span class="hljs-keyword">option</span>;<br><br>flush <span class="hljs-keyword">privileges</span>;<br></code></pre></td></tr></tbody></table></figure>
 
 
 <p>sqlyog链接时出现2058异常</p>
@@ -827,116 +562,26 @@ flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span
 <p>如果报错：ERROR 1396 (HY000): Operation ALTER USER failed for ‘root’@’localhost’则使用下面命令：</p>
 <p><code>ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'Xxl2475431305.';</code></p>
 <hr>
-<h2 id="3-JDK安装配置"><a href="#3-JDK安装配置" class="headerlink" title="3. JDK安装配置"></a>3. JDK安装配置</h2><h3 id="方式一（推荐）"><a href="#方式一（推荐）" class="headerlink" title="方式一（推荐）"></a>方式一（推荐）</h3><pre class="line-numbers language-none"><code class="language-none">查询安装的jdk版本
-yum -y list java*
-安装jdk1.8
-yum install -y java-11-openjdk.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-JDK安装配置"><a href="#3-JDK安装配置" class="headerlink" title="3. JDK安装配置"></a>3. JDK安装配置</h2><h3 id="方式一（推荐）"><a href="#方式一（推荐）" class="headerlink" title="方式一（推荐）"></a>方式一（推荐）</h3><figure class="highlight mipsasm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">查询安装的<span class="hljs-keyword">jdk版本</span><br><span class="hljs-keyword"></span>yum -y list <span class="hljs-keyword">java*</span><br><span class="hljs-keyword"></span>安装<span class="hljs-keyword">jdk1.8</span><br><span class="hljs-keyword"></span>yum <span class="hljs-keyword">install </span>-y <span class="hljs-keyword">java-11-openjdk.x86_64</span><br></code></pre></td></tr></tbody></table></figure>
 
-<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><pre class="line-numbers language-none"><code class="language-none">https://www.oracle.com/java/technologies/downloads/#java8
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>www.oracle.com<span class="hljs-regexp">/java/</span>technologies<span class="hljs-regexp">/downloads/</span><span class="hljs-comment">#java8</span><br><br>选择 `jdk-<span class="hljs-number">8</span>u321-linux-x64.tar.gz`<br><br>解压 `tar -zxvf jdk-<span class="hljs-number">8</span>u321-linux-x64.tar.gz`<br><br></code></pre></td></tr></tbody></table></figure>
 
-选择 `jdk-8u321-linux-x64.tar.gz`
-
-解压 `tar -zxvf jdk-8u321-linux-x64.tar.gz`
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">
-修改环境变量 `nano /etc/profile`
-
-export JAVA_HOME=/usr/lib/jdk1.8.0_321
-export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-export PATH=$PATH:$JAVA_HOME/bin
-
-source /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br>修改环境变量 `nano /etc/profile`<br><br><span class="hljs-built_in">export</span> JAVA_HOME=/usr/lib/jdk1.8.0_321<br><span class="hljs-built_in">export</span> CLASSPATH=.:<span class="hljs-variable">$JAVA_HOME</span>/jre/lib/rt.jar:<span class="hljs-variable">$JAVA_HOME</span>/lib/dt.jar:<span class="hljs-variable">$JAVA_HOME</span>/lib/tools.jar<br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$JAVA_HOME</span>/bin<br><br><span class="hljs-built_in">source</span> /etc/profile<br></code></pre></td></tr></tbody></table></figure>
 <hr>
-<h2 id="4-gralde安装"><a href="#4-gralde安装" class="headerlink" title="4. gralde安装"></a>4. gralde安装</h2><pre class="line-numbers language-none"><code class="language-none">wget https://services.gradle.org/distributions/gradle-6.7-bin.zip
-
-unzip gradle-6.7-bin.zip
-
-nano ~/.bash_profile
-
-PATH=$PATH:/usr/lib/gradle-6.7/bin
-
-source ~/.bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="4-gralde安装"><a href="#4-gralde安装" class="headerlink" title="4. gralde安装"></a>4. gralde安装</h2><figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs awk">wget https:<span class="hljs-regexp">//</span>services.gradle.org<span class="hljs-regexp">/distributions/g</span>radle-<span class="hljs-number">6.7</span>-bin.zip<br><br>unzip gradle-<span class="hljs-number">6.7</span>-bin.zip<br><br>nano ~/.bash_profile<br><br>PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-regexp">/usr/</span>lib<span class="hljs-regexp">/gradle-6.7/</span>bin<br><br>source ~/.bash_profile<br></code></pre></td></tr></tbody></table></figure>
 
 <hr>
 <h2 id="5-安装frps安装"><a href="#5-安装frps安装" class="headerlink" title="5. 安装frps安装"></a>5. 安装frps安装</h2><p>服务端配置</p>
-<pre class="line-numbers language-none"><code class="language-none">[common]
-bind_port = 8000
-token = xxxxxxxxx
-dashboard_port=8888
-dashboard_user = admin
-dashboard_pwd = admin
-vhost_http_port = 9090
-vhost_https_port = 9091
-subdomain_host = uuxia.cn<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight ini"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[common]</span><br><span class="hljs-attr">bind_port</span> = <span class="hljs-number">8000</span><br><span class="hljs-attr">token</span> = xxxxxxxxx<br><span class="hljs-attr">dashboard_port</span>=<span class="hljs-number">8888</span><br><span class="hljs-attr">dashboard_user</span> = admin<br><span class="hljs-attr">dashboard_pwd</span> = admin<br><span class="hljs-attr">vhost_http_port</span> = <span class="hljs-number">9090</span><br><span class="hljs-attr">vhost_https_port</span> = <span class="hljs-number">9091</span><br><span class="hljs-attr">subdomain_host</span> = uuxia.cn<br></code></pre></td></tr></tbody></table></figure>
 
 <p>客户端配置</p>
-<pre class="line-numbers language-none"><code class="language-none">[common]
-tls_enable = true
-admin_addr = 0.0.0.0
-admin_port = 7400
-admin_user = admin
-admin_pwd = admin
-token = xxxxxx
-#server_addr = 127.0.0.1
-server_addr = uuxia.cn
-server_port = 8000
-
-[公司-树莓派3B]
-type = tcp
-local_ip = 0.0.0.0
-local_port = 22
-remote_port = 2222
-
-[公司-FRP客户端管理页面]
-type = tcp
-local_ip = 0.0.0.0
-local_port = 7400
-remote_port = 7401
-
-[公司-win]
-type = tcp
-local_ip = 192.168.31.53
-local_port = 3389
-remote_port = 7001
-
-[公司-iMac-VNC]
-type = tcp
-local_ip = 192.168.31.92
-local_port = 5900
-remote_port = 7002
-
-[公司-iMac-SSH]
-type = tcp
-local_ip = 192.168.31.92
-local_port = 22
-remote_port = 7003<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight ini"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[common]</span><br><span class="hljs-attr">tls_enable</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">admin_addr</span> = <span class="hljs-number">0.0</span>.<span class="hljs-number">0.0</span><br><span class="hljs-attr">admin_port</span> = <span class="hljs-number">7400</span><br><span class="hljs-attr">admin_user</span> = admin<br><span class="hljs-attr">admin_pwd</span> = admin<br><span class="hljs-attr">token</span> = xxxxxx<br><span class="hljs-comment">#server_addr = 127.0.0.1</span><br><span class="hljs-attr">server_addr</span> = uuxia.cn<br><span class="hljs-attr">server_port</span> = <span class="hljs-number">8000</span><br><br><span class="hljs-section">[公司-树莓派3B]</span><br><span class="hljs-attr">type</span> = tcp<br><span class="hljs-attr">local_ip</span> = <span class="hljs-number">0.0</span>.<span class="hljs-number">0.0</span><br><span class="hljs-attr">local_port</span> = <span class="hljs-number">22</span><br><span class="hljs-attr">remote_port</span> = <span class="hljs-number">2222</span><br><br><span class="hljs-section">[公司-FRP客户端管理页面]</span><br><span class="hljs-attr">type</span> = tcp<br><span class="hljs-attr">local_ip</span> = <span class="hljs-number">0.0</span>.<span class="hljs-number">0.0</span><br><span class="hljs-attr">local_port</span> = <span class="hljs-number">7400</span><br><span class="hljs-attr">remote_port</span> = <span class="hljs-number">7401</span><br><br><span class="hljs-section">[公司-win]</span><br><span class="hljs-attr">type</span> = tcp<br><span class="hljs-attr">local_ip</span> = <span class="hljs-number">192.168</span>.<span class="hljs-number">31.53</span><br><span class="hljs-attr">local_port</span> = <span class="hljs-number">3389</span><br><span class="hljs-attr">remote_port</span> = <span class="hljs-number">7001</span><br><br><span class="hljs-section">[公司-iMac-VNC]</span><br><span class="hljs-attr">type</span> = tcp<br><span class="hljs-attr">local_ip</span> = <span class="hljs-number">192.168</span>.<span class="hljs-number">31.92</span><br><span class="hljs-attr">local_port</span> = <span class="hljs-number">5900</span><br><span class="hljs-attr">remote_port</span> = <span class="hljs-number">7002</span><br><br><span class="hljs-section">[公司-iMac-SSH]</span><br><span class="hljs-attr">type</span> = tcp<br><span class="hljs-attr">local_ip</span> = <span class="hljs-number">192.168</span>.<span class="hljs-number">31.92</span><br><span class="hljs-attr">local_port</span> = <span class="hljs-number">22</span><br><span class="hljs-attr">remote_port</span> = <span class="hljs-number">7003</span><br></code></pre></td></tr></tbody></table></figure>
 <hr>
 <h2 id="6-安装Node-js"><a href="#6-安装Node-js" class="headerlink" title="6. 安装Node.js"></a>6. 安装Node.js</h2><hr>
-<pre class="line-numbers language-none"><code class="language-none">1 下载
-
-官网地址：https://nodejs.org/en/download/
-wget https://nodejs.org/dist/v10.24.0/node-v10.24.0-linux-x64.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-none"><code class="language-none">安装
-
-tar -xvf node-v10.24.0-linux-x64.tar.gz
-mv node-v10.24.0-linux-x64 /opt/Nodejs
-NODE_HOME=/opt/Nodejs
-export PATH=$NODE_HOME/bin:$PATH
-source /etc/profile
-
-npm install -g hexo-cli
-
-npm uninstall hexo-cli -g  推荐这个，成功卸载
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">1</span> 下载<br><br>官网地址：https:<span class="hljs-regexp">//</span>nodejs.org<span class="hljs-regexp">/en/</span>download/<br>wget https:<span class="hljs-regexp">//</span>nodejs.org<span class="hljs-regexp">/dist/</span>v10.<span class="hljs-number">24.0</span>/node-v10.<span class="hljs-number">24.0</span>-linux-x64.tar.gz<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">安装<br><br>tar -xvf node-v10.24.0-linux-x64.tar.gz<br><span class="hljs-built_in">mv</span> node-v10.24.0-linux-x64 /opt/Nodejs<br>NODE_HOME=/opt/Nodejs<br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$NODE_HOME</span>/bin:<span class="hljs-variable">$PATH</span><br><span class="hljs-built_in">source</span> /etc/profile<br><br>npm install -g hexo-cli<br><br>npm uninstall hexo-cli -g  推荐这个，成功卸载<br><br></code></pre></td></tr></tbody></table></figure>
 <hr>
-<h2 id="7-页脚备案代码"><a href="#7-页脚备案代码" class="headerlink" title="7. 页脚备案代码"></a>7. 页脚备案代码</h2><pre class="line-numbers language-none"><code class="language-none">
-&lt;div style="color:#666;text-align:center;margin-top:-10px;padding-bottom:35px;"&gt;
-    &lt;p&gt;&lt;a style="color:#666;" text-decoration:underline;" href="http://beian.miit.gov.cn/"&gt;工业和信息化部备案管理系统网站 粤ICP备2022014941号&lt;/a&gt;&lt;/p&gt;
-    &lt;p&gt;主办单位：&lt;a style="color:#666;" text-decoration:underline;" target="_blank" href="http://uuxia.cn"&gt;悠悠科技&lt;/a&gt;&lt;/p&gt;
-    &lt;p&gt;Operated by Guangzhou ChoMeng Computer System Co., Ltd.&lt;/p&gt;
-&lt;/div&gt;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="7-页脚备案代码"><a href="#7-页脚备案代码" class="headerlink" title="7. 页脚备案代码"></a>7. 页脚备案代码</h2><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color:#666;text-align:center;margin-top:-10px;padding-bottom:35px;"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color:#666;"</span> <span class="hljs-attr">text-decoration:underline</span>;" <span class="hljs-attr">href</span>=<span class="hljs-string">"http://beian.miit.gov.cn/"</span>&gt;</span>工业和信息化部备案管理系统网站 粤ICP备2022014941号<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>主办单位：<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color:#666;"</span> <span class="hljs-attr">text-decoration:underline</span>;" <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://uuxia.cn"</span>&gt;</span>悠悠科技<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Operated by Guangzhou ChoMeng Computer System Co., Ltd.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br></code></pre></td></tr></tbody></table></figure>
 
                 
             </div>
@@ -1327,9 +972,6 @@ npm uninstall hexo-cli -g  推荐这个，成功卸载
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1505,7 +1147,7 @@ npm uninstall hexo-cli -g  推荐这个，成功卸载
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">25.1k</span>
+                        class="white-color">24.9k</span>
             
             
             

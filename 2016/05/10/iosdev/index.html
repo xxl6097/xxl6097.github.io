@@ -494,9 +494,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -593,8 +590,7 @@
 <li><p>命令行下使用 <strong>openssl</strong> 生成</p>
 </li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ openssl genrsa -out private.key <span class="token number">2048</span>
-$ openssl req -new -sha256 -key private.key -out my.certSigningRequest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ openssl genrsa -out private.key 2048<br>$ openssl req -new -sha256 -key private.key -out my.certSigningRequest<br></code></pre></td></tr></tbody></table></figure>
 
 <h4 id="开发者证书"><a href="#开发者证书" class="headerlink" title="开发者证书"></a>开发者证书</h4><p>由 apple 官方颁发, 用来证明开发者资格的证书文件, 分开发(ios_development.cer)和发布(ios_distribution.cer)两种</p>
 <p><code>cer</code> 证书跟开发机(私钥)绑定只能在拥有私钥的机器上使用, 如果要迁移机器需要导出为 <code>p12</code> 文件</p>
@@ -1086,9 +1082,6 @@ $ openssl req -new -sha256 -key private.key -out my.certSigningRequest<span aria
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1264,7 +1257,7 @@ $ openssl req -new -sha256 -key private.key -out my.certSigningRequest<span aria
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">25.1k</span>
+                        class="white-color">24.9k</span>
             
             
             

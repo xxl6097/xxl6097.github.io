@@ -490,9 +490,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -510,410 +507,46 @@
 <h2 id="使用范围"><a href="#使用范围" class="headerlink" title="使用范围"></a>使用范围</h2><p>OkHttp支持Android 2.3及其以上版本。<br>对于Java, JDK1.7以上。</p>
 <h2 id="jar包准备"><a href="#jar包准备" class="headerlink" title="jar包准备"></a>jar包准备</h2><p>官方介绍页面有链接位置。这里把下载链接也写在下面。<br><a target="_blank" rel="noopener" href="http://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&amp;g=com.squareup.okhttp&amp;a=okhttp&amp;v=LATEST">OkHttp</a><br><a target="_blank" rel="noopener" href="http://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&amp;g=com.squareup.okio&amp;a=okio&amp;v=LATEST">Okio</a></p>
 <h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p><strong>HTTP GET</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">OkHttpClient client = new OkHttpClient();
- 
-String run(String url) throws IOException {
-    Request request = new Request.Builder().url(url).build();
-    Response response = client.newCall(request).execute();    if (response.isSuccessful()) {        return response.body().string();
-    } else {        throw new IOException("Unexpected code " + response);
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight vbscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs vbscript">OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();<br> <br>String run(String url) throws IOException {<br>    <span class="hljs-built_in">Request</span> <span class="hljs-built_in">request</span> = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Request</span>.Builder().url(url).build();<br>    <span class="hljs-built_in">Response</span> <span class="hljs-built_in">response</span> = client.newCall(<span class="hljs-built_in">request</span>).<span class="hljs-keyword">execute</span>();    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">response</span>.isSuccessful()) {        return <span class="hljs-built_in">response</span>.body().<span class="hljs-built_in">string</span>();<br>    } <span class="hljs-keyword">else</span> {        throw <span class="hljs-keyword">new</span> IOException(<span class="hljs-string">"Unexpected code "</span> + <span class="hljs-built_in">response</span>);<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
 <p>Request是OkHttp中访问的请求，Builder是辅助类。Response即OkHttp中的响应。<br><strong>Response类：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">public boolean isSuccessful()
-Returns true if the code is in [200..300),
- which means the request was successfully received, understood, and accepted.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-built_in">public</span> <span class="hljs-type">boolean</span> isSuccessful()<br><span class="hljs-keyword">Returns</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">if</span> the code <span class="hljs-keyword">is</span> <span class="hljs-keyword">in</span> [<span class="hljs-number">200.</span><span class="hljs-number">.300</span>),<br> which means the request was successfully received, understood, <span class="hljs-keyword">and</span> accepted.<br></code></pre></td></tr></tbody></table></figure>
 <p><strong>response.body()返回ResponseBody类</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">public final String string() throws IOException
-Returns the response as a string decoded with the charset of the Content-Type header. If that header is either absent or lacks a charset,
- this will attempt to decode the response body as UTF-8.Throws:
-IOException<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight livecodeserver"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">public final String <span class="hljs-keyword">string</span>() throws IOException<br>Returns <span class="hljs-keyword">the</span> response <span class="hljs-keyword">as</span> <span class="hljs-keyword">a</span> <span class="hljs-keyword">string</span> decoded <span class="hljs-keyword">with</span> <span class="hljs-keyword">the</span> charset <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> Content-Type header. If that header is either absent <span class="hljs-keyword">or</span> lacks <span class="hljs-keyword">a</span> charset,<br> this will attempt <span class="hljs-built_in">to</span> decode <span class="hljs-keyword">the</span> response body <span class="hljs-keyword">as</span> UTF<span class="hljs-number">-8.</span>Throws:<br>IOException<br></code></pre></td></tr></tbody></table></figure>
 <p>当然也能获取到流的形式：</p>
-<pre class="line-numbers language-none"><code class="language-none">public final InputStream byteStream()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> InputStream <span class="hljs-title function_">byteStream</span><span class="hljs-params">()</span><br></code></pre></td></tr></tbody></table></figure>
 <p><strong>HTTP POST<br>POST提交Json数据</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-OkHttpClient client = new OkHttpClient();
-String post(String url, String json) throws IOException {
-     RequestBody body = RequestBody.create(JSON, json);
-      Request request = new Request.Builder()
-      .url(url)
-      .post(body)
-      .build();
-      Response response = client.newCall(request).execute();
-    f (response.isSuccessful()) {
-        return response.body().string();
-    } else {
-        throw new IOException("Unexpected code " + response);
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight haxe"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs haxe"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> final MediaType JSON = MediaType.parse(<span class="hljs-string">"application/json; charset=utf-8"</span>);<br>OkHttpClient client = <span class="hljs-keyword">new</span> <span class="hljs-type">OkHttpClient</span>();<br><span class="hljs-keyword">String</span> post(<span class="hljs-keyword">String</span> url, <span class="hljs-keyword">String</span> json) throws IOException {<br>     RequestBody body = RequestBody.create(JSON, json);<br>      Request request = <span class="hljs-keyword">new</span> <span class="hljs-type">Request</span>.Builder()<br>      .url(url)<br>      .post(body)<br>      .build();<br>      Response response = client.<span class="hljs-keyword">new</span><span class="hljs-type">Call</span>(request).execute();<br>    f (response.isSuccessful()) {<br>        <span class="hljs-keyword">return</span> response.body().string();<br>    } <span class="hljs-keyword">else</span> {<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IOException</span>(<span class="hljs-string">"Unexpected code "</span> + response);<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
 <p>使用Request的post方法来提交请求体RequestBody</p>
 <p>** POST提交键值对**<br>很多时候我们会需要通过POST方式把键值对数据传送到服务器。 OkHttp提供了很方便的方式来做这件事情。</p>
-<pre class="line-numbers language-none"><code class="language-none">OkHttpClient client = new OkHttpClient();
-String post(String url, String json) throws IOException {
- 
-     RequestBody formBody = new FormEncodingBuilder()
-    .add("platform", "android")
-    .add("name", "bug")
-    .add("subject", "XXXXXXXXXXXXXXX")
-    .build();
- 
-      Request request = new Request.Builder()
-      .url(url)
-      .post(body)
-      .build();
- 
-      Response response = client.newCall(request).execute();
-    if (response.isSuccessful()) {
-        return response.body().string();
-    } else {
-        throw new IOException("Unexpected code " + response);
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight haxe"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs haxe">OkHttpClient client = <span class="hljs-keyword">new</span> <span class="hljs-type">OkHttpClient</span>();<br><span class="hljs-keyword">String</span> post(<span class="hljs-keyword">String</span> url, <span class="hljs-keyword">String</span> json) throws IOException {<br> <br>     RequestBody formBody = <span class="hljs-keyword">new</span> <span class="hljs-type">FormEncodingBuilder</span>()<br>    .add(<span class="hljs-string">"platform"</span>, <span class="hljs-string">"android"</span>)<br>    .add(<span class="hljs-string">"name"</span>, <span class="hljs-string">"bug"</span>)<br>    .add(<span class="hljs-string">"subject"</span>, <span class="hljs-string">"XXXXXXXXXXXXXXX"</span>)<br>    .build();<br> <br>      Request request = <span class="hljs-keyword">new</span> <span class="hljs-type">Request</span>.Builder()<br>      .url(url)<br>      .post(body)<br>      .build();<br> <br>      Response response = client.<span class="hljs-keyword">new</span><span class="hljs-type">Call</span>(request).execute();<br>    <span class="hljs-keyword">if</span> (response.isSuccessful()) {<br>        <span class="hljs-keyword">return</span> response.body().string();<br>    } <span class="hljs-keyword">else</span> {<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IOException</span>(<span class="hljs-string">"Unexpected code "</span> + response);<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过上面的例子我们可以发现，OkHttp在很多时候使用都是很方便的，而且很多代码也有重复，因此特地整理了下面的工具类。<br>注意：</p>
 <ul>
 <li>OkHttp官方文档并不建议我们创建多个OkHttpClient，因此全局使用一个。 如果有需要，可以使用clone方法，再进行自定义。这点在后面的高级教程里会提到。</li>
 <li>enqueue为OkHttp提供的异步方法，入门教程中并没有提到，后面的高级教程里会有解释。</li>
 </ul>
-<pre class="line-numbers language-none"><code class="language-none">import java.io.IOException;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import org.apache.http.client.utils.URLEncodedUtils;
-import org.apache.http.message.BasicNameValuePair;
-import cn.wiz.sdk.constant.WizConstant;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response; 
-  
-public class OkHttpUtil {
-    private static final OkHttpClient mOkHttpClient = new OkHttpClient();
-    static{
-        mOkHttpClient.setConnectTimeout(30, TimeUnit.SECONDS);
-    }
-    /**
-     * 该不会开启异步线程。
-     * @param request
-     * @return
-     * @throws IOException
-     */
-    public static Response execute(Request request) throws IOException{
-        return mOkHttpClient.newCall(request).execute();
-    }
-    /**
-     * 开启异步线程访问网络
-     * @param request
-     * @param responseCallback
-     */
-    public static void enqueue(Request request, Callback responseCallback){
-        mOkHttpClient.newCall(request).enqueue(responseCallback);
-    }
-    /**
-     * 开启异步线程访问网络, 且不在意返回结果（实现空callback）
-     * @param request
-     */
-    public static void enqueue(Request request){
-        mOkHttpClient.newCall(request).enqueue(new Callback() {
-             
-            @Override
-            public void onResponse(Response arg0) throws IOException {
-                 
-            }
-             
-            @Override
-            public void onFailure(Request arg0, IOException arg1) {
-                 
-            }
-        });
-    }
-    public static String getStringFromServer(String url) throws IOException{
-        Request request = new Request.Builder().url(url).build();
-        Response response = execute(request);
-        if (response.isSuccessful()) {
-            String responseUrl = response.body().string();
-            return responseUrl;
-        } else {
-            throw new IOException("Unexpected code " + response);
-        }
-    }
-    private static final String CHARSET_NAME = "UTF-8";
-    /**
-     * 这里使用了HttpClinet的API。只是为了方便
-     * @param params
-     * @return
-     */
-    public static String formatParams(List&lt;BasicNameValuePair&gt; params){
-        return URLEncodedUtils.format(params, CHARSET_NAME);
-    }
-    /**
-     * 为HttpGet 的 url 方便的添加多个name value 参数。
-     * @param url
-     * @param params
-     * @return
-     */
-    public static String attachHttpGetParams(String url, List&lt;BasicNameValuePair&gt; params){
-        return url + "?" + formatParams(params);
-    }
-    /**
-     * 为HttpGet 的 url 方便的添加1个name value 参数。
-     * @param url
-     * @param name
-     * @param value
-     * @return
-     */
-    public static String attachHttpGetParam(String url, String name, String value){
-        return url + "?" + name + "=" + value;
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.io.IOException;<br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-keyword">import</span> java.util.concurrent.TimeUnit;<br><span class="hljs-keyword">import</span> org.apache.http.client.utils.URLEncodedUtils;<br><span class="hljs-keyword">import</span> org.apache.http.message.BasicNameValuePair;<br><span class="hljs-keyword">import</span> cn.wiz.sdk.constant.WizConstant;<br><span class="hljs-keyword">import</span> com.squareup.okhttp.Callback;<br><span class="hljs-keyword">import</span> com.squareup.okhttp.OkHttpClient;<br><span class="hljs-keyword">import</span> com.squareup.okhttp.Request;<br><span class="hljs-keyword">import</span> com.squareup.okhttp.Response; <br>  <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OkHttpUtil</span> {<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">OkHttpClient</span> <span class="hljs-variable">mOkHttpClient</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">OkHttpClient</span>();<br>    <span class="hljs-keyword">static</span>{<br>        mOkHttpClient.setConnectTimeout(<span class="hljs-number">30</span>, TimeUnit.SECONDS);<br>    }<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 该不会开启异步线程。</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> request</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">     * <span class="hljs-doctag">@throws</span> IOException</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Response <span class="hljs-title function_">execute</span><span class="hljs-params">(Request request)</span> <span class="hljs-keyword">throws</span> IOException{<br>        <span class="hljs-keyword">return</span> mOkHttpClient.newCall(request).execute();<br>    }<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 开启异步线程访问网络</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> request</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> responseCallback</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">enqueue</span><span class="hljs-params">(Request request, Callback responseCallback)</span>{<br>        mOkHttpClient.newCall(request).enqueue(responseCallback);<br>    }<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 开启异步线程访问网络, 且不在意返回结果（实现空callback）</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> request</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">enqueue</span><span class="hljs-params">(Request request)</span>{<br>        mOkHttpClient.newCall(request).enqueue(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Callback</span>() {<br>             <br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onResponse</span><span class="hljs-params">(Response arg0)</span> <span class="hljs-keyword">throws</span> IOException {<br>                 <br>            }<br>             <br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onFailure</span><span class="hljs-params">(Request arg0, IOException arg1)</span> {<br>                 <br>            }<br>        });<br>    }<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">getStringFromServer</span><span class="hljs-params">(String url)</span> <span class="hljs-keyword">throws</span> IOException{<br>        <span class="hljs-type">Request</span> <span class="hljs-variable">request</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Request</span>.Builder().url(url).build();<br>        <span class="hljs-type">Response</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> execute(request);<br>        <span class="hljs-keyword">if</span> (response.isSuccessful()) {<br>            <span class="hljs-type">String</span> <span class="hljs-variable">responseUrl</span> <span class="hljs-operator">=</span> response.body().string();<br>            <span class="hljs-keyword">return</span> responseUrl;<br>        } <span class="hljs-keyword">else</span> {<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IOException</span>(<span class="hljs-string">"Unexpected code "</span> + response);<br>        }<br>    }<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">CHARSET_NAME</span> <span class="hljs-operator">=</span> <span class="hljs-string">"UTF-8"</span>;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 这里使用了HttpClinet的API。只是为了方便</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> params</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">formatParams</span><span class="hljs-params">(List&lt;BasicNameValuePair&gt; params)</span>{<br>        <span class="hljs-keyword">return</span> URLEncodedUtils.format(params, CHARSET_NAME);<br>    }<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 为HttpGet 的 url 方便的添加多个name value 参数。</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> url</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> params</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">attachHttpGetParams</span><span class="hljs-params">(String url, List&lt;BasicNameValuePair&gt; params)</span>{<br>        <span class="hljs-keyword">return</span> url + <span class="hljs-string">"?"</span> + formatParams(params);<br>    }<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 为HttpGet 的 url 方便的添加1个name value 参数。</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> url</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> name</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> value</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">attachHttpGetParam</span><span class="hljs-params">(String url, String name, String value)</span>{<br>        <span class="hljs-keyword">return</span> url + <span class="hljs-string">"?"</span> + name + <span class="hljs-string">"="</span> + value;<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="高级"><a href="#高级" class="headerlink" title="高级"></a>高级</h2><p>高级属性其实用的不多，这里主要是对OkHttp github官方教程进行了翻译。</p>
 <h2 id="同步get"><a href="#同步get" class="headerlink" title="同步get"></a>同步get</h2><p>下载一个文件，打印他的响应头，以string形式打印响应体。<br>响应体的 string() 方法对于小文档来说十分方便、高效。但是如果响应体太大（超过1MB），应避免适应 string()方法 ，因为他会将把整个文档加载到内存中。<br>对于超过1MB的响应body，应使用流的方式来处理body。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client = new OkHttpClient();
- 
-public void run() throws Exception {
-    Request request = new Request.Builder()
-        .url("http://publicobject.com/helloworld.txt")
-        .build();
- 
-    Response response = client.newCall(request).execute();
-    if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
- 
-    Headers responseHeaders = response.headers();
-    for (int i = 0; i &lt; responseHeaders.size(); i++) {
-      System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
-    }
- 
-    System.out.println(response.body().string());
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight vbscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs vbscript"><span class="hljs-keyword">private</span> final OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();<br> <br><span class="hljs-keyword">public</span> void run() throws Exception {<br>    <span class="hljs-built_in">Request</span> <span class="hljs-built_in">request</span> = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Request</span>.Builder()<br>        .url(<span class="hljs-string">"http://publicobject.com/helloworld.txt"</span>)<br>        .build();<br> <br>    <span class="hljs-built_in">Response</span> <span class="hljs-built_in">response</span> = client.newCall(<span class="hljs-built_in">request</span>).<span class="hljs-keyword">execute</span>();<br>    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">response</span>.isSuccessful()) throw <span class="hljs-keyword">new</span> IOException(<span class="hljs-string">"Unexpected code "</span> + <span class="hljs-built_in">response</span>);<br> <br>    Headers responseHeaders = <span class="hljs-built_in">response</span>.headers();<br>    <span class="hljs-keyword">for</span> (int i = <span class="hljs-number">0</span>; i &lt; responseHeaders.size(); i++) {<br>      System.out.println(responseHeaders.name(i) + <span class="hljs-string">": "</span> + responseHeaders.value(i));<br>    }<br> <br>    System.out.println(<span class="hljs-built_in">response</span>.body().<span class="hljs-built_in">string</span>());<br>}<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="异步get"><a href="#异步get" class="headerlink" title="异步get"></a>异步get</h2><p>在一个工作线程中下载文件，当响应可读时回调Callback接口。读取响应时会阻塞当前线程。OkHttp现阶段不提供异步api来接收响应体。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client = new OkHttpClient();
- 
-public void run() throws Exception {
-    Request request = new Request.Builder()
-        .url("http://publicobject.com/helloworld.txt")
-        .build();
- 
-    client.newCall(request).enqueue(new Callback() {
-      @Override public void onFailure(Request request, Throwable throwable) {
-        throwable.printStackTrace();
-      }
- 
-      @Override public void onResponse(Response response) throws IOException {
-        if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
- 
-        Headers responseHeaders = response.headers();
-        for (int i = 0; i &lt; responseHeaders.size(); i++) {
-          System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
-        }
- 
-        System.out.println(response.body().string());
-      }
-    });
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-type">OkHttpClient</span> <span class="hljs-variable">client</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">OkHttpClient</span>();<br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception {<br>    <span class="hljs-type">Request</span> <span class="hljs-variable">request</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Request</span>.Builder()<br>        .url(<span class="hljs-string">"http://publicobject.com/helloworld.txt"</span>)<br>        .build();<br> <br>    client.newCall(request).enqueue(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Callback</span>() {<br>      <span class="hljs-meta">@Override</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onFailure</span><span class="hljs-params">(Request request, Throwable throwable)</span> {<br>        throwable.printStackTrace();<br>      }<br> <br>      <span class="hljs-meta">@Override</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onResponse</span><span class="hljs-params">(Response response)</span> <span class="hljs-keyword">throws</span> IOException {<br>        <span class="hljs-keyword">if</span> (!response.isSuccessful()) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IOException</span>(<span class="hljs-string">"Unexpected code "</span> + response);<br> <br>        <span class="hljs-type">Headers</span> <span class="hljs-variable">responseHeaders</span> <span class="hljs-operator">=</span> response.headers();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; responseHeaders.size(); i++) {<br>          System.out.println(responseHeaders.name(i) + <span class="hljs-string">": "</span> + responseHeaders.value(i));<br>        }<br> <br>        System.out.println(response.body().string());<br>      }<br>    });<br>}<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="提取响应头"><a href="#提取响应头" class="headerlink" title="提取响应头"></a>提取响应头</h2><p>典型的HTTP头 像是一个 Map&lt;String, String&gt; :每个字段都有一个或没有值。但是一些头允许多个值，像Guava的Multimap。例如：HTTP响应里面提供的Vary响应头，就是多值的。OkHttp的api试图让这些情况都适用。<br>当写请求头的时候，使用header(name, value)可以设置唯一的name、value。如果已经有值，旧的将被移除，然后添加新的。使用addHeader(name, value)可以添加多值（添加，不移除已有的）。<br>当读取响应头时，使用header(name)返回最后出现的name、value。通常情况这也是唯一的name、value。如果没有值，那么header(name)将返回null。如果想读取字段对应的所有值，使用headers(name)会返回一个list。<br>为了获取所有的Header，Headers类支持按index访问。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client = new OkHttpClient();
- 
-public void run() throws Exception {
-    Request request = new Request.Builder()
-        .url("https://api.github.com/repos/square/okhttp/issues")
-        .header("User-Agent", "OkHttp Headers.java")
-        .addHeader("Accept", "application/json; q=0.5")
-        .addHeader("Accept", "application/vnd.github.v3+json")
-        .build();
- 
-    Response response = client.newCall(request).execute();
-    if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
- 
-    System.out.println("Server: " + response.header("Server"));
-    System.out.println("Date: " + response.header("Date"));
-    System.out.println("Vary: " + response.headers("Vary"));
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-keyword">private</span> final OkHttpClient client = <span class="hljs-keyword">new</span> <span class="hljs-constructor">OkHttpClient()</span>;<br> <br>public void run<span class="hljs-literal">()</span> throws Exception {<br>    Request request = <span class="hljs-keyword">new</span> Request.<span class="hljs-constructor">Builder()</span><br>        .url(<span class="hljs-string">"https://api.github.com/repos/square/okhttp/issues"</span>)<br>        .header(<span class="hljs-string">"User-Agent"</span>, <span class="hljs-string">"OkHttp Headers.java"</span>)<br>        .add<span class="hljs-constructor">Header(<span class="hljs-string">"Accept"</span>, <span class="hljs-string">"application/json; q=0.5"</span>)</span><br>        .add<span class="hljs-constructor">Header(<span class="hljs-string">"Accept"</span>, <span class="hljs-string">"application/vnd.github.v3+json"</span>)</span><br>        .build<span class="hljs-literal">()</span>;<br> <br>    Response response = client.<span class="hljs-keyword">new</span><span class="hljs-constructor">Call(<span class="hljs-params">request</span>)</span>.execute<span class="hljs-literal">()</span>;<br>    <span class="hljs-keyword">if</span> (!response.is<span class="hljs-constructor">Successful()</span>) throw <span class="hljs-keyword">new</span> <span class="hljs-constructor">IOException(<span class="hljs-string">"Unexpected code "</span> + <span class="hljs-params">response</span>)</span>;<br> <br>    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"Server: "</span> + response.header(<span class="hljs-string">"Server"</span>));<br>    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"Date: "</span> + response.header(<span class="hljs-string">"Date"</span>));<br>    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"Vary: "</span> + response.headers(<span class="hljs-string">"Vary"</span>));<br>}<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="Post方式提交String"><a href="#Post方式提交String" class="headerlink" title="Post方式提交String"></a>Post方式提交String</h2><p>使用HTTP POST提交请求到服务。这个例子提交了一个markdown文档到web服务，以HTML方式渲染markdown。因为整个请求体都在内存中，因此避免使用此api提交大文档（大于1MB）。</p>
-<pre class="line-numbers language-none"><code class="language-none">public static final MediaType MEDIA_TYPE_MARKDOWN
-  = MediaType.parse("text/x-markdown; charset=utf-8");
- 
-private final OkHttpClient client = new OkHttpClient();
- 
-public void run() throws Exception {
-    String postBody = ""
-        + "Releases\n"
-        + "--------\n"
-        + "\n"
-        + " * _1.0_ May 6, 2013\n"
-        + " * _1.1_ June 15, 2013\n"
-        + " * _1.2_ August 11, 2013\n";
- 
-    Request request = new Request.Builder()
-        .url("https://api.github.com/markdown/raw")
-        .post(RequestBody.create(MEDIA_TYPE_MARKDOWN, postBody))
-        .build();
- 
-    Response response = client.newCall(request).execute();
-    if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
- 
-    System.out.println(response.body().string());
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">MediaType</span> <span class="hljs-variable">MEDIA_TYPE_MARKDOWN</span><br>  <span class="hljs-operator">=</span> MediaType.parse(<span class="hljs-string">"text/x-markdown; charset=utf-8"</span>);<br> <br><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-type">OkHttpClient</span> <span class="hljs-variable">client</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">OkHttpClient</span>();<br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception {<br>    <span class="hljs-type">String</span> <span class="hljs-variable">postBody</span> <span class="hljs-operator">=</span> <span class="hljs-string">""</span><br>        + <span class="hljs-string">"Releases\n"</span><br>        + <span class="hljs-string">"--------\n"</span><br>        + <span class="hljs-string">"\n"</span><br>        + <span class="hljs-string">" * _1.0_ May 6, 2013\n"</span><br>        + <span class="hljs-string">" * _1.1_ June 15, 2013\n"</span><br>        + <span class="hljs-string">" * _1.2_ August 11, 2013\n"</span>;<br> <br>    <span class="hljs-type">Request</span> <span class="hljs-variable">request</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Request</span>.Builder()<br>        .url(<span class="hljs-string">"https://api.github.com/markdown/raw"</span>)<br>        .post(RequestBody.create(MEDIA_TYPE_MARKDOWN, postBody))<br>        .build();<br> <br>    <span class="hljs-type">Response</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> client.newCall(request).execute();<br>    <span class="hljs-keyword">if</span> (!response.isSuccessful()) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IOException</span>(<span class="hljs-string">"Unexpected code "</span> + response);<br> <br>    System.out.println(response.body().string());<br>}<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="Post方式提交流"><a href="#Post方式提交流" class="headerlink" title="Post方式提交流"></a>Post方式提交流</h2><p>以流的方式POST提交请求体。请求体的内容由流写入产生。这个例子是流直接写入Okio的BufferedSink。你的程序可能会使用OutputStream，你可以使用BufferedSink.outputStream()来获取。</p>
-<pre class="line-numbers language-none"><code class="language-none">public static final MediaType MEDIA_TYPE_MARKDOWN
-      = MediaType.parse("text/x-markdown; charset=utf-8");
- 
-private final OkHttpClient client = new OkHttpClient();
- 
-public void run() throws Exception {
-    RequestBody requestBody = new RequestBody() {
-      @Override public MediaType contentType() {
-        return MEDIA_TYPE_MARKDOWN;
-      }
- 
-      @Override public void writeTo(BufferedSink sink) throws IOException {
-        sink.writeUtf8("Numbers\n");
-        sink.writeUtf8("-------\n");
-        for (int i = 2; i &lt;= 997; i++) {
-          sink.writeUtf8(String.format(" * %s = %s\n", i, factor(i)));
-        }
-      }
- 
-      private String factor(int n) {
-        for (int i = 2; i &lt; n; i++) {
-          int x = n / i;
-          if (x * i == n) return factor(x) + " × " + i;
-        }
-        return Integer.toString(n);
-      }
-    };
- 
-    Request request = new Request.Builder()
-        .url("https://api.github.com/markdown/raw")
-        .post(requestBody)
-        .build();
- 
-    Response response = client.newCall(request).execute();
-    if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
- 
-    System.out.println(response.body().string());
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">MediaType</span> <span class="hljs-variable">MEDIA_TYPE_MARKDOWN</span><br>      <span class="hljs-operator">=</span> MediaType.parse(<span class="hljs-string">"text/x-markdown; charset=utf-8"</span>);<br> <br><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-type">OkHttpClient</span> <span class="hljs-variable">client</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">OkHttpClient</span>();<br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception {<br>    <span class="hljs-type">RequestBody</span> <span class="hljs-variable">requestBody</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RequestBody</span>() {<br>      <span class="hljs-meta">@Override</span> <span class="hljs-keyword">public</span> MediaType <span class="hljs-title function_">contentType</span><span class="hljs-params">()</span> {<br>        <span class="hljs-keyword">return</span> MEDIA_TYPE_MARKDOWN;<br>      }<br> <br>      <span class="hljs-meta">@Override</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">writeTo</span><span class="hljs-params">(BufferedSink sink)</span> <span class="hljs-keyword">throws</span> IOException {<br>        sink.writeUtf8(<span class="hljs-string">"Numbers\n"</span>);<br>        sink.writeUtf8(<span class="hljs-string">"-------\n"</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= <span class="hljs-number">997</span>; i++) {<br>          sink.writeUtf8(String.format(<span class="hljs-string">" * %s = %s\n"</span>, i, factor(i)));<br>        }<br>      }<br> <br>      <span class="hljs-keyword">private</span> String <span class="hljs-title function_">factor</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> {<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt; n; i++) {<br>          <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> n / i;<br>          <span class="hljs-keyword">if</span> (x * i == n) <span class="hljs-keyword">return</span> factor(x) + <span class="hljs-string">" × "</span> + i;<br>        }<br>        <span class="hljs-keyword">return</span> Integer.toString(n);<br>      }<br>    };<br> <br>    <span class="hljs-type">Request</span> <span class="hljs-variable">request</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Request</span>.Builder()<br>        .url(<span class="hljs-string">"https://api.github.com/markdown/raw"</span>)<br>        .post(requestBody)<br>        .build();<br> <br>    <span class="hljs-type">Response</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> client.newCall(request).execute();<br>    <span class="hljs-keyword">if</span> (!response.isSuccessful()) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IOException</span>(<span class="hljs-string">"Unexpected code "</span> + response);<br> <br>    System.out.println(response.body().string());<br>}<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="Post方式提交文件"><a href="#Post方式提交文件" class="headerlink" title="Post方式提交文件"></a>Post方式提交文件</h2><p>以文件作为请求体是十分简单的。</p>
-<pre class="line-numbers language-none"><code class="language-none">public static final MediaType MEDIA_TYPE_MARKDOWN
-  = MediaType.parse("text/x-markdown; charset=utf-8");
- 
-private final OkHttpClient client = new OkHttpClient();
- 
-public void run() throws Exception {
-    File file = new File("README.md");
- 
-    Request request = new Request.Builder()
-        .url("https://api.github.com/markdown/raw")
-        .post(RequestBody.create(MEDIA_TYPE_MARKDOWN, file))
-        .build();
- 
-    Response response = client.newCall(request).execute();
-    if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
- 
-    System.out.println(response.body().string());
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">MediaType</span> <span class="hljs-variable">MEDIA_TYPE_MARKDOWN</span><br>  <span class="hljs-operator">=</span> MediaType.parse(<span class="hljs-string">"text/x-markdown; charset=utf-8"</span>);<br> <br><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-type">OkHttpClient</span> <span class="hljs-variable">client</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">OkHttpClient</span>();<br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception {<br>    <span class="hljs-type">File</span> <span class="hljs-variable">file</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(<span class="hljs-string">"README.md"</span>);<br> <br>    <span class="hljs-type">Request</span> <span class="hljs-variable">request</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Request</span>.Builder()<br>        .url(<span class="hljs-string">"https://api.github.com/markdown/raw"</span>)<br>        .post(RequestBody.create(MEDIA_TYPE_MARKDOWN, file))<br>        .build();<br> <br>    <span class="hljs-type">Response</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> client.newCall(request).execute();<br>    <span class="hljs-keyword">if</span> (!response.isSuccessful()) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IOException</span>(<span class="hljs-string">"Unexpected code "</span> + response);<br> <br>    System.out.println(response.body().string());<br>}<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="Post方式提交表单"><a href="#Post方式提交表单" class="headerlink" title="Post方式提交表单"></a>Post方式提交表单</h2><p>使用FormEncodingBuilder来构建和HTML</p><form>标签相同效果的请求体。键值对将使用一种HTML兼容形式的URL编码来进行编码。<p></p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client = new OkHttpClient();
- 
-public void run() throws Exception {
-    RequestBody formBody = new FormEncodingBuilder()
-        .add("search", "Jurassic Park")
-        .build();
-    Request request = new Request.Builder()
-        .url("https://en.wikipedia.org/w/index.php")
-        .post(formBody)
-        .build();
- 
-    Response response = client.newCall(request).execute();
-    if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
- 
-    System.out.println(response.body().string());
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight vbscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs vbscript"><span class="hljs-keyword">private</span> final OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();<br> <br><span class="hljs-keyword">public</span> void run() throws Exception {<br>    RequestBody formBody = <span class="hljs-keyword">new</span> FormEncodingBuilder()<br>        .add(<span class="hljs-string">"search"</span>, <span class="hljs-string">"Jurassic Park"</span>)<br>        .build();<br>    <span class="hljs-built_in">Request</span> <span class="hljs-built_in">request</span> = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Request</span>.Builder()<br>        .url(<span class="hljs-string">"https://en.wikipedia.org/w/index.php"</span>)<br>        .post(formBody)<br>        .build();<br> <br>    <span class="hljs-built_in">Response</span> <span class="hljs-built_in">response</span> = client.newCall(<span class="hljs-built_in">request</span>).<span class="hljs-keyword">execute</span>();<br>    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">response</span>.isSuccessful()) throw <span class="hljs-keyword">new</span> IOException(<span class="hljs-string">"Unexpected code "</span> + <span class="hljs-built_in">response</span>);<br> <br>    System.out.println(<span class="hljs-built_in">response</span>.body().<span class="hljs-built_in">string</span>());<br>}<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="Post方式提交分块请求"><a href="#Post方式提交分块请求" class="headerlink" title="Post方式提交分块请求"></a>Post方式提交分块请求</h2><p>MultipartBuilder可以构建复杂的请求体，与HTML文件上传形式兼容。多块请求体中每块请求都是一个请求体，可以定义自己的请求头。这些请求头可以用来描述这块请求，例如他的Content-Disposition。如果Content-Length和Content-Type可用的话，他们会被自动添加到请求头中。</p>
-<pre class="line-numbers language-none"><code class="language-none">private static final String IMGUR_CLIENT_ID = "...";
-private static final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
- 
-private final OkHttpClient client = new OkHttpClient();
- 
-public void run() throws Exception {
-    // Use the imgur image upload API as documented at https://api.imgur.com/endpoints/image
-    RequestBody requestBody = new MultipartBuilder()
-        .type(MultipartBuilder.FORM)
-        .addPart(
-            Headers.of("Content-Disposition", "form-data; name=\"title\""),
-            RequestBody.create(null, "Square Logo"))
-        .addPart(
-            Headers.of("Content-Disposition", "form-data; name=\"image\""),
-            RequestBody.create(MEDIA_TYPE_PNG, new File("website/static/logo-square.png")))
-        .build();
- 
-    Request request = new Request.Builder()
-        .header("Authorization", "Client-ID " + IMGUR_CLIENT_ID)
-        .url("https://api.imgur.com/3/image")
-        .post(requestBody)
-        .build();
- 
-    Response response = client.newCall(request).execute();
-    if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
- 
-    System.out.println(response.body().string());
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">IMGUR_CLIENT_ID</span> <span class="hljs-operator">=</span> <span class="hljs-string">"..."</span>;<br><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">MediaType</span> <span class="hljs-variable">MEDIA_TYPE_PNG</span> <span class="hljs-operator">=</span> MediaType.parse(<span class="hljs-string">"image/png"</span>);<br> <br><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-type">OkHttpClient</span> <span class="hljs-variable">client</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">OkHttpClient</span>();<br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception {<br>    <span class="hljs-comment">// Use the imgur image upload API as documented at https://api.imgur.com/endpoints/image</span><br>    <span class="hljs-type">RequestBody</span> <span class="hljs-variable">requestBody</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MultipartBuilder</span>()<br>        .type(MultipartBuilder.FORM)<br>        .addPart(<br>            Headers.of(<span class="hljs-string">"Content-Disposition"</span>, <span class="hljs-string">"form-data; name=\"title\""</span>),<br>            RequestBody.create(<span class="hljs-literal">null</span>, <span class="hljs-string">"Square Logo"</span>))<br>        .addPart(<br>            Headers.of(<span class="hljs-string">"Content-Disposition"</span>, <span class="hljs-string">"form-data; name=\"image\""</span>),<br>            RequestBody.create(MEDIA_TYPE_PNG, <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(<span class="hljs-string">"website/static/logo-square.png"</span>)))<br>        .build();<br> <br>    <span class="hljs-type">Request</span> <span class="hljs-variable">request</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Request</span>.Builder()<br>        .header(<span class="hljs-string">"Authorization"</span>, <span class="hljs-string">"Client-ID "</span> + IMGUR_CLIENT_ID)<br>        .url(<span class="hljs-string">"https://api.imgur.com/3/image"</span>)<br>        .post(requestBody)<br>        .build();<br> <br>    <span class="hljs-type">Response</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> client.newCall(request).execute();<br>    <span class="hljs-keyword">if</span> (!response.isSuccessful()) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IOException</span>(<span class="hljs-string">"Unexpected code "</span> + response);<br> <br>    System.out.println(response.body().string());<br>}<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="使用Gson来解析JSON响应"><a href="#使用Gson来解析JSON响应" class="headerlink" title="使用Gson来解析JSON响应"></a>使用Gson来解析JSON响应</h2><p>Gson是一个在JSON和Java对象之间转换非常方便的api。这里我们用Gson来解析Github API的JSON响应。<br>注意：ResponseBody.charStream()使用响应头Content-Type指定的字符集来解析响应体。默认是UTF-8。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client = new OkHttpClient();
-private final Gson gson = new Gson();
- 
-public void run() throws Exception {
-    Request request = new Request.Builder()
-        .url("https://api.github.com/gists/c2a7c39532239ff261be")
-        .build();
-    Response response = client.newCall(request).execute();
-    if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
- 
-    Gist gist = gson.fromJson(response.body().charStream(), Gist.class);
-    for (Map.Entry&lt;String, GistFile&gt; entry : gist.files.entrySet()) {
-      System.out.println(entry.getKey());
-      System.out.println(entry.getValue().content);
-    }
-}
- 
-static class Gist {
-    Map&lt;String, GistFile&gt; files;
-}
- 
-static class GistFile {
-    String content;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-keyword">private</span> final OkHttpClient client = <span class="hljs-keyword">new</span> <span class="hljs-constructor">OkHttpClient()</span>;<br><span class="hljs-keyword">private</span> final Gson gson = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Gson()</span>;<br> <br>public void run<span class="hljs-literal">()</span> throws Exception {<br>    Request request = <span class="hljs-keyword">new</span> Request.<span class="hljs-constructor">Builder()</span><br>        .url(<span class="hljs-string">"https://api.github.com/gists/c2a7c39532239ff261be"</span>)<br>        .build<span class="hljs-literal">()</span>;<br>    Response response = client.<span class="hljs-keyword">new</span><span class="hljs-constructor">Call(<span class="hljs-params">request</span>)</span>.execute<span class="hljs-literal">()</span>;<br>    <span class="hljs-keyword">if</span> (!response.is<span class="hljs-constructor">Successful()</span>) throw <span class="hljs-keyword">new</span> <span class="hljs-constructor">IOException(<span class="hljs-string">"Unexpected code "</span> + <span class="hljs-params">response</span>)</span>;<br> <br>    Gist gist = gson.from<span class="hljs-constructor">Json(<span class="hljs-params">response</span>.<span class="hljs-params">body</span>()</span>.<span class="hljs-built_in">char</span><span class="hljs-constructor">Stream()</span>, <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Gist</span>.</span></span><span class="hljs-keyword">class</span>);<br>    <span class="hljs-keyword">for</span> (Map.Entry&lt;String, GistFile&gt; entry : gist.files.entry<span class="hljs-constructor">Set()</span>) {<br>      <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(entry.get<span class="hljs-constructor">Key()</span>);<br>      <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(entry.get<span class="hljs-constructor">Value()</span>.content);<br>    }<br>}<br> <br>static <span class="hljs-keyword">class</span> Gist {<br>    Map&lt;String, GistFile&gt; files;<br>}<br> <br>static <span class="hljs-keyword">class</span> GistFile {<br>    String content;<br>}<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="响应缓存"><a href="#响应缓存" class="headerlink" title="响应缓存"></a>响应缓存</h2><p>为了缓存响应，你需要一个你可以读写的缓存目录，和缓存大小的限制。这个缓存目录应该是私有的，不信任的程序应不能读取缓存内容。<br>一个缓存目录同时拥有多个缓存访问是错误的。大多数程序只需要调用一次new OkHttp()，在第一次调用时配置好缓存，然后其他地方只需要调用这个实例就可以了。否则两个缓存示例互相干扰，破坏响应缓存，而且有可能会导致程序崩溃。<br>响应缓存使用HTTP头作为配置。你可以在请求头中添加Cache-Control: max-stale=3600 ,OkHttp缓存会支持。你的服务通过响应头确定响应缓存多长时间，例如使用Cache-Control: max-age=9600。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client;
- 
-public CacheResponse(File cacheDirectory) throws Exception {
-    int cacheSize = 10 * 1024 * 1024; // 10 MiB
-    Cache cache = new Cache(cacheDirectory, cacheSize);
- 
-    client = new OkHttpClient();
-    client.setCache(cache);
-}
- 
-public void run() throws Exception {
-    Request request = new Request.Builder()
-        .url("http://publicobject.com/helloworld.txt")
-        .build();
- 
-    Response response1 = client.newCall(request).execute();
-    if (!response1.isSuccessful()) throw new IOException("Unexpected code " + response1);
- 
-    String response1Body = response1.body().string();
-    System.out.println("Response 1 response:          " + response1);
-    System.out.println("Response 1 cache response:    " + response1.cacheResponse());
-    System.out.println("Response 1 network response:  " + response1.networkResponse());
- 
-    Response response2 = client.newCall(request).execute();
-    if (!response2.isSuccessful()) throw new IOException("Unexpected code " + response2);
- 
-    String response2Body = response2.body().string();
-    System.out.println("Response 2 response:          " + response2);
-    System.out.println("Response 2 cache response:    " + response2.cacheResponse());
-    System.out.println("Response 2 network response:  " + response2.networkResponse());
- 
-    System.out.println("Response 2 equals Response 1? " + response1Body.equals(response2Body));
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-keyword">private</span> final OkHttpClient client;<br> <br>public <span class="hljs-constructor">CacheResponse(File <span class="hljs-params">cacheDirectory</span>)</span> throws Exception {<br>    <span class="hljs-built_in">int</span> cacheSize = <span class="hljs-number">10</span><span class="hljs-operator"> * </span><span class="hljs-number">1024</span><span class="hljs-operator"> * </span><span class="hljs-number">1024</span>; <span class="hljs-comment">// 10 MiB</span><br>    Cache cache = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Cache(<span class="hljs-params">cacheDirectory</span>, <span class="hljs-params">cacheSize</span>)</span>;<br> <br>    client = <span class="hljs-keyword">new</span> <span class="hljs-constructor">OkHttpClient()</span>;<br>    client.set<span class="hljs-constructor">Cache(<span class="hljs-params">cache</span>)</span>;<br>}<br> <br>public void run<span class="hljs-literal">()</span> throws Exception {<br>    Request request = <span class="hljs-keyword">new</span> Request.<span class="hljs-constructor">Builder()</span><br>        .url(<span class="hljs-string">"http://publicobject.com/helloworld.txt"</span>)<br>        .build<span class="hljs-literal">()</span>;<br> <br>    Response response1 = client.<span class="hljs-keyword">new</span><span class="hljs-constructor">Call(<span class="hljs-params">request</span>)</span>.execute<span class="hljs-literal">()</span>;<br>    <span class="hljs-keyword">if</span> (!response1.is<span class="hljs-constructor">Successful()</span>) throw <span class="hljs-keyword">new</span> <span class="hljs-constructor">IOException(<span class="hljs-string">"Unexpected code "</span> + <span class="hljs-params">response1</span>)</span>;<br> <br>    String response1Body = response1.body<span class="hljs-literal">()</span>.<span class="hljs-built_in">string</span><span class="hljs-literal">()</span>;<br>    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"Response 1 response:          "</span> + response1);<br>    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"Response 1 cache response:    "</span> + response1.cache<span class="hljs-constructor">Response()</span>);<br>    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"Response 1 network response:  "</span> + response1.network<span class="hljs-constructor">Response()</span>);<br> <br>    Response response2 = client.<span class="hljs-keyword">new</span><span class="hljs-constructor">Call(<span class="hljs-params">request</span>)</span>.execute<span class="hljs-literal">()</span>;<br>    <span class="hljs-keyword">if</span> (!response2.is<span class="hljs-constructor">Successful()</span>) throw <span class="hljs-keyword">new</span> <span class="hljs-constructor">IOException(<span class="hljs-string">"Unexpected code "</span> + <span class="hljs-params">response2</span>)</span>;<br> <br>    String response2Body = response2.body<span class="hljs-literal">()</span>.<span class="hljs-built_in">string</span><span class="hljs-literal">()</span>;<br>    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"Response 2 response:          "</span> + response2);<br>    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"Response 2 cache response:    "</span> + response2.cache<span class="hljs-constructor">Response()</span>);<br>    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"Response 2 network response:  "</span> + response2.network<span class="hljs-constructor">Response()</span>);<br> <br>    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"Response 2 equals Response 1? "</span> + response1Body.equals(response2Body));<br>}<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>在这一节还提到了下面一句：<br>There are cache headers to force a cached response, force a network response, or force the network response to be validated with a conditional GET.</p>
 <p>我不是很懂cache，平时用到的也不多，所以把Google在Android Developers一段相关的解析放到这里吧。</p>
 <h2 id="Force-a-Network-Response"><a href="#Force-a-Network-Response" class="headerlink" title="Force a Network Response"></a>Force a Network Response</h2><p>In some situations, such as after a user clicks a ‘refresh’ button, it may be necessary to skip the cache, and fetch data directly from the server. To force a full refresh, add the no-cache directive:</p>
@@ -925,135 +558,25 @@ public void run() throws Exception {
 <p>connection.addRequestProperty(“Cache-Control”, “max-age=0”);</p>
 </blockquote>
 <p>##Force a Cache Response<br>Sometimes you’ll want to show resources if they are available immediately, but not otherwise. This can be used so your application can show something while waiting for the latest data to be downloaded. To restrict a request to locally-cached resources, add the only-if-cached directive:</p>
-<pre class="line-numbers language-none"><code class="language-none">try {
-     connection.addRequestProperty("Cache-Control", "only-if-cached");
-     InputStream cached = connection.getInputStream();
-     // the resource was cached! show it
-  catch (FileNotFoundException e) {
-     // the resource was not cached
- }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">try</span> {<br>     connection.addRequestProperty(<span class="hljs-string">"Cache-Control"</span>, <span class="hljs-string">"only-if-cached"</span>);<br>     <span class="hljs-type">InputStream</span> <span class="hljs-variable">cached</span> <span class="hljs-operator">=</span> connection.getInputStream();<br>     <span class="hljs-comment">// the resource was cached! show it</span><br>  <span class="hljs-keyword">catch</span> (FileNotFoundException e) {<br>     <span class="hljs-comment">// the resource was not cached</span><br> }<br>}<br></code></pre></td></tr></tbody></table></figure>
 <p>This technique works even better in situations where a stale response is better than no response. To permit stale cached responses, use the max-stale directive with the maximum staleness in seconds:</p>
-<pre class="line-numbers language-none"><code class="language-none">int maxStale = 60 * 60 * 24 * 28; // tolerate 4-weeks staleconnection.addRequestProperty("Cache-Control", "max-stale=" + maxStale);
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">int</span> maxStale = <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">28</span>; // tolerate <span class="hljs-number">4</span>-weeks staleconnection.addRequestProperty(<span class="hljs-string">"Cache-Control"</span>, <span class="hljs-string">"max-stale="</span> + maxStale);<br><br></code></pre></td></tr></tbody></table></figure>
 <p>以上信息来自：<a target="_blank" rel="noopener" href="http://developer.android.com/reference/android/net/http/HttpResponseCache.html">HttpResponseCache - Android SDK | Android Developers</a></p>
 <h2 id="取消一个Call"><a href="#取消一个Call" class="headerlink" title="取消一个Call"></a>取消一个Call</h2><p>使用Call.cancel()可以立即停止掉一个正在执行的call。如果一个线程正在写请求或者读响应，将会引发IOException。当call没有必要的时候，使用这个api可以节约网络资源。例如当用户离开一个应用时。不管同步还是异步的call都可以取消。<br>你可以通过tags来同时取消多个请求。当你构建一请求时，使用RequestBuilder.tag(tag)来分配一个标签。之后你就可以用OkHttpClient.cancel(tag)来取消所有带有这个tag的call。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-private final OkHttpClient client = new OkHttpClient();
- 
-public void run() throws Exception {
-    Request request = new Request.Builder()
-        .url("http://httpbin.org/delay/2") // This URL is served with a 2 second delay.
-        .build();
- 
-    final long startNanos = System.nanoTime();
-    final Call call = client.newCall(request);
- 
-    // Schedule a job to cancel the call in 1 second.
-    executor.schedule(new Runnable() {
-      @Override public void run() {
-        System.out.printf("%.2f Canceling call.%n", (System.nanoTime() - startNanos) / 1e9f);
-        call.cancel();
-        System.out.printf("%.2f Canceled call.%n", (System.nanoTime() - startNanos) / 1e9f);
-      }
-    }, 1, TimeUnit.SECONDS);
- 
-    try {
-      System.out.printf("%.2f Executing call.%n", (System.nanoTime() - startNanos) / 1e9f);
-      Response response = call.execute();
-      System.out.printf("%.2f Call was expected to fail, but completed: %s%n",
-          (System.nanoTime() - startNanos) / 1e9f, response);
-    } catch (IOException e) {
-      System.out.printf("%.2f Call failed as expected: %s%n",
-          (System.nanoTime() - startNanos) / 1e9f, e);
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-keyword">private</span> final ScheduledExecutorService executor = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Executors</span>.</span></span><span class="hljs-keyword">new</span><span class="hljs-constructor">ScheduledThreadPool(1)</span>;<br><span class="hljs-keyword">private</span> final OkHttpClient client = <span class="hljs-keyword">new</span> <span class="hljs-constructor">OkHttpClient()</span>;<br> <br>public void run<span class="hljs-literal">()</span> throws Exception {<br>    Request request = <span class="hljs-keyword">new</span> Request.<span class="hljs-constructor">Builder()</span><br>        .url(<span class="hljs-string">"http://httpbin.org/delay/2"</span>) <span class="hljs-comment">// This URL is served with a 2 second delay.</span><br>        .build<span class="hljs-literal">()</span>;<br> <br>    final long startNanos = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>nano<span class="hljs-constructor">Time()</span>;<br>    final Call call = client.<span class="hljs-keyword">new</span><span class="hljs-constructor">Call(<span class="hljs-params">request</span>)</span>;<br> <br>    <span class="hljs-comment">// Schedule a job to cancel the call in 1 second.</span><br>    executor.schedule(<span class="hljs-keyword">new</span> <span class="hljs-constructor">Runnable()</span> {<br>      @Override public void run<span class="hljs-literal">()</span> {<br>        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.printf(<span class="hljs-string">"%.2f Canceling call.%n"</span>, (<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>nano<span class="hljs-constructor">Time()</span> - startNanos)<span class="hljs-operator"> / </span><span class="hljs-number">1e9</span>f);<br>        call.cancel<span class="hljs-literal">()</span>;<br>        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.printf(<span class="hljs-string">"%.2f Canceled call.%n"</span>, (<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>nano<span class="hljs-constructor">Time()</span> - startNanos)<span class="hljs-operator"> / </span><span class="hljs-number">1e9</span>f);<br>      }<br>    }, <span class="hljs-number">1</span>, TimeUnit.SECONDS);<br> <br>    <span class="hljs-keyword">try</span> {<br>      <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.printf(<span class="hljs-string">"%.2f Executing call.%n"</span>, (<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>nano<span class="hljs-constructor">Time()</span> - startNanos)<span class="hljs-operator"> / </span><span class="hljs-number">1e9</span>f);<br>      Response response = call.execute<span class="hljs-literal">()</span>;<br>      <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.printf(<span class="hljs-string">"%.2f Call was expected to fail, but completed: %s%n"</span>,<br>          (<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>nano<span class="hljs-constructor">Time()</span> - startNanos)<span class="hljs-operator"> / </span><span class="hljs-number">1e9</span>f, response);<br>    } catch (IOException e) {<br>      <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.printf(<span class="hljs-string">"%.2f Call failed as expected: %s%n"</span>,<br>          (<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>nano<span class="hljs-constructor">Time()</span> - startNanos)<span class="hljs-operator"> / </span><span class="hljs-number">1e9</span>f, e);<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="超时"><a href="#超时" class="headerlink" title="超时"></a>超时</h2><p>没有响应时使用超时结束call。没有响应的原因可能是客户点链接问题、服务器可用性问题或者这之间的其他东西。OkHttp支持连接，读取和写入超时</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client;
- 
-public ConfigureTimeouts() throws Exception {
-    client = new OkHttpClient();
-    client.setConnectTimeout(10, TimeUnit.SECONDS);
-    client.setWriteTimeout(10, TimeUnit.SECONDS);
-    client.setReadTimeout(30, TimeUnit.SECONDS);
-}
- 
-public void run() throws Exception {
-    Request request = new Request.Builder()
-        .url("http://httpbin.org/delay/2") // This URL is served with a 2 second delay.
-        .build();
- 
-    Response response = client.newCall(request).execute();
-    System.out.println("Response completed: " + response);
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight axapta"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs axapta"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> OkHttpClient <span class="hljs-keyword">client</span>;<br> <br><span class="hljs-keyword">public</span> ConfigureTimeouts() throws Exception {<br>    <span class="hljs-keyword">client</span> = <span class="hljs-keyword">new</span> OkHttpClient();<br>    <span class="hljs-keyword">client</span>.setConnectTimeout(<span class="hljs-number">10</span>, TimeUnit.SECONDS);<br>    <span class="hljs-keyword">client</span>.setWriteTimeout(<span class="hljs-number">10</span>, TimeUnit.SECONDS);<br>    <span class="hljs-keyword">client</span>.setReadTimeout(<span class="hljs-number">30</span>, TimeUnit.SECONDS);<br>}<br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> run() throws Exception {<br>    Request request = <span class="hljs-keyword">new</span> Request.Builder()<br>        .url(<span class="hljs-string">"http://httpbin.org/delay/2"</span>) <span class="hljs-comment">// This URL is served with a 2 second delay.</span><br>        .build();<br> <br>    Response response = <span class="hljs-keyword">client</span>.newCall(request).execute();<br>    System.out.println(<span class="hljs-string">"Response completed: "</span> + response);<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="每个call的配置"><a href="#每个call的配置" class="headerlink" title="每个call的配置"></a>每个call的配置</h2><p>使用OkHttpClient，所有的HTTP Client配置包括代理设置、超时设置、缓存设置。当你需要为单个call改变配置的时候，clone 一个 OkHttpClient。这个api将会返回一个浅拷贝（shallow copy），你可以用来单独自定义。下面的例子中，我们让一个请求是500ms的超时、另一个是3000ms的超时。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client = new OkHttpClient();
- 
-public void run() throws Exception {
-    Request request = new Request.Builder()
-        .url("http://httpbin.org/delay/1") // This URL is served with a 1 second delay.
-        .build();
- 
-    try {
-      Response response = client.clone() // Clone to make a customized OkHttp for this request.
-          .setReadTimeout(500, TimeUnit.MILLISECONDS)
-          .newCall(request)
-          .execute();
-      System.out.println("Response 1 succeeded: " + response);
-    } catch (IOException e) {
-      System.out.println("Response 1 failed: " + e);
-    }
- 
-    try {
-      Response response = client.clone() // Clone to make a customized OkHttp for this request.
-          .setReadTimeout(3000, TimeUnit.MILLISECONDS)
-          .newCall(request)
-          .execute();
-      System.out.println("Response 2 succeeded: " + response);
-    } catch (IOException e) {
-      System.out.println("Response 2 failed: " + e);
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-keyword">private</span> final OkHttpClient client = <span class="hljs-keyword">new</span> <span class="hljs-constructor">OkHttpClient()</span>;<br> <br>public void run<span class="hljs-literal">()</span> throws Exception {<br>    Request request = <span class="hljs-keyword">new</span> Request.<span class="hljs-constructor">Builder()</span><br>        .url(<span class="hljs-string">"http://httpbin.org/delay/1"</span>) <span class="hljs-comment">// This URL is served with a 1 second delay.</span><br>        .build<span class="hljs-literal">()</span>;<br> <br>    <span class="hljs-keyword">try</span> {<br>      Response response = client.clone<span class="hljs-literal">()</span> <span class="hljs-comment">// Clone to make a customized OkHttp for this request.</span><br>          .set<span class="hljs-constructor">ReadTimeout(500, TimeUnit.MILLISECONDS)</span><br>          .<span class="hljs-keyword">new</span><span class="hljs-constructor">Call(<span class="hljs-params">request</span>)</span><br>          .execute<span class="hljs-literal">()</span>;<br>      <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"Response 1 succeeded: "</span> + response);<br>    } catch (IOException e) {<br>      <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"Response 1 failed: "</span> + e);<br>    }<br> <br>    <span class="hljs-keyword">try</span> {<br>      Response response = client.clone<span class="hljs-literal">()</span> <span class="hljs-comment">// Clone to make a customized OkHttp for this request.</span><br>          .set<span class="hljs-constructor">ReadTimeout(3000, TimeUnit.MILLISECONDS)</span><br>          .<span class="hljs-keyword">new</span><span class="hljs-constructor">Call(<span class="hljs-params">request</span>)</span><br>          .execute<span class="hljs-literal">()</span>;<br>      <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"Response 2 succeeded: "</span> + response);<br>    } catch (IOException e) {<br>      <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">"Response 2 failed: "</span> + e);<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="处理验证"><a href="#处理验证" class="headerlink" title="处理验证"></a>处理验证</h2><p>这部分和HTTP AUTH有关。<br>相关资料：<a target="_blank" rel="noopener" href="http://blog.csdn.net/wwwsq/article/details/7255062">HTTP AUTH 那些事 - 王绍全的博客 - 博客频道 - CSDN.NET</a></p>
 <p>OkHttp会自动重试未验证的请求。当响应是401 Not Authorized时，Authenticator会被要求提供证书。Authenticator的实现中需要建立一个新的包含证书的请求。如果没有证书可用，返回null来跳过尝试。</p>
-<pre class="line-numbers language-none"><code class="language-none">public List&lt;Challenge&gt; challenges()
-Returns the authorization challenges appropriate for this response's code. 
-If the response code is 401 unauthorized, 
-this returns the "WWW-Authenticate" challenges.
-If the response code is 407 proxy unauthorized, this returns the "Proxy-Authenticate" challenges.
-Otherwise this returns an empty list of challenges.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight vbscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vbscript"><span class="hljs-keyword">public</span> List&lt;Challenge&gt; challenges()<br>Returns the authorization challenges appropriate <span class="hljs-keyword">for</span> this <span class="hljs-built_in">response</span><span class="hljs-comment">'s code. </span><br><span class="hljs-keyword">If</span> the <span class="hljs-built_in">response</span> code <span class="hljs-keyword">is</span> <span class="hljs-number">401</span> unauthorized, <br>this returns the <span class="hljs-string">"WWW-Authenticate"</span> challenges.<br><span class="hljs-keyword">If</span> the <span class="hljs-built_in">response</span> code <span class="hljs-keyword">is</span> <span class="hljs-number">407</span> proxy unauthorized, this returns the <span class="hljs-string">"Proxy-Authenticate"</span> challenges.<br>Otherwise this returns an <span class="hljs-literal">empty</span> list of challenges.<br></code></pre></td></tr></tbody></table></figure>
 
 <p>当需要实现一个Basic challenge， 使用Credentials.basic(username, password)来编码请求头。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client = new OkHttpClient();
- 
-public void run() throws Exception {
-    client.setAuthenticator(new Authenticator() {
-      @Override public Request authenticate(Proxy proxy, Response response) {
-        System.out.println("Authenticating for response: " + response);
-        System.out.println("Challenges: " + response.challenges());
-        String credential = Credentials.basic("jesse", "password1");
-        return response.request().newBuilder()
-            .header("Authorization", credential)
-            .build();
-      }
- 
-      @Override public Request authenticateProxy(Proxy proxy, Response response) {
-        return null; // Null indicates no attempt to authenticate.
-      }
-    });
- 
-    Request request = new Request.Builder()
-        .url("http://publicobject.com/secrets/hellosecret.txt")
-        .build();
- 
-    Response response = client.newCall(request).execute();
-    if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
- 
-    System.out.println(response.body().string());
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-type">OkHttpClient</span> <span class="hljs-variable">client</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">OkHttpClient</span>();<br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception {<br>    client.setAuthenticator(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Authenticator</span>() {<br>      <span class="hljs-meta">@Override</span> <span class="hljs-keyword">public</span> Request <span class="hljs-title function_">authenticate</span><span class="hljs-params">(Proxy proxy, Response response)</span> {<br>        System.out.println(<span class="hljs-string">"Authenticating for response: "</span> + response);<br>        System.out.println(<span class="hljs-string">"Challenges: "</span> + response.challenges());<br>        <span class="hljs-type">String</span> <span class="hljs-variable">credential</span> <span class="hljs-operator">=</span> Credentials.basic(<span class="hljs-string">"jesse"</span>, <span class="hljs-string">"password1"</span>);<br>        <span class="hljs-keyword">return</span> response.request().newBuilder()<br>            .header(<span class="hljs-string">"Authorization"</span>, credential)<br>            .build();<br>      }<br> <br>      <span class="hljs-meta">@Override</span> <span class="hljs-keyword">public</span> Request <span class="hljs-title function_">authenticateProxy</span><span class="hljs-params">(Proxy proxy, Response response)</span> {<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; <span class="hljs-comment">// Null indicates no attempt to authenticate.</span><br>      }<br>    });<br> <br>    <span class="hljs-type">Request</span> <span class="hljs-variable">request</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Request</span>.Builder()<br>        .url(<span class="hljs-string">"http://publicobject.com/secrets/hellosecret.txt"</span>)<br>        .build();<br> <br>    <span class="hljs-type">Response</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> client.newCall(request).execute();<br>    <span class="hljs-keyword">if</span> (!response.isSuccessful()) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IOException</span>(<span class="hljs-string">"Unexpected code "</span> + response);<br> <br>    System.out.println(response.body().string());<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <p>转自 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/ct2011/p/4001708.html">OkHttp使用介绍</a> 同时整合了 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/ct2011/p/3997368.html">OkHttp使用进阶</a> 这篇文章以及其中的评论。</p>
 </form>
@@ -1412,9 +935,6 @@ public void run() throws Exception {
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1590,7 +1110,7 @@ public void run() throws Exception {
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">25.1k</span>
+                        class="white-color">24.9k</span>
             
             
             
