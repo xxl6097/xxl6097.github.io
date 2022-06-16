@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>ADB保存Android日志</title>
+      <link href="/2022/06/16/logcat/"/>
+      <url>/2022/06/16/logcat/</url>
+      
+        <content type="html"><![CDATA[<p>Macos、Windows、linux下如何使用adb保存android手机的日志</p><span id="more"></span><h2 id="一、MacOsX、Linux下使用adb保存Android日志"><a href="#一、MacOsX、Linux下使用adb保存Android日志" class="headerlink" title="一、MacOsX、Linux下使用adb保存Android日志"></a>一、MacOsX、Linux下使用adb保存Android日志</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">adb logcat -c <span class="token operator">&amp;&amp;</span> adb logcat -v <span class="token function">time</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"abss"</span> <span class="token operator">&gt;</span> /Users/uuxia/Desktop/android.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="一、Windows下使用adb保存Android日志"><a href="#一、Windows下使用adb保存Android日志" class="headerlink" title="一、Windows下使用adb保存Android日志"></a>一、Windows下使用adb保存Android日志</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">adb logcat -c <span class="token operator">&amp;&amp;</span> adb logcat -v <span class="token function">time</span> <span class="token operator">|</span> <span class="token function">find</span> <span class="token string">"abss"</span> <span class="token operator">&gt;</span> D:/android.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> android </category>
+          
+          <category> logcat </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> android </tag>
+            
+            <tag> logcat </tag>
+            
+            <tag> adb </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>基于Linux(centos/ubuntu)搭建树莓派C/C++程序编译环境</title>
       <link href="/2022/06/15/raspberry-build-env/"/>
       <url>/2022/06/15/raspberry-build-env/</url>
