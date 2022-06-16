@@ -490,9 +490,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -510,27 +507,31 @@
 <h2 id="使用范围"><a href="#使用范围" class="headerlink" title="使用范围"></a>使用范围</h2><p>OkHttp支持Android 2.3及其以上版本。<br>对于Java, JDK1.7以上。</p>
 <h2 id="jar包准备"><a href="#jar包准备" class="headerlink" title="jar包准备"></a>jar包准备</h2><p>官方介绍页面有链接位置。这里把下载链接也写在下面。<br><a target="_blank" rel="noopener" href="http://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&amp;g=com.squareup.okhttp&amp;a=okhttp&amp;v=LATEST">OkHttp</a><br><a target="_blank" rel="noopener" href="http://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&amp;g=com.squareup.okio&amp;a=okio&amp;v=LATEST">Okio</a></p>
 <h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p><strong>HTTP GET</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">OkHttpClient client = new OkHttpClient();
+<pre><code>OkHttpClient client = new OkHttpClient();
  
 String run(String url) throws IOException {
     Request request = new Request.Builder().url(url).build();
     Response response = client.newCall(request).execute();    if (response.isSuccessful()) {        return response.body().string();
     } else {        throw new IOException("Unexpected code " + response);
     }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}
+</code></pre>
 <p>Request是OkHttp中访问的请求，Builder是辅助类。Response即OkHttp中的响应。<br><strong>Response类：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">public boolean isSuccessful()
+<pre><code>public boolean isSuccessful()
 Returns true if the code is in [200..300),
- which means the request was successfully received, understood, and accepted.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+ which means the request was successfully received, understood, and accepted.
+</code></pre>
 <p><strong>response.body()返回ResponseBody类</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">public final String string() throws IOException
+<pre><code>public final String string() throws IOException
 Returns the response as a string decoded with the charset of the Content-Type header. If that header is either absent or lacks a charset,
  this will attempt to decode the response body as UTF-8.Throws:
-IOException<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+IOException
+</code></pre>
 <p>当然也能获取到流的形式：</p>
-<pre class="line-numbers language-none"><code class="language-none">public final InputStream byteStream()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>public final InputStream byteStream()
+</code></pre>
 <p><strong>HTTP POST<br>POST提交Json数据</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+<pre><code>public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 OkHttpClient client = new OkHttpClient();
 String post(String url, String json) throws IOException {
      RequestBody body = RequestBody.create(JSON, json);
@@ -544,10 +545,11 @@ String post(String url, String json) throws IOException {
     } else {
         throw new IOException("Unexpected code " + response);
     }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}
+</code></pre>
 <p>使用Request的post方法来提交请求体RequestBody</p>
 <p>** POST提交键值对**<br>很多时候我们会需要通过POST方式把键值对数据传送到服务器。 OkHttp提供了很方便的方式来做这件事情。</p>
-<pre class="line-numbers language-none"><code class="language-none">OkHttpClient client = new OkHttpClient();
+<pre><code>OkHttpClient client = new OkHttpClient();
 String post(String url, String json) throws IOException {
  
      RequestBody formBody = new FormEncodingBuilder()
@@ -567,13 +569,14 @@ String post(String url, String json) throws IOException {
     } else {
         throw new IOException("Unexpected code " + response);
     }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}
+</code></pre>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过上面的例子我们可以发现，OkHttp在很多时候使用都是很方便的，而且很多代码也有重复，因此特地整理了下面的工具类。<br>注意：</p>
 <ul>
 <li>OkHttp官方文档并不建议我们创建多个OkHttpClient，因此全局使用一个。 如果有需要，可以使用clone方法，再进行自定义。这点在后面的高级教程里会提到。</li>
 <li>enqueue为OkHttp提供的异步方法，入门教程中并没有提到，后面的高级教程里会有解释。</li>
 </ul>
-<pre class="line-numbers language-none"><code class="language-none">import java.io.IOException;
+<pre><code>import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.apache.http.client.utils.URLEncodedUtils;
@@ -662,11 +665,11 @@ public class OkHttpUtil {
     public static String attachHttpGetParam(String url, String name, String value){
         return url + "?" + name + "=" + value;
     }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+}
+</code></pre>
 <h2 id="高级"><a href="#高级" class="headerlink" title="高级"></a>高级</h2><p>高级属性其实用的不多，这里主要是对OkHttp github官方教程进行了翻译。</p>
 <h2 id="同步get"><a href="#同步get" class="headerlink" title="同步get"></a>同步get</h2><p>下载一个文件，打印他的响应头，以string形式打印响应体。<br>响应体的 string() 方法对于小文档来说十分方便、高效。但是如果响应体太大（超过1MB），应避免适应 string()方法 ，因为他会将把整个文档加载到内存中。<br>对于超过1MB的响应body，应使用流的方式来处理body。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client = new OkHttpClient();
+<pre><code>private final OkHttpClient client = new OkHttpClient();
  
 public void run() throws Exception {
     Request request = new Request.Builder()
@@ -682,9 +685,10 @@ public void run() throws Exception {
     }
  
     System.out.println(response.body().string());
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}
+</code></pre>
 <h2 id="异步get"><a href="#异步get" class="headerlink" title="异步get"></a>异步get</h2><p>在一个工作线程中下载文件，当响应可读时回调Callback接口。读取响应时会阻塞当前线程。OkHttp现阶段不提供异步api来接收响应体。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client = new OkHttpClient();
+<pre><code>private final OkHttpClient client = new OkHttpClient();
  
 public void run() throws Exception {
     Request request = new Request.Builder()
@@ -707,9 +711,10 @@ public void run() throws Exception {
         System.out.println(response.body().string());
       }
     });
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}
+</code></pre>
 <h2 id="提取响应头"><a href="#提取响应头" class="headerlink" title="提取响应头"></a>提取响应头</h2><p>典型的HTTP头 像是一个 Map&lt;String, String&gt; :每个字段都有一个或没有值。但是一些头允许多个值，像Guava的Multimap。例如：HTTP响应里面提供的Vary响应头，就是多值的。OkHttp的api试图让这些情况都适用。<br>当写请求头的时候，使用header(name, value)可以设置唯一的name、value。如果已经有值，旧的将被移除，然后添加新的。使用addHeader(name, value)可以添加多值（添加，不移除已有的）。<br>当读取响应头时，使用header(name)返回最后出现的name、value。通常情况这也是唯一的name、value。如果没有值，那么header(name)将返回null。如果想读取字段对应的所有值，使用headers(name)会返回一个list。<br>为了获取所有的Header，Headers类支持按index访问。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client = new OkHttpClient();
+<pre><code>private final OkHttpClient client = new OkHttpClient();
  
 public void run() throws Exception {
     Request request = new Request.Builder()
@@ -725,9 +730,10 @@ public void run() throws Exception {
     System.out.println("Server: " + response.header("Server"));
     System.out.println("Date: " + response.header("Date"));
     System.out.println("Vary: " + response.headers("Vary"));
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}
+</code></pre>
 <h2 id="Post方式提交String"><a href="#Post方式提交String" class="headerlink" title="Post方式提交String"></a>Post方式提交String</h2><p>使用HTTP POST提交请求到服务。这个例子提交了一个markdown文档到web服务，以HTML方式渲染markdown。因为整个请求体都在内存中，因此避免使用此api提交大文档（大于1MB）。</p>
-<pre class="line-numbers language-none"><code class="language-none">public static final MediaType MEDIA_TYPE_MARKDOWN
+<pre><code>public static final MediaType MEDIA_TYPE_MARKDOWN
   = MediaType.parse("text/x-markdown; charset=utf-8");
  
 private final OkHttpClient client = new OkHttpClient();
@@ -750,9 +756,10 @@ public void run() throws Exception {
     if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
  
     System.out.println(response.body().string());
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}
+</code></pre>
 <h2 id="Post方式提交流"><a href="#Post方式提交流" class="headerlink" title="Post方式提交流"></a>Post方式提交流</h2><p>以流的方式POST提交请求体。请求体的内容由流写入产生。这个例子是流直接写入Okio的BufferedSink。你的程序可能会使用OutputStream，你可以使用BufferedSink.outputStream()来获取。</p>
-<pre class="line-numbers language-none"><code class="language-none">public static final MediaType MEDIA_TYPE_MARKDOWN
+<pre><code>public static final MediaType MEDIA_TYPE_MARKDOWN
       = MediaType.parse("text/x-markdown; charset=utf-8");
  
 private final OkHttpClient client = new OkHttpClient();
@@ -789,9 +796,10 @@ public void run() throws Exception {
     if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
  
     System.out.println(response.body().string());
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}
+</code></pre>
 <h2 id="Post方式提交文件"><a href="#Post方式提交文件" class="headerlink" title="Post方式提交文件"></a>Post方式提交文件</h2><p>以文件作为请求体是十分简单的。</p>
-<pre class="line-numbers language-none"><code class="language-none">public static final MediaType MEDIA_TYPE_MARKDOWN
+<pre><code>public static final MediaType MEDIA_TYPE_MARKDOWN
   = MediaType.parse("text/x-markdown; charset=utf-8");
  
 private final OkHttpClient client = new OkHttpClient();
@@ -808,9 +816,10 @@ public void run() throws Exception {
     if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
  
     System.out.println(response.body().string());
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}
+</code></pre>
 <h2 id="Post方式提交表单"><a href="#Post方式提交表单" class="headerlink" title="Post方式提交表单"></a>Post方式提交表单</h2><p>使用FormEncodingBuilder来构建和HTML</p><form>标签相同效果的请求体。键值对将使用一种HTML兼容形式的URL编码来进行编码。<p></p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client = new OkHttpClient();
+<pre><code>private final OkHttpClient client = new OkHttpClient();
  
 public void run() throws Exception {
     RequestBody formBody = new FormEncodingBuilder()
@@ -825,9 +834,10 @@ public void run() throws Exception {
     if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
  
     System.out.println(response.body().string());
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}
+</code></pre>
 <h2 id="Post方式提交分块请求"><a href="#Post方式提交分块请求" class="headerlink" title="Post方式提交分块请求"></a>Post方式提交分块请求</h2><p>MultipartBuilder可以构建复杂的请求体，与HTML文件上传形式兼容。多块请求体中每块请求都是一个请求体，可以定义自己的请求头。这些请求头可以用来描述这块请求，例如他的Content-Disposition。如果Content-Length和Content-Type可用的话，他们会被自动添加到请求头中。</p>
-<pre class="line-numbers language-none"><code class="language-none">private static final String IMGUR_CLIENT_ID = "...";
+<pre><code>private static final String IMGUR_CLIENT_ID = "...";
 private static final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
  
 private final OkHttpClient client = new OkHttpClient();
@@ -854,9 +864,10 @@ public void run() throws Exception {
     if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
  
     System.out.println(response.body().string());
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}
+</code></pre>
 <h2 id="使用Gson来解析JSON响应"><a href="#使用Gson来解析JSON响应" class="headerlink" title="使用Gson来解析JSON响应"></a>使用Gson来解析JSON响应</h2><p>Gson是一个在JSON和Java对象之间转换非常方便的api。这里我们用Gson来解析Github API的JSON响应。<br>注意：ResponseBody.charStream()使用响应头Content-Type指定的字符集来解析响应体。默认是UTF-8。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client = new OkHttpClient();
+<pre><code>private final OkHttpClient client = new OkHttpClient();
 private final Gson gson = new Gson();
  
 public void run() throws Exception {
@@ -879,9 +890,10 @@ static class Gist {
  
 static class GistFile {
     String content;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}
+</code></pre>
 <h2 id="响应缓存"><a href="#响应缓存" class="headerlink" title="响应缓存"></a>响应缓存</h2><p>为了缓存响应，你需要一个你可以读写的缓存目录，和缓存大小的限制。这个缓存目录应该是私有的，不信任的程序应不能读取缓存内容。<br>一个缓存目录同时拥有多个缓存访问是错误的。大多数程序只需要调用一次new OkHttp()，在第一次调用时配置好缓存，然后其他地方只需要调用这个实例就可以了。否则两个缓存示例互相干扰，破坏响应缓存，而且有可能会导致程序崩溃。<br>响应缓存使用HTTP头作为配置。你可以在请求头中添加Cache-Control: max-stale=3600 ,OkHttp缓存会支持。你的服务通过响应头确定响应缓存多长时间，例如使用Cache-Control: max-age=9600。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client;
+<pre><code>private final OkHttpClient client;
  
 public CacheResponse(File cacheDirectory) throws Exception {
     int cacheSize = 10 * 1024 * 1024; // 10 MiB
@@ -913,7 +925,8 @@ public void run() throws Exception {
     System.out.println("Response 2 network response:  " + response2.networkResponse());
  
     System.out.println("Response 2 equals Response 1? " + response1Body.equals(response2Body));
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}
+</code></pre>
 <h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>在这一节还提到了下面一句：<br>There are cache headers to force a cached response, force a network response, or force the network response to be validated with a conditional GET.</p>
 <p>我不是很懂cache，平时用到的也不多，所以把Google在Android Developers一段相关的解析放到这里吧。</p>
 <h2 id="Force-a-Network-Response"><a href="#Force-a-Network-Response" class="headerlink" title="Force a Network Response"></a>Force a Network Response</h2><p>In some situations, such as after a user clicks a ‘refresh’ button, it may be necessary to skip the cache, and fetch data directly from the server. To force a full refresh, add the no-cache directive:</p>
@@ -925,20 +938,21 @@ public void run() throws Exception {
 <p>connection.addRequestProperty(“Cache-Control”, “max-age=0”);</p>
 </blockquote>
 <p>##Force a Cache Response<br>Sometimes you’ll want to show resources if they are available immediately, but not otherwise. This can be used so your application can show something while waiting for the latest data to be downloaded. To restrict a request to locally-cached resources, add the only-if-cached directive:</p>
-<pre class="line-numbers language-none"><code class="language-none">try {
+<pre><code>try {
      connection.addRequestProperty("Cache-Control", "only-if-cached");
      InputStream cached = connection.getInputStream();
      // the resource was cached! show it
   catch (FileNotFoundException e) {
      // the resource was not cached
  }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}
+</code></pre>
 <p>This technique works even better in situations where a stale response is better than no response. To permit stale cached responses, use the max-stale directive with the maximum staleness in seconds:</p>
-<pre class="line-numbers language-none"><code class="language-none">int maxStale = 60 * 60 * 24 * 28; // tolerate 4-weeks staleconnection.addRequestProperty("Cache-Control", "max-stale=" + maxStale);
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>int maxStale = 60 * 60 * 24 * 28; // tolerate 4-weeks staleconnection.addRequestProperty("Cache-Control", "max-stale=" + maxStale);
+</code></pre>
 <p>以上信息来自：<a target="_blank" rel="noopener" href="http://developer.android.com/reference/android/net/http/HttpResponseCache.html">HttpResponseCache - Android SDK | Android Developers</a></p>
 <h2 id="取消一个Call"><a href="#取消一个Call" class="headerlink" title="取消一个Call"></a>取消一个Call</h2><p>使用Call.cancel()可以立即停止掉一个正在执行的call。如果一个线程正在写请求或者读响应，将会引发IOException。当call没有必要的时候，使用这个api可以节约网络资源。例如当用户离开一个应用时。不管同步还是异步的call都可以取消。<br>你可以通过tags来同时取消多个请求。当你构建一请求时，使用RequestBuilder.tag(tag)来分配一个标签。之后你就可以用OkHttpClient.cancel(tag)来取消所有带有这个tag的call。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+<pre><code>private final ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
 private final OkHttpClient client = new OkHttpClient();
  
 public void run() throws Exception {
@@ -967,10 +981,10 @@ public void run() throws Exception {
       System.out.printf("%.2f Call failed as expected: %s%n",
           (System.nanoTime() - startNanos) / 1e9f, e);
     }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+}
+</code></pre>
 <h2 id="超时"><a href="#超时" class="headerlink" title="超时"></a>超时</h2><p>没有响应时使用超时结束call。没有响应的原因可能是客户点链接问题、服务器可用性问题或者这之间的其他东西。OkHttp支持连接，读取和写入超时</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client;
+<pre><code>private final OkHttpClient client;
  
 public ConfigureTimeouts() throws Exception {
     client = new OkHttpClient();
@@ -986,10 +1000,10 @@ public void run() throws Exception {
  
     Response response = client.newCall(request).execute();
     System.out.println("Response completed: " + response);
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+}
+</code></pre>
 <h2 id="每个call的配置"><a href="#每个call的配置" class="headerlink" title="每个call的配置"></a>每个call的配置</h2><p>使用OkHttpClient，所有的HTTP Client配置包括代理设置、超时设置、缓存设置。当你需要为单个call改变配置的时候，clone 一个 OkHttpClient。这个api将会返回一个浅拷贝（shallow copy），你可以用来单独自定义。下面的例子中，我们让一个请求是500ms的超时、另一个是3000ms的超时。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client = new OkHttpClient();
+<pre><code>private final OkHttpClient client = new OkHttpClient();
  
 public void run() throws Exception {
     Request request = new Request.Builder()
@@ -1015,19 +1029,19 @@ public void run() throws Exception {
     } catch (IOException e) {
       System.out.println("Response 2 failed: " + e);
     }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+}
+</code></pre>
 <h2 id="处理验证"><a href="#处理验证" class="headerlink" title="处理验证"></a>处理验证</h2><p>这部分和HTTP AUTH有关。<br>相关资料：<a target="_blank" rel="noopener" href="http://blog.csdn.net/wwwsq/article/details/7255062">HTTP AUTH 那些事 - 王绍全的博客 - 博客频道 - CSDN.NET</a></p>
 <p>OkHttp会自动重试未验证的请求。当响应是401 Not Authorized时，Authenticator会被要求提供证书。Authenticator的实现中需要建立一个新的包含证书的请求。如果没有证书可用，返回null来跳过尝试。</p>
-<pre class="line-numbers language-none"><code class="language-none">public List&lt;Challenge&gt; challenges()
+<pre><code>public List&lt;Challenge&gt; challenges()
 Returns the authorization challenges appropriate for this response's code. 
 If the response code is 401 unauthorized, 
 this returns the "WWW-Authenticate" challenges.
 If the response code is 407 proxy unauthorized, this returns the "Proxy-Authenticate" challenges.
-Otherwise this returns an empty list of challenges.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+Otherwise this returns an empty list of challenges.
+</code></pre>
 <p>当需要实现一个Basic challenge， 使用Credentials.basic(username, password)来编码请求头。</p>
-<pre class="line-numbers language-none"><code class="language-none">private final OkHttpClient client = new OkHttpClient();
+<pre><code>private final OkHttpClient client = new OkHttpClient();
  
 public void run() throws Exception {
     client.setAuthenticator(new Authenticator() {
@@ -1053,8 +1067,8 @@ public void run() throws Exception {
     if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
  
     System.out.println(response.body().string());
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+}
+</code></pre>
 <p>转自 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/ct2011/p/4001708.html">OkHttp使用介绍</a> 同时整合了 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/ct2011/p/3997368.html">OkHttp使用进阶</a> 这篇文章以及其中的评论。</p>
 </form>
                 
@@ -1411,9 +1425,6 @@ public void run() throws Exception {
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
-
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

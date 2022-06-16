@@ -499,9 +499,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -510,10 +507,11 @@
                 <p>Macos、Windows、linux下如何使用adb保存android手机的日志</p>
 <span id="more"></span>
 
-<h2 id="一、MacOsX、Linux下使用adb保存Android日志"><a href="#一、MacOsX、Linux下使用adb保存Android日志" class="headerlink" title="一、MacOsX、Linux下使用adb保存Android日志"></a>一、MacOsX、Linux下使用adb保存Android日志</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">adb logcat -c <span class="token operator">&amp;&amp;</span> adb logcat -v <span class="token function">time</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"abss"</span> <span class="token operator">&gt;</span> /Users/uuxia/Desktop/android.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="一、MacOsX、Linux下使用adb保存Android日志"><a href="#一、MacOsX、Linux下使用adb保存Android日志" class="headerlink" title="一、MacOsX、Linux下使用adb保存Android日志"></a>一、MacOsX、Linux下使用adb保存Android日志</h2><pre><code class="bash">adb logcat -c &amp;&amp; adb logcat -v time | grep "abss" &gt; /Users/uuxia/Desktop/android.log
+</code></pre>
+<h2 id="一、Windows下使用adb保存Android日志"><a href="#一、Windows下使用adb保存Android日志" class="headerlink" title="一、Windows下使用adb保存Android日志"></a>一、Windows下使用adb保存Android日志</h2><pre><code class="bash">adb logcat -c &amp;&amp; adb logcat -v time | find "abss" &gt; D:/android.log
+</code></pre>
 
-
-<h2 id="一、Windows下使用adb保存Android日志"><a href="#一、Windows下使用adb保存Android日志" class="headerlink" title="一、Windows下使用adb保存Android日志"></a>一、Windows下使用adb保存Android日志</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">adb logcat -c <span class="token operator">&amp;&amp;</span> adb logcat -v <span class="token function">time</span> <span class="token operator">|</span> <span class="token function">find</span> <span class="token string">"abss"</span> <span class="token operator">&gt;</span> D:/android.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -892,9 +890,6 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
-
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

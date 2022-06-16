@@ -11,9 +11,10 @@
 一、安装gcc/g++
 yum install gcc-c++
 
-
 二、 安装CMake
-下载文件到本地：wget https://github.com/Kitware/C">
+下载文件到本地：
+
+       wget https://github.com/K">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -504,9 +505,6 @@ yum install gcc-c++
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -515,22 +513,27 @@ yum install gcc-c++
                 <p>记录在Linux系统下搭建树莓派C/C++程序环境搭建的过程。</p>
 <span id="more"></span>
 
-<h2 id="一、安装gcc-x2F-g"><a href="#一、安装gcc-x2F-g" class="headerlink" title="一、安装gcc/g++"></a>一、安装gcc/g++</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
-yum <span class="token function">install</span> gcc-c++
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<h2 id="一、安装gcc-x2F-g"><a href="#一、安装gcc-x2F-g" class="headerlink" title="一、安装gcc/g++"></a>一、安装gcc/g++</h2><pre><code class="bash">
+yum install gcc-c++
+</code></pre>
 <h2 id="二、-安装CMake"><a href="#二、-安装CMake" class="headerlink" title="二、 安装CMake"></a>二、 安装CMake</h2><ol>
-<li>下载文件到本地：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://github.com/Kitware/CMake/releases/download/v3.13.4/cmake-3.13.4.tar.gz
-<span class="token function">tar</span> -xzvf cmake-3.13.4.tar.gz
-<span class="token builtin class-name">cd</span> cmake-3.13.4/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li>逐个运行：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./bootstrap
-<span class="token function">make</span>
-<span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>下载文件到本地：</li>
 </ol>
+<pre><code class="bash">       wget https://github.com/Kitware/CMake/releases/download/v3.13.4/cmake-3.13.4.tar.gz
+       tar -xzvf cmake-3.13.4.tar.gz
+       cd cmake-3.13.4/
+</code></pre>
+<ol start="2">
+<li>逐个运行：</li>
+</ol>
+<pre><code class="bash">       ./bootstrap
+       make
+       sudo make install
+</code></pre>
 <h2 id="三、下载交叉编译工具"><a href="#三、下载交叉编译工具" class="headerlink" title="三、下载交叉编译工具"></a>三、下载交叉编译工具</h2><p><a target="_blank" rel="noopener" href="https://developer.arm.com/downloads/-/gnu-a">https://developer.arm.com/downloads/-/gnu-a</a></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
-<span class="token function">wget</span> https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-a/10.2-2020.11/binrel/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code class="bash">
+wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-a/10.2-2020.11/binrel/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
+</code></pre>
 <p>解压：xz -d gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz<br>解压：tar -xf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz</p>
 
                 
@@ -909,9 +912,6 @@ yum <span class="token function">install</span> gcc-c++
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
-
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

@@ -489,9 +489,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -525,7 +522,7 @@
 <li><p>烧录完毕后，TF卡自动命名为boot，<strong>在boot根目录新建ssh文件以便ss登录</strong>；</p>
 </li>
 <li><p>在TF卡根目录新建<code>wpa_supplicant.conf</code>文件，用于连接WiFi，配置如下：</p>
- <pre class="line-numbers language-none"><code class="language-none">
+<pre><code>
 country=CN
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
@@ -535,8 +532,7 @@ network={
     key_mgmt=WPA-PSK
     priority=1
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+</code></pre>
 </li>
 <li><p>将TF卡插在树莓派后上电启动；</p>
 </li>
@@ -553,28 +549,30 @@ network={
 <blockquote>
 <p>sudo passwd root</p>
 </blockquote>
-<pre class="line-numbers language-none"><code class="language-none">
-pi@raspberrypi:~$ sudo passwd root
-Enter new UNIX password:   #输入第一遍密码
-Retype new UNIX password:  #输入第二遍密码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>
+    pi@raspberrypi:~$ sudo passwd root
+    Enter new UNIX password:   #输入第一遍密码
+    Retype new UNIX password:  #输入第二遍密码
+</code></pre>
 <ol start="2">
 <li>启用 root 账号登录<blockquote>
 <p>sudo passwd –unlock root</p>
 </blockquote>
 </li>
 </ol>
-<pre class="line-numbers language-none"><code class="language-none">
-pi@raspberrypi:~$ sudo passwd --unlock root
-passwd: password expiry information changed.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre><code>
+    pi@raspberrypi:~$ sudo passwd --unlock root
+    passwd: password expiry information changed.
+</code></pre>
 <ol start="3">
 <li>设置root登陆</li>
 </ol>
 <blockquote>
 <p>sudo nano /etc/ssh/sshd_config  </p>
 </blockquote>
-<pre class="line-numbers language-none"><code class="language-none">
-pi@raspberrypi:~$ sudo nano /etc/ssh/sshd_config    
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>
+    pi@raspberrypi:~$ sudo nano /etc/ssh/sshd_config    
+</code></pre>
 <blockquote>
 <p><code>Ctrl + W</code> 快捷键 搜索 <code>PermitRootLogin without-password</code><br>修改 <code>PermitRootLogin without-password</code> 为 <code>PermitRootLogin yes</code><br>执行完之后，用 <code>reboot</code> 命令重启，这样就可以解锁<code>root</code>账户。</p>
 </blockquote>
@@ -586,13 +584,11 @@ pi@raspberrypi:~$ sudo nano /etc/ssh/sshd_config
 <li><p>复制粘贴以下内容并保存：</p>
 </li>
 </ul>
-<pre class="line-numbers language-none"><code class="language-none">
-[global]
-trusted-host=mirrors.aliyun.com
-index-url=https://mirrors.aliyun.com/pypi/simple/
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+<pre><code>
+    [global]
+    trusted-host=mirrors.aliyun.com
+    index-url=https://mirrors.aliyun.com/pypi/simple/
+</code></pre>
 <h2 id="4-2-安装Python3"><a href="#4-2-安装Python3" class="headerlink" title="4.2 安装Python3"></a>4.2 安装Python3</h2><p>打开<code>Linux</code>系统命令行窗口，输入：<code>sudo apt-get install python3.5</code></p>
 <p>应系统要求输入<code>root</code>账号的密码。</p>
 <img src="/2018/05/02/homeassistant/1.png" class="" title="img1">
@@ -743,13 +739,11 @@ esac
 <ol>
 <li>urllib3与chardet不兼容解决方案</li>
 </ol>
-<pre class="line-numbers language-none"><code class="language-none">
-pip3 uninstall urllib3
-pip3 uninstall  chardet
-ip3 install requests
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+<pre><code>
+    pip3 uninstall urllib3
+    pip3 uninstall  chardet
+    ip3 install requests
+</code></pre>
 <p>2.执行sh ./xxx.sh出现：“Syntax error: “(” unexpected”的解决方法</p>
 <pre><code>sudo dpkg-reconfigure dash
 在选择项中选No，搞定了！
@@ -1117,9 +1111,6 @@ ip3 install requests
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
-
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

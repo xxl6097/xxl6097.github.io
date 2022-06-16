@@ -12,8 +12,7 @@
 ssh-keygen -t ed25519 -C &#34;uuxia@uuxia.cn&#34;
 cat ~/.ssh/id_ed25519.pub
 
-
-rsa方式ssh-keyg">
+rsa方式ssh-keyge">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -508,9 +507,6 @@ rsa方式ssh-keyg">
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -519,18 +515,20 @@ rsa方式ssh-keyg">
                 <p>git使用SSH进行无密码身份验证</p>
 <span id="more"></span>
 
-<h2 id="一、生成key"><a href="#一、生成key" class="headerlink" title="一、生成key"></a>一、生成key</h2><h3 id="ed25519方式"><a href="#ed25519方式" class="headerlink" title="ed25519方式"></a>ed25519方式</h3><pre class="line-numbers language-none"><code class="language-none">
+<h2 id="一、生成key"><a href="#一、生成key" class="headerlink" title="一、生成key"></a>一、生成key</h2><h3 id="ed25519方式"><a href="#ed25519方式" class="headerlink" title="ed25519方式"></a>ed25519方式</h3><pre><code>
 ssh-keygen -t ed25519 -C "uuxia@uuxia.cn"
 cat ~/.ssh/id_ed25519.pub
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="rsa方式"><a href="#rsa方式" class="headerlink" title="rsa方式"></a>rsa方式</h3><pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C "uuxia@uuxia.com"
-cat ~/.ssh/id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</code></pre>
+<h3 id="rsa方式"><a href="#rsa方式" class="headerlink" title="rsa方式"></a>rsa方式</h3><pre><code>ssh-keygen -t rsa -C "uuxia@uuxia.com"
+cat ~/.ssh/id_rsa.pub
+</code></pre>
 <hr>
-<h2 id="二、测试"><a href="#二、测试" class="headerlink" title="二、测试"></a>二、测试</h2><h3 id="github"><a href="#github" class="headerlink" title="github"></a>github</h3><pre class="line-numbers language-none"><code class="language-none">ssh -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="gitee"><a href="#gitee" class="headerlink" title="gitee"></a>gitee</h3><pre class="line-numbers language-none"><code class="language-none">ssh -T git@gitee.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="coding"><a href="#coding" class="headerlink" title="coding"></a>coding</h3><pre class="line-numbers language-none"><code class="language-none">ssh -T git@e.coding.net<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<h2 id="二、测试"><a href="#二、测试" class="headerlink" title="二、测试"></a>二、测试</h2><h3 id="github"><a href="#github" class="headerlink" title="github"></a>github</h3><pre><code>ssh -T git@github.com
+</code></pre>
+<h3 id="gitee"><a href="#gitee" class="headerlink" title="gitee"></a>gitee</h3><pre><code>ssh -T git@gitee.com
+</code></pre>
+<h3 id="coding"><a href="#coding" class="headerlink" title="coding"></a>coding</h3><pre><code>ssh -T git@e.coding.net
+</code></pre>
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><hr>
 <p>在个人设置里面添加前，必须删除单独项目中添加的ssh key！！！</p>
 
@@ -934,9 +932,6 @@ cat ~/.ssh/id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
-
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
