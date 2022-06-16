@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>设备列表</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+<!--    <form name="fname" method="post" action="">-->
+        <div id="listdata" class="row">
+
+
+            <!--            <div class="col-sm-4">-->
+            <!--                <div class="contact-box">-->
+            <!--                    <a href="profile.html">-->
+            <!--                        <div class="col-sm-4">-->
+            <!--                            <div class="text-center">-->
+            <!--                                <img alt="image" class="img-circle m-t-xs img-responsive" src="img/a2.jpg">-->
+            <!--                                <div class="m-t-xs font-bold">CTO</div>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                        <div class="col-sm-8">-->
+            <!--                            <h3><strong>奔波儿灞</strong></h3>-->
+            <!--                            <p><i class="fa fa-map-marker"></i> 甘肃·兰州</p>-->
+            <!--                            <address>-->
+            <!--                            <strong>Baidu, Inc.</strong><br>-->
+            <!--                            E-mail:xxx@baidu.com<br>-->
+            <!--                            Weibo:<a href="">http://weibo.com/xxx</a><br>-->
+            <!--                            <abbr title="Phone">Tel:</abbr> (123) 456-7890-->
+            <!--                        </address>-->
+            <!--                        </div>-->
+            <!--                        <div class="clearfix"></div>-->
+            <!--                    </a>-->
+            <!--                </div>-->
+            <!--            </div>-->
+
+        </div>
+<!--    </form>-->
+</div>
+
+<!-- 全局js -->
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+
+
+<!-- 自定义js -->
+<script src="js/content.js"></script>
+
+
+
+<script th:inline="javascript">
+
+    function post(json) {
+        var form = document.createElement('form');
+        form.method = 'post'
+        form.action= 'action.do'
+        console.log('uuxia',json)
+
+        for (var i in json){
+            var input = document.createElement('input');
+            input.setAttribute('name', i);
+            input.setAttribute('value', json[i]);
+            form.appendChild(input);
+        }
+        var aa = document.body.childNodes;
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
+    }
+
+    $(document).ready(function () {
+        var json = {code:"devices"}
+        //先屏蔽掉点击事件
+        //post(json)
+    });
+
+
+    function postJson(json) {
+        console.log('uuxia',json)
+    }
+
+    var message = [[${json}]];
+    console.log(message);
+    if (message) {
+        if (message.code == 0) {
+            for (j = 0; message.data[j] != null; j++) {
+                var item = message.data[j];
+                // a = '<div class="uuxia" data-item=' + item.deviceId +'>';
+                a = '<div>';
+                a += '<div class="col-sm-4">';
+                a += '<div class="contact-box">';
+                //a += '<a href="javascript:doPost(' + "'"+ item.deviceId +"'" +')">';
+                //a += '<a href="javascript:post(json)">';
+                // a += '<input type="hidden" value="' + item.deviceId + '" name="code"/>';
+                // a += '<a href="javascript:document.fname.submit();">';
+                a += '<div class="col-sm-4" >';
+                a += '<div class="text-center" data-item=' + item.deviceId +'>';
+                a += '<img class="img-responsive" width="200px" height="200px" src="' + item.deviceIcon + '">';
+                a += '</div></div>';
+                a += '<div class="col-sm-8">';
+                a += '<h3><strong>' + (item.deviceName ? item.deviceName.substr(0,26):"") + '</strong></h3>';
+                a += '<address>'
+                a += '<strong>' + item.osType + (item.onlineStatus==0?' 离线':' <font color="red">在线</font>') + '</strong>'
+                a += '<br>'
+                a += ' <abbr title="Phone">设备编号:</abbr>' + item.deviceId + ''
+                a += '<br>'
+                a += ' <abbr title="Phone">内外IP:</abbr>' + item.privateIp + ''
+                a += '<br>'
+                a += ' <abbr title="Phone">外网IP:</abbr>' + item.publicIp + ''
+                a += '<br>'
+                a += ' <abbr title="Phone">更新时间:</abbr>' + item.updateTime + ''
+                a += '<br>'
+                a += ' <abbr title="Phone">温度:</abbr><font color="red">' + (item.totalStr ? item.totalStr.substr(0,10):"") + '</font>'
+                a += '<br>'
+                a += ' <abbr title="Phone"></abbr>' + item.buildid + ''
+                a += '</address></div>'
+                a += '<div class="clearfix"></div>'
+                a += '</a>'
+                a += '</div></div></div>'
+                //console.log(i)
+                $(".row").append(a);
+            }
+
+            $(".text-center").each(function () {
+                $(this).click(function () {
+                    var item = $(this).attr('data-item');
+                    //var obj = JSON.stringify(item);
+                    var json = {code:"steps_edit",deviceId:item}
+                    //先屏蔽掉点击事件
+                    post(json)
+                    console.log('uuxia',json)
+                })
+            })
+        }
+    }
+
+
+</script>
+
+
+</body>
+
+</html>

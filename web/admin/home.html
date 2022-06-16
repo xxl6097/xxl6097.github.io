@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>首页</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
+
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+
+</head>
+
+
+<script type="text/javascript">
+    console.info(location.host)
+    console.info(location.hostname)
+    console.info(location.port)
+    console.info(location.protocol)
+    console.info(location.pathname)
+    console.info(location.hash)
+    console.info(location.search)
+
+    function goWsweb() {
+        // var _url = '';
+        // var _page = '';
+        // if (location.pathname === '/') {
+        // } else {
+        //     _page = location.pathname;
+        // }
+        // _url = _page + '/action.do';
+        // console.info("调整到日志系统")
+        // console.info(_url)
+        // window.location.href = _url
+        var formname = document.fname;
+        formname.action = 'action.do';
+        formname.submit();
+    }
+
+    function goLock() {
+        var formname = document.fname;
+        formname.action = 'action.do';
+        formname.submit();
+    }
+
+    function goDevice() {
+        var formname = document.fname;
+        formname.action = 'action.do';
+        formname.submit();
+    }
+
+    function pushmsg() {
+        var formname = document.fname;
+        formname.action = 'action.do';
+        formname.submit();
+    }
+
+    function onStartTask() {
+        var formname = document.fname;
+        formname.action = 'action.do';
+        formname.submit();
+    }
+
+    function onStopTask() {
+        var formname = document.fname;
+        formname.action = 'action.do';
+        formname.submit();
+    }
+</script>
+
+<body class="signin">
+
+
+<div class="signinpanel">
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="fname" method="post" action="">
+<!--                <input type="text" name="thing1" class="form-control uname"  placeholder="活动名称"  />-->
+<!--                <input type="text" name="thing7" class="form-control uname"  placeholder="签到状态"  />-->
+<!--                <input type="text" name="thing21" class="form-control uname"  placeholder="签到地点"  />-->
+<!--                <input type="text" name="thing9" class="form-control uname"  placeholder="温馨提醒"  />-->
+<!--                <button class="btn btn-primary btn-lg" name="code" value="pushmsg" onclick="pushmsg()">推送消息</button>-->
+
+                <button class="btn btn-default btn-lg" value="log" name="code" onclick="goWsweb()">查看日志</button>
+                <button class="btn btn-primary btn-lg" name="code" value="lock" onclick="goLock()">超时锁屏</button>
+                <button class="btn btn-primary btn-lg" name="code" value="editer" onclick="goDevice()">Editer</button>
+                <button class="btn btn-primary btn-lg" name="code" value="devices" onclick="goDevice()">设备列表</button>
+
+                <button class="btn btn-primary btn-lg" name="code" value="starttask" onclick="onStartTask()">启动任务</button>
+                <button class="btn btn-primary btn-lg" name="code" value="stoptask" onclick="onStopTask()">停止任务</button>
+            </form>
+
+
+        </div>
+    </div>
+    <div class="signup-footer">
+        <div class="pull-left">
+            &copy; 悠悠智能
+        </div>
+    </div>
+</div>
+
+
+
+<!--<div id="login">-->
+<!--    <div>-->
+
+<!--        <form name="fname" method="post" action="">-->
+<!--            <button class="btn btn-default btn-lg" value="log" name="code" onclick="goWsweb()">查看日志</button>-->
+<!--            <button class="btn btn-primary btn-lg" name="code" value="lock" onclick="goLock()">超时锁屏</button>-->
+<!--            <button class="btn btn-primary btn-lg" name="code" value="editer" onclick="goDevice()">Editer</button>-->
+<!--            <button class="btn btn-primary btn-lg" name="code" value="devices" onclick="goDevice()">设备列表</button>-->
+<!--            <div>-->
+
+
+
+
+<!--                <input style="width: 20%" type="text" name="thing1" class="form-control uname"  placeholder="活动名称"  />-->
+<!--                <input type="text" name="thing7" class="form-control uname"  placeholder="签到状态"  />-->
+<!--                <input type="text" name="thing21" class="form-control uname"  placeholder="签到地点"  />-->
+<!--                <input type="text" name="thing9" class="form-control uname"  placeholder="温馨提醒"  />-->
+<!--                <button class="btn btn-primary btn-lg" name="code" value="pushmsg" onclick="pushmsg()">推送消息</button>-->
+<!--            </div>-->
+<!--        </form>-->
+
+
+<!--    </div>-->
+<!--</div>-->
+<h2 th:text="${message}"></h2>
+</body>
+
+</html>

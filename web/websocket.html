@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>WebSocket</title>
+</head>
+
+<body bgcolor="black">
+<font color="#ffffff">Welcome WebSocket</font></br>
+<input id="ws_url" style="width: 45%" type="text" value="wss://127.0.0.1:8080"/><br/>
+<button id="id_conn" onclick="connect()">Connect</button>
+<br/>
+<input id="text" type="text"/>
+<button id="id_send" onclick="send()">Send</button>
+<button id="id_close" onclick="closeWebSocket()">Close</button>
+<div style="color: #ffffff" id="message">
+</div>
+</body>
+
+<script type="text/javascript">
+    var websocket = null;
+    document.getElementById("id_send").disabled=true;
+    document.getElementById("id_close").disabled=true;
+    document.getElementById("text").disabled=true;
+    function randomString(len) {
+        len = len || 32;
+        var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+        var maxPos = $chars.length;
+        var pwd = '';
+        for (i = 0; i < len; i++) {
+            pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+        }
+        return pwd;
+    }
+
+    function connect() {
+        //判断当前浏览器是否支持WebSocket http://127.0.0.1:8081/
+        if ('WebSocket' in window) {
+            //websocket = new WebSocket("ws://wechat-app-1144047-1259649570.ap-shanghai.run.tcloudbase.com/websocket/test/123");
+            var ws_url = document.getElementById('ws_url').value;
+            var host = ws_url + "/websocket/" + randomString(9);
+            console.log(host);
+            websocket = new WebSocket(host);
+        } else {
+            alert('Not support websocket')
+        }
+
+        //连接发生错误的回调方法
+        websocket.onerror = function () {
+            setMessageInnerHTML("error");
+        };
+
+        //连接成功建立的回调方法
+        websocket.onopen = function (event) {
+            document.getElementById("id_conn").disabled=true;
+            document.getElementById("ws_url").disabled=true;
+            document.getElementById("text").disabled=false;
+            document.getElementById("id_send").disabled=false;
+            document.getElementById("id_close").disabled=false;
+            setMessageInnerHTML("open");
+        }
+
+        //接收到消息的回调方法
+        websocket.onmessage = function (event) {
+            setMessageInnerHTML(event.data);
+        }
+
+        //连接关闭的回调方法
+        websocket.onclose = function () {
+            setMessageInnerHTML("close");
+
+            document.getElementById("id_conn").disabled=false;
+            document.getElementById("ws_url").disabled=false;
+            document.getElementById("text").disabled=true;
+            document.getElementById("id_send").disabled=true;
+            document.getElementById("id_close").disabled=true;
+        }
+
+        //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+        window.onbeforeunload = function () {
+            websocket.close();
+        }
+    }
+
+
+    //将消息显示在网页上
+    function setMessageInnerHTML(innerHTML) {
+        console.log(innerHTML);
+        document.getElementById('message').innerHTML += innerHTML + '<br/>';
+    }
+
+    //关闭连接
+    function closeWebSocket() {
+        websocket.close();
+    }
+
+    //发送消息
+    function send() {
+        var message = document.getElementById('text').value;
+        websocket.send(message);
+    }
+</script>
+</html>
