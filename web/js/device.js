@@ -109,9 +109,9 @@ function doget(path, suc, err) {
     });
 }
 
-function sendws(deviceid,cmd) {
+function sendcmd(deviceid,cmd) {
     var value = { "deviceid": deviceid, "json": {"code": 2000, "data": cmd} };
-    console.log('sendws',value);
+    console.log('sendcmd',value);
 	jQuery.ajax({
         //提交的网址
         type: 'POST',
@@ -219,7 +219,7 @@ function onItemClick(msg) {
 
 function onMenuItemClick(msg,cmd) {
     console.log('onMenuItemClick',msg,cmd)
-    sendws(msg, cmd);
+    sendcmd(msg, cmd);
     //toast(msg + '--' + cmd, 3000)
 }
 
