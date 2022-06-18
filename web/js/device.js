@@ -186,7 +186,7 @@ function display_div(message) {
                 a += '</div></div></div>'
                 //console.log(i)
                 $(".row").append(a);
-            }ß
+            }
         }
     }
 }
