@@ -163,13 +163,13 @@ function display_div(message) {
                 a += '<div class="col-sm-8">';
 
                 a += '<div class="dropdown">';
-                a += ' <h3><strong onclick="myFunction('+ j +')>'+ (item.deviceName ? item.deviceName.substr(0, 26) : "") +'</strong></h3>';
+                a += ' <h3><strong onclick="showMenuClick('+ j +')" >'+ (item.deviceName ? item.deviceName.substr(0, 26) : "") +'</strong></h3>';
                 a += '<div id="id'+ j +'" class="dropdown-content">';
-                a += '<li onclick="onMenuItemClick(' + j + ',\'' + item.deviceId + '\',\'' + 'reboot' + '\')">重启</li>';
-                a += '<li onclick="onMenuItemClick(' + j + ',\'' + item.deviceId + '\',\'' + 'upgrade_app' + '\')">升级</li>';
-                a += '<li onclick="onMenuItemClick(' + j + ',\'' + item.deviceId + '\',\'' + 'exit_app' + '\')">退出</li>';
-                a += '<li onclick="onMenuCmdClick(' + "'" + item.deviceId + "'" + ')">执行命令</li>';
-                a += '<li onclick="onMenuDetailItemClick(' + JSON.stringify(item).replace(/"/g, '&quot;') + ')">查看设备信息</li>';
+                a += '<li onclick="onMenuItemClick('+ j +',\'' + item.deviceId + '\',\'' + 'reboot' + '\')">重启</li>';
+                a += '<li onclick="onMenuItemClick('+ j +',\'' + item.deviceId + '\',\'' + 'upgrade_app' + '\')">升级</li>';
+                a += '<li onclick="onMenuItemClick('+ j +',\'' + item.deviceId + '\',\'' + 'exit_app' + '\')">退出</li>';
+                a += '<li onclick="onMenuCmdClick('+ j +',' + "'" + item.deviceId + "'" + ')">执行命令</li>';
+                a += '<li onclick="onMenuDetailItemClick('+ j +',' + JSON.stringify(item).replace(/"/g, '&quot;') + ')">查看设备信息</li>';
                 a += '</div></div>'
 
                 a += '<address>'
@@ -207,23 +207,25 @@ function onItemClick(msg) {
 }
 
 /* 点击按钮，下拉菜单在 显示/隐藏 之间切换 */
-function myFunction(i) {
+function showMenuClick(i) {
     document.getElementById("id"+i).style.display='block'
 }
 
-function onMenuItemClick(index,msg,cmd) {
-    console.log('onMenuItemClick',index,msg,cmd)
-    document.getElementById("id"+index).style.display='none'
-    sendcmd(msg, cmd);
-    //toast(msg + '--' + cmd, 3000)
+function onMenuItemClick(i,msg,cmd) {
+    console.log('onMenuItemClick',i,msg,cmd)
+   document.getElementById("id"+i).style.display='none'
+    //sendcmd(msg, cmd);
+    toast(msg + '--' + cmd+'-'+i, 3000)
 }
 
-function onMenuDetailItemClick(msg) {
+function onMenuDetailItemClick(i,msg) {
+    document.getElementById("id"+i).style.display='none'
     console.log('detail',msg)
     toast(JSON.stringify(msg), 10000)
 }
 
-function onMenuCmdClick(deviceid) {
+function onMenuCmdClick(i,deviceid) {
+    document.getElementById("id"+i).style.display='none'
     var str = prompt('请输入命令('+ deviceid +')','{"code":2000,"data":"ifconfig"}');
     if (str) {
         //alert(str);
