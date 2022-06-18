@@ -111,7 +111,7 @@ function doget(path, suc, err) {
 
 function sendws(deviceid,cmd) {
     var value = { "deviceid": deviceid, "json": {"code": 2000, "data": cmd} };
-    toast(JSON.stringify(value));
+    console.log('sendws',value);
 	jQuery.ajax({
         //提交的网址
         type: 'POST',
@@ -128,7 +128,7 @@ function sendws(deviceid,cmd) {
 
 function sendws(json) {
     var value = { "json": json };
-    toast(JSON.stringify(value));
+    console.log('sendws',value);
 	jQuery.ajax({
         //提交的网址
         type: 'POST',
