@@ -110,7 +110,8 @@ function doget(path, suc, err) {
 }
 
 function sendcmd(deviceid,cmd) {
-    var value = { "deviceid": deviceid, "json": {"code": 2000, "data": cmd} };
+    var json = {"code": 2000, "data": cmd }
+    var value = { "json": JSON.stringify(json), "deviceid": deviceid };
     console.log('sendcmd',value);
 	jQuery.ajax({
         //提交的网址
@@ -118,7 +119,7 @@ function sendcmd(deviceid,cmd) {
         url: "https://uuxia.cn/v1/api/device/ws",
         data: value,
         contentType: "application/x-www-form-urlencoded",
-        dataType: 'jsonp',
+        dataType: 'json',
         success: function(results) {
             console.log("####login " + JSON.stringify(results));
             toast(JSON.stringify(results));
@@ -126,9 +127,9 @@ function sendcmd(deviceid,cmd) {
     });
 }
 
-function sendtoall(json) {
+function sendws(json) {
     var value = { "json": json };
-    console.log('sendtoall',value);
+    console.log('sendws',value);
 	jQuery.ajax({
         //提交的网址
         type: 'POST',
@@ -232,6 +233,6 @@ function onMenuCmdClick(deviceid) {
     var str = prompt('请输入命令('+ deviceid +')','{"code":2000,"data":"ifconfig"}');
     if (str) {
         //alert(str);
-        sendtoall(str);
+        sendws(str);
     }
 }
