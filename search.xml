@@ -771,6 +771,17 @@
     
     
     <entry>
+      <title>404</title>
+      <link href="/404/index.html"/>
+      <url>/404/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -796,17 +807,6 @@
       <title>contact</title>
       <link href="/contact/index.html"/>
       <url>/contact/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>404</title>
-      <link href="/404/index.html"/>
-      <url>/404/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
