@@ -48,7 +48,7 @@ function login() {
             console.log("####code " + results.code);
             if (results.code == 0) {
                 window.isLogin = true;
-                //window.location.href = 'admin/index.html'
+                window.location.href = 'admin/index.html'
             } else {
                 window.isLogin = false;
             }
