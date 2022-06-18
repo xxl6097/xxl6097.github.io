@@ -1,74 +1,41 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <title>首页</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
-    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+<html lang="en" class="no-js">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首页</title>
+    <!--必要样式-->
+    <link rel="stylesheet" type="text/css" href="../css/component.css" />
+    <!--[if IE]>
+<script src="js/html5.js"></script>
+<![endif]-->
 </head>
 
-
-<script type="text/javascript">
-    console.info(location.host)
-    console.info(location.hostname)
-    console.info(location.port)
-    console.info(location.protocol)
-    console.info(location.pathname)
-    console.info(location.hash)
-    console.info(location.search)
-
-    function goWsweb() {
-        var _url = '';
-        var _page = '';
-        if (location.pathname === '/') {
-        } else {
-            _page = location.pathname;
-        }
-        _url = _page + '/wsweb';
-        console.info("调整到日志系统")
-        console.info(_url)
-        window.location.href = _url
-    }
-
-    function goLock() {
-        var _url = '';
-        var _page = '';
-        if (location.pathname === '/') {
-        } else {
-            _page = location.pathname;
-        }
-        _url = _page + '/util';
-        console.info("调整到登陆")
-        console.info(_url)
-        window.location.href = _url
-    }
-
-    function test001() {
-        var _url = '';
-        var _page = '';
-        if (location.pathname === '/') {
-        } else {
-            _page = location.pathname;
-        }
-        _url = _page + '/admin/index.html';
-        console.info("调整到登陆")
-        console.info(_url)
-        window.location.href = _url
-    }
-</script>
-
 <body>
-
-<div id="login">
-    <div>
-        <input class="btn btn-default btn-lg" type="button" value="查看日志" onclick="goWsweb()"/>
-        <input class="btn btn-primary btn-lg" type="button" value="锁屏" onclick="goLock()"/>
-        <input class="btn btn-primary btn-lg" type="button" value="test001" onclick="test001()"/>
+    <div class="container demo-1">
+        <div class="content">
+            <div id="large-header" class="large-header">
+                <canvas id="demo-canvas"></canvas>
+                <div class="logo_box">
+                    <h3>功能列表</h3>
+                    <form action="#" name="f" method="post">
+                        <div class="mb2"><a class="act-but submit" href="javascript:void(0)" onclick="gotoLogs()" style="color: #FFFFFF">查看日志</a></div>
+                        <div class="mb2"><a class="act-but submit" href="javascript:void(0)" onclick="gotoDevices()" style="color: #FFFFFF">设备列表</a></div>
+                        <div class="mb2"><a class="act-but submit" href="javascript:void(0)" onclick="gotoTasks()" style="color: #FFFFFF">任务管理</a></div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<h2 th:text="${message}"></h2>
+    <!-- /container -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/httpapi.js"></script>
+    <script src="../js/TweenLite.min.js"></script>
+    <script src="../js/EasePack.min.js"></script>
+    <script src="../js/rAF.js"></script>
+    <script src="../js/demo-1.js"></script>
 </body>
 
 </html>
