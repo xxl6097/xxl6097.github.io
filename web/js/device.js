@@ -126,9 +126,9 @@ function sendcmd(deviceid,cmd) {
     });
 }
 
-function sendws(json) {
+function sendtoall(json) {
     var value = { "json": json };
-    console.log('sendws',value);
+    console.log('sendtoall',value);
 	jQuery.ajax({
         //提交的网址
         type: 'POST',
@@ -232,6 +232,6 @@ function onMenuCmdClick(deviceid) {
     var str = prompt('请输入命令('+ deviceid +')','{"code":2000,"data":"ifconfig"}');
     if (str) {
         //alert(str);
-        sendws(str);
+        sendtoall(str);
     }
 }
