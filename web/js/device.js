@@ -161,14 +161,13 @@ function display_div(message) {
                 a += '</font></div></div></div>';
 
                 a += '<div class="col-sm-8">';
-                a += '<div class="titile"></div>';
 
                 a += '<div class="dropdown">';
-                a += ' <h3><strong>'+ (item.deviceName ? item.deviceName.substr(0, 26) : "") +'</strong></h3>';
-                a += '<div class="dropdown-content">';
-                a += '<li onclick="onMenuItemClick(\'' + item.deviceId + '\',\'' + 'reboot' + '\')">重启</li>';
-                a += '<li onclick="onMenuItemClick(\'' + item.deviceId + '\',\'' + 'upgrade_app' + '\')">升级</li>';
-                a += '<li onclick="onMenuItemClick(\'' + item.deviceId + '\',\'' + 'exit_app' + '\')">退出</li>';
+                a += ' <h3><strong onclick="myFunction('+ j +')>'+ (item.deviceName ? item.deviceName.substr(0, 26) : "") +'</strong></h3>';
+                a += '<div id="id'+ j +'" class="dropdown-content">';
+                a += '<li onclick="onMenuItemClick(' + j + ',\'' + item.deviceId + '\',\'' + 'reboot' + '\')">重启</li>';
+                a += '<li onclick="onMenuItemClick(' + j + ',\'' + item.deviceId + '\',\'' + 'upgrade_app' + '\')">升级</li>';
+                a += '<li onclick="onMenuItemClick(' + j + ',\'' + item.deviceId + '\',\'' + 'exit_app' + '\')">退出</li>';
                 a += '<li onclick="onMenuCmdClick(' + "'" + item.deviceId + "'" + ')">执行命令</li>';
                 a += '<li onclick="onMenuDetailItemClick(' + JSON.stringify(item).replace(/"/g, '&quot;') + ')">查看设备信息</li>';
                 a += '</div></div>'
@@ -187,18 +186,7 @@ function display_div(message) {
                 a += '</div></div></div>'
                 //console.log(i)
                 $(".row").append(a);
-            }
-
-            // $(".text-center").each(function () {
-            //     $(this).click(function () {
-            //         var item = $(this).attr('data-item');
-            //         //var obj = JSON.stringify(item);
-            //         var json = { code: "steps_edit", deviceId: item }
-            //         //先屏蔽掉点击事件
-            //         post(json)
-            //         console.log('uuxia', json)
-            //     })
-            // })
+            }ß
         }
     }
 }
@@ -218,8 +206,14 @@ function onItemClick(msg) {
     toast(msg, 3000)
 }
 
-function onMenuItemClick(msg,cmd) {
-    console.log('onMenuItemClick',msg,cmd)
+/* 点击按钮，下拉菜单在 显示/隐藏 之间切换 */
+function myFunction(i) {
+    document.getElementById("id"+i).style.display='block'
+}
+
+function onMenuItemClick(index,msg,cmd) {
+    console.log('onMenuItemClick',index,msg,cmd)
+    document.getElementById("id"+index).style.display='none'
     sendcmd(msg, cmd);
     //toast(msg + '--' + cmd, 3000)
 }
