@@ -111,7 +111,7 @@ function doget(path, suc, err) {
 
 function sendcmd(deviceid,cmd) {
     var json = {"code": 2000,"data": cmd}
-    var value = { "json": JSON.stringify(json) };
+    var value = { "json": JSON.stringify(json),"deviceid": deviceid };
     console.log('sendcmd',value);
 	jQuery.ajax({
         //提交的网址
