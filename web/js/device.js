@@ -118,7 +118,7 @@ function sendcmd(deviceid,cmd) {
         url: "https://uuxia.cn/v1/api/device/ws",
         data: value,
         contentType: "application/x-www-form-urlencoded",
-        dataType: 'json',
+        dataType: 'jsonp',
         success: function(results) {
             console.log("####login " + JSON.stringify(results));
             toast(JSON.stringify(results));
