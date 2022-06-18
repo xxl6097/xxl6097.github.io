@@ -38,7 +38,7 @@ function Toast(text, time, bgcolor, color) {
                     @keyframes hide { 0% { opacity: 1;  } 100% { opacity: 0; } }\
                     .toast_box {\
                         max-width: 90%;\
-                        position: absolute;\
+                        position: fixed;\
                         bottom: 5%;\
                         left: 50%;\
                         justify-content: center; \
