@@ -110,8 +110,8 @@ function doget(path, suc, err) {
 }
 
 function sendcmd(deviceid,cmd) {
-    var json = "{\"code\": 2000, \"data\": \"ifconfig\" }"
-    var value = { "json": json };
+    var json = {"code": 2000,"data": cmd}
+    var value = { "json": JSON.stringify(json) };
     console.log('sendcmd',value);
 	jQuery.ajax({
         //提交的网址
