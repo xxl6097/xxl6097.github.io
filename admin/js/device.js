@@ -35,6 +35,7 @@ $(document).ready(function() {
     console.log("###ready#页面已加载！"+host);
     if (isLogin()) {
         console.log("###ready# 已经登陆");
+        getDeviceList()
     }else{
         console.log("###ready# 未登录，请登陆");
         window.location.href = '../index.html'
@@ -43,7 +44,7 @@ $(document).ready(function() {
 
 function load() {
     console.log("###load#getDeviceList");
-    getDeviceList()
+
 }
 
 function doget(path, suc, err) {
@@ -143,8 +144,8 @@ function display_div(message) {
 }
 
 function getDeviceList() {
-    var host = host + '/v1/api/device/all'
-    doget(host, (res) => {
+    var url = host + '/v1/api/device/all'
+    doget(url, (res) => {
         console.log('list', res)
         display_div(JSON.parse(res))
     }, (res) => {
