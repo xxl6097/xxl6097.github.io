@@ -59,6 +59,24 @@ function doget(path, suc, err) {
     });
 }
 
+function deleteDevice(deviceid) {
+    var value = {"deviceid": deviceid}
+    console.log('deleteDevice',value);
+	jQuery.ajax({
+        //提交的网址
+        type: 'POST',
+        url: host + "/v1/api/device/delete",
+        data: value,
+        contentType: "application/x-www-form-urlencoded",
+        dataType: 'json',
+        success: function(results) {
+            console.log("####login " + JSON.stringify(results));
+            toast('删除状态' + JSON.stringify(results));
+        }
+    });
+}
+
+
 function sendcmd(deviceid,cmd) {
     var json = {"code": 2000,"data": cmd}
     var value = { "json": JSON.stringify(json),"deviceid": deviceid };
@@ -119,6 +137,7 @@ function display_div(message) {
                 a += '<li onclick="onMenuItemClick(this,\'' + item.deviceId + '\',\'' + 'reboot' + '\')">重启</li>';
                 a += '<li onclick="onMenuItemClick(this,\'' + item.deviceId + '\',\'' + 'upgrade_app' + '\')">升级</li>';
                 a += '<li onclick="onMenuItemClick(this,\'' + item.deviceId + '\',\'' + 'exit_app' + '\')">退出</li>';
+                a += '<li onclick="onMenuDelete(this,\'' + item.deviceId + '\',\'' + 'exit_app' + '\')">删除设备</li>';
                 a += '<li onclick="onMenuCmdClick(this,' + "'" + item.deviceId + "'" + ')">执行命令</li>';
                 a += '<li onclick="onMenuDetailItemClick(this,' + JSON.stringify(item).replace(/"/g, '&quot;') + ')">查看设备信息</li>';
                 a += '</div>';
@@ -174,6 +193,16 @@ function showMenu(thiz) {
 function hideMenu(thiz){
     var dcon = thiz.parentElement;
     dcon.style.display='none'
+}
+
+function onMenuDelete(thiz,msg,cmd) {
+    console.log('onMenuItemClick',thiz,msg,cmd)
+    hideMenu(thiz);
+    toast('索引:'+thiz + ',msg:' + msg + ',cmd:' + cmd, 3000)
+    var ret = confirm("确定要删除设备吗？");
+    if(ret){
+        deleteDevice(msg);
+    }
 }
 
 function onMenuItemClick(thiz,msg,cmd) {
