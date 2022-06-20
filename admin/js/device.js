@@ -105,7 +105,7 @@ function display_div(message) {
                 a += '<div class="contact-box">';
                 a += '<div class="col-sm-4" >';
                 a += '<div class="text-center" data-item=' + item.deviceId + '>';
-                a += '<img class="img-responsive" width="200px" height="200px" src="' + item.deviceIcon + '">';
+                a += '<img class="img-responsive1" width="200px" height="200px" src="' + item.deviceIcon + '">';
                 a += '<div class="m-t-xs font-bold"><font color=' + (item.onlineStatus == 0 ?"gray":"#11ff00") +'>';
                 a += item.osType;
                 a += '</font></div></div></div>';

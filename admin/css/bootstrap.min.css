@@ -1443,7 +1443,7 @@ img {
     vertical-align: middle
 }
 
-.carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+.img-responsive1 {
     display: block;
     margin: 0 auto;
     margin-top: 10px;
