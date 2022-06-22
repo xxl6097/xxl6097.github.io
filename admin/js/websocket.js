@@ -41,8 +41,8 @@ function connect(wsurl) {
     // var host = "ws://207.246.96.42:8125"
     var timestamp = new Date().getTime()
  //   var host = "wss://" + ip + ":" + port + "/websocket/html_"+timestamp;
-    deviceid = "/html_"+timestamp;
-    var host = wsurl + deviceid;
+    deviceid = "html_"+timestamp;
+    var host = wsurl + '/' + deviceid;
 //    var host = "ws://192.168.1.105:8125"
 //     alert(host);
     console.log("####websocket info " + host);
@@ -51,6 +51,7 @@ function connect(wsurl) {
     try {
         socket.onopen = function (msg) {
             status("连接成功");
+            sublog(deviceid);
         };
         socket.onmessage = function (msg) {
             if (typeof msg.data == "string") {
@@ -200,8 +201,8 @@ function onkey(event) {
     }
 }
 
-function sublog(){
-    var value = {"deviceid": deviceid}
+function sublog(userId){
+    var value = {"deviceid": userId}
     console.log('sublog',value);
     jQuery.ajax({
         //提交的网址
