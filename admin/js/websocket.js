@@ -164,8 +164,8 @@ function showLog3(msg) {
 
 function showLog(msg) {
     var div = document.getElementById('txtContent');
-    var line = '<tr style="color : red"><td style="white-space: nowrap;">' + msg + '</td></tr>';
-    $("#txtContent").append(msg);
+    var line = '<tr style="font-size: 12px;"><td style="white-space: nowrap;">' + msg + '</td></tr>';
+    $("#txtContent").append(line);
     div.scrollTop = div.scrollHeight;
     div.scrollIntoView();
 }
