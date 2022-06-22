@@ -139,7 +139,8 @@ function getId(id) {
 
 
 function getText() {
-    return document.getElementById("txtContent").value
+    //return document.getElementById("txtContent").value
+    return $("#txtContent").html();
 }
 
 function status(status) {
@@ -164,7 +165,7 @@ function showLog3(msg) {
 
 function showLog(msg) {
     var div = document.getElementById('txtContent');
-    var line = '<tr style="font-size: 12px;"><td style="white-space: nowrap;">' + msg + '</td></tr>';
+    var line = msg + '<br><br>';
     $("#txtContent").append(line);
     div.scrollTop = div.scrollHeight;
     div.scrollIntoView();

@@ -15,7 +15,7 @@
 
 function saveLog(mobileCode) {
     var dt = new Date();
-    var file = new File([mobileCode], dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate() + "-" + dt.getTime() + ".txt", { type: "text/plain;charset=utf-8" });
+    var file = new File([mobileCode], dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate() + "-" + dt.getTime() + ".html", { type: "text/plain;charset=utf-8" });
     saveAs(file);
 }
 
