@@ -1,4 +1,5 @@
 var output = document.getElementById("txtContent");
+var deviceid;
 
 function addScript(url){
     document.write("<script language=javascript src="+url+"></script>");
@@ -40,7 +41,8 @@ function connect(wsurl) {
     // var host = "ws://207.246.96.42:8125"
     var timestamp = new Date().getTime()
  //   var host = "wss://" + ip + ":" + port + "/websocket/html_"+timestamp;
-    var host = wsurl + "/html_"+timestamp;
+    deviceid = "/html_"+timestamp;
+    var host = wsurl + deviceid;
 //    var host = "ws://192.168.1.105:8125"
 //     alert(host);
     console.log("####websocket info " + host);
@@ -196,4 +198,21 @@ function onkey(event) {
     if (event.keyCode == 13) {
         send();
     }
+}
+
+function sublog(){
+    var value = {"deviceid": deviceid}
+    console.log('sublog',value);
+    jQuery.ajax({
+        //提交的网址
+        type: 'POST',
+        url: host + "/v1/api/device/addreader",
+        data: value,
+        contentType: "application/x-www-form-urlencoded",
+        dataType: 'json',
+        success: function(results) {
+            console.log("####login " + JSON.stringify(results));
+            toast('删除状态' + JSON.stringify(results));
+        }
+    });
 }
