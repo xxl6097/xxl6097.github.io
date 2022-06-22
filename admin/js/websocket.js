@@ -156,10 +156,18 @@ function showLog2(msg) {
     div.scrollIntoView();
 }
 
-function showLog(msg) {
+function showLog3(msg) {
     var div = document.getElementById('txtContent');
     div.value += "\r\n\r\n" + msg;
     div.scrollTop = div.scrollHeight;
+}
+
+function showLog(msg) {
+    var div = document.getElementById('txtContent');
+    var line = '<tr style="color : red"><td style="white-space: nowrap;">' + msg + '</td></tr>';
+    $("#txtContent").append(msg);
+    div.scrollTop = div.scrollHeight;
+    div.scrollIntoView();
 }
 
 function showLog1(msg) {

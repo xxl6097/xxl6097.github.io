@@ -1,4 +1,14 @@
 /* GLOBALS */
+.vlogstyle {
+    border: 2px solid blueviolet;
+    width: 99%;
+    /*自动适应父布局宽度*/
+    height: 800px;
+    padding: 5px 5px;
+    overflow: auto;
+    word-break: break-all;
+}
+
 .comments {
     width: 100%;
     /*自动适应父布局宽度*/
