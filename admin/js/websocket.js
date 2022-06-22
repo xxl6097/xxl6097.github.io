@@ -146,17 +146,20 @@ function status(status) {
     getId("status").innerHTML = status;
 }
 
-function showLog(msg) {
+function showLog2(msg) {
     var div = document.getElementById('msg_end');
     // div.value += "\r\n" + msg;
-
     var line = '<tr style="color : black"><td style="white-space: nowrap;">' + msg + '</td></tr>';
     //var line = '<tr style="color : black"><div class="line">' + msg + '</div></tr>';
     $("#txtContent").append(line);
-
     //div.scrollTop = div.scrollHeight;
     div.scrollIntoView();
+}
 
+function showLog(msg) {
+    var div = document.getElementById('txtContent');
+    div.value += "\r\n" + msg;
+    div.scrollTop = div.scrollHeight;
 }
 
 function showLog1(msg) {
