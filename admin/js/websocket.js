@@ -158,7 +158,7 @@ function showLog2(msg) {
 
 function showLog(msg) {
     var div = document.getElementById('txtContent');
-    div.value += "\r\n" + msg;
+    div.value += "\r\n\r\n" + msg;
     div.scrollTop = div.scrollHeight;
 }
 
