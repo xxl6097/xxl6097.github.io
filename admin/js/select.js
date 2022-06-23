@@ -114,7 +114,17 @@ function jsSelectItemByValue(objSelect, objItemText) {
        
 // 11.清空select的项    
 //document.all.objSelect.options.length = 0; 
-
+function doget(path, suc, err) {
+    jQuery.ajax({
+        //提交的网址
+        type: "GET",
+        url: path,
+        contentType: "application/x-www-form-urlencoded",
+        dataType: 'text',
+        success: suc,
+        error: err
+    });
+}
 function loadSelect(){
     // let select = document.getElementById('menuid');
     // for (let index = 0; index < 10; index++) {
