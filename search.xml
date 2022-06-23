@@ -84,11 +84,11 @@
       
         <tags>
             
-            <tag> android </tag>
+            <tag> cepheus </tag>
             
             <tag> proxy </tag>
             
-            <tag> cepheus </tag>
+            <tag> android </tag>
             
         </tags>
       
@@ -113,9 +113,9 @@
       
         <tags>
             
-            <tag> git </tag>
-            
             <tag> proxy </tag>
+            
+            <tag> git </tag>
             
             <tag> ubuntu </tag>
             
@@ -237,9 +237,9 @@
             
             <tag> shadowsocks </tag>
             
-            <tag> raspberry </tag>
-            
             <tag> proxy </tag>
+            
+            <tag> raspberry </tag>
             
         </tags>
       
@@ -771,6 +771,17 @@
     
     
     <entry>
+      <title>404</title>
+      <link href="/404/index.html"/>
+      <url>/404/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -782,9 +793,9 @@
     
     
     <entry>
-      <title>friends</title>
-      <link href="/friends/index.html"/>
-      <url>/friends/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -804,31 +815,20 @@
     
     
     <entry>
+      <title>friends</title>
+      <link href="/friends/index.html"/>
+      <url>/friends/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>读书</title>
       <link href="/reading/index.html"/>
       <url>/reading/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>404</title>
-      <link href="/404/index.html"/>
-      <url>/404/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
