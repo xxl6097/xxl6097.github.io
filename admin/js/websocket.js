@@ -102,6 +102,24 @@ function sendToAll() {
 }
 
 function sendToOne() {
+    var deviceid = document.getElementById("devid").innerText;
+    var value = { "json": document.getElementById('content_id').value, "deviceid": deviceid };
+    console.log('sendToOne',value);
+	jQuery.ajax({
+        //提交的网址
+        type: 'POST',
+        url: host + "/v1/api/device/ws",
+        data: value,
+        contentType: "application/x-www-form-urlencoded",
+        dataType: 'json',
+        success: function(results) {
+            console.log("####sendToOne " + JSON.stringify(results));
+            toast(JSON.stringify(results));
+        }
+    });
+}
+
+function sendToOne1() {
     var value = { "json": document.getElementById('content_id').value };
     jQuery.ajax({
         //提交的网址

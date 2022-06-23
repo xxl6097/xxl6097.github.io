@@ -28,22 +28,20 @@
     <div style="margin-top: 3px">
 
         <div>
-            <span>选择设备：</span>
-            <select id="menuid" onchange="onSelectItemClick()" style="background-color: wheat;"></select>
+            <span style="color: white; font-weight:bold;">选择设备：</span>
+            <select id="menuid" onchange="onSelectItemClick()" style="background-color: white;"></select>
+            <span id="devid" style="margin-left: 8px;color: red; font-weight:bold;"></span>
         </div>
 
 
         <input id="content_id" type="text" style="width: 200px; height: 20px; font-size: 16px; font-family: Arial, Helvetica, sans-serif;" name="cmddata" placeholder="请输入cmd命令" />
-        <!-- <button onclick="sendWebsocket(document.getElementById('content_id').value)">发送指令</button> -->
         <button type="button" id="oneid" onclick="sendToOne()">单播</button>
         <button type="button" id="allid" onclick="sendToAll()">广播</button>
         <button type="button" id="reconnid" onclick="reconn()">重连</button>
         <br>
-<!--        <button onclick="sublog()">订阅日志</button>-->
+
         <button onclick="clearLog()">清空日志</button>
         <button onclick="saveLog(getText())">保存日志</button>
-
-<!--        <div id="status" style="color : red;font-size: 20px" />-->
     </div>
 
 
@@ -51,7 +49,7 @@
 <!--    <div id="msg_end" style="height:0px; overflow:hidden"></div>-->
 
 
-    <div style="margin-top: 2px; margin-top: 5px; position: absolute; width: 99%;">
+    <div style="margin-top: 5px; position: absolute; width: 99%;">
         <div style="margin-top: 2px; color: #F00; font-size: 18px;" id="status"></div>
         <div id="txtContent" style="border: 2px solid blueviolet; width: 99%; height: 600px; padding: 5px 5px; overflow: auto; word-break: break-all;"></div>
     </div>
