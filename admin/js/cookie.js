@@ -112,5 +112,16 @@ function error(text, time) {
     Toast(text, time, "#CC0000", "#FFFFFF");
 }
 
+function doget(path, suc, err) {
+    jQuery.ajax({
+        //提交的网址
+        type: "GET",
+        url: path,
+        contentType: "application/x-www-form-urlencoded",
+        dataType: 'text',
+        success: suc,
+        error: err
+    });
+}
 // exports.getCookie = getCookie;
 // exports.setCookie = setCookie;
