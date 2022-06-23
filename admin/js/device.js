@@ -85,7 +85,7 @@ function deleteDevice(deviceid) {
 function sendcmd(deviceid,osType,cmd) {
     var json = {"code": 2000,"data": cmd}
     if('upgrade_app' == cmd){
-        json = {"code": 2002,"binurl": "http://uuxia.cn/file/abss/" + osType +"/libabss.so"}
+        json = {"code": 2002, "data": {"binurl": "http://uuxia.cn/file/abss/" + osType +"/libabss.so"}}
     }
     var value = { "json": JSON.stringify(json),"deviceid": deviceid };
     console.log('sendcmd',value);
