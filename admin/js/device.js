@@ -76,9 +76,21 @@ function deleteDevice(deviceid) {
     });
 }
 
+// if (osName.equalsIgnoreCase("xiaomi")){
+//     json = "{\"code\":2002,\"data\":{\"binurl\":\"http://uuxia.cn/file/mi9/libabss.so\"}}";
+// }else if (osName.equalsIgnoreCase("raspberrypi")){
+//     json = "{\"code\":2002,\"data\":{\"binurl\":\"http://uuxia.cn/file/raspberry/abss/libabss.so\"}}";
+// }
 
-function sendcmd(deviceid,cmd) {
+function sendcmd(deviceid,deviceName,cmd) {
     var json = {"code": 2000,"data": cmd}
+    if('upgrade_app' == cmd){
+        if('CEPHEUS' == deviceName){
+            json = {"code": 2002,"binurl": "http://uuxia.cn/file/mi9/libabss.so"}
+        }else if('raspberrypi' == deviceName){
+            json = {"code": 2002,"binurl": "http://uuxia.cn/file/raspberry/abss/libabss.so"}
+        }
+    }
     var value = { "json": JSON.stringify(json),"deviceid": deviceid };
     console.log('sendcmd',value);
 	jQuery.ajax({
@@ -134,9 +146,9 @@ function display_div(message) {
                 a += ' <h3><strong onclick="showMenu(this)" class="ccv" >'+ (item.deviceName ? item.deviceName.substr(0, 26) : "") +'</strong></h3>';
 
                 a += '<div class="dropdown-content">';
-                a += '<li onclick="onMenuItemClick(this,\'' + item.deviceId + '\',\'' + 'reboot' + '\')">重启</li>';
-                a += '<li onclick="onMenuItemClick(this,\'' + item.deviceId + '\',\'' + 'upgrade_app' + '\')">升级</li>';
-                a += '<li onclick="onMenuItemClick(this,\'' + item.deviceId + '\',\'' + 'exit_app' + '\')">退出</li>';
+                a += '<li onclick="onMenuItemClick(this,\'' + item.deviceId + '\',\'' + item.deviceName + '\',\'' + 'reboot' + '\')">重启</li>';
+                a += '<li onclick="onMenuItemClick(this,\'' + item.deviceId + '\',\'' + item.deviceName + '\',\'' + 'upgrade_app' + '\')">升级</li>';
+                a += '<li onclick="onMenuItemClick(this,\'' + item.deviceId + '\',\'' + item.deviceName + '\',\'' + 'exit_app' + '\')">退出</li>';
                 a += '<li onclick="onMenuDelete(this,\'' + item.deviceId + '\',\'' + 'exit_app' + '\')">删除设备</li>';
                 a += '<li onclick="onMenuCmdClick(this,' + "'" + item.deviceId + "'" + ')">执行命令</li>';
                 a += '<li onclick="onMenuDetailItemClick(this,' + JSON.stringify(item).replace(/"/g, '&quot;') + ')">查看设备信息</li>';
@@ -205,10 +217,10 @@ function onMenuDelete(thiz,msg,cmd) {
     }
 }
 
-function onMenuItemClick(thiz,msg,cmd) {
+function onMenuItemClick(thiz,msg,deviceName,cmd) {
     console.log('onMenuItemClick',thiz,msg,cmd)
     hideMenu(thiz);
-    sendcmd(msg, cmd);
+    sendcmd(msg, deviceName,cmd);
     toast('索引:'+thiz + ',msg:' + msg + ',cmd:' + cmd, 3000)
 }
 
