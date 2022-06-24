@@ -82,14 +82,8 @@ function deleteDevice(deviceid) {
 //     json = "{\"code\":2002,\"data\":{\"binurl\":\"http://uuxia.cn/file/raspberry/abss/libabss.so\"}}";
 // }
 
-function sendcmd(deviceid,osType,cmd) {
-    var json = {"code": 2000,"data": cmd}
-    if('upgrade_app' == cmd){
-        json = {"code": 2002, "data": {"binurl": "http://uuxia.cn/file/abss/" + osType +"/libabss.so"}}
-    }
-    var value = { "json": JSON.stringify(json),"deviceid": deviceid };
-    console.log('sendcmd',value);
-	jQuery.ajax({
+function postws(value){
+    jQuery.ajax({
         //提交的网址
         type: 'POST',
         url: host + "/v1/api/device/ws",
@@ -101,6 +95,19 @@ function sendcmd(deviceid,osType,cmd) {
             toast(JSON.stringify(results));
         }
     });
+}
+function sendcmd(deviceid,osType,cmd) {
+    var json = {"code": 2000,"data": cmd}
+    if('upgrade_app' == cmd){
+        json = {"code": 2002, "data": {"binurl": "http://uuxia.cn/file/abss/" + osType +"/libabss.so"}}
+    }else if('reboot' == cmd){
+        var sync = {"code": 2000,"data": "sync"}
+        var value_sync = { "json": JSON.stringify(sync),"deviceid": deviceid };
+        postws(value_sync);
+    }
+    var value = { "json": JSON.stringify(json),"deviceid": deviceid };
+    console.log('sendcmd',value);
+    postws(value);
 }
 
 function sendtoall(json) {
@@ -205,7 +212,7 @@ function hideMenu(thiz){
 }
 
 function onMenuDelete(thiz,msg,cmd) {
-    console.log('onMenuItemClick',thiz,msg,cmd)
+    console.log('onMenuDelete',thiz,msg,cmd)
     hideMenu(thiz);
     toast('索引:'+thiz + ',msg:' + msg + ',cmd:' + cmd, 3000)
     var ret = confirm("确定要删除设备吗？");
