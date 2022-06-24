@@ -100,11 +100,12 @@ function sendcmd(deviceid,osType,cmd) {
     var json = {"code": 2000,"data": cmd}
     if('upgrade_app' == cmd){
         json = {"code": 2002, "data": {"binurl": "http://uuxia.cn/file/abss/" + osType +"/libabss.so"}}
-    }else if('reboot' == cmd){
-        var sync = {"code": 2000,"data": "sync"}
-        var value_sync = { "json": JSON.stringify(sync),"deviceid": deviceid };
-        postws(value_sync);
     }
+    // else if('reboot' == cmd){
+    //     var sync = {"code": 2000,"data": "sync"}
+    //     var value_sync = { "json": JSON.stringify(sync),"deviceid": deviceid };
+    //     postws(value_sync);
+    // }
     var value = { "json": JSON.stringify(json),"deviceid": deviceid };
     console.log('sendcmd',value);
     postws(value);
