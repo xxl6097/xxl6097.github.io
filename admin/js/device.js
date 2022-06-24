@@ -155,7 +155,7 @@ function display_div(message) {
                 a += '<li onclick="onMenuItemClick(this,\'' + item.deviceId + '\',\'' + item.osType + '\',\'' + 'reboot' + '\')">重启</li>';
                 a += '<li onclick="onMenuItemClick(this,\'' + item.deviceId + '\',\'' + item.osType + '\',\'' + 'upgrade_app' + '\')">升级</li>';
                 a += '<li onclick="onMenuItemClick(this,\'' + item.deviceId + '\',\'' + item.osType + '\',\'' + 'exit_app' + '\')">退出</li>';
-                a += '<li onclick="goDeviceDetail(this,\'' + item.deviceId + '\')">设备详情</li>';
+                a += '<li onclick="goDeviceDetail(this,' + JSON.stringify(item).replace(/"/g, '&quot;') + ')">设备详情</li>';
                 a += '<li onclick="onMenuDelete(this,\'' + item.deviceId + '\',\'' + 'exit_app' + '\')">删除设备</li>';
                 a += '<li onclick="onMenuCmdClick(this,' + "'" + item.deviceId + "'" + ')">执行命令</li>';
                 a += '<li onclick="onMenuDetailItemClick(this,' + JSON.stringify(item).replace(/"/g, '&quot;') + ')">查看设备信息</li>';
@@ -247,9 +247,10 @@ function onMenuCmdClick(thiz,deviceid) {
     }
 }
 
-function goDeviceDetail(thiz, deviceid){
-    console.log('goDeviceDetail',thiz, deviceid)
+function goDeviceDetail(thiz, item){
+    console.log('goDeviceDetail',thiz, item)
     hideMenu(thiz);
-    var url = "detail.html?deviceid=" + deviceid;//此处拼接内容
+    var url = "detail.html";//此处拼接内容
+    sessionStorage.setItem('device',JSON.stringify(item));
     window.location.href = url;
 }

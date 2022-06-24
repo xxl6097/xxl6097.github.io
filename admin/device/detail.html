@@ -1,74 +1,65 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>设备详情</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0 ,user-scalable=yes">
-
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
-    <script type="text/javascript" src="../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.params.js"></script>
-    <script type="text/javascript" src="../js/detail.js"></script>
-    <script type="text/javascript" src="../js/FileSaver.js"></script>
-
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../../../../../web/css/style.css">
+    <title>H+ 后台主题UI框架 - 查看邮件</title>
 
-
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../css/bootstrap.min.css?v=3.3.7" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css?v=4.1.0" rel="stylesheet">
 </head>
 
-<body style="background: white">
-    <div style="margin-top: 5px">
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            
+            <div class="col-sm-15">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content mailbox-content">
+                        <div class="file-manager">
+                            <a class="btn btn-block btn-primary compose-mail">设备详情</a>
+                            <div class="space-25"></div>
+                            <div id="dev_detail_id" class="folder-list" style="padding: 0">
+                                <!-- <li><a > 收件箱 <span class="label label-warning pull-right">A450467CD3C8aaaaaaaaaaa</span> </a></li>
+                                <li><a > 收件箱 <span class="label label-danger pull-right">A450467CD3C8</span> </a></li>
+                                <li><a > 收件箱 <span class="label label-info pull-right">A450467CD3C8</span> </a></li>
+                                <li><a > 收件箱 <span class="label label-success pull-right">A450467CD3C8</span> </a></li>
+                                <li><a > 收件箱 <span class="label label-primary pull-right">A450467CD3C8</span> </a></li>
+                                <li><a > 收件箱 <span class="label label-default pull-right">A450467CD3C8</span> </a></li> -->
+                            </div>
 
-        <div style="margin-top: 5px">
-            <span style="color: black; font-weight:bold;">选择设备：</span>
-            <select id="menuid" onchange="onSelectItemClick()" style="background-color: white;"></select>
-            <span id="devid" style="margin-left: 8px;color: red; font-weight:bold;"></span>
-        </div>
-
-        <div style="margin-top: 5px">
-            <input id="content_id" type="text"
-                style="margin-top: 5px; width: 200px; height: 20px; font-size: 16px; font-family: Arial, Helvetica, sans-serif;"
-                name="cmddata" placeholder="请输入cmd命令" />
-            <button type="button" id="oneid" onclick="sendToOne()">单播</button>
-            <button type="button" id="allid" onclick="sendToAll()">广播</button>
-            <button type="button" id="reconnid" onclick="reconn()">重连</button>
-            <br>
-            <button style="margin-top: 5px" onclick="clearLog()">清空日志</button>
-            <button onclick="saveLog(getText())">保存日志</button>
-        </div>
-
-    </div>
-
-
-    <!--    <div id="txtContent"></div>-->
-    <!--    <div id="msg_end" style="height:0px; overflow:hidden"></div>-->
-
-
-
-    <div>
-        <div id="div_log_id" style="float: left; margin-top: 5px; position: absolute; width: 85%;">
-            <div style="margin-top: 5px; color: #F00; font-size: 16px;" id="status"></div>
-            <div id="txtContent"
-                style="margin-top: 5px; border: 1px solid red; width: 99%; height: 600px; padding: 5px 5px; overflow: auto; word-break: break-all;">
+                            <h5 class="tag-title">功能按钮</h5>
+                            <div class="tag-list" style="padding: 0">
+                                <!-- <li onclick="onFriend()"><a>朋友</a></li>
+                                <li onclick="onFriend()"><a>朋友</a></li>
+                                <li onclick="onFriend()"><a>朋友</a></li>
+                                <li onclick="onFriend()"><a>朋友</a></li>
+                                <li onclick="onFriend()"><a>朋友</a></li>
+                                <li onclick="onFriend()"><a>朋友</a></li>
+                                <li onclick="onFriend()"><a>朋友</a></li>
+                                <li onclick="onFriend()"><a>朋友</a></li>
+                                <li onclick="onFriend()"><a>朋友</a></li> -->
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div id="div_detail_id" style="float: right; margin-top: 5px; width: 15%; text-align: center;">
-            <strong>设备编号：</strong>4401bbb447c0<br>
-            <strong>设备编号：</strong>4401bbb447c0<br>
-            <strong>设备编号：</strong>4401bbb447c0<br>
-        </div>
+            <!-- 日志显示区域 -->
+            <div class="col-sm-85 animated fadeInRight" id="txtContent" style="border: 1px solid red;  height: 600px; padding: 5px 5px; overflow: auto; word-break: break-all;"></div>
 
+        </div>
     </div>
+
+
+    <!-- 全局js -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/detail.js"></script>
+    <script src="../js/jquery.params.js"></script>
+
 
 </body>
 

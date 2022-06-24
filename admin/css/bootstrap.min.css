@@ -2075,12 +2075,14 @@ pre code {
 .col-sm-12,
 .col-sm-2,
 .col-sm-3,
+.col-sm-15,
 .col-sm-4,
 .col-sm-5,
 .col-sm-6,
 .col-sm-7,
 .col-sm-8,
 .col-sm-9,
+.col-sm-85,
 .col-xs-1,
 .col-xs-10,
 .col-xs-11,
@@ -2326,11 +2328,13 @@ pre code {
     .col-sm-12,
     .col-sm-2,
     .col-sm-3,
+    .col-sm-15,
     .col-sm-4,
     .col-sm-5,
     .col-sm-6,
     .col-sm-7,
     .col-sm-8,
+    .col-sm-85,
     .col-sm-9 {
         float: left
     }
@@ -2345,6 +2349,9 @@ pre code {
 
     .col-sm-10 {
         width: 83.33333333%
+    }
+    .col-sm-85 {
+        width: 85%
     }
 
     .col-sm-9 {
@@ -2370,7 +2377,9 @@ pre code {
     .col-sm-4 {
         width: 33.33333333%
     }
-
+    .col-sm-15 {
+        width: 15%
+    }
     .col-sm-3 {
         width: 25%
     }
