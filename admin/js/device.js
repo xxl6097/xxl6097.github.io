@@ -35,7 +35,7 @@ $(document).ready(function() {
     console.log("###ready#页面已加载！"+host);
     if (isLogin()) {
         console.log("###ready# 已经登陆");
-        getDeviceList()
+        getDeviceList();
     }else{
         console.log("###ready# 未登录，请登陆");
         window.location.href = '../index.html'
@@ -46,7 +46,6 @@ function load() {
     console.log("###load#getDeviceList");
 
 }
-
 function doget(path, suc, err) {
     jQuery.ajax({
         //提交的网址
@@ -72,6 +71,8 @@ function deleteDevice(deviceid) {
         success: function(results) {
             console.log("####login " + JSON.stringify(results));
             toast('删除状态' + JSON.stringify(results));
+            //刷新设备列表
+            getDeviceList();
         }
     });
 }
@@ -131,6 +132,7 @@ function sendtoall(json) {
 function display_div(message) {
     if (message) {
         if (message.code == 0) {
+            $(".row").children().remove();
             for (j = 0; message.data[j] != null; j++) {
                 var item = message.data[j];
                 a = '<div>';
