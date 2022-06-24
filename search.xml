@@ -84,11 +84,11 @@
       
         <tags>
             
-            <tag> android </tag>
-            
             <tag> cepheus </tag>
             
             <tag> proxy </tag>
+            
+            <tag> android </tag>
             
         </tags>
       
@@ -173,9 +173,9 @@
             
             <tag> java </tag>
             
-            <tag> android </tag>
-            
             <tag> gradle </tag>
+            
+            <tag> android </tag>
             
             <tag> maven </tag>
             
@@ -301,19 +301,19 @@
       
         <tags>
             
-            <tag> java </tag>
-            
-            <tag> gradle </tag>
-            
             <tag> centos </tag>
             
             <tag> hexo </tag>
+            
+            <tag> java </tag>
             
             <tag> frp </tag>
             
             <tag> nginx </tag>
             
             <tag> mysql </tag>
+            
+            <tag> gradle </tag>
             
         </tags>
       
@@ -771,9 +771,42 @@
     
     
     <entry>
+      <title>404</title>
+      <link href="/404/index.html"/>
+      <url>/404/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<p>大家好，我是XXX。欢迎来到我的个人技术博客。</p><p>这里用markdown写下你的简介，就跟平时写md一样就可以了。</p>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>categories</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>friends</title>
+      <link href="/friends/index.html"/>
+      <url>/friends/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -796,39 +829,6 @@
       <title>读书</title>
       <link href="/reading/index.html"/>
       <url>/reading/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<p>大家好，我是XXX。欢迎来到我的个人技术博客。</p><p>这里用markdown写下你的简介，就跟平时写md一样就可以了。</p>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>friends</title>
-      <link href="/friends/index.html"/>
-      <url>/friends/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>404</title>
-      <link href="/404/index.html"/>
-      <url>/404/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
