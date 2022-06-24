@@ -826,9 +826,9 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>读书</title>
+      <link href="/reading/index.html"/>
+      <url>/reading/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -837,9 +837,9 @@
     
     
     <entry>
-      <title>读书</title>
-      <link href="/reading/index.html"/>
-      <url>/reading/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
