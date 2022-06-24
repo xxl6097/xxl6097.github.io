@@ -157,6 +157,7 @@ function display_div(message) {
                 a += '<strong>私有地址：</strong>' + item.privateIp  +'<br>';
                 a += '<strong>公网地址：</strong>' + item.publicIp   +'<br>';
                 a += '<strong>更新时间：</strong>' + item.updateTime +'<br>';
+                a += '<strong>编译日期：</strong>' + item.buildTime +'<br>';
                 a += item.buildid +'<br>';
                 a += '</address>'
                 a += '</div>'
