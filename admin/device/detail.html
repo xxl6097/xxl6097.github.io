@@ -30,26 +30,41 @@
                                 <li><a > 收件箱 <span class="label label-default pull-right">A450467CD3C8</span> </a></li> -->
                             </div>
 
+                            <div class="space-25"></div>
+                            <h5>命令控制</h5>
+                            <ul class="category-list" style="padding: 0">
+                                <li>
+                                    <input type="email" placeholder="请输入命令" class="form-control">
+                                </li>
+                                <li style="margin-top: 10px;">
+                                    <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>执行</strong> </button>
+                                </li>
+                            </ul>
+
+                             <div class="space-25"></div>
                             <h5 class="tag-title">功能按钮</h5>
                             <div class="tag-list" style="padding: 0">
-                                <!-- <li onclick="onFriend()"><a>朋友</a></li>
-                                <li onclick="onFriend()"><a>朋友</a></li>
-                                <li onclick="onFriend()"><a>朋友</a></li>
-                                <li onclick="onFriend()"><a>朋友</a></li>
-                                <li onclick="onFriend()"><a>朋友</a></li>
-                                <li onclick="onFriend()"><a>朋友</a></li>
-                                <li onclick="onFriend()"><a>朋友</a></li>
-                                <li onclick="onFriend()"><a>朋友</a></li>
-                                <li onclick="onFriend()"><a>朋友</a></li> -->
+                                <li onclick="onFriend()"><a>重启</a></li>
+                                <li onclick="onFriend()"><a>升级</a></li>
+                                <li onclick="onFriend()"><a>退出</a></li>
+                                <li onclick="reconn()"><a>重连</a></li>
+                                <li onclick="disconnect()"><a>断开</a></li>
                             </div>
+
+
+
+                            
                             <div class="clearfix"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
+
+
             <!-- 日志显示区域 -->
-            <div class="col-sm-85 animated fadeInRight" id="txtContent" style="border: 1px solid red;  height: 600px; padding: 5px 5px; overflow: auto; word-break: break-all;"></div>
+            <div class="col-sm-85 animated fadeInRight" id="txtContent" style="border: 1px solid red;  height: 600px; padding: 5px 5px; overflow: auto; word-break: break-all;">
+            </div>
 
         </div>
     </div>
