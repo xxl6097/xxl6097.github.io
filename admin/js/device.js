@@ -152,7 +152,7 @@ function display_div(message) {
                 a += '</div>';
 
                 a += '<address>'
-                a += '<strong>设备温度：</strong><font color="red">' + (item.totalStr ? item.totalStr.substr(0, 10) : "") +'</font><br>';
+                a += '<strong>设备温度：</strong><font color=' + (item.onlineStatus == 0 ?"gray":"red") +'>' + (item.totalStr ? item.totalStr.substr(0, 10) : "") +'</font><br>';
                 a += '<strong>设备编号：</strong>' + item.deviceId   +'<br>';
                 a += '<strong>私有地址：</strong>' + item.privateIp  +'<br>';
                 a += '<strong>公网地址：</strong>' + item.publicIp   +'<br>';
