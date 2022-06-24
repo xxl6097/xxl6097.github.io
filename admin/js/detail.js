@@ -1,4 +1,5 @@
 var deviceObj;
+var isconnect = false;
 function addScript(url){
     document.write("<script language=javascript src="+url+"></script>");
 }
@@ -79,7 +80,15 @@ function reconn() {
     connect(wshost)
 }
 function status(msg) {
-    document.getElementById('status_id').innerHTML = msg;
+    var status_laybel = document.getElementById('status_id');
+    if(isconnect){
+        status_laybel.classList.remove('label-danger');
+        status_laybel.classList.add('label-success');
+    }else{
+        status_laybel.classList.remove('label-success');
+        status_laybel.classList.add('label-danger');
+    }
+    status_laybel.innerHTML = msg;
 }
 function sublog(userId) {
     var value = { "deviceid": userId }
@@ -111,6 +120,7 @@ function connect(wsurl) {
     socket = new WebSocket(host);
     try {
         socket.onopen = function (msg) {
+            isconnect = true;
             status("连接成功");
             sublog(deviceid);
         };
@@ -129,6 +139,7 @@ function connect(wsurl) {
         };
 
         socket.onclose = function (msg) {
+            isconnect = false;
             console.log('onclose received a message', msg);
             status("连接关闭");
         };
