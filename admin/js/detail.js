@@ -18,9 +18,6 @@ $(document).ready(function() {
             window.location.href = 'index.html'
         }else{
             document.title = '设备详情[' + deviceObj.deviceId + ']'
-            // for (let index = 0; index < 100; index++) {
-            //     showLog('尊敬的幼儿园园长朋友' + index)
-            // }
             displayDetail(deviceObj);
         }
     }else{
@@ -165,8 +162,8 @@ function sublog(userId) {
 }
 
 function connect(wsurl) {
-    var timestamp = new Date().getTime()
-    deviceid = "html_" + timestamp;
+    //var timestamp = new Date().getTime()
+    deviceid = "html_" + deviceObj.deviceId;
     var host = wsurl + '/' + deviceid;
     console.log("####websocket info " + host);
     showLog("####websocket info " + host);
