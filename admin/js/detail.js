@@ -128,7 +128,10 @@ function onDisconnect() {
         showLog("####disconnect info " + ex);
     }
 }
-
+function clearLog() {
+    document.getElementById("txtContent").value = "";
+    $("#txtContent").empty();
+}
 function onRecoonect() {
     //sleep(5000)
     connect(wshost)
