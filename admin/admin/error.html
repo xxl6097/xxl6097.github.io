@@ -1,10 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h2 th:text="${message}"></h2>
-</body>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            body
+{
+    font-family:sans-serif;
+    width: 100%;
+    margin: 0px;
+}
+
+/* upper strip holding the tabs*/
+ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position:fixed;
+    top: 0px;
+    width: 100%;
+    background-color: #328CC1
+}
+
+li
+{
+    float:left;
+    border-right:3px solid #30FFE3;
+}
+
+
+li a
+{
+    display: block;
+    color: whitesmoke;
+    text-decoration: none;
+    padding: 14px 16px;
+    text-align: center;
+
+}
+
+li a:hover:not(.active) 
+{
+    background-color: #111;
+}
+
+a.active
+{
+    background-color: #EAB126
+
+}
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#academics">Academics</a></li>
+            <li><a href="#athletics">Athletics</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </body>
 </html>

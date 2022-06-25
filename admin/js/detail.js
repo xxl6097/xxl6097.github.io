@@ -11,12 +11,12 @@ $(document).ready(function() {
     var json = '{"code":2000,"data":"ifconfig"}'
     document.getElementById("cmd_id").value = json
     if (isLogin()) {
-        connect(wshost);
         var device = sessionStorage.getItem('device');//获取键为allJson的字符串
         deviceObj = JSON.parse(device);//将字符串抓换成对象
         if(deviceObj === null){
             window.location.href = 'index.html'
         }else{
+            onConnect(wshost);
             document.title = '设备详情[' + deviceObj.deviceId + ']'
             displayDetail(deviceObj);
         }
@@ -56,7 +56,7 @@ function onReboot(){
 
 function onUpgrade(){
     var json = {"code": 2002, "data": {"binurl": "http://uuxia.cn/file/abss/" + deviceObj.osType +"/libabss.so"}}
-    var value = { "json": JSON.stringify(json),"deviceid": deviceid };
+    var value = { "json": JSON.stringify(json),"deviceid": deviceObj.deviceId };
     console.log('onReboot',value);
     showLog(JSON.stringify(value));
     postws(value);
@@ -131,7 +131,7 @@ function clearLog() {
 }
 function onRecoonect() {
     //sleep(5000)
-    connect(wshost)
+    onConnect(wshost)
 }
 function showStatus(msg) {
     var status_laybel = document.getElementById('status_id');
@@ -161,10 +161,10 @@ function sublog(userId) {
     });
 }
 
-function connect(wsurl) {
+function onConnect(wsurl) {
     //var timestamp = new Date().getTime()
-    deviceid = "html_" + deviceObj.deviceId;
-    var host = wsurl + '/' + deviceid;
+    var userId = 'html_' + deviceObj.deviceId;
+    var host = wsurl + '/' + userId;
     console.log("####websocket info " + host);
     showLog("####websocket info " + host);
     socket = new WebSocket(host);
@@ -172,7 +172,7 @@ function connect(wsurl) {
         socket.onopen = function (msg) {
             isconnect = true;
             showStatus("连接成功");
-            sublog(deviceid);
+            sublog(userId);
         };
         socket.onmessage = function (msg) {
             if (typeof msg.data == "string") {
