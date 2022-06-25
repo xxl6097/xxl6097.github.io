@@ -34,21 +34,23 @@
                             <h5>命令控制</h5>
                             <ul class="category-list" style="padding: 0">
                                 <li>
-                                    <input type="email" placeholder="请输入命令" class="form-control">
+                                    <input id="cmd_id" placeholder="请输入命令" class="form-control">
                                 </li>
                                 <li style="margin-top: 10px;">
-                                    <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>执行</strong> </button>
+                                    <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" onclick="onExecute()"><strong>执行</strong> </button>
                                 </li>
                             </ul>
 
                              <div class="space-25"></div>
                             <h5 class="tag-title">功能按钮</h5>
                             <div class="tag-list" style="padding: 0">
-                                <li onclick="onFriend()"><a>重启</a></li>
-                                <li onclick="onFriend()"><a>升级</a></li>
-                                <li onclick="onFriend()"><a>退出</a></li>
-                                <li onclick="reconn()"><a>重连</a></li>
-                                <li onclick="disconnect()"><a>断开</a></li>
+                                <li onclick="onReboot()"><a>重启</a></li>
+                                <li onclick="onUpgrade()"><a>升级</a></li>
+                                <li onclick="onExit()"><a>退出</a></li>
+                                <li onclick="onRecoonect()"><a>重连</a></li>
+                                <li onclick="onDisconnect()"><a>断开</a></li>
+                                <li onclick="saveLog(getText())"><a>保存日志</a></li>
+                                <li onclick="clearLog()"><a>清空日志</a></li>
                             </div>
 
 
@@ -74,6 +76,7 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/detail.js"></script>
     <script src="../js/jquery.params.js"></script>
+    <script type="text/javascript" src="../js/FileSaver.js"></script>
 
 
 </body>

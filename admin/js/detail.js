@@ -8,6 +8,8 @@ var host = localStorage.getItem("apihost");
 $(document).ready(function() {
     console.log("###ready#页面已加载！"+host);
     //var deviceid = $.query.get("deviceid");
+    var json = '{"code":2000,"data":"ifconfig"}'
+    document.getElementById("cmd_id").value = json
     if (isLogin()) {
         connect(wshost);
         var device = sessionStorage.getItem('device');//获取键为allJson的字符串
@@ -27,9 +29,67 @@ $(document).ready(function() {
     }
 });
 
+function postws(value){
+    jQuery.ajax({
+        //提交的网址
+        type: 'POST',
+        url: host + "/v1/api/device/ws",
+        data: value,
+        contentType: "application/x-www-form-urlencoded",
+        dataType: 'json',
+        success: function(results) {
+            console.log("####login " + JSON.stringify(results));
+            toast(JSON.stringify(results));
+            showLog(JSON.stringify(results));
+        }
+    });
+}
 
-function onFriend() {
-    alert('朋友');
+function getText() {
+    return $("#txtContent").html();
+}
+
+function onReboot(){
+    var json = {"code": 2000,"data": "reboot"}
+    var value = { "json": JSON.stringify(json),"deviceid": deviceObj.deviceId };
+    console.log('onReboot',value);
+    showLog(JSON.stringify(value));
+    postws(value);
+}
+
+function onUpgrade(){
+    var json = {"code": 2002, "data": {"binurl": "http://uuxia.cn/file/abss/" + deviceObj.osType +"/libabss.so"}}
+    var value = { "json": JSON.stringify(json),"deviceid": deviceid };
+    console.log('onReboot',value);
+    showLog(JSON.stringify(value));
+    postws(value);
+}
+
+function onExit(){
+    var json = {"code": 2000,"data": "exit_app"}
+    var value = { "json": JSON.stringify(json),"deviceid": deviceObj.deviceId };
+    console.log('onExit',value);
+    showLog(JSON.stringify(value));
+    postws(value);
+}
+
+
+function onExecute(){
+    var value = { "json": document.getElementById('cmd_id').value, "deviceid": deviceObj.deviceId };
+    console.log('onExecute',value);
+	jQuery.ajax({
+        //提交的网址
+        type: 'POST',
+        url: host + "/v1/api/device/ws",
+        data: value,
+        contentType: "application/x-www-form-urlencoded",
+        dataType: 'json',
+        success: function(results) {
+            console.log("####sendToOne " + JSON.stringify(results));
+            toast(JSON.stringify(results));
+            showLog(JSON.stringify(results));
+        }
+    });
 }
 
 
@@ -53,19 +113,13 @@ function displayDetail(obj){
     //ul.append(lis);
     $(".folder-list").append(lis);
 
-    // var btns = '<li onclick="reconn()"><a>重启</a></li>';
-    // btns += '<li onclick="onFriend()"><a>升级</a></li>';
-    // btns += '<li onclick="onFriend()"><a>退出</a></li>';
-    // btns += '<li id="reconnid" onclick="reconn()"><a>重连</a></li>';
-    // btns += '<li onclick="disconnect()"><a>断开</a></li>';
-    // $(".tag-list").append(btns);
 }
 
 
 function sleep(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 }
-function disconnect() {
+function onDisconnect() {
     showLog("####disconnect");
     try {
         socket.close();
@@ -75,11 +129,11 @@ function disconnect() {
     }
 }
 
-function reconn() {
+function onRecoonect() {
     //sleep(5000)
     connect(wshost)
 }
-function status(msg) {
+function showStatus(msg) {
     var status_laybel = document.getElementById('status_id');
     if(isconnect){
         status_laybel.classList.remove('label-danger');
@@ -96,7 +150,7 @@ function sublog(userId) {
     jQuery.ajax({
         //提交的网址
         type: 'POST',
-        url: host + "/v1/api/device/addreader",
+        url: host + "/v1/api/device/addclientreader",
         data: value,
         contentType: "application/x-www-form-urlencoded",
         dataType: 'json',
@@ -108,20 +162,16 @@ function sublog(userId) {
 }
 
 function connect(wsurl) {
-    // var host = "ws://207.246.96.42:8125"
     var timestamp = new Date().getTime()
-    //   var host = "wss://" + ip + ":" + port + "/websocket/html_"+timestamp;
     deviceid = "html_" + timestamp;
     var host = wsurl + '/' + deviceid;
-    //    var host = "ws://192.168.1.105:8125"
-    //     alert(host);
     console.log("####websocket info " + host);
     showLog("####websocket info " + host);
     socket = new WebSocket(host);
     try {
         socket.onopen = function (msg) {
             isconnect = true;
-            status("连接成功");
+            showStatus("连接成功");
             sublog(deviceid);
         };
         socket.onmessage = function (msg) {
@@ -134,14 +184,14 @@ function connect(wsurl) {
 
         socket.onerror = function (msg) {
             console.log('onerror received a message', msg);
-            status("连接失败");
+            showStatus("连接失败");
             showLog("连接失败 ")
         };
 
         socket.onclose = function (msg) {
             isconnect = false;
             console.log('onclose received a message', msg);
-            status("连接关闭");
+            showStatus("连接关闭");
         };
     } catch (ex) {
         console.log('catch received a message', msg);
