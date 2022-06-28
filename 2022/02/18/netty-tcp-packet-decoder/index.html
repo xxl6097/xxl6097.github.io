@@ -468,14 +468,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-06-27
+                    2022-06-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    352
+                    346
                 </div>
                 
 
@@ -514,16 +514,16 @@
 5A 0042   40 00   00000199000B0301 8C18D9FFEB9D 00000046 0000000000000000 0104     0000000001000301000000000000000000000003000200000000000000000000 050B
 
 说明：
-   1.长度len=0042(HEX)=66=(34+32)不包含5A;
-   2.空包长度total=35；
-   3.5A这一个子节不算在len区；
+   1. 长度len=0042(HEX)=66=(34+32)不包含5A;
+   2. 空包长度total=35；
+   3. 包头5A(1byte)不算在len区；
 
 
-int maxFrameLength = 65535;   （len是两个子节，所以最大长度是无符号两个子节的最大值）
-int lengthFieldOffset = 1;    （len的索引下表是1，下表从0开始）
-int lengthFieldLength = 2;    （len是两个子节）
-int lengthAdjustment = -2;    （netty从len后面开始读取，5A这一子节又不再len中，len又是2子节，所以这里是-2）
-int initialBytesToStrip = 0;  （这个0表示完整的协议内容，如果不想要5A，那么这里就是1）
+int maxFrameLength      = 65535;   （len是两个byte，所以最大长度是无符号两个byte的最大值）
+int lengthFieldOffset   = 1;       （len的索引下表是1，下表从0开始）
+int lengthFieldLength   = 2;       （len是两个byte）
+int lengthAdjustment    = -2;      （netty从len后面开始读取，5A这一子节又不再len中，len又是2子节，所以这里是-2）
+int initialBytesToStrip = 0;       （这个0表示完整的协议内容，如果不想要5A，那么这里就是1）
 
 socketChannel.pipeline().addLast(new LengthFieldBasedFrameDecoder(maxFrameLength, lengthFieldOffset, lengthFieldLength, lengthAdjustment, initialBytesToStrip));
 
@@ -541,11 +541,11 @@ A2      10     0E        0102030405060708091011121314 050B
 1.len=0E(HEX)=14,这里的len仅仅是Body的长度，不包含head的长度;
 
 
-lengthFieldOffset=2
-lengthFieldLength=1
-lengthAdjustment=2   
-initialBytesToStrip=0
-maxFrameLength=255<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+lengthFieldOffset   = 2
+lengthFieldLength   = 1
+lengthAdjustment    = 2   
+initialBytesToStrip = 0
+maxFrameLength      = 255<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lzwglory/article/details/80242209">https://blog.csdn.net/lzwglory/article/details/80242209</a></p>
