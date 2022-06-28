@@ -8,9 +8,11 @@
     <meta name="description" content="基于Netty的TCP Server，处理二进制数据断包和粘包，以及tcp发送字符串的截取处理！
 
 
+基于Netty的TCP Server，处理二进制数据断包和粘包，以及tcp发送字符串的截取处理！
 
-一、5A协议在Netty中处理断包粘包
-   长度[2] 1  1    设备编码[8]       Mac地址[6]    帧序号[4">
+
+
+一、5A协议在Netty中处理断包">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -475,7 +477,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    346
+                    369
                 </div>
                 
 
@@ -508,6 +510,9 @@
                 <p>基于Netty的TCP Server，处理二进制数据断包和粘包，以及tcp发送字符串的截取处理！</p>
 <span id="more"></span>
 
+<p>基于Netty的TCP Server，处理二进制数据断包和粘包，以及tcp发送字符串的截取处理！</p>
+<!--more-->
+
 
 <h2 id="一、5A协议在Netty中处理断包粘包"><a href="#一、5A协议在Netty中处理断包粘包" class="headerlink" title="一、5A协议在Netty中处理断包粘包"></a>一、5A协议在Netty中处理断包粘包</h2><pre class="line-numbers language-code" data-language="code"><code class="language-code">
    长度[2] 1  1    设备编码[8]       Mac地址[6]    帧序号[4] 保留[8]          命令字[2] Body                                                             CRC2[2]
@@ -522,7 +527,7 @@
 int maxFrameLength      = 65535;   （len是两个byte，所以最大长度是无符号两个byte的最大值）
 int lengthFieldOffset   = 1;       （len的索引下表是1，下表从0开始）
 int lengthFieldLength   = 2;       （len是两个byte）
-int lengthAdjustment    = -2;      （netty从len后面开始读取，5A这一子节又不再len中，len又是2子节，所以这里是-2）
+int lengthAdjustment    = -2;      （netty从len后面开始读取，5A不在len中，len又是2byte，所以这里是-2）
 int initialBytesToStrip = 0;       （这个0表示完整的协议内容，如果不想要5A，那么这里就是1）
 
 socketChannel.pipeline().addLast(new LengthFieldBasedFrameDecoder(maxFrameLength, lengthFieldOffset, lengthFieldLength, lengthAdjustment, initialBytesToStrip));
