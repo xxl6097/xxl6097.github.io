@@ -8,9 +8,8 @@
     <meta name="description" content="ssh连接使用公钥免密登录
 
 
-https://blog.csdn.net/no1xium/article/details/123912874
------BEGIN OPENSSH PRIVATE KEY-----
-b3BlbnNzaC1r">
+1. 制作公钥ed25519方式[root@VM-4-12-centos ~]# ssh-keygen -t ed25519 -C &#34;HongKong@uuxia.cn&#34;
+Generating public/">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -468,14 +467,14 @@ b3BlbnNzaC1r">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-02
+                    2022-07-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    60
+                    277
                 </div>
                 
 
@@ -508,8 +507,51 @@ b3BlbnNzaC1r">
                 <p>ssh连接使用公钥免密登录</p>
 <span id="more"></span>
 
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/no1xium/article/details/123912874">https://blog.csdn.net/no1xium/article/details/123912874</a></p>
-<pre class="line-numbers language-raspberry4+" data-language="raspberry4+"><code class="language-raspberry4+">-----BEGIN OPENSSH PRIVATE KEY-----
+<h2 id="1-制作公钥"><a href="#1-制作公钥" class="headerlink" title="1. 制作公钥"></a>1. 制作公钥</h2><h4 id="ed25519方式"><a href="#ed25519方式" class="headerlink" title="ed25519方式"></a>ed25519方式</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@VM-4-12-centos ~<span class="token punctuation">]</span><span class="token comment"># ssh-keygen -t ed25519 -C "HongKong@uuxia.cn"</span>
+Generating public/private ed25519 key pair.
+Enter <span class="token function">file</span> <span class="token keyword">in</span> <span class="token function">which</span> to save the key <span class="token punctuation">(</span>/root/.ssh/id_ed25519<span class="token punctuation">)</span>: 
+/root/.ssh/id_ed25519 already exists.
+Overwrite <span class="token punctuation">(</span>y/n<span class="token punctuation">)</span>? y
+Enter passphrase <span class="token punctuation">(</span>empty <span class="token keyword">for</span> no passphrase<span class="token punctuation">)</span>: 
+Enter same passphrase again: 
+Your identification has been saved <span class="token keyword">in</span> /root/.ssh/id_ed25519.
+Your public key has been saved <span class="token keyword">in</span> /root/.ssh/id_ed25519.pub.
+The key fingerprint is:
+SHA256:WOaLsCD+PTOpbs3DvEdlA/k4lepSQ/uXklT5Cv4sb/E HongKong@uuxia.cn
+The key's randomart image is:
++--<span class="token punctuation">[</span>ED25519 <span class="token number">256</span><span class="token punctuation">]</span>--+
+<span class="token operator">|</span>        <span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span>    <span class="token operator">|</span>
+<span class="token operator">|</span>       + o o     <span class="token operator">|</span>
+<span class="token operator">|</span>      <span class="token builtin class-name">.</span> X <span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span>    <span class="token operator">|</span>
+<span class="token operator">|</span>       % B   <span class="token builtin class-name">.</span>   <span class="token operator">|</span>
+<span class="token operator">|</span><span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span> + S + o    <span class="token operator">|</span>
+<span class="token operator">|</span><span class="token punctuation">..</span> <span class="token builtin class-name">.</span> + + * <span class="token operator">=</span>     <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token builtin class-name">.</span>  * <span class="token operator">=</span> <span class="token builtin class-name">.</span> <span class="token operator">=</span> o    <span class="token operator">|</span>
+<span class="token operator">|</span>  <span class="token punctuation">..</span>.@ <span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span> + E   <span class="token operator">|</span>
+<span class="token operator">|</span>  o+.oB   +.     <span class="token operator">|</span>
++----<span class="token punctuation">[</span>SHA256<span class="token punctuation">]</span>-----+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="rsa方式"><a href="#rsa方式" class="headerlink" title="rsa方式"></a>rsa方式</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"HongKong@uuxia.cn"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h2 id="2-安装公钥"><a href="#2-安装公钥" class="headerlink" title="2. 安装公钥"></a>2. 安装公钥</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@VM-4-12-centos ~<span class="token punctuation">]</span><span class="token comment"># cat ~/.ssh/id_ed25519.pub &gt; ~/.ssh/authorized_keys</span>
+<span class="token punctuation">[</span>root@VM-4-12-centos ~<span class="token punctuation">]</span><span class="token comment"># chmod 600 ~/.ssh/authorized_keys </span>
+<span class="token punctuation">[</span>root@VM-4-12-centos ~<span class="token punctuation">]</span><span class="token comment"># chmod 700 ~/.ssh/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3-修改SSH配置"><a href="#3-修改SSH配置" class="headerlink" title="3. 修改SSH配置"></a>3. 修改SSH配置</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">nano</span> /etc/ssh/sshd_config
+
+
+PubkeyAuthentication <span class="token function">yes</span>
+
+禁用ssh密码登录,可以不禁用
+PasswordAuthentication no
+
+<span class="token function">sudo</span> <span class="token function">service</span> sshd restart
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-id_ed25519_hetpi4s" data-language="id_ed25519_hetpi4s"><code class="language-id_ed25519_hetpi4s">-----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
 QyNTUxOQAAACBFXprOqGFkUMg3AJAlTEQQVCVbt+BTxDB1C5A+JMXQsgAAAJiA8NffgPDX
 3wAAAAtzc2gtZWQyNTUxOQAAACBFXprOqGFkUMg3AJAlTEQQVCVbt+BTxDB1C5A+JMXQsg
@@ -519,10 +561,35 @@ JVu34FPEMHULkD4kxdCyAAAAD2hldHBpNEB1dXhpYS5jbgECAwQFBg==
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<p>这是一个链接 <a target="_blank" rel="noopener" href="https://www.runoob.com/">菜鸟教程</a></p>
+
+<pre class="line-numbers language-id_ed25519_homepi4s" data-language="id_ed25519_homepi4s"><code class="language-id_ed25519_homepi4s">-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+QyNTUxOQAAACBi+wXwnH9fh0lebu9JzDG2hBoWEjueIGbnt+hvjnat3AAAAJi4l4PmuJeD
+5gAAAAtzc2gtZWQyNTUxOQAAACBi+wXwnH9fh0lebu9JzDG2hBoWEjueIGbnt+hvjnat3A
+AAAEBCPjafbpoYxx0iWNFSL0A3CHtSgmmDV/+Y46SAclqv9GL7BfCcf1+HSV5u70nMMbaE
+GhYSO54gZue36G+Odq3cAAAAEWhvbWVwaTRzQHV1eGlhLmNuAQIDBA==
+-----END OPENSSH PRIVATE KEY-----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-uuxia.cn" data-language="uuxia.cn"><code class="language-uuxia.cn">-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+QyNTUxOQAAACA8+LMAD9OzOFpu48I7k/J8PFQSPUxAl0V3O7yK0me2tAAAAJiG5lCFhuZQ
+hQAAAAtzc2gtZWQyNTUxOQAAACA8+LMAD9OzOFpu48I7k/J8PFQSPUxAl0V3O7yK0me2tA
+AAAEAADBNvYO8owdd0Nd1Jj1h5zB8SjP8LWex7fBVnwMgA1Tz4swAP07M4Wm7jwjuT8nw8
+VBI9TECXRXc7vIrSZ7a0AAAAEHRlbmNlbnRAdXV4aWEuY24BAgMEBQ==
+-----END OPENSSH PRIVATE KEY-----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-HongKong" data-language="HongKong"><code class="language-HongKong">-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+QyNTUxOQAAACBYr18zgN38cTW9Mohlyui72GjQbVwuHCfcMGlyiWqJQwAAAJhTAryrUwK8
+qwAAAAtzc2gtZWQyNTUxOQAAACBYr18zgN38cTW9Mohlyui72GjQbVwuHCfcMGlyiWqJQw
+AAAEDDLLNd7gQEYDoWS5d9iCWL5nV/93X8aAB0JX73PJKwblivXzOA3fxxNb0yiGXK6LvY
+aNBtXC4cJ9wwaXKJaolDAAAAEUhvbmdLb25nQHV1eGlhLmNuAQIDBA==
+-----END OPENSSH PRIVATE KEY-----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><a href="id_ed25519_hetpi4s" title="公司树莓派4B+">id_ed25519_hetpi4s</a></p>
 <p><a href="id_ed25519_homepi4s" title="HOME树莓派4B+">id_ed25519_homepi4s</a></p>
 <p><a href="id_ed25519_uuxia.cn" title="uuxia.cn">uuxia.cn</a></p>
+<p><a href="id_ed25519_hk" title="HongKong">HongKong</a></p>
 <p>光猫登陆：<br>192.168.3.1<br>root/adminHW</p>
 
                 
@@ -1078,7 +1145,7 @@ JVu34FPEMHULkD4kxdCyAAAAD2hldHBpNEB1dXhpYS5jbgECAwQFBg==
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">25.2k</span>
+                        class="white-color">25.4k</span>
             
             
             
