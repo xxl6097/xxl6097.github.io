@@ -26,6 +26,22 @@ $(document).ready(function() {
     }
 });
 
+function postChgName(value){
+    jQuery.ajax({
+        //提交的网址
+        type: 'POST',
+        url: host + "/v1/api/device/chgName",
+        data: value,
+        contentType: "application/x-www-form-urlencoded",
+        dataType: 'json',
+        success: function(results) {
+            console.log("####login " + JSON.stringify(results));
+            toast(JSON.stringify(results));
+            showLog(JSON.stringify(results));
+        }
+    });
+}
+
 function postws(value){
     jQuery.ajax({
         //提交的网址
@@ -70,6 +86,13 @@ function onExit(){
     postws(value);
 }
 
+function onChgName() {
+    var name = prompt('请输入更改名称('+ deviceid +')','Home');
+    if (name) {
+        var value = { "deviceId": deviceObj.deviceId, "deviceName": name };
+        postChgName(value);
+    }
+}
 
 function onExecute(){
     var value = { "json": document.getElementById('cmd_id').value, "deviceid": deviceObj.deviceId };
