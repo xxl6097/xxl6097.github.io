@@ -25,7 +25,7 @@ function getCookie(cname) {
 }
 
 function setCookie(cname, cvalue){
-    saveCookie(cname, cvalue, 5);
+    saveCookie(cname, cvalue, 60);
 }
 
 
