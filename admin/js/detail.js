@@ -87,7 +87,7 @@ function onExit(){
 }
 
 function onChgName() {
-    var name = prompt('请输入更改名称('+ deviceid +')','Home');
+    var name = prompt('请输入更改名称('+ deviceObj.deviceId +')','Home');
     if (name) {
         var value = { "deviceId": deviceObj.deviceId, "deviceName": name };
         postChgName(value);
