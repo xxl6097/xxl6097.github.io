@@ -113,11 +113,11 @@
       
         <tags>
             
-            <tag> android </tag>
+            <tag> cepheus </tag>
             
             <tag> proxy </tag>
             
-            <tag> cepheus </tag>
+            <tag> android </tag>
             
         </tags>
       
@@ -142,9 +142,9 @@
       
         <tags>
             
-            <tag> git </tag>
-            
             <tag> proxy </tag>
+            
+            <tag> git </tag>
             
             <tag> ubuntu </tag>
             
@@ -266,9 +266,9 @@
             
             <tag> shadowsocks </tag>
             
-            <tag> raspberry </tag>
-            
             <tag> proxy </tag>
+            
+            <tag> raspberry </tag>
             
         </tags>
       
