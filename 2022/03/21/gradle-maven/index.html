@@ -475,7 +475,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-06-15
+                    2022-07-11
                 </div>
                 
 
@@ -518,7 +518,7 @@
 <span id="more"></span>
 
 
-<h3 id="一、最新版本-根目录build-gradle"><a href="#一、最新版本-根目录build-gradle" class="headerlink" title="一、最新版本(根目录build.gradle)"></a>一、最新版本(根目录build.gradle)</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">classpath<span class="token punctuation">(</span><span class="token string">"io.github.szhittech:gradle-maven:0.0.9"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="一、最新版本-根目录build-gradle"><a href="#一、最新版本-根目录build-gradle" class="headerlink" title="一、最新版本(根目录build.gradle)"></a>一、最新版本(根目录build.gradle)</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">classpath<span class="token punctuation">(</span><span class="token string">"io.github.szhittech:gradle-maven:0.1.0"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="二、功能简介"><a href="#二、功能简介" class="headerlink" title="二、功能简介"></a>二、功能简介</h3><ul>
 <li>支持发布多种类型的库, 例如：<code>Java</code>、<code>Android</code>、<code>Kotlin</code>；</li>
@@ -526,7 +526,7 @@
 <li>支持签名库资源，<code>包括sources</code>、<code>Javadoc</code>、<code>POM</code>（需要<code>Gradle Version &gt;= 4.8</code>）</li>
 <li>本插件内置了<code>signing</code>签名信息与文件(<code>secring.gpg</code>)</li>
 </ul>
-<h3 id="三、使用步骤"><a href="#三、使用步骤" class="headerlink" title="三、使用步骤"></a>三、使用步骤</h3><h4 id="1-在根目录build-gradle中新增如下代码"><a href="#1-在根目录build-gradle中新增如下代码" class="headerlink" title="1. 在根目录build.gradle中新增如下代码"></a>1. 在根目录<code>build.gradle</code>中新增如下代码</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">classpath<span class="token punctuation">(</span><span class="token string">"io.github.szhittech:gradle-maven:0.0.9"</span><span class="token punctuation">)</span>
+<h3 id="三、使用步骤"><a href="#三、使用步骤" class="headerlink" title="三、使用步骤"></a>三、使用步骤</h3><h4 id="1-在根目录build-gradle中新增如下代码"><a href="#1-在根目录build-gradle中新增如下代码" class="headerlink" title="1. 在根目录build.gradle中新增如下代码"></a>1. 在根目录<code>build.gradle</code>中新增如下代码</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">classpath<span class="token punctuation">(</span><span class="token string">"io.github.szhittech:gradle-maven:0.1.0"</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="2-在library-build-gradle中新增如下代码"><a href="#2-在library-build-gradle中新增如下代码" class="headerlink" title="2. 在library/build.gradle中新增如下代码"></a>2. 在<code>library/build.gradle</code>中新增如下代码</h4><pre class="line-numbers language-gradle" data-language="gradle"><code class="language-gradle">apply plugin: 'gradle.maven'<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
