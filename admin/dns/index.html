@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>腾讯DnsPod域名管理</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta charset="UTF-8">
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="viewport"
+        content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0 ,user-scalable=yes">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/home.js"></script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../../../../web/css/style.css">
+
+
+</head>
+
+<body onload="load()" style="background: white">
+    <div style="margin-top: 5px">
+
+        <div style="margin-top: 5px; margin-right: 10px">
+            <span><b>domain:</b></span><input id="domain_id" type="text" style=" margin-left: 5px" placeholder="域名" />
+            <br>
+            <span><b>subDomain:</b></span><input id="subdomain_id" type="text" style=" margin-left: 5px" placeholder="二级域名" />
+            <br>
+            <span><b>recordType:</b></span><input id="recordtype_id" type="text" style=" margin-left: 5px" placeholder="如 A，CNAME，NS，AAAA" />
+            <br>
+            <span><b>recordLine:</b></span><input id="recordLine_id" type="text" style=" margin-left: 5px" value="默认" />
+            <br>
+            <span><b>value:</b></span><input id="value_id" type="text" style=" margin-left: 5px" placeholder="IP地址" />
+            <br>
+            <button style="margin-top: 5px" onclick="createRecord()">新增记录</button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
