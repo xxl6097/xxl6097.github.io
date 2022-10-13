@@ -8,11 +8,10 @@
     <meta name="description" content="小米9刷入官方rom
 
 
-
 小米9解锁
 确保手机插入了一张SIM卡，并登陆小米账号，并断开Wi-Fi连接;
 开启开发者调试模式，Settings &amp;gt; About Phone， 连续点击 MIUI Version 5次；
-绑定设备到小米">
+绑定设备到小米账">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -485,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    262
+                    277
                 </div>
                 
 
@@ -518,7 +517,6 @@
                 <p>小米9刷入官方rom</p>
 <span id="more"></span>
 
-
 <h2 id="小米9解锁"><a href="#小米9解锁" class="headerlink" title="小米9解锁"></a>小米9解锁</h2><ol>
 <li>确保手机插入了一张SIM卡，并登陆小米账号，并断开Wi-Fi连接;</li>
 <li>开启<code>开发者调试模式</code>，<code>Settings</code> &gt; <code>About Phone</code>， 连续点击 <code>MIUI Version</code> 5次；</li>
@@ -529,16 +527,17 @@
 <li>遇到电脑识别不了手机，需要安装驱动，可以使用<a target="_blank" rel="noopener" href="https://xiaomirom.com/download-xiaomi-flash-tool-miflash/">小米刷机工具</a>自带驱动安装。</li>
 </ol>
 <h2 id="刷入-PixelExperience-Recovery"><a href="#刷入-PixelExperience-Recovery" class="headerlink" title="刷入 PixelExperience Recovery."></a>刷入 PixelExperience Recovery.</h2><ol>
-<li>下载<a target="_blank" rel="noopener" href="http://file.uuxia.top:88/soft/mi9/miflash_unlock-en-6.5.224.28.zip">PixelExperience Recovery;</a></li>
+<li>下载<a target="_blank" rel="noopener" href="http://file.uuxia.top:88/soft/mi9/recovery_cepheus-12.1-20220611-0701-UNOFFICIAL.img">PixelExperience Recovery;</a></li>
 <li>将小米9手机连接PC电脑，并运行一下指令进入bootloader模式：<pre class="line-numbers language-none"><code class="language-none">adb reboot bootloader<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>查看手机是否连接成功：<pre class="line-numbers language-none"><code class="language-none">fastboot devices<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>开始刷入<code>PixelExperience Recovery</code><pre class="line-numbers language-none"><code class="language-none">fastboot flash recovery &lt;recovery_filename&gt;.img<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>开始刷入<code>PixelExperience Recovery</code><pre class="line-numbers language-none"><code class="language-none">fastboot flash recovery recovery_cepheus-12.1-20220611-0701-UNOFFICIAL.img<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <h2 id="开始-PixelExperience-ROM-刷机"><a href="#开始-PixelExperience-ROM-刷机" class="headerlink" title="开始 PixelExperience ROM 刷机"></a>开始 PixelExperience ROM 刷机</h2><ol>
+<li>uuxia编译的<a target="_blank" rel="noopener" href="http://file.uuxia.top:88/soft/mi9/PixelExperience_cepheus-12.1-20220611-0701-UNOFFICIAL.zip">ROM包</a>下载</li>
 <li>按 <code>Volume Up</code> + <code>Power</code>;</li>
 <li>清空数据 <code>Format data / factory reset</code>;</li>
 <li><code>Apply Update</code> &gt; <code>Apply from ADB</code>;</li>
-<li>PC电脑端执行 <code>adb sideload filename.zip</code></li>
+<li>PC电脑端执行 <code>adb sideload PixelExperience_cepheus-12.1-20220611-0701-UNOFFICIAL.zip</code></li>
 </ol>
 <p><a target="_blank" rel="noopener" href="https://wiki.pixelexperience.org/devices/cepheus/build/">附小米9刷回官方ROM</a></p>
 <p><video src="http://file.uuxia.top:88/movies/%E7%94%B5%E8%A7%86%E5%89%A7/%E5%87%A1%E4%BA%BA%E4%BF%AE%E4%BB%99%E4%BC%A0/%E5%87%A1%E4%BA%BA%E4%BF%AE%E4%BB%99%E4%BC%A0%E7%AC%AC%E4%B8%80%E8%BE%91%5B01-08%5D.mov" style="width: 100%; height: 100%;" controls="controls"></video></p>
