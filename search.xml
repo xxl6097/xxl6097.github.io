@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Windows下Frpc安装与自启动</title>
+      <link href="/2022/10/27/frpc-install-autostart/"/>
+      <url>/2022/10/27/frpc-install-autostart/</url>
+      
+        <content type="html"><![CDATA[<p>Windows下安装Frpc，并在windows的任务计划程序里设置Frpc自启动。</p><span id="more"></span><p>1、新建一个start.bat文件</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">@echo off:homefrpc -c frpc.inigoto home<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>2、 打开<code>任务计划程序</code>（<code>cmd</code>-&gt;<code>taskschd.msc</code>）</p><p>3、安装步骤如下截图：</p><p><img src="http://file.uuxia.top:88/showdoc/img/frpc/install/frpc-install-autostart-001.png"></p><hr><p><img src="http://file.uuxia.top:88/showdoc/img/frpc/install/frpc-install-autostart-002.png"></p><hr><p><img src="http://file.uuxia.top:88/showdoc/img/frpc/install/frpc-install-autostart-003.png"></p><hr><p><img src="http://file.uuxia.top:88/showdoc/img/frpc/install/frpc-install-autostart-004.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> frpc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> frpc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>小米9刷 PixelExperience ROM教程</title>
       <link href="/2022/10/13/cepheus-lock-rom/"/>
       <url>/2022/10/13/cepheus-lock-rom/</url>
@@ -895,28 +920,6 @@
     
     
     <entry>
-      <title>404</title>
-      <link href="/404/index.html"/>
-      <url>/404/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<p>大家好，我是XXX。欢迎来到我的个人技术博客。</p><p>这里用markdown写下你的简介，就跟平时写md一样就可以了。</p>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>categories</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
@@ -928,20 +931,9 @@
     
     
     <entry>
-      <title>contact</title>
-      <link href="/contact/index.html"/>
-      <url>/contact/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>friends</title>
-      <link href="/friends/index.html"/>
-      <url>/friends/index.html</url>
+      <title>404</title>
+      <link href="/404/index.html"/>
+      <url>/404/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -961,9 +953,42 @@
     
     
     <entry>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<p>大家好，我是XXX。欢迎来到我的个人技术博客。</p><p>这里用markdown写下你的简介，就跟平时写md一样就可以了。</p>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>contact</title>
+      <link href="/contact/index.html"/>
+      <url>/contact/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>tags</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>friends</title>
+      <link href="/friends/index.html"/>
+      <url>/friends/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
