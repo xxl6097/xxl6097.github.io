@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>go-cross-compile</title>
+      <link href="/2022/11/23/go-cross-compile/"/>
+      <url>/2022/11/23/go-cross-compile/</url>
+      
+        <content type="html"><![CDATA[<hr><p>title: GoLang 全平台编译<br>date: 2022-11-23 19:16:38<br>tags: [go,cross]<br>categories:</p><ul><li>[go]</li></ul><hr><p>Golang的全平台编译简直太爽了，真的太适合我了，平时编译一些不同设备的跨平台程序，真的是爽的不行。<br>拥有一台windows电脑就能开发出在Linux、Windows、Mac上面直接运行的程序。</p><span id="more"></span><h2 id="一、三个平台编译示例"><a href="#一、三个平台编译示例" class="headerlink" title="一、三个平台编译示例:"></a>一、三个平台编译示例:</h2><p>1、Mac下编译Linux, Windows平台的64位可执行程序：</p><pre class="line-numbers language-none"><code class="language-none">$ CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build test.go$ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>2、 Linux下编译Mac, Windows平台的64位可执行程序：</p><pre class="line-numbers language-none"><code class="language-none">$ CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build test.go$ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>3、 Windows下编译Mac, Linux平台的64位可执行程序：</p><pre class="line-numbers language-none"><code class="language-none">$ set CGO_ENABLED=0 set GOOS=darwin3 set GOARCH=amd64 go build test.go$ set CGO_ENABLED=0 set GOOS=linux s GOARCH=amd64 go build test.go<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>当然如果编译过其他平台后，程序 go run main.go 执行会有一些问题:<br>报错如下:</p><pre class="line-numbers language-none"><code class="language-none">F:\github\syncFiles\goApi\ipDemo&gt;go run main.gowarning: GOPATH set to GOROOT (C:\Program Files\Go) has no effectexec: "C:\\Users\\dell\\AppData\\Local\\Temp\\go-build2490838331\\b001\\exe\\main": file does not exist<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>这里只需要:</p><pre class="line-numbers language-none"><code class="language-none">F:\github\syncFiles\goApi\ipDemo&gt;set GOOS=windowsF:\github\syncFiles\goApi\ipDemo&gt;go run main.gowarning: GOPATH set to GOROOT (C:\Program Files\Go) has no effect192.168.5.107<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>main.go 是一个显示本机IP地址的程序。<br>这样做就没有问题了。</p><h2 id="二、包括三个设置的参数"><a href="#二、包括三个设置的参数" class="headerlink" title="二、包括三个设置的参数:"></a>二、包括三个设置的参数:</h2><ul><li>GOARCH：编译目标平台的硬件体系架构（amd64, 386, arm, ppc64等）。</li><li>GOOS：编译目标平台上的操作系统（darwin, freebsd, linux, windows）。</li><li>CGO_ENABLED：代表是否开启CGO，1表示开启，0表示禁用。由于CGO不能支持交叉编译，所以需要禁用。</li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>OpenWrt开启i2c功能，并顺利编译风扇驱动</title>
       <link href="/2022/11/21/openwet-i2c/"/>
       <url>/2022/11/21/openwet-i2c/</url>
