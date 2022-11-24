@@ -1,0 +1,75 @@
+192.168.3.1
+
+
+
+连接名称	VLAN/优先级	协议类型
+	1_INTERNET_B_VID_10	10/0	IPv4
+	2_IPTV_B_VID_98	98/0	IPv4
+	3_TR069_R_VID_540	540/0	IPv4
+基本信息
+使能WAN：	
+封装类型：	IPoE PPPoE
+协议类型：	IPv4
+WAN类型：	桥接WAN
+服务类型：	INTERNET
+使能VLAN：	
+VLAN ID：	10 *(1-4094)
+802.1p优先级策略：	使用指定值
+802.1p优先级：	    0
+绑定项：	LAN1 LAN2 LAN3 LAN4
+SSID1 SSID2 SSID3 SSID4
+
+IPv4信息
+组播VLAN：	(0–4094,0表示不带vlan)
+
+
+
+---------------------
+
+
+连接名称	VLAN/优先级	协议类型
+	1_INTERNET_B_VID_10	10/0	IPv4
+	2_IPTV_B_VID_98	98/0	IPv4
+	3_TR069_R_VID_540	540/0	IPv4
+基本信息
+使能WAN：	
+封装类型：	IPoE PPPoE
+协议类型：	IPv4
+WAN类型：	桥接WAN
+服务类型：	IPTV
+使能VLAN：	
+VLAN ID：	98 *(1-4094)
+802.1p优先级策略：	使用指定值
+802.1p优先级：	    0
+绑定项：	LAN1 LAN2 LAN3 LAN4
+SSID1 SSID2 SSID3 SSID4
+
+IPv4信息
+组播VLAN：	99 (0–4094,0表示不带vlan)
+
+
+
+---------------------
+
+
+
+	连接名称	VLAN/优先级	协议类型
+	1_INTERNET_B_VID_10	10/0	IPv4
+	2_IPTV_B_VID_98	98/0	IPv4
+	3_TR069_R_VID_540	540/0	IPv4
+基本信息
+使能WAN：	
+封装类型：	IPoE PPPoE
+协议类型：	IPv4
+WAN类型：	路由WAN
+服务类型：	TR069
+使能VLAN：	
+VLAN ID：	540 *(1-4094)
+802.1p优先级策略：	使用指定值
+802.1p优先级：	    0
+MTU：	            1500 (1-1540)
+IPv4信息
+IP地址获取方式：	Static DHCP PPPoE
+使能NAT：	
+厂商标识：	 (厂商标识长度0–64)
+用户标识：	 (Option61,长度0–64)
