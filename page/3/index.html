@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>悠悠博客</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/page/3/index.html">
-<meta property="og:site_name" content="Hexo">
+  <meta name="description" content="在浮躁的世界安安静静地敲代码">
+<meta property="og:type" content="website">
+<meta property="og:title" content="悠悠博客">
+<meta property="og:url" content="https://uuxia.cn/page/3/index.html">
+<meta property="og:site_name" content="悠悠博客">
+<meta property="og:description" content="在浮躁的世界安安静静地敲代码">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="uuxia">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="悠悠博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   
 <link rel="stylesheet" href="/css/style.css">
@@ -39,7 +39,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">悠悠博客</a>
       </h1>
       
     </div>
@@ -59,7 +59,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://uuxia.cn"></form>
       </div>
     </div>
   </div>
@@ -69,7 +69,7 @@
   
     <article id="post-tencent-shadowsocks" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2021/09/08/tencent-shadowsocks/" class="article-date">
+    <a href="/post/tencent-shadowsocks.html" class="article-date">
   <time datetime="2021-09-08T09:29:21.000Z" itemprop="datePublished">2021-09-08</time>
 </a>
     
@@ -85,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/08/tencent-shadowsocks/">腾讯云【centos7/8】一键安装 shadowsocks-libev</a>
+      <a class="article-title" href="/post/tencent-shadowsocks.html">腾讯云【centos7/8】一键安装 shadowsocks-libev</a>
     </h1>
   
 
@@ -97,18 +97,51 @@
 <p>由于 Google BBR 需要内核版本 4.9 以上，如果安装时内核版本低于 4.9 建议先升级内核版本。</p>
 <p>提示：CentOS 7 自带内核版本为 3.10，CentOS 8 自带内核版本为 4.18。</p>
 <p>查看内核版本命令：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -r</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">uname</span> -r<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="1、下载脚本"><a href="#1、下载脚本" class="headerlink" title="1、下载脚本"></a>1、下载脚本</h3><p>一键脚本已集成TCP优化、自动开启Google BBR（限 4.9 或更高版本内核）、自动安装 shadowsocks-libev</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://down.24kplus.com/linux/shadowsocks/centos-shadowsocks-libev.sh</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="2、执行脚本进行安装"><a href="#2、执行脚本进行安装" class="headerlink" title="2、执行脚本进行安装"></a>2、执行脚本进行安装</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x centos-shadowsocks-libev.sh &amp;&amp; ./centos-shadowsocks-libev.sh</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://down.24kplus.com/linux/shadowsocks/centos-shadowsocks-libev.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2、执行脚本进行安装"><a href="#2、执行脚本进行安装" class="headerlink" title="2、执行脚本进行安装"></a>2、执行脚本进行安装</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> +x centos-shadowsocks-libev.sh <span class="token operator">&amp;&amp;</span> ./centos-shadowsocks-libev.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="3、根据shell脚本提示输入相关信息"><a href="#3、根据shell脚本提示输入相关信息" class="headerlink" title="3、根据shell脚本提示输入相关信息"></a>3、根据shell脚本提示输入相关信息</h3><p>1、提示设置SS密码，输入自定义密码后按回车，也可以直接按回车使用默认密码<br>2、接下来选择SS要使用的服务器端口，输入自己喜欢的端口， 也可以直接按回车使用默认端口<br>3、 然后选择加密方式（仅保留相对安全的加密方式），如果选择chacha20的话，就输入对应序号3，按回车继续<br>4、 安装完成后，会有如下图安装成功的提示，记住各项信息，在客户端连接时需要用到</p>
-<h3 id="4、shadowsocks管理"><a href="#4、shadowsocks管理" class="headerlink" title="4、shadowsocks管理"></a>4、shadowsocks管理</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">status</span></span>() {</span><br><span class="line">    systemctl status shadowsocks-libev.service</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">restart</span></span>() {</span><br><span class="line">    systemctl restart shadowsocks-libev.service</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">log</span></span>() {</span><br><span class="line">    journalctl -f -u shadowsocks-libev.service</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">m</span></span>() {</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"1. 重启"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"2. 重看状态"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"3. 查看日志"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"请输入编号:"</span></span><br><span class="line">    <span class="built_in">read</span> index</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="string">"<span class="variable">$index</span>"</span> <span class="keyword">in</span></span><br><span class="line">    [1]) (restart);;</span><br><span class="line">    [2]) (status);;</span><br><span class="line">    [3]) (<span class="built_in">log</span>);;</span><br><span class="line">    *) <span class="built_in">echo</span> <span class="string">"exit"</span> ;;</span><br><span class="line">  <span class="keyword">esac</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">m</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="4、shadowsocks管理"><a href="#4、shadowsocks管理" class="headerlink" title="4、shadowsocks管理"></a>4、shadowsocks管理</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+<span class="token comment">#!/bin/bash</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    systemctl status shadowsocks-libev.service
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">restart</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    systemctl restart shadowsocks-libev.service
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">log</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    journalctl -f -u shadowsocks-libev.service
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">m</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"1. 重启"</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"2. 重看状态"</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"3. 查看日志"</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"请输入编号:"</span>
+    <span class="token builtin class-name">read</span> index
+
+    <span class="token keyword">case</span> <span class="token string">"<span class="token variable">$index</span>"</span> <span class="token keyword">in</span>
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>restart<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+    *<span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">"exit"</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+  <span class="token keyword">esac</span>
+<span class="token punctuation">}</span>
+
+m
+
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/08/tencent-shadowsocks/" data-id="clbad6v600053fqw05wd699md" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/tencent-shadowsocks.html" data-id="clbae9lw3002bcrw00ote4s87" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/" rel="tag">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shadowsocks/" rel="tag">shadowsocks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="tag">腾讯云</a></li></ul>
@@ -122,7 +155,7 @@
   
     <article id="post-xj-north-circle" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/10/21/xj-north-circle/" class="article-date">
+    <a href="/post/xj-north-circle.html" class="article-date">
   <time datetime="2019-10-21T08:57:49.000Z" itemprop="datePublished">2019-10-21</time>
 </a>
     
@@ -138,7 +171,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/21/xj-north-circle/">国庆长假新疆旅行-北疆环游</a>
+      <a class="article-title" href="/post/xj-north-circle.html">国庆长假新疆旅行-北疆环游</a>
     </h1>
   
 
@@ -146,7 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="行程速览"><a href="#行程速览" class="headerlink" title="行程速览"></a>行程速览</h1>
+        <h1 id="行程速览"><a href="#行程速览" class="headerlink" title="行程速览"></a>行程速览</h1><img src="/post/xj-north-circle/xj-todo-list.png" class="">
 
 
 
@@ -167,7 +200,7 @@
 <li>找超市备货；</li>
 <li>预定好下一站可可托海的住宿；</li>
 </ol>
-
+<img src="/post/xj-north-circle/xj-jipiao.jpeg" class="">
 
 
 <h5 id="注意事项：-1"><a href="#注意事项：-1" class="headerlink" title="注意事项："></a>注意事项：</h5><ol>
@@ -184,7 +217,7 @@
 <li>区间测速80km；</li>
 <li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Bid%5D=B03DF0668Z-to&amp;from%5Bname%5D=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%9C%B0%E7%AA%9D%E5%A0%A1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&amp;from%5Blnglat%5D=87.479742,43.905808&amp;from%5Bmodxy%5D=87.478441,43.902829&amp;from%5Bpoitype%5D=150104&amp;from%5Badcode%5D=650104&amp;to%5Badcode%5D=654322&amp;to%5Bname%5D=%E5%8F%AF%E5%8F%AF%E6%89%98%E6%B5%B7%E9%95%87&amp;to%5Bid%5D=B038A0LO1U&amp;to%5Bpoitype%5D=190106&amp;to%5Blnglat%5D=89.81118900000001,47.221611&amp;to%5Bmodxy%5D=&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
 </ol>
-
+<img src="/post/xj-north-circle/xj-img1.png" class="">
 
 <hr>
 <h4 id="D3-9月29号-可可托海镇-可可托海国家地质公园-五彩滩-布尔津"><a href="#D3-9月29号-可可托海镇-可可托海国家地质公园-五彩滩-布尔津" class="headerlink" title="D3(9月29号):可可托海镇-可可托海国家地质公园-五彩滩-布尔津"></a>D3(9月29号):可可托海镇-可可托海国家地质公园-五彩滩-布尔津</h4><h5 id="费用："><a href="#费用：" class="headerlink" title="费用："></a>费用：</h5><ol>
@@ -211,8 +244,8 @@
 <li><font color="red">富蕴县-布尔津 全程国道，有测速，而且还有流动测速（路边放个临时测速器，CT就停在暗处）</font>；</li>
 <li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Badcode%5D=654322&amp;from%5Bname%5D=%E5%8F%AF%E5%8F%AF%E6%89%98%E6%B5%B7%E9%95%87&amp;from%5Bid%5D=B038A0LO1U-from&amp;from%5Bpoitype%5D=190106&amp;from%5Blnglat%5D=89.81118900000001,47.221611&amp;from%5Bmodxy%5D=&amp;to%5Bid%5D=B038A0LR4U&amp;to%5Bname%5D=%E5%B8%83%E5%B0%94%E6%B4%A5%E5%8E%BF&amp;to%5Blnglat%5D=86.874897,47.701850&amp;to%5Bmodxy%5D=86.874897,47.701850&amp;to%5Bpoitype%5D=190105&amp;to%5Badcode%5D=654321&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
 </ol>
-
-
+<img src="/post/xj-north-circle/xj-img2.png" class="">
+<img src="/post/xj-north-circle/xj-img3.png" class="">
 
 <hr>
 <h4 id="D4-9月30号-布尔津-喀纳斯-贾登峪"><a href="#D4-9月30号-布尔津-喀纳斯-贾登峪" class="headerlink" title="D4(9月30号):布尔津-喀纳斯-贾登峪"></a>D4(9月30号):布尔津-喀纳斯-贾登峪</h4><p>#####费用：</p>
@@ -239,8 +272,8 @@
 <li>去程走大路，返程走小路；</li>
 <li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Bid%5D=B038A0LR4U-from&amp;from%5Bname%5D=%E5%B8%83%E5%B0%94%E6%B4%A5%E5%8E%BF&amp;from%5Blnglat%5D=86.874897,47.701850&amp;from%5Bmodxy%5D=86.874897,47.701850&amp;from%5Bpoitype%5D=190105&amp;from%5Badcode%5D=654321&amp;to%5Bid%5D=B0FFL2UMIZ&amp;to%5Bname%5D=%E8%B4%BE%E7%99%BB%E5%B3%AA%E9%97%A8%E7%A5%A8%E7%AB%99&amp;to%5Blnglat%5D=87.130721,48.507338&amp;to%5Bmodxy%5D=87.130721,48.507338&amp;to%5Bpoitype%5D=070000&amp;to%5Badcode%5D=654321&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
 </ol>
-
-
+<img src="/post/xj-north-circle/xj-img4.png" class="">
+<img src="/post/xj-north-circle/xj-img5.png" class="">
 
 <hr>
 <h4 id="D5-10月1号-贾登峪-禾木一日游-禾木村"><a href="#D5-10月1号-贾登峪-禾木一日游-禾木村" class="headerlink" title="D5(10月1号):贾登峪-禾木一日游-禾木村"></a>D5(10月1号):贾登峪-禾木一日游-禾木村</h4><p>到达禾木村差不多上午10点左右。</p>
@@ -258,8 +291,8 @@
 <li>距离70KM，2个半小时车程；</li>
 <li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Bid%5D=B0FFL2UMIZ-from&amp;from%5Bname%5D=%E8%B4%BE%E7%99%BB%E5%B3%AA%E9%97%A8%E7%A5%A8%E7%AB%99&amp;from%5Blnglat%5D=87.130721,48.507338&amp;from%5Bmodxy%5D=87.130721,48.507338&amp;from%5Bpoitype%5D=070000&amp;from%5Badcode%5D=654321&amp;to%5Bid%5D=B0FFIPUO59&amp;to%5Bname%5D=%E7%A6%BE%E6%9C%A8%E6%9D%91&amp;to%5Blnglat%5D=87.432910,48.568561&amp;to%5Bmodxy%5D=87.432910,48.568561&amp;to%5Bpoitype%5D=190108&amp;to%5Badcode%5D=654321&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
 </ol>
-
-
+<img src="/post/xj-north-circle/xj-img6.png" class="">
+<img src="/post/xj-north-circle/xj-img7.png" class="">
 
 <hr>
 <h4 id="D6-10月2号-禾木村-乌尔禾胡杨林-魔鬼城-乌尔禾"><a href="#D6-10月2号-禾木村-乌尔禾胡杨林-魔鬼城-乌尔禾" class="headerlink" title="D6(10月2号):禾木村-乌尔禾胡杨林-魔鬼城-乌尔禾"></a>D6(10月2号):禾木村-乌尔禾胡杨林-魔鬼城-乌尔禾</h4><h5 id="费用：-2"><a href="#费用：-2" class="headerlink" title="费用："></a>费用：</h5><ol>
@@ -281,7 +314,7 @@
 <li>布尔津-克拉玛依这段横风很大，开车要双手握紧方向盘；</li>
 <li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Bid%5D=B0FFIPUO59-from&amp;from%5Bname%5D=%E7%A6%BE%E6%9C%A8%E6%9D%91&amp;from%5Blnglat%5D=87.432910,48.568561&amp;from%5Bmodxy%5D=87.432910,48.568561&amp;from%5Bpoitype%5D=190108&amp;from%5Badcode%5D=654321&amp;to%5Bid%5D=B03DE0004L&amp;to%5Bname%5D=%E4%B8%96%E7%95%8C%E9%AD%94%E9%AC%BC%E5%9F%8E&amp;to%5Blnglat%5D=85.746798,46.129675&amp;to%5Bmodxy%5D=85.735517,46.137257&amp;to%5Bpoitype%5D=110202&amp;to%5Badcode%5D=650205&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
 </ol>
-
+<img src="/post/xj-north-circle/xj-img8.png" class="">
 
 
 <hr>
@@ -294,7 +327,7 @@
 <li>入住果子沟大桥绝佳观景台唯一的山庄；</li>
 <li>早点的话，可以上观景台看全景。</li>
 </ol>
-
+<img src="/post/xj-north-circle/xj-img9.png" class="">
 
 <h5 id="注意事项：-6"><a href="#注意事项：-6" class="headerlink" title="注意事项："></a>注意事项：</h5><ol>
 <li><a target="_blank" rel="noopener" href="https://go.cqmmgo.com/forum-2466-thread-47141499934173209-8-1.html" title="可入住龙岭山庄，山顶北可观赛里木湖全景，南可俯揽果子沟大桥全景">可入住龙岭山庄，山顶北可观赛里木湖全景，南可俯揽果子沟大桥全景</a>；</li>
@@ -304,7 +337,7 @@
 <li>自驾全程600公里，不耽误只要6个小时；</li>
 <li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Bid%5D=B03DE0004L-from&amp;from%5Bname%5D=%E4%B8%96%E7%95%8C%E9%AD%94%E9%AC%BC%E5%9F%8E&amp;from%5Blnglat%5D=85.746798,46.129675&amp;from%5Bmodxy%5D=85.735517,46.137257&amp;from%5Bpoitype%5D=110202&amp;from%5Badcode%5D=650205&amp;to%5Bid%5D=B038D0LN33&amp;to%5Bname%5D=%E8%B5%9B%E9%87%8C%E6%9C%A8%E6%B9%96%E6%B8%B8%E5%AE%A2%E4%B8%AD%E5%BF%83&amp;to%5Blnglat%5D=81.394494,44.601962&amp;to%5Bmodxy%5D=81.394578,44.601789&amp;to%5Bpoitype%5D=070000&amp;to%5Badcode%5D=652701&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
 </ol>
-
+<img src="/post/xj-north-circle/xj-img10.png" class="">
 
 
 <hr>
@@ -323,7 +356,7 @@
 <li>自驾全程450公里，7小时左右。</li>
 <li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Bid%5D=B038D0LN33-from&amp;from%5Bname%5D=%E8%B5%9B%E9%87%8C%E6%9C%A8%E6%B9%96%E6%B8%B8%E5%AE%A2%E4%B8%AD%E5%BF%83&amp;from%5Blnglat%5D=81.394494,44.601962&amp;from%5Bmodxy%5D=81.394578,44.601789&amp;from%5Bpoitype%5D=070000&amp;from%5Badcode%5D=652701&amp;to%5Badcode%5D=652827&amp;to%5Bname%5D=%E5%B7%B4%E9%9F%B3%E5%B8%83%E9%B2%81%E5%85%8B%E9%95%87&amp;to%5Bid%5D=B0FFIITRO1&amp;to%5Bpoitype%5D=190106&amp;to%5Blnglat%5D=84.15197999999998,43.033831&amp;to%5Bmodxy%5D=&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
 </ol>
-
+<img src="/post/xj-north-circle/xj-img11.png" class="">
 
 
 <hr>
@@ -338,7 +371,7 @@
 <h5 id="车程：-7"><a href="#车程：-7" class="headerlink" title="车程："></a>车程：</h5><ol>
 <li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Badcode%5D=652827&amp;from%5Bname%5D=%E5%B7%B4%E9%9F%B3%E5%B8%83%E9%B2%81%E5%85%8B%E9%95%87&amp;from%5Bid%5D=B0FFIITRO1-from&amp;from%5Bpoitype%5D=190106&amp;from%5Blnglat%5D=84.15197999999998,43.033831&amp;from%5Bmodxy%5D=&amp;to%5Bid%5D=B03DF0668Z&amp;to%5Bname%5D=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%9C%B0%E7%AA%9D%E5%A0%A1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&amp;to%5Blnglat%5D=87.479742,43.905808&amp;to%5Bmodxy%5D=87.478441,43.902829&amp;to%5Bpoitype%5D=150104&amp;to%5Badcode%5D=650104&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
 </ol>
-
+<img src="/post/xj-north-circle/xj-img12.png" class="">
 
 
 <hr>
@@ -356,7 +389,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/10/21/xj-north-circle/" data-id="clbad6v650059fqw0ct39f8qc" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/xj-north-circle.html" data-id="clbae9lw5002fcrw0h7kt5xwv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%97%E7%96%86/" rel="tag">北疆</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%B0%E7%96%86/" rel="tag">新疆</a></li></ul>
@@ -370,7 +403,7 @@
   
     <article id="post-lifehealth" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/05/21/lifehealth/" class="article-date">
+    <a href="/post/lifehealth.html" class="article-date">
   <time datetime="2018-05-21T06:00:14.000Z" itemprop="datePublished">2018-05-21</time>
 </a>
     
@@ -386,7 +419,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/21/lifehealth/">健身运动</a>
+      <a class="article-title" href="/post/lifehealth.html">健身运动</a>
     </h1>
   
 
@@ -396,15 +429,16 @@
       
         <hr>
 <p>健身圈从来就是一个强者的舞台，有的人通过健身强健了体魄，有的人通过健身找到了自信。正所谓“一入健身深似海”，健身就是有这样的魔力让你欲罢不能。</p>
+<img src="/post/lifehealth/83b8000151b5571c9367.jpg" class="" title="img1">
         
           <p class="article-more-link">
-            <a href="/2018/05/21/lifehealth/#more">Read More</a>
+            <a href="/post/lifehealth.html#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/05/21/lifehealth/" data-id="clbad6v4t0042fqw078faag63" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/lifehealth.html" data-id="clbae9lvk001gcrw0eeukfls7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BF%90%E5%8A%A8/" rel="tag">运动</a></li></ul>
@@ -418,7 +452,7 @@
   
     <article id="post-homeassistant" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/05/02/homeassistant/" class="article-date">
+    <a href="/post/homeassistant.html" class="article-date">
   <time datetime="2018-05-02T04:14:57.000Z" itemprop="datePublished">2018-05-02</time>
 </a>
     
@@ -434,7 +468,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/02/homeassistant/">树莓派3B(Raspberry 3B)搭建HomeAssistant</a>
+      <a class="article-title" href="/post/homeassistant.html">树莓派3B(Raspberry 3B)搭建HomeAssistant</a>
     </h1>
   
 
@@ -446,13 +480,13 @@
 <p>整合『组件』与『文档』页，采用更直观清晰、符合中文阅读的展现形式；<br>剔除国内用户较少接触的组件说明，提高常用智能家居平台的层级和权重；<br>跳出 Home Assistant 原生框架，一并纳入 Floorplan、HADashboard 等相关衍生项目；<br>本文将讲述树莓派3B搭建HomeAssistant和小米设备的接入。</p>
         
           <p class="article-more-link">
-            <a href="/2018/05/02/homeassistant/#more">Read More</a>
+            <a href="/post/homeassistant.html#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/05/02/homeassistant/" data-id="clbad6v42003wfqw0bzh87hs0" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/homeassistant.html" data-id="clbae9lvg0013crw097oggm17" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HomeAssistant/" rel="tag">HomeAssistant</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IoT/" rel="tag">IoT</a></li></ul>
@@ -466,7 +500,7 @@
   
     <article id="post-centos_run_jar" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/05/centos_run_jar/" class="article-date">
+    <a href="/post/centos-run-jar.html" class="article-date">
   <time datetime="2018-04-05T08:24:57.000Z" itemprop="datePublished">2018-04-05</time>
 </a>
     
@@ -482,7 +516,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/05/centos_run_jar/">Centos后台运行jar</a>
+      <a class="article-title" href="/post/centos-run-jar.html">Centos后台运行jar</a>
     </h1>
   
 
@@ -493,13 +527,13 @@
         <p>jar后台运行</p>
         
           <p class="article-more-link">
-            <a href="/2018/04/05/centos_run_jar/#more">Read More</a>
+            <a href="/post/centos-run-jar.html#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/04/05/centos_run_jar/" data-id="clbad6v0i000bfqw0bzpzdw1k" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/centos-run-jar.html" data-id="clbae9luy000ccrw0g7865r34" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jar/" rel="tag">Jar</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
@@ -513,7 +547,7 @@
   
     <article id="post-hobby" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/04/hobby/" class="article-date">
+    <a href="/post/hobby.html" class="article-date">
   <time datetime="2018-04-04T02:24:57.000Z" itemprop="datePublished">2018-04-04</time>
 </a>
     
@@ -529,7 +563,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/04/hobby/">业余时间做什么，决定了你的生活品质</a>
+      <a class="article-title" href="/post/hobby.html">业余时间做什么，决定了你的生活品质</a>
     </h1>
   
 
@@ -540,13 +574,13 @@
         <p>业余时间做什么，决定了你的生活品质</p>
         
           <p class="article-more-link">
-            <a href="/2018/04/04/hobby/#more">Read More</a>
+            <a href="/post/hobby.html#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/04/04/hobby/" data-id="clbad6v1p0010fqw036q79xby" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/hobby.html" data-id="clbae9lve0010crw009grczqx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hobby/" rel="tag">hobby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li></ul>
@@ -560,7 +594,7 @@
   
     <article id="post-L2TP-IPSec_sh" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/02/L2TP-IPSec_sh/" class="article-date">
+    <a href="/post/l2tp-ipsec-sh.html" class="article-date">
   <time datetime="2018-04-02T03:04:50.000Z" itemprop="datePublished">2018-04-02</time>
 </a>
     
@@ -576,7 +610,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/02/L2TP-IPSec_sh/">L2TP/IPSec一键安装脚本</a>
+      <a class="article-title" href="/post/l2tp-ipsec-sh.html">L2TP/IPSec一键安装脚本</a>
     </h1>
   
 
@@ -590,13 +624,13 @@
 <p>如何检测是否支持ppp模块？<br>执行命令：<br>cat /dev/ppp<br>如果返回信息为：cat: /dev/ppp: No such device or address 说明正常<br>当然，脚本在安装时也会执行检查，如果不适用于安装，脚本会予以提示。</p>
         
           <p class="article-more-link">
-            <a href="/2018/04/02/L2TP-IPSec_sh/#more">Read More</a>
+            <a href="/post/l2tp-ipsec-sh.html#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/04/02/L2TP-IPSec_sh/" data-id="clbad6uzl0001fqw06wnp16u4" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/l2tp-ipsec-sh.html" data-id="clbae9lui0002crw04pop6dbi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shadowsocks/" rel="tag">shadowsocks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li></ul>
@@ -610,7 +644,7 @@
   
     <article id="post-android-ndk-so-a" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/11/android-ndk-so-a/" class="article-date">
+    <a href="/post/android-ndk-so-a.html" class="article-date">
   <time datetime="2016-05-11T15:08:51.000Z" itemprop="datePublished">2016-05-11</time>
 </a>
     
@@ -626,7 +660,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/11/android-ndk-so-a/">Android导入第三方静态库.a编译成动态库.so</a>
+      <a class="article-title" href="/post/android-ndk-so-a.html">Android导入第三方静态库.a编译成动态库.so</a>
     </h1>
   
 
@@ -637,13 +671,13 @@
         <p>Android导入第三方静态库.a编译成动态库.so</p>
         
           <p class="article-more-link">
-            <a href="/2016/05/11/android-ndk-so-a/#more">Read More</a>
+            <a href="/post/android-ndk-so-a.html#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2016/05/11/android-ndk-so-a/" data-id="clbad6v010003fqw01d9r95l6" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/android-ndk-so-a.html" data-id="clbae9luo0004crw0fman7q7u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Andorid/" rel="tag">Andorid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/a/" rel="tag">a</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ndk/" rel="tag">ndk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/so/" rel="tag">so</a></li></ul>
@@ -657,7 +691,7 @@
   
     <article id="post-ximalaya" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/11/ximalaya/" class="article-date">
+    <a href="/post/ximalaya.html" class="article-date">
   <time datetime="2016-05-11T14:54:48.000Z" itemprop="datePublished">2016-05-11</time>
 </a>
     
@@ -673,7 +707,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/11/ximalaya/">喜马拉雅WiFi音响绑定及通讯协议初稿</a>
+      <a class="article-title" href="/post/ximalaya.html">喜马拉雅WiFi音响绑定及通讯协议初稿</a>
     </h1>
   
 
@@ -684,13 +718,13 @@
         <p>喜马拉雅WiFi音响绑定及通讯协议初稿</p>
         
           <p class="article-more-link">
-            <a href="/2016/05/11/ximalaya/#more">Read More</a>
+            <a href="/post/ximalaya.html#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2016/05/11/ximalaya/" data-id="clbad6v630056fqw0bitfa0of" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/ximalaya.html" data-id="clbae9lw5002ecrw0gb5deztx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Andorid/" rel="tag">Andorid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85/" rel="tag">喜马拉雅</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" rel="tag">智能家居</a></li></ul>
@@ -704,7 +738,7 @@
   
     <article id="post-public-bind" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/11/public-bind/" class="article-date">
+    <a href="/post/public-bind.html" class="article-date">
   <time datetime="2016-05-10T22:35:25.000Z" itemprop="datePublished">2016-05-11</time>
 </a>
     
@@ -720,7 +754,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/11/public-bind/">绑定界面动资源画动态替换</a>
+      <a class="article-title" href="/post/public-bind.html">绑定界面动资源画动态替换</a>
     </h1>
   
 
@@ -731,13 +765,13 @@
         <p>由于公共模块绑定满足不了TOB项目以及其他项目特殊需求，现对公共模块绑定界面的资源做成可配置，本文介绍一下哪些资源可配置以及如何配置。</p>
         
           <p class="article-more-link">
-            <a href="/2016/05/11/public-bind/#more">Read More</a>
+            <a href="/post/public-bind.html#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2016/05/11/public-bind/" data-id="clbad6v5j004xfqw00rd4celz" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/public-bind.html" data-id="clbae9lvz0026crw08hl56m9t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/het/" rel="tag">het</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" rel="tag">智能家居</a></li></ul>
@@ -804,23 +838,23 @@
       <ul>
         
           <li>
-            <a href="/2022/11/24/openwrt-ipv6/">家庭宽带开启IPV6</a>
+            <a href="/post/openwrt-ipv6.html">家庭宽带开启IPV6</a>
           </li>
         
           <li>
-            <a href="/2022/11/24/mao-config/">家庭光猫配置</a>
+            <a href="/post/mao-config.html">家庭光猫配置</a>
           </li>
         
           <li>
-            <a href="/2022/11/23/go-cross-compile/">GoLang 全平台编译</a>
+            <a href="/post/go-cross-compile.html">GoLang 全平台编译</a>
           </li>
         
           <li>
-            <a href="/2022/11/21/openwet-i2c/">OpenWrt开启i2c功能，并顺利编译风扇驱动</a>
+            <a href="/post/openwet-i2c.html">OpenWrt开启i2c功能，并顺利编译风扇驱动</a>
           </li>
         
           <li>
-            <a href="/2022/10/27/frpc-install-autostart/">Windows下Frpc安装与自启动</a>
+            <a href="/post/frpc-install-autostart.html">Windows下Frpc安装与自启动</a>
           </li>
         
       </ul>
@@ -835,7 +869,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2022 John Doe<br>
+      &copy; 2022 uuxia<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

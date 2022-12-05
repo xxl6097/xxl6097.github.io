@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>悠悠博客</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
+  <meta name="description" content="在浮躁的世界安安静静地敲代码">
+<meta property="og:type" content="website">
+<meta property="og:title" content="悠悠博客">
+<meta property="og:url" content="https://uuxia.cn/index.html">
+<meta property="og:site_name" content="悠悠博客">
+<meta property="og:description" content="在浮躁的世界安安静静地敲代码">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="uuxia">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="悠悠博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   
 <link rel="stylesheet" href="/css/style.css">
@@ -39,7 +39,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">悠悠博客</a>
       </h1>
       
     </div>
@@ -59,7 +59,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://uuxia.cn"></form>
       </div>
     </div>
   </div>
@@ -69,7 +69,7 @@
   
     <article id="post-openwrt-ipv6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/11/24/openwrt-ipv6/" class="article-date">
+    <a href="/post/openwrt-ipv6.html" class="article-date">
   <time datetime="2022-11-24T13:20:30.000Z" itemprop="datePublished">2022-11-24</time>
 </a>
     
@@ -85,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/11/24/openwrt-ipv6/">家庭宽带开启IPV6</a>
+      <a class="article-title" href="/post/openwrt-ipv6.html">家庭宽带开启IPV6</a>
     </h1>
   
 
@@ -102,7 +102,7 @@
 <li>账号∶telecomadmin 密码∶ nE7jA%5m</li>
 </ul>
 <h1 id="设置光猫为桥接模式"><a href="#设置光猫为桥接模式" class="headerlink" title="设置光猫为桥接模式"></a>设置光猫为桥接模式</h1><p>打开IPV4/IPV6，如果设置不了，请截图保存，然后删除，再新建，然后按原来的设置（如何连接光猫，可观看前面的视频）</p>
-<p><img src="/ipv6-1.png" alt="ipv6-1.png"></p>
+<p><img src="/post/openwrt-ipv6/ipv6-1.png" alt="ipv6-1.png"></p>
 <h1 id="然后设置软路由或者路由器"><a href="#然后设置软路由或者路由器" class="headerlink" title="然后设置软路由或者路由器"></a>然后设置软路由或者路由器</h1><h2 id="有软路由情况下："><a href="#有软路由情况下：" class="headerlink" title="有软路由情况下："></a>有软路由情况下：</h2><ul>
 <li>网络——接口——IPV6 ULA清空</li>
 <li>网络——接口——WAN口——使用内置IPV6管理取消勾选——Obtain IPv6-Address项目确保是自动状态</li>
@@ -113,7 +113,7 @@
 </ol>
 </li>
 </ul>
-<p><img src="/ipv6-2.png" alt="ipv6-2.png"></p>
+<p><img src="/post/openwrt-ipv6/ipv6-2.png" alt="ipv6-2.png"></p>
 <p>混合模式会根据配置自动选择使用中继还是服务器模式。<font color="red">（这里如果是主路由请选择服务器模式，旁路由选择中继模式）</font><br>何时采用无状态、何时采用有状态，关键看应用场景。核心在于是否需要控制IP地址，比如保持IP不变，如果需要控制，就采用有状态;如果无需控制，就采用无状态。</p>
 <ul>
 <li><p>在DHCP/DNS——高级设置——取消勾选禁止解析IPV6 DNS记录</p>
@@ -132,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/24/openwrt-ipv6/" data-id="clbad6v5f004mfqw0e8qd5ypb" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/openwrt-ipv6.html" data-id="clbae9lvv001zcrw05prxezew" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ipv6/" rel="tag">ipv6</a></li></ul>
@@ -146,7 +146,7 @@
   
     <article id="post-mao-config" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/11/24/mao-config/" class="article-date">
+    <a href="/post/mao-config.html" class="article-date">
   <time datetime="2022-11-24T12:07:17.000Z" itemprop="datePublished">2022-11-24</time>
 </a>
     
@@ -162,7 +162,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/11/24/mao-config/">家庭光猫配置</a>
+      <a class="article-title" href="/post/mao-config.html">家庭光猫配置</a>
     </h1>
   
 
@@ -174,13 +174,13 @@
 <p>检测地址<br><a target="_blank" rel="noopener" href="https://www.test-ipv6.com/">https://www.test-ipv6.com/</a> &nbsp;<br>你的公网 IPv6 地址是 XXXX 证明你已经可以IPv6上网了</p>
         
           <p class="article-more-link">
-            <a href="/2022/11/24/mao-config/#more">Read More</a>
+            <a href="/post/mao-config.html#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/24/mao-config/" data-id="clbad6v4v0046fqw00tvy6s0p" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/mao-config.html" data-id="clbae9lvl001lcrw05su94z2u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mao/" rel="tag">mao</a></li></ul>
@@ -194,7 +194,7 @@
   
     <article id="post-go-cross-compile" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/11/23/go-cross-compile/" class="article-date">
+    <a href="/post/go-cross-compile.html" class="article-date">
   <time datetime="2022-11-23T11:16:38.000Z" itemprop="datePublished">2022-11-23</time>
 </a>
     
@@ -210,7 +210,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/11/23/go-cross-compile/">GoLang 全平台编译</a>
+      <a class="article-title" href="/post/go-cross-compile.html">GoLang 全平台编译</a>
     </h1>
   
 
@@ -221,13 +221,13 @@
         <p>Golang的全平台编译简直太爽了，真的太适合我了，平时编译一些不同设备的跨平台程序，真的是爽的不行。<br>拥有一台windows电脑就能开发出在Linux、Windows、Mac上面直接运行的程序。</p>
         
           <p class="article-more-link">
-            <a href="/2022/11/23/go-cross-compile/#more">Read More</a>
+            <a href="/post/go-cross-compile.html#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/23/go-cross-compile/" data-id="clbad6v13000tfqw0auu75zi1" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/go-cross-compile.html" data-id="clbae9lvb000tcrw08p6nbewl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cross/" rel="tag">cross</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/" rel="tag">go</a></li></ul>
@@ -241,7 +241,7 @@
   
     <article id="post-openwet-i2c" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/11/21/openwet-i2c/" class="article-date">
+    <a href="/post/openwet-i2c.html" class="article-date">
   <time datetime="2022-11-21T06:11:56.000Z" itemprop="datePublished">2022-11-21</time>
 </a>
     
@@ -257,7 +257,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/11/21/openwet-i2c/">OpenWrt开启i2c功能，并顺利编译风扇驱动</a>
+      <a class="article-title" href="/post/openwet-i2c.html">OpenWrt开启i2c功能，并顺利编译风扇驱动</a>
     </h1>
   
 
@@ -268,13 +268,13 @@
         <p>树莓派安装OpenWrt作为家庭主路由，并开启i2c编译风扇、led等驱动，cpu温度骤降！～～～</p>
         
           <p class="article-more-link">
-            <a href="/2022/11/21/openwet-i2c/#more">Read More</a>
+            <a href="/post/openwet-i2c.html#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/21/openwet-i2c/" data-id="clbad6v5d004jfqw0dszr5z2z" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/openwet-i2c.html" data-id="clbae9lvu001wcrw03peq810e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/i2c/" rel="tag">i2c</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openwrt/" rel="tag">openwrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pi/" rel="tag">pi</a></li></ul>
@@ -288,7 +288,7 @@
   
     <article id="post-frpc-install-autostart" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/10/27/frpc-install-autostart/" class="article-date">
+    <a href="/post/frpc-install-autostart.html" class="article-date">
   <time datetime="2022-10-27T09:00:57.000Z" itemprop="datePublished">2022-10-27</time>
 </a>
     
@@ -304,7 +304,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/27/frpc-install-autostart/">Windows下Frpc安装与自启动</a>
+      <a class="article-title" href="/post/frpc-install-autostart.html">Windows下Frpc安装与自启动</a>
     </h1>
   
 
@@ -315,13 +315,13 @@
         <p>Windows下安装Frpc，并在windows的任务计划程序里设置Frpc自启动。</p>
         
           <p class="article-more-link">
-            <a href="/2022/10/27/frpc-install-autostart/#more">Read More</a>
+            <a href="/post/frpc-install-autostart.html#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/27/frpc-install-autostart/" data-id="clbad6v10000nfqw0ehqdh6ri" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/frpc-install-autostart.html" data-id="clbae9lv8000ncrw04o7ebjhh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frpc/" rel="tag">frpc</a></li></ul>
@@ -335,7 +335,7 @@
   
     <article id="post-cepheus-lock-rom" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/10/13/cepheus-lock-rom/" class="article-date">
+    <a href="/post/cepheus-lock-rom.html" class="article-date">
   <time datetime="2022-10-13T05:16:07.000Z" itemprop="datePublished">2022-10-13</time>
 </a>
     
@@ -351,7 +351,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/13/cepheus-lock-rom/">小米9刷 PixelExperience ROM教程</a>
+      <a class="article-title" href="/post/cepheus-lock-rom.html">小米9刷 PixelExperience ROM教程</a>
     </h1>
   
 
@@ -362,13 +362,13 @@
         <p>小米9刷入官方rom</p>
         
           <p class="article-more-link">
-            <a href="/2022/10/13/cepheus-lock-rom/#more">Read More</a>
+            <a href="/post/cepheus-lock-rom.html#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/13/cepheus-lock-rom/" data-id="clbad6v0m000ffqw05tgc78a6" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/cepheus-lock-rom.html" data-id="clbae9lv1000gcrw0hlel3g5s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PixelExperience/" rel="tag">PixelExperience</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Recovery/" rel="tag">Recovery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cepheus/" rel="tag">cepheus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%B7%E6%9C%BA/" rel="tag">刷机</a></li></ul>
@@ -382,7 +382,7 @@
   
     <article id="post-opensslforandroid" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/07/21/opensslforandroid/" class="article-date">
+    <a href="/post/opensslforandroid.html" class="article-date">
   <time datetime="2022-07-21T02:01:47.000Z" itemprop="datePublished">2022-07-21</time>
 </a>
     
@@ -398,7 +398,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/21/opensslforandroid/">Android 编译 openssl 的注意事项</a>
+      <a class="article-title" href="/post/opensslforandroid.html">Android 编译 openssl 的注意事项</a>
     </h1>
   
 
@@ -410,23 +410,91 @@
 
 
 <p>以下载链接<a target="_blank" rel="noopener" href="https://www.openssl.org/source/openssl-1.1.1o.tar.gz%E4%B8%BA%E4%BE%8B">https://www.openssl.org/source/openssl-1.1.1o.tar.gz为例</a><br><br>下载解压之后，查看根目录的 NOTES.ANDROID，其中有</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">export ANDROID_NDK_HOME=/home/whoever/Android/android-sdk/ndk/20.0.5594570</span><br><span class="line">PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_HOME/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH</span><br><span class="line">./Configure android-arm64 -D__ANDROID_API__=29</span><br><span class="line">make</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+export ANDROID_NDK_HOME=/home/whoever/Android/android-sdk/ndk/20.0.5594570
+PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_HOME/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
+./Configure android-arm64 -D__ANDROID_API__=29
+make
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这里就是最直接的编译方式了。但是这样编译之后，会有一个坑<br></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">lrwxrwxrwx  1 ubuntu ubuntu      16 Jun  9 21:23 libcrypto.so -&gt; libcrypto.so.1.1</span><br><span class="line">-rwxrwxr-x  1 ubuntu ubuntu 2754216 Jun  9 21:23 libcrypto.so.1.1</span><br><span class="line">lrwxrwxrwx  1 ubuntu ubuntu      13 Jun  9 21:23 libssl.so -&gt; libssl.so.1.1</span><br><span class="line">-rwxrwxr-x  1 ubuntu ubuntu  596600 Jun  9 21:23 libssl.so.1.1</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+lrwxrwxrwx  1 ubuntu ubuntu      16 Jun  9 21:23 libcrypto.so -&gt; libcrypto.so.1.1
+-rwxrwxr-x  1 ubuntu ubuntu 2754216 Jun  9 21:23 libcrypto.so.1.1
+lrwxrwxrwx  1 ubuntu ubuntu      13 Jun  9 21:23 libssl.so -&gt; libssl.so.1.1
+-rwxrwxr-x  1 ubuntu ubuntu  596600 Jun  9 21:23 libssl.so.1.1
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>编译时尝试链接 libssl.so ，实际上会链接到 libssl.so.1.1 ，但是当你尝试将 libssl.so.1.1 集成到 Android studio 工程内时，会发现 libssl.so.1.1 这种命名格式so，Android studio 是不会自动将其打包到 apk 内的，即使将 libssl.so.1.1 改名为 libssl.so 可以集成到 apk ，app运行时仍然会去找 libssl.so.1.1。因为 so 内部有其文件名信息</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$objdump -p libssl.so | grep SONAME</span><br><span class="line">  SONAME               libssl.so.1.1</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+$objdump -p libssl.so | grep SONAME
+  SONAME               libssl.so.1.1
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>对于Android来说，我们更希望，编译之后，so 本身名字就叫 libssl.so。<br>具体做法是解压 openssl-1.1.1o.tar.gz 之后，修改 15-android.conf<br>大概 193 行</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">my %targets = (</span><br><span class="line">    "android" =&gt; {</span><br><span class="line">        inherit_from     =&gt; [ "linux-generic32" ],</span><br><span class="line">        template         =&gt; 1,</span><br><span class="line">        ################################################################</span><br><span class="line">        # Special note about -pie. The underlying reason is that</span><br><span class="line">        # Lollipop refuses to run non-PIE. But what about older systems</span><br><span class="line">        # and NDKs? -fPIC was never problem, so the only concern is -pie.</span><br><span class="line">        # Older toolchains, e.g. r4, appear to handle it and binaries</span><br><span class="line">        # turn out mostly functional. "Mostly" means that oldest</span><br><span class="line">        # Androids, such as Froyo, fail to handle executable, but newer</span><br><span class="line">        # systems are perfectly capable of executing binaries targeting</span><br><span class="line">        # Froyo. Keep in mind that in the nutshell Android builds are</span><br><span class="line">        # about JNI, i.e. shared libraries, not applications.</span><br><span class="line">        cflags           =&gt; add(sub { android_ndk()-&gt;{cflags} }),</span><br><span class="line">        cppflags         =&gt; add(sub { android_ndk()-&gt;{cppflags} }),</span><br><span class="line">        cxxflags         =&gt; add(sub { android_ndk()-&gt;{cflags} }),</span><br><span class="line">        bn_ops           =&gt; sub { android_ndk()-&gt;{bn_ops} },</span><br><span class="line">        bin_cflags       =&gt; "-pie",</span><br><span class="line">        enable           =&gt; [ ],</span><br><span class="line">        shared_extension =&gt; ".so",  ### 这一行是新加的</span><br><span class="line">    },</span><br><span class="line">    </span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+my %targets = (
+    "android" =&gt; {
+        inherit_from     =&gt; [ "linux-generic32" ],
+        template         =&gt; 1,
+        ################################################################
+        # Special note about -pie. The underlying reason is that
+        # Lollipop refuses to run non-PIE. But what about older systems
+        # and NDKs? -fPIC was never problem, so the only concern is -pie.
+        # Older toolchains, e.g. r4, appear to handle it and binaries
+        # turn out mostly functional. "Mostly" means that oldest
+        # Androids, such as Froyo, fail to handle executable, but newer
+        # systems are perfectly capable of executing binaries targeting
+        # Froyo. Keep in mind that in the nutshell Android builds are
+        # about JNI, i.e. shared libraries, not applications.
+        cflags           =&gt; add(sub { android_ndk()-&gt;{cflags} }),
+        cppflags         =&gt; add(sub { android_ndk()-&gt;{cppflags} }),
+        cxxflags         =&gt; add(sub { android_ndk()-&gt;{cflags} }),
+        bn_ops           =&gt; sub { android_ndk()-&gt;{bn_ops} },
+        bin_cflags       =&gt; "-pie",
+        enable           =&gt; [ ],
+        shared_extension =&gt; ".so",  ### 这一行是新加的
+    },
+    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这样可以编译出来不带版本后缀的 libssl.so 和 libcrypto.so</p>
 <p>可以参考下边的懒人脚本来自行编译</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">function buildopenssl()</span><br><span class="line">{</span><br><span class="line">    androidarch=$1</span><br><span class="line">    toolchain=$2</span><br><span class="line">    if [ ! -f openssl-1.1.1o.tar.gz ]; then</span><br><span class="line">        wget https://www.openssl.org/source/openssl-1.1.1o.tar.gz</span><br><span class="line">    fi</span><br><span class="line">    if [ !-d openssl-1.1.1o ]; then</span><br><span class="line">        tar -xf openssl-1.1.1o.tar.gz</span><br><span class="line">    fi</span><br><span class="line">    if [ -z $ANDROID_NDK_HOME ]; then</span><br><span class="line">        echo "missing ANDROID_NDK_HOME"</span><br><span class="line">        exit</span><br><span class="line">    fi</span><br><span class="line">    pushd openssl-1.1.1o</span><br><span class="line">    PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_HOME/toolchains/${toolchain}-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH</span><br><span class="line">    ./Configure android-$androidarch -D__ANDROID_API__=26</span><br><span class="line">    make clean</span><br><span class="line">    make</span><br><span class="line">    popd</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">buildopenssl arm64 aarch64</span><br><span class="line">#buildopenssl arm arm</span><br><span class="line">#buildopenssl x86 x86</span><br><span class="line">#buildopenssl x86_64 x86_64</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+#!/bin/bash
+
+function buildopenssl()
+{
+    androidarch=$1
+    toolchain=$2
+    if [ ! -f openssl-1.1.1o.tar.gz ]; then
+        wget https://www.openssl.org/source/openssl-1.1.1o.tar.gz
+    fi
+    if [ !-d openssl-1.1.1o ]; then
+        tar -xf openssl-1.1.1o.tar.gz
+    fi
+    if [ -z $ANDROID_NDK_HOME ]; then
+        echo "missing ANDROID_NDK_HOME"
+        exit
+    fi
+    pushd openssl-1.1.1o
+    PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_HOME/toolchains/${toolchain}-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
+    ./Configure android-$androidarch -D__ANDROID_API__=26
+    make clean
+    make
+    popd
+}
+
+buildopenssl arm64 aarch64
+#buildopenssl arm arm
+#buildopenssl x86 x86
+#buildopenssl x86_64 x86_64
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>使用时，将 NDK_HOME传入，例如，脚本保存为 build.sh，则执行命令</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ANDROID_NDK_HOME=/home/whoever/android-ndk-r21e ./build_android_openssl.sh</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">ANDROID_NDK_HOME=/home/whoever/android-ndk-r21e ./build_android_openssl.sh
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>想为 Android (arm/x86/x86_64)编译时，修改脚本末尾的 buildopenssl 注释</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/SupperMary/p/16361303.html?share_token=D86811DE-FA19-49BF-A4AB-B50D1D50C467&amp;tt_from=copy_link&amp;utm_source=copy_link&amp;utm_medium=toutiao_ios&amp;utm_campaign=client_share">友情链接</a></p>
@@ -434,7 +502,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/07/21/opensslforandroid/" data-id="clbad6v5c004hfqw0fx4r2z69" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/opensslforandroid.html" data-id="clbae9lvr001ucrw09yj70piv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ndk/" rel="tag">ndk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openssl/" rel="tag">openssl</a></li></ul>
@@ -448,7 +516,7 @@
   
     <article id="post-iot-used" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/07/19/iot-used/" class="article-date">
+    <a href="/post/iot-used.html" class="article-date">
   <time datetime="2022-07-19T11:42:09.000Z" itemprop="datePublished">2022-07-19</time>
 </a>
     
@@ -464,7 +532,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/19/iot-used/">IoT接入文档</a>
+      <a class="article-title" href="/post/iot-used.html">IoT接入文档</a>
     </h1>
   
 
@@ -673,10 +741,63 @@
 </tr>
 </tbody></table>
 <p>示例：<br><br>文件下载模式：<br><br>加密前：<br></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">{</span><br><span class="line">    "cmd": 2019,</span><br><span class="line">    "ver": "1.0",</span><br><span class="line">    "dir": "30",</span><br><span class="line">    "timestamp": 1617787651542,</span><br><span class="line">    "msgId": 23454,</span><br><span class="line">    "data": {</span><br><span class="line">        "fileMode": "DOWN",</span><br><span class="line">        "productVer": 2,</span><br><span class="line">        "fileInfo": [</span><br><span class="line">            {</span><br><span class="line">                "fileType": "FIRM",</span><br><span class="line">                "devNum": 0,</span><br><span class="line">                "software": "1.0.2.0",</span><br><span class="line">                "hardware": "02",</span><br><span class="line">                "checkSum": 34458424,</span><br><span class="line">                "md5": "6d348c902ace4d09b6d62ce982dc8ace",</span><br><span class="line">                "url": "http://clife.open.cn/device/ota/esp8266.bin"</span><br><span class="line">            },</span><br><span class="line">            {</span><br><span class="line">                "fileType": "SUBFIRM",</span><br><span class="line">                " devNum": 1,</span><br><span class="line">                "software": "01",</span><br><span class="line">                "hardware": "02",</span><br><span class="line">                "checkSum": 764234235,</span><br><span class="line">                "md5": "6d348c902ace4d09b6d62ce982dc8ace",</span><br><span class="line">                "url": "http://clife.open.cn/device/ota/esp8266_1.bin"</span><br><span class="line">            }</span><br><span class="line">        ],</span><br><span class="line">        "startTime": 0,</span><br><span class="line">        "stopTime": 600</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+{
+    "cmd": 2019,
+    "ver": "1.0",
+    "dir": "30",
+    "timestamp": 1617787651542,
+    "msgId": 23454,
+    "data": {
+        "fileMode": "DOWN",
+        "productVer": 2,
+        "fileInfo": [
+            {
+                "fileType": "FIRM",
+                "devNum": 0,
+                "software": "1.0.2.0",
+                "hardware": "02",
+                "checkSum": 34458424,
+                "md5": "6d348c902ace4d09b6d62ce982dc8ace",
+                "url": "http://clife.open.cn/device/ota/esp8266.bin"
+            },
+            {
+                "fileType": "SUBFIRM",
+                " devNum": 1,
+                "software": "01",
+                "hardware": "02",
+                "checkSum": 764234235,
+                "md5": "6d348c902ace4d09b6d62ce982dc8ace",
+                "url": "http://clife.open.cn/device/ota/esp8266_1.bin"
+            }
+        ],
+        "startTime": 0,
+        "stopTime": 600
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>文件上传模式：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> {</span><br><span class="line">    "cmd": 2019,</span><br><span class="line">    "ver": "1.0",</span><br><span class="line">    "dir": "30",</span><br><span class="line">    "timestamp": 1617787651542,</span><br><span class="line">    "msgId": 231,</span><br><span class="line">    "data": {</span><br><span class="line">        "fileMode": "UP",</span><br><span class="line">        "fileInfo": [</span><br><span class="line">            {</span><br><span class="line">                "fileType": "PHOTO",</span><br><span class="line">                "url": "http://clife.open.cn/device/storage"</span><br><span class="line">            }</span><br><span class="line">        ],</span><br><span class="line">        "startTime": 0,</span><br><span class="line">        "stopTime": 60</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+ {
+    "cmd": 2019,
+    "ver": "1.0",
+    "dir": "30",
+    "timestamp": 1617787651542,
+    "msgId": 231,
+    "data": {
+        "fileMode": "UP",
+        "fileInfo": [
+            {
+                "fileType": "PHOTO",
+                "url": "http://clife.open.cn/device/storage"
+            }
+        ],
+        "startTime": 0,
+        "stopTime": 60
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h5 id="4-3-2-8-2-响应"><a href="#4-3-2-8-2-响应" class="headerlink" title="4.3.2.8.2 响应"></a>4.3.2.8.2 响应</h5><p>用于升级回复、查询回复（升级后版本主动上报）或者主动升级查询。<br><br>请求方向：设备-&gt;平台<br></p>
@@ -775,10 +896,45 @@
 </tr>
 </tbody></table>
 <p>示例：<br><br>文件升级（下载模式）回复：<br></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    "cmd": 2018,</span><br><span class="line">    "ver": "1.0",</span><br><span class="line">    "dir": "03",</span><br><span class="line">    "timestamp": 1617787651542,</span><br><span class="line">    "msgId": 23454,</span><br><span class="line">    "data": {</span><br><span class="line">        "respCode": 3,</span><br><span class="line">        "respCont": "ver",</span><br><span class="line">        "productVer": 2,</span><br><span class="line">        "devVer": [</span><br><span class="line">            {</span><br><span class="line">                "software": "1.0.0.0",</span><br><span class="line">                "hardware": "1.0",</span><br><span class="line">                "devNum": 0</span><br><span class="line">            },</span><br><span class="line">            {</span><br><span class="line">                "software": "01",</span><br><span class="line">                "hardware": "02",</span><br><span class="line">                "devNum": 1</span><br><span class="line">            }</span><br><span class="line">        ]</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">{
+    "cmd": 2018,
+    "ver": "1.0",
+    "dir": "03",
+    "timestamp": 1617787651542,
+    "msgId": 23454,
+    "data": {
+        "respCode": 3,
+        "respCont": "ver",
+        "productVer": 2,
+        "devVer": [
+            {
+                "software": "1.0.0.0",
+                "hardware": "1.0",
+                "devNum": 0
+            },
+            {
+                "software": "01",
+                "hardware": "02",
+                "devNum": 1
+            }
+        ]
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>主动升级查询：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">{</span><br><span class="line">    "cmd": 2018,</span><br><span class="line">    "ver": "1.0",</span><br><span class="line">    "dir": "03",</span><br><span class="line">    "timestamp": 1617787651542,</span><br><span class="line">    "msgId": 23454,</span><br><span class="line">    "data": {</span><br><span class="line">        "respCode": 2,</span><br><span class="line">        "respCont": "SUBFIRM"</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+{
+    "cmd": 2018,
+    "ver": "1.0",
+    "dir": "03",
+    "timestamp": 1617787651542,
+    "msgId": 23454,
+    "data": {
+        "respCode": 2,
+        "respCont": "SUBFIRM"
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h2 id="5-1-版本号约定"><a href="#5-1-版本号约定" class="headerlink" title="5.1 版本号约定"></a>5.1 版本号约定</h2><p>格式：主版本.次版本.修订版本.修复版本<br><br>版本号变化说明如表 5.1-1：<br></p>
@@ -920,7 +1076,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/07/19/iot-used/" data-id="clbad6v4s0041fqw0592u0e8l" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/iot-used.html" data-id="clbae9lvi001bcrw0e0857skg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Iot/" rel="tag">Iot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li></ul>
@@ -934,7 +1090,7 @@
   
     <article id="post-ssh-pub-login" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/07/01/ssh-pub-login/" class="article-date">
+    <a href="/post/ssh-pub-login.html" class="article-date">
   <time datetime="2022-07-01T12:23:16.000Z" itemprop="datePublished">2022-07-01</time>
 </a>
     
@@ -950,7 +1106,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/01/ssh-pub-login/">SSH公钥免密登录</a>
+      <a class="article-title" href="/post/ssh-pub-login.html">SSH公钥免密登录</a>
     </h1>
   
 
@@ -961,13 +1117,13 @@
         <p>ssh连接使用公钥免密登录</p>
         
           <p class="article-more-link">
-            <a href="/2022/07/01/ssh-pub-login/#more">Read More</a>
+            <a href="/post/ssh-pub-login.html#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/07/01/ssh-pub-login/" data-id="clbad6v5z0052fqw02qicd8hx" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/ssh-pub-login.html" data-id="clbae9lw2002acrw03gl3cjbk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pubkey/" rel="tag">pubkey</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li></ul>
@@ -981,7 +1137,7 @@
   
     <article id="post-logcat" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/06/16/logcat/" class="article-date">
+    <a href="/post/logcat.html" class="article-date">
   <time datetime="2022-06-16T03:05:12.000Z" itemprop="datePublished">2022-06-16</time>
 </a>
     
@@ -997,7 +1153,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/16/logcat/">ADB保存Android日志</a>
+      <a class="article-title" href="/post/logcat.html">ADB保存Android日志</a>
     </h1>
   
 
@@ -1008,13 +1164,13 @@
         <p>Macos、Windows、linux下如何使用adb保存android手机的日志</p>
         
           <p class="article-more-link">
-            <a href="/2022/06/16/logcat/#more">Read More</a>
+            <a href="/post/logcat.html#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/06/16/logcat/" data-id="clbad6v4u0045fqw03vvk3j8p" class="article-share-link">Share</a>
+      <a data-url="https://uuxia.cn/post/logcat.html" data-id="clbae9lvk001icrw08uqoaxz0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/logcat/" rel="tag">logcat</a></li></ul>
@@ -1081,23 +1237,23 @@
       <ul>
         
           <li>
-            <a href="/2022/11/24/openwrt-ipv6/">家庭宽带开启IPV6</a>
+            <a href="/post/openwrt-ipv6.html">家庭宽带开启IPV6</a>
           </li>
         
           <li>
-            <a href="/2022/11/24/mao-config/">家庭光猫配置</a>
+            <a href="/post/mao-config.html">家庭光猫配置</a>
           </li>
         
           <li>
-            <a href="/2022/11/23/go-cross-compile/">GoLang 全平台编译</a>
+            <a href="/post/go-cross-compile.html">GoLang 全平台编译</a>
           </li>
         
           <li>
-            <a href="/2022/11/21/openwet-i2c/">OpenWrt开启i2c功能，并顺利编译风扇驱动</a>
+            <a href="/post/openwet-i2c.html">OpenWrt开启i2c功能，并顺利编译风扇驱动</a>
           </li>
         
           <li>
-            <a href="/2022/10/27/frpc-install-autostart/">Windows下Frpc安装与自启动</a>
+            <a href="/post/frpc-install-autostart.html">Windows下Frpc安装与自启动</a>
           </li>
         
       </ul>
@@ -1112,7 +1268,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2022 John Doe<br>
+      &copy; 2022 uuxia<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
