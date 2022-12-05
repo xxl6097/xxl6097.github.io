@@ -1,3 +1,1206 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><link href="/static/css/chunk-libs.eebac533.css" rel="stylesheet"><link href="/static/css/app.0d31776f.css" rel="stylesheet"><!-- hexo injector head_end start --><script rel="prefetch" async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/components/prism-core.js" data-manual></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/toolbar/prism-toolbar.min.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/themes/prism.min.css"/><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/toolbar/prism-toolbar.min.css"/><link rel="stylesheet" href="https://fonts.loli.net/css?family=Rubik" /><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.2/gitalk.min.js"></script><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.2/gitalk.min.css"/><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0">
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+    
+
+    <title>树莓派3B(Raspberry 3B)搭建HomeAssistant | uuxia</title>
+    <meta name="author" content="uuxia">
+    
+    <meta name="description" content="在浮躁的世界安安静静地敲代码">
+    
+    
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+    <meta property="og:title" content="树莓派3B(Raspberry 3B)搭建HomeAssistant"/>
+    <meta property="og:site_name" content="悠悠博客"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="悠悠博客" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="generator" content="Hexo 6.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head><body id="body-container"><noscript><strong>We're sorry but Aurora Blog doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script>(function(e){function t(t){for(var a,n,u=t[0],i=t[1],c=t[2],l=0,p=[];l<u.length;l++)n=u[l],Object.prototype.hasOwnProperty.call(o,n)&&o[n]&&p.push(o[n][0]),o[n]=0;for(a in i)Object.prototype.hasOwnProperty.call(i,a)&&(e[a]=i[a]);f&&f(t);while(p.length)p.shift()();return s.push.apply(s,c||[]),r()}function r(){for(var e,t=0;t<s.length;t++){for(var r=s[t],a=!0,n=1;n<r.length;n++){var u=r[n];0!==o[u]&&(a=!1)}a&&(s.splice(t--,1),e=i(i.s=r[0]))}return e}var a={},n={runtime:0},o={runtime:0},s=[];function u(e){return i.p+"static/js/"+({404:"404",about:"about",archives:"archives",categories:"categories",page:"page",post:"post",result:"result",tags:"tags"}[e]||e)+"."+{404:"00d640a8",about:"024aacd1",archives:"574ac664",categories:"90aa5475",page:"a02618ad",post:"cebfbaa4",result:"39470350",tags:"2ad613f5"}[e]+".js"}function i(t){if(a[t])return a[t].exports;var r=a[t]={i:t,l:!1,exports:{}};return e[t].call(r.exports,r,r.exports,i),r.l=!0,r.exports}i.e=function(e){var t=[],r={404:1,about:1,archives:1,categories:1,page:1,post:1,result:1,tags:1};n[e]?t.push(n[e]):0!==n[e]&&r[e]&&t.push(n[e]=new Promise((function(t,r){for(var a="static/css/"+({404:"404",about:"about",archives:"archives",categories:"categories",page:"page",post:"post",result:"result",tags:"tags"}[e]||e)+"."+{404:"1a6cd5bd",about:"32dfa3b0",archives:"c0d49bd5",categories:"10e2be12",page:"749ad047",post:"9f951a60",result:"10e2be12",tags:"10e2be12"}[e]+".css",o=i.p+a,s=document.getElementsByTagName("link"),u=0;u<s.length;u++){var c=s[u],l=c.getAttribute("data-href")||c.getAttribute("href");if("stylesheet"===c.rel&&(l===a||l===o))return t()}var p=document.getElementsByTagName("style");for(u=0;u<p.length;u++){c=p[u],l=c.getAttribute("data-href");if(l===a||l===o)return t()}var f=document.createElement("link");f.rel="stylesheet",f.type="text/css",f.onload=t,f.onerror=function(t){var a=t&&t.target&&t.target.src||o,s=new Error("Loading CSS chunk "+e+" failed.\n("+a+")");s.code="CSS_CHUNK_LOAD_FAILED",s.request=a,delete n[e],f.parentNode.removeChild(f),r(s)},f.href=o;var d=document.getElementsByTagName("head")[0];d.appendChild(f)})).then((function(){n[e]=0})));var a=o[e];if(0!==a)if(a)t.push(a[2]);else{var s=new Promise((function(t,r){a=o[e]=[t,r]}));t.push(a[2]=s);var c,l=document.createElement("script");l.charset="utf-8",l.timeout=120,i.nc&&l.setAttribute("nonce",i.nc),l.src=u(e);var p=new Error;c=function(t){l.onerror=l.onload=null,clearTimeout(f);var r=o[e];if(0!==r){if(r){var a=t&&("load"===t.type?"missing":t.type),n=t&&t.target&&t.target.src;p.message="Loading chunk "+e+" failed.\n("+a+": "+n+")",p.name="ChunkLoadError",p.type=a,p.request=n,r[1](p)}o[e]=void 0}};var f=setTimeout((function(){c({type:"timeout",target:l})}),12e4);l.onerror=l.onload=c,document.head.appendChild(l)}return Promise.all(t)},i.m=e,i.c=a,i.d=function(e,t,r){i.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},i.r=function(e){"undefined"!==typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(e,t){if(1&t&&(e=i(e)),8&t)return e;if(4&t&&"object"===typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(i.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var a in e)i.d(r,a,function(t){return e[t]}.bind(null,a));return r},i.n=function(e){var t=e&&e.__esModule?function(){return e["default"]}:function(){return e};return i.d(t,"a",t),t},i.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},i.p="/",i.oe=function(e){throw console.error(e),e};var c=window["webpackJsonp"]=window["webpackJsonp"]||[],l=c.push.bind(c);c.push=t,c=c.slice();for(var p=0;p<c.length;p++)t(c[p]);var f=l;r()})([]);</script><script src="/static/js/chunk-libs.dc6146cd.js"></script><script src="/static/js/app.6d2c358d.js"></script></body></html>
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">悠悠博客</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            Home
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            Archives
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            Categories
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            Reading
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            About
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            Search
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://uuxia.cn/file/hexo/image/icon.png" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">uuxia</p>
+                        <p class="desc">前端/Android/Java/C++/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    Home
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    Archives
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    Categories
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    Reading
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    About
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    Search
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/VPN/">
+                    VPN <span class="right">3</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Android/">
+                    Android <span class="right">3</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/生活/">
+                    生活 <span class="right">4</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/hexo/">
+                    hexo <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Centos/">
+                    Centos <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/PixelExperience/">
+                    PixelExperience <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/AOSP/">
+                    AOSP <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/linux/">
+                    linux <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/frpc/">
+                    frpc <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Git/">
+                    Git <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Git/SSH/">
+                    SSH <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/go/">
+                    go <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/nginx/">
+                    nginx <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/gradle/">
+                    gradle <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/IoT/">
+                    IoT <span class="right">4</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/小米9/">
+                    小米9 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/shadowsocks/">
+                    shadowsocks <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Ios/">
+                    Ios <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/android/">
+                    android <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/frp/">
+                    frp <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/maven/">
+                    maven <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/centos6/">
+                    centos6 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/mqtt/">
+                    mqtt <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/logcat/">
+                    logcat <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/mao/">
+                    mao <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/netty/">
+                    netty <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/ndk/">
+                    ndk <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/openwrt/">
+                    openwrt <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/ipv6/">
+                    ipv6 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Raspberry/">
+                    Raspberry <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/proxy/">
+                    proxy <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/openssl/">
+                    openssl <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/C-C/">
+                    C-C <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/ssh/">
+                    ssh <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/i2c/">
+                    i2c <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/旅行/">
+                    旅行 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/centos7/">
+                    centos7 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Hexo/">
+                    Hexo <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/树莓派/">
+                    树莓派 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">Search</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <!--add by uuxia 20180402 内容页面的宽度改变-->
+<div class="container main-container1">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">Current page(Categories)</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/IoT/">IoT</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>树莓派3B(Raspberry 3B)搭建HomeAssistant</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2018-05-02T04:14:57.000Z"><a href="/post/homeassistant.html">2018-05-02</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/IoT/" class="chip pink lighten-1">IoT</a>
+        
+            <a href="/tags/HomeAssistant/" class="chip pink lighten-1">HomeAssistant</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#%E4%B8%80%E3%80%81%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82%E5%92%8C%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="section table-of-contents-text">一、系统要求和硬件配置</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#%E4%BA%8C%E3%80%81%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="section table-of-contents-text">二、系统安装</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#%E4%B8%89%E3%80%81%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE"><span class="section table-of-contents-text">三、树莓派配置</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#3-1-%E5%90%AF%E7%94%A8root%E7%94%A8%E6%88%B7%EF%BC%88%E7%94%B1%E4%BA%8E%E6%9C%AC%E4%BA%BA%E5%A4%A9%E6%80%A7%E7%88%B1%E8%87%AA%E7%94%B1%EF%BC%8C%E6%89%80%E4%BB%A5%E5%BF%85%E9%A1%BB%E8%A6%81%E7%BB%9D%E5%AF%B9%E6%9D%83%E9%99%90%EF%BC%89"><span class="section table-of-contents-text">3.1 启用root用户（由于本人天性爱自由，所以必须要绝对权限）</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#%E5%9B%9B%E3%80%81HomeAssistant%E5%AE%89%E8%A3%85"><span class="section table-of-contents-text">四、HomeAssistant安装</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#4-1-%E6%BA%90%E6%9B%BF%E6%8D%A2"><span class="section table-of-contents-text">4.1 源替换</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#4-2-%E5%AE%89%E8%A3%85Python3"><span class="section table-of-contents-text">4.2 安装Python3</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#4-3-%E5%AE%89%E8%A3%85Python3%E5%BC%80%E5%8F%91%E8%B5%84%E6%BA%90"><span class="section table-of-contents-text">4.3 安装Python3开发资源</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#4-4-%E5%AE%89%E8%A3%85Pip3"><span class="section table-of-contents-text">4.4 安装Pip3</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#4-5-%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85%E7%BB%93%E6%9E%9C"><span class="section table-of-contents-text">4.5 验证安装结果</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#4-6-%E4%BD%BF%E7%94%A8Pip%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85Home-Assistant"><span class="section table-of-contents-text">4.6 使用Pip工具安装Home Assistant</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#4-7-%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85%E7%BB%93%E6%9E%9C"><span class="section table-of-contents-text">4.7 验证安装结果</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#%E4%BA%94%E3%80%81HomeAssistant%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8"><span class="section table-of-contents-text">五、HomeAssistant设置自动启动</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#5-1-%E9%85%8D%E7%BD%AE%E8%87%AA%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="section table-of-contents-text">5.1 配置自启动文件</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#5-2-%E5%90%AF%E5%8A%A8%E8%87%AA%E5%90%AF%E6%9C%8D%E5%8A%A1"><span class="section table-of-contents-text">5.2 启动自启服务</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#%E5%85%AD%E3%80%81HomeAssistant%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="section table-of-contents-text">六、HomeAssistant的一些常用命令</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#6-1-systemd%E7%9B%B8%E5%85%B3%E7%9A%84%E6%8E%A7%E5%88%B6%E5%91%BD%E4%BB%A4"><span class="section table-of-contents-text">6.1 systemd相关的控制命令</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#6-2-%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E6%8E%A7%E5%88%B6HomeAssistant"><span class="section table-of-contents-text">6.2 使用脚本控制HomeAssistant</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#%E4%B8%83%E3%80%81%E5%B0%8F%E7%B1%B3%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%85%A5"><span class="section table-of-contents-text">七、小米设备接入</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#%E5%85%AB%E3%80%81%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="section table-of-contents-text">八、遇到的一些问题</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <p>Home Assistant 是一款基于 Python 的智能家居开源系统，支持众多品牌的智能家居设备，可以轻松实现设备的语音控制、自动化等。本文档全站内容基于 Home Assistant 官方网站 本地化而成，具有以下特点：</p>
+<p>整合『组件』与『文档』页，采用更直观清晰、符合中文阅读的展现形式；<br>剔除国内用户较少接触的组件说明，提高常用智能家居平台的层级和权重；<br>跳出 Home Assistant 原生框架，一并纳入 Floorplan、HADashboard 等相关衍生项目；<br>本文将讲述树莓派3B搭建HomeAssistant和小米设备的接入。</p>
+<span id="more"></span>
+<h1 id="一、系统要求和硬件配置"><a href="#一、系统要求和硬件配置" class="headerlink" title="一、系统要求和硬件配置"></a>一、系统要求和硬件配置</h1><hr>
+<ul>
+<li>树莓派3B（Raspberry 3B）;</li>
+<li>一张16G的TF存储卡；</li>
+<li>一台电脑（windowns or mac）；</li>
+<li>若干小米设备（小米网关、小米插座、小米吸顶灯等）；</li>
+<li>TF卡读卡器；</li>
+<li>原生 <a target="_blank" rel="noopener" href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a> 系统；</li>
+<li>xshell工具；</li>
+<li><a target="_blank" rel="noopener" href="http://www.upantool.com/hfxf/sd/3137.html">SDFormatter</a>；</li>
+<li><a target="_blank" rel="noopener" href="http://www.onlinedown.net/soft/110173.htm">Win32 Disk Imager</a>。</li>
+<li><a target="_blank" rel="noopener" href="http://www.pc6.com/mac/248733.html">Etcher Mac版</a>（MacOs下烧录工具）；</li>
+<li>Fing工具（Android端或者ios端都行）。</li>
+</ul>
+<h1 id="二、系统安装"><a href="#二、系统安装" class="headerlink" title="二、系统安装"></a>二、系统安装</h1><hr>
+<ol>
+<li>SDFormatter格式化TF存储卡</li>
+<li>使用Win32 Disk Imager工具烧录Raspbian系统到TF卡</li>
+<li>如果是在MacOs系统下，请用mac自带工具格式化TF卡，然后使用Etcher烧录系统；</li>
+</ol>
+<h1 id="三、树莓派配置"><a href="#三、树莓派配置" class="headerlink" title="三、树莓派配置"></a>三、树莓派配置</h1><hr>
+<ol>
+<li><p>烧录完毕后，TF卡自动命名为boot，<strong>在boot根目录新建ssh文件以便ss登录</strong>；</p>
+</li>
+<li><p>在TF卡根目录新建<code>wpa_supplicant.conf</code>文件，用于连接WiFi，配置如下：</p>
+ <pre class="line-numbers language-none"><code class="language-none">
+country=CN
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+network={
+    ssid="路由器的ssid"
+    psk="路由器的密码"
+    key_mgmt=WPA-PSK
+    priority=1
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</li>
+<li><p>将TF卡插在树莓派后上电启动；</p>
+</li>
+<li><p>使用Fing查询树莓派的IP地址；</p>
+</li>
+<li><p>树莓派默认用户名<strong>pi</strong>，密码<strong>raspberry</strong>;</p>
+</li>
+<li><p>使用xshell连接树莓派，MacOs方式：<code>ssh pi@192.168.x.x -p 22</code>；</p>
+</li>
+</ol>
+<h2 id="3-1-启用root用户（由于本人天性爱自由，所以必须要绝对权限）"><a href="#3-1-启用root用户（由于本人天性爱自由，所以必须要绝对权限）" class="headerlink" title="3.1 启用root用户（由于本人天性爱自由，所以必须要绝对权限）"></a>3.1 启用root用户（由于本人天性爱自由，所以必须要绝对权限）</h2><ol>
+<li>设置root用户密码</li>
+</ol>
+<blockquote>
+<p>sudo passwd root</p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">
+pi@raspberrypi:~$ sudo passwd root
+Enter new UNIX password:   #输入第一遍密码
+Retype new UNIX password:  #输入第二遍密码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="2">
+<li>启用 root 账号登录<blockquote>
+<p>sudo passwd –unlock root</p>
+</blockquote>
+</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">
+pi@raspberrypi:~$ sudo passwd --unlock root
+passwd: password expiry information changed.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="3">
+<li>设置root登陆</li>
+</ol>
+<blockquote>
+<p>sudo nano /etc/ssh/sshd_config  </p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">
+pi@raspberrypi:~$ sudo nano /etc/ssh/sshd_config    
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<blockquote>
+<p><code>Ctrl + W</code> 快捷键 搜索 <code>PermitRootLogin without-password</code><br>修改 <code>PermitRootLogin without-password</code> 为 <code>PermitRootLogin yes</code><br>执行完之后，用 <code>reboot</code> 命令重启，这样就可以解锁<code>root</code>账户。</p>
+</blockquote>
+<h1 id="四、HomeAssistant安装"><a href="#四、HomeAssistant安装" class="headerlink" title="四、HomeAssistant安装"></a>四、HomeAssistant安装</h1><hr>
+<h2 id="4-1-源替换"><a href="#4-1-源替换" class="headerlink" title="4.1 源替换"></a>4.1 源替换</h2><p>由于默认都是从国外服务器下载安装，为了避免安装失败所以先替换成阿里的源。</p>
+<ul>
+<li><p>在此目录新建此文件：<code> ~/.pip/pip.conf</code></p>
+</li>
+<li><p>复制粘贴以下内容并保存：</p>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">
+[global]
+trusted-host=mirrors.aliyun.com
+index-url=https://mirrors.aliyun.com/pypi/simple/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="4-2-安装Python3"><a href="#4-2-安装Python3" class="headerlink" title="4.2 安装Python3"></a>4.2 安装Python3</h2><p>打开<code>Linux</code>系统命令行窗口，输入：<code>sudo apt-get install python3.5</code></p>
+<p>应系统要求输入<code>root</code>账号的密码。</p>
+<img src="/post/homeassistant/1.png" class="" title="img1">
+
+<p>安装资源准备好后提问是否继续安装，打回车确认。<br>然后等待安装完成。</p>
+<img src="/post/homeassistant/2.png" class="" title="img1">
+
+
+<h2 id="4-3-安装Python3开发资源"><a href="#4-3-安装Python3开发资源" class="headerlink" title="4.3 安装Python3开发资源"></a>4.3 安装Python3开发资源</h2><p>在第一步安装完成后，继续输入命令：<code>sudo apt-get install python3.5-dev</code><br>在系统提问是否继续安装时打回车确认。<br>然后等待安装完成。</p>
+<img src="/post/homeassistant/3.png" class="" title="img1">
+
+<img src="/post/homeassistant/4.png" class="" title="img1">
+
+
+<h2 id="4-4-安装Pip3"><a href="#4-4-安装Pip3" class="headerlink" title="4.4 安装Pip3"></a>4.4 安装Pip3</h2><p>继续在命令行中输入：<code>sudo apt install python3-pip</code><br>回车确认安装。<br>等待安装完成。</p>
+<img src="/post/homeassistant/5.png" class="" title="img1">
+
+
+<h2 id="4-5-验证安装结果"><a href="#4-5-验证安装结果" class="headerlink" title="4.5 验证安装结果"></a>4.5 验证安装结果</h2><p>在命令行中输入<code>python3 --version</code>，看到显示版本。<br>在命令行中输入<code>pip3 --version</code>，看到显示版本。<br>说明Python3环境及Pip3工具安装成功。</p>
+<img src="/post/homeassistant/6.png" class="" title="img1">
+
+
+<h2 id="4-6-使用Pip工具安装Home-Assistant"><a href="#4-6-使用Pip工具安装Home-Assistant" class="headerlink" title="4.6 使用Pip工具安装Home Assistant"></a>4.6 使用Pip工具安装Home Assistant</h2><p>在此步之前建议设置国内的安装源，可以提升后续的速度，参见这篇文档。<br>打开命令行窗口，输入：<code>sudo pip3 install homeassistant</code> （<font color="red">此步骤若失败，请重复操作</font>）<br>等待安装过程完成。</p>
+<img src="/post/homeassistant/8.png" class="" title="img1">
+
+
+<h2 id="4-7-验证安装结果"><a href="#4-7-验证安装结果" class="headerlink" title="4.7 验证安装结果"></a>4.7 验证安装结果</h2><p>在命令行窗口，输入：<code>hass --debug</code> 参数<code>--debug</code>可以查看启动的日志。<br>首次启动需要初始化配置文件，也会自动下载一些所需的文件，会需要一些时间。有时因网络质量问题还会出现文件下载失败情况，导致启动过程受阻。此时可以关闭命令行窗口，再重新执行启动命令。</p>
+<img src="/post/homeassistant/9.png" class="" title="img1">
+
+<p>继续等待启动过程完成，直到浏览器自动打开<code>Home Assistant</code>系统首页，即表明软件安装成功。</p>
+<img src="/post/homeassistant/10.png" class="" title="img1">
+
+
+<h1 id="五、HomeAssistant设置自动启动"><a href="#五、HomeAssistant设置自动启动" class="headerlink" title="五、HomeAssistant设置自动启动"></a>五、HomeAssistant设置自动启动</h1><hr>
+<p>Home Assistant 针对树莓派的发行版（手动安装除外）中都已经自带自启任务，其余系统安装的用户需要自行配置自启。</p>
+<h2 id="5-1-配置自启动文件"><a href="#5-1-配置自启动文件" class="headerlink" title="5.1 配置自启动文件"></a>5.1 配置自启动文件</h2><p>如果你未使用 <code>Python</code> 虚拟环境安装 <code>Home Assistant</code>，请使用以下方法</p>
+<pre><code>sudo nano -w /etc/systemd/system/home-assistant@root.service
+</code></pre>
+<p>复制粘贴</p>
+<pre><code>[Unit]
+Description=Home Assistant
+After=network-online.target
+
+[Service]
+Type=simple
+User=%i
+ExecStart=/usr/local/bin/hass 
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<blockquote>
+<p>注意<code>ExecStart=/usr/local/bin/hass</code>  这个路径使用<code>whereis hass</code>查看路径</p>
+</blockquote>
+<h2 id="5-2-启动自启服务"><a href="#5-2-启动自启服务" class="headerlink" title="5.2 启动自启服务"></a>5.2 启动自启服务</h2><p>完成上述步骤后，请重新加载进程管理。</p>
+<pre><code>sudo systemctl --system daemon-reload
+</code></pre>
+<p>启用服务：</p>
+<pre><code>sudo systemctl enable home-assistant@root
+</code></pre>
+<h1 id="六、HomeAssistant的一些常用命令"><a href="#六、HomeAssistant的一些常用命令" class="headerlink" title="六、HomeAssistant的一些常用命令"></a>六、HomeAssistant的一些常用命令</h1><hr>
+<h2 id="6-1-systemd相关的控制命令"><a href="#6-1-systemd相关的控制命令" class="headerlink" title="6.1 systemd相关的控制命令"></a>6.1 systemd相关的控制命令</h2><pre><code>sudo systemctl --system daemon-reload：重新加载systemd的配置文件。
+sudo systemctl enable home-assistant@root：设置home-assitant服务为自启动。
+sudo systemctl disable home-assistant@root：从自启动中去除home-assitant服务。
+sudo systemctl start home-assistant@root：手工启动home-assitant服务（命令中start可以替换成stop、restart、status，完成停止、重启、查看服务状态等功能）。
+sudo journalctl -f -u home-assistant@root：查看hass的日志输出。
+sudo journalctl -f -u home-assistant@[your user] | grep -i 'error'：查看hass的日志输出中的error部分
+
+sudo systemctl restart home-assistant@root
+</code></pre>
+<h2 id="6-2-使用脚本控制HomeAssistant"><a href="#6-2-使用脚本控制HomeAssistant" class="headerlink" title="6.2 使用脚本控制HomeAssistant"></a>6.2 使用脚本控制HomeAssistant</h2><pre><code>#!/bin/bash
+
+function check()
+{
+    echo "检查配置文件是否有错误"
+    sudo hass --script check_config
+}
+
+function dis()
+{
+    echo "显示所有组件的配置信息"
+    sudo hass --script check_config --info all
+}
+
+function hass()
+{
+    echo "启动hass"
+    sudo systemctl start home-assistant@root
+}
+function rehass()
+{
+    echo "重启hass"
+    sudo systemctl restart home-assistant@root
+}
+
+function stophass()
+{
+    echo "停止hass"
+    sudo systemctl stop home-assistant@root
+}
+
+function log(){
+    echo "查看hass日志"
+    sudo journalctl -f -u home-assistant@root
+}
+
+function debug(){
+    echo "debug hass"
+    sudo hass --debug
+}
+
+
+
+echo "输入编号选择"
+echo "1. 检查配置文件是否有错误"
+echo "2. 显示所有组件的配置信息"
+echo "3. 启动hass"
+echo "4. 查看hass日志"
+echo "5. 重启hass"
+echo "6. 停止hass"
+echo "7. debug hass"
+echo "******Enter nothing to exit*****"
+read num
+
+case "$num" in
+[1] ) (check);;
+[2] ) (dis);;
+[3] ) (hass);;
+[4] ) (log);;
+[5] ) (rehass);;
+[6] ) (stophass);;
+[7] ) (debug);;
+*) echo "nothing,exit";;
+esac
+</code></pre>
+<h1 id="七、小米设备接入"><a href="#七、小米设备接入" class="headerlink" title="七、小米设备接入"></a>七、小米设备接入</h1><hr>
+<ul>
+<li><p>安装米家App（最新版本获取获取不到<code>Token</code>，使用【<a href="http://uuxia.cn:8123/file/com.xiaomi.smarthome.apk">MI Home5.0.19</a>】此版本OK）;</p>
+</li>
+<li><p>使用<a href="http://uuxia.cn:8123/file/RE.apk">RE文件管理器</a>，打开<code>/data/data/com.xiaomi.smarthome/databases/miio2.db</code></p>
+</li>
+<li><p>记录设备的<code>token</code></p>
+</li>
+<li><p><a href="http://uuxia.cn:8123/file/configuration.yaml">configuration.yaml</a>配置文件</p>
+</li>
+</ul>
+<h1 id="八、遇到的一些问题"><a href="#八、遇到的一些问题" class="headerlink" title="八、遇到的一些问题"></a>八、遇到的一些问题</h1><hr>
+<ol>
+<li>urllib3与chardet不兼容解决方案</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">
+pip3 uninstall urllib3
+pip3 uninstall  chardet
+ip3 install requests
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>2.执行sh ./xxx.sh出现：“Syntax error: “(” unexpected”的解决方法</p>
+<pre><code>sudo dpkg-reconfigure dash
+在选择项中选No，搞定了！
+</code></pre>
+<ol start="3">
+<li>nodejs安装</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xiongtm/article/details/77620005">https://blog.csdn.net/xiongtm/article/details/77620005</a><br><a target="_blank" rel="noopener" href="https://nodejs.org/dist/latest-v9.x/">https://nodejs.org/dist/latest-v9.x/</a></p>
+
+                
+<p class="pink-link-context">
+    <a href="/post/lifehealth.html" rel="next" title="健身运动">
+    Prev: 健身运动
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/post/centos-run-jar.html" rel="next" title="Centos后台运行jar">
+    Next: Centos后台运行jar
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="/post/homeassistant.html" data-title="树莓派3B(Raspberry 3B)搭建HomeAssistant" data-url="https://uuxia.cn/post/homeassistant.html"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'uuxia'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="Menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">Social</h5>
+                
+                    <a class="social-link" href="http://weibo.com/" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://github.com/xxl6097" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">Links</h5>
+                
+                    <a class="social-link" href="http://raytaylorlin.com/" target="_blank">raytaylorism主题作者的技术博客</a>
+                
+                    <a class="social-link" href="http://cloud.uuxia.cn" target="_blank">个人网盘</a>
+                
+                <tr></tr>
+                <a class="beian-link" href="http://beian.miit.gov.cn" target="_blank">工业和信息化部备案管理系统网站 粤ICP备2022014941号-1</a>
+            </div>
+            
+
+
+        </div>
+    </div>
+    
+
+
+
+
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2018~2022 uuxia.cn, All rights reserved.
+
+            <p class="right" style="margin-top: 0;">
+            Blog powered by
+            <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+            | Theme
+            <a target="_blank" rel="noopener" href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a>
+            </p>
+
+
+        </div>
+    </div>
+
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=56133145" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
