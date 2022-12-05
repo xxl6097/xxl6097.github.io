@@ -1,782 +1,1394 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
+
+
 <head>
-  <meta charset="utf-8">
-  
-  <title>悠悠博客</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta charset="utf-8">
+    <meta name="keywords" content="悠悠博客">
+    <meta name="description" content="在浮躁的世界安安静静地敲代码">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <meta name="description" content="在浮躁的世界安安静静地敲代码">
-<meta property="og:type" content="website">
-<meta property="og:title" content="悠悠博客">
-<meta property="og:url" content="https://uuxia.cn/page/2/index.html">
-<meta property="og:site_name" content="悠悠博客">
-<meta property="og:description" content="在浮躁的世界安安静静地敲代码">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="uuxia">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="悠悠博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-  
+    
+
+    <title>悠悠博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
 <meta name="generator" content="Hexo 6.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">悠悠博客</a>
-      </h1>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">悠悠博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
       
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">悠悠博客</div>
+        <div class="logo-desc">
+            
+            在浮躁的世界安安静静地敲代码
+            
+        </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+
+    <ul class="menu-list mobile-menu-list">
         
-          <a class="main-nav-link" href="/">Home</a>
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
         
-      </nav>
-      <nav id="sub-nav">
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://uuxia.cn"></form>
-      </div>
-    </div>
-  </div>
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
 </header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-raspberry-build-env" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post/raspberry-build-env.html" class="article-date">
-  <time datetime="2022-06-15T10:01:41.000Z" itemprop="datePublished">2022-06-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/C-C/">C/C++</a>►<a class="article-category-link" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
     
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/raspberry-build-env.html">基于Linux(centos/ubuntu)搭建树莓派C/C++程序编译环境</a>
-    </h1>
-  
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                uuxia
+                
+            </div>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录在Linux系统下搭建树莓派C/C++程序环境搭建的过程。</p>
-        
-          <p class="article-more-link">
-            <a href="/post/raspberry-build-env.html#more">Read More</a>
-          </p>
-        
-      
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="/libs/typed/typed.js"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: [ 
+                            
+                                "从来没有真正的绝境, 只有心灵的迷途",
+                            
+                                "Never really desperate, only the lost of the soul",
+                            
+                        ],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
+            </div>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="https://uuxia.cn/post/raspberry-build-env.html" data-id="clbaebzb90028zkw00e2c7y73" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C&#x2F;C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
+</div>
 
 
-  
-    <article id="post-cepheus" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post/cepheus.html" class="article-date">
-  <time datetime="2022-04-28T15:05:47.000Z" itemprop="datePublished">2022-04-28</time>
-</a>
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
+
+
+    </div>
+</div>
+
+
+<main class="content">
+
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/AOSP/">AOSP</a>►<a class="article-category-link" href="/categories/%E5%B0%8F%E7%B1%B39/">小米9</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
     
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/cepheus.html">小米9基于PixelExperience源码编译步骤</a>
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Pixel-Experience"><a href="#Pixel-Experience" class="headerlink" title="Pixel Experience"></a>Pixel Experience</h1><h3 id="Sync"><a href="#Sync" class="headerlink" title="Sync"></a>Sync</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
-<span class="token comment"># Initialize local repository</span>
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/post/raspberry-build-env.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="基于Linux(centos/ubuntu)搭建树莓派C/C++程序编译环境">
+                            
+                            <span class="card-title">基于Linux(centos/ubuntu)搭建树莓派C/C++程序编译环境</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                记录在Linux系统下搭建树莓派C/C++程序环境搭建的过程。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-15
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/C-C/" class="post-category">
+                                    C/C++
+                                </a>
+                                
+                                <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/" class="post-category">
+                                    树莓派
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/linux/">
+                            <span class="chip bg-color">linux</span>
+                        </a>
+                        
+                        <a href="/tags/C-C/">
+                            <span class="chip bg-color">C/C++</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">
+                            <span class="chip bg-color">树莓派</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/post/cepheus.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="小米9基于PixelExperience源码编译步骤">
+                            
+                            <span class="card-title">小米9基于PixelExperience源码编译步骤</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Pixel ExperienceSync
+# Initialize local repository
 repo init -u https://github.com/PixelExperience/manifest -b twelve
 
-<span class="token comment"># Sync</span>
-repo <span class="token function">sync</span> -c -j<span class="token variable"><span class="token variable">$(</span>nproc --all<span class="token variable">)</span></span> --force-sync --no-clone-bundle --no-tags<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+#
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-28
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/AOSP/" class="post-category">
+                                    AOSP
+                                </a>
+                                
+                                <a href="/categories/%E5%B0%8F%E7%B1%B39/" class="post-category">
+                                    小米9
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-<h3 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
-<span class="token comment"># Set up environment</span>
-$ <span class="token builtin class-name">.</span> build/envsetup.sh
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/cepheus/">
+                            <span class="chip bg-color">cepheus</span>
+                        </a>
+                        
+                        <a href="/tags/proxy/">
+                            <span class="chip bg-color">proxy</span>
+                        </a>
+                        
+                        <a href="/tags/android/">
+                            <span class="chip bg-color">android</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/post/proxysetting.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="terminal代理设置">
+                            
+                            <span class="card-title">terminal代理设置</span>
+                        </div>
+                    </a>
 
-<span class="token comment"># Choose a target</span>
-$ lunch aosp_cepheus-userdebug
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                ubuntu、linux下terminal终端http和git代理设置
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-28
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/proxy/" class="post-category">
+                                    proxy
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-$ lunch aosp_cepheus-user
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/proxy/">
+                            <span class="chip bg-color">proxy</span>
+                        </a>
+                        
+                        <a href="/tags/git/">
+                            <span class="chip bg-color">git</span>
+                        </a>
+                        
+                        <a href="/tags/ubuntu/">
+                            <span class="chip bg-color">ubuntu</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/post/car-start.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="汽车搭火教程">
+                            
+                            <span class="card-title">汽车搭火教程</span>
+                        </div>
+                    </a>
 
-<span class="token comment"># Build the code</span>
-$ mka bacon -j4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                汽车搭火教程
 
-<h3 id="Turn-on-caching-to-speed-up-build"><a href="#Turn-on-caching-to-speed-up-build" class="headerlink" title="Turn on caching to speed up build"></a>Turn on caching to speed up build</h3><p>Make use of ccache if you want to speed up subsequent builds by running:</p>
-<pre class="line-numbers language-none"><code class="language-none">export USE_CCACHE=1
-export CCACHE_EXEC=/usr/bin/ccache<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%94%9F%E6%B4%BB/" class="post-category">
+                                    生活
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-<p>and adding that line to your ~/.bashrc file. Then, specify the maximum amount of disk space you want ccache to use by typing this:</p>
-<pre class="line-numbers language-none"><code class="language-none">ccache -M 50G<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%B1%BD%E8%BD%A6/">
+                            <span class="chip bg-color">汽车</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%90%AD%E7%81%AB/">
+                            <span class="chip bg-color">搭火</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/post/gradle-maven.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Gradle发布MavenCenter和Nexus私服插件">
+                            
+                            <span class="card-title">Gradle发布MavenCenter和Nexus私服插件</span>
+                        </div>
+                    </a>
 
-<p>where 50G corresponds to 50GB of cache. This needs to be run once. Anywhere from 25GB-100GB will result in very noticeably increased build speeds (for instance, a typical 1hr build time can be reduced to 20min). If you’re only building for one device, 25GB-50GB is fine. If you plan to build for several devices that do not share the same kernel source, aim for 75GB-100GB. This space will be permanently occupied on your drive, so take this into consideration.</p>
-<p>You can also enable the optional ccache compression. While this may involve a slight performance slowdown, it increases the number of files that fit in the cache. To enable it, run:</p>
-<pre class="line-numbers language-none"><code class="language-none">ccache -o compression=true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                基于Java语言与Gradle Api开发的Gradle Plugin，本Gradle插件可以让你的library发布到MavenCenter和自己的nexus私服变得非常容易。内置了阿里云Maven中央仓库，其中配置了aliyun代理的c
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/gradle/" class="post-category">
+                                    gradle
+                                </a>
+                                
+                                <a href="/categories/maven/" class="post-category">
+                                    maven
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/java/">
+                            <span class="chip bg-color">java</span>
+                        </a>
+                        
+                        <a href="/tags/gradle/">
+                            <span class="chip bg-color">gradle</span>
+                        </a>
+                        
+                        <a href="/tags/android/">
+                            <span class="chip bg-color">android</span>
+                        </a>
+                        
+                        <a href="/tags/maven/">
+                            <span class="chip bg-color">maven</span>
+                        </a>
+                        
+                        <a href="/tags/Kotlin/">
+                            <span class="chip bg-color">Kotlin</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/post/netty-tcp-packet-decoder.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="netty粘包断包处理">
+                            
+                            <span class="card-title">netty粘包断包处理</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                基于Netty的TCP Server，处理二进制数据断包和粘包，以及tcp发送字符串的截取处理！
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/netty/" class="post-category">
+                                    netty
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/netty/">
+                            <span class="chip bg-color">netty</span>
+                        </a>
+                        
+                        <a href="/tags/tcp/">
+                            <span class="chip bg-color">tcp</span>
+                        </a>
+                        
+                        <a href="/tags/server/">
+                            <span class="chip bg-color">server</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/post/pi-proxy.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="树莓派设置proxy">
+                            
+                            <span class="card-title">树莓派设置proxy</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                树莓派设置proxy
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Raspberry/" class="post-category">
+                                    Raspberry
+                                </a>
+                                
+                                <a href="/categories/proxy/" class="post-category">
+                                    proxy
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/shadowsocks/">
+                            <span class="chip bg-color">shadowsocks</span>
+                        </a>
+                        
+                        <a href="/tags/proxy/">
+                            <span class="chip bg-color">proxy</span>
+                        </a>
+                        
+                        <a href="/tags/raspberry/">
+                            <span class="chip bg-color">raspberry</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/post/gitssh.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="git使用SSH进行无密码身份验证">
+                            
+                            <span class="card-title">git使用SSH进行无密码身份验证</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                git使用SSH进行无密码身份验证
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Git/" class="post-category">
+                                    Git
+                                </a>
+                                
+                                <a href="/categories/Git/SSH/" class="post-category">
+                                    SSH
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/git/">
+                            <span class="chip bg-color">git</span>
+                        </a>
+                        
+                        <a href="/tags/github/">
+                            <span class="chip bg-color">github</span>
+                        </a>
+                        
+                        <a href="/tags/gitee/">
+                            <span class="chip bg-color">gitee</span>
+                        </a>
+                        
+                        <a href="/tags/coding/">
+                            <span class="chip bg-color">coding</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/post/centos-server.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="centos服务器程序安装指南">
+                            
+                            <span class="card-title">centos服务器程序安装指南</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                主要记录我的centos服务器上的服务环境安装，frp、nginx配置、java程序、mysql安装、个人博客hexo。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/hexo/" class="post-category">
+                                    hexo
+                                </a>
+                                
+                                <a href="/categories/nginx/" class="post-category">
+                                    nginx
+                                </a>
+                                
+                                <a href="/categories/frp/" class="post-category">
+                                    frp
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/centos/">
+                            <span class="chip bg-color">centos</span>
+                        </a>
+                        
+                        <a href="/tags/hexo/">
+                            <span class="chip bg-color">hexo</span>
+                        </a>
+                        
+                        <a href="/tags/java/">
+                            <span class="chip bg-color">java</span>
+                        </a>
+                        
+                        <a href="/tags/frp/">
+                            <span class="chip bg-color">frp</span>
+                        </a>
+                        
+                        <a href="/tags/nginx/">
+                            <span class="chip bg-color">nginx</span>
+                        </a>
+                        
+                        <a href="/tags/mysql/">
+                            <span class="chip bg-color">mysql</span>
+                        </a>
+                        
+                        <a href="/tags/gradle/">
+                            <span class="chip bg-color">gradle</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/post/shi-yong-shuo-ming.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="hexo写文章使用说明">
+                            
+                            <span class="card-title">hexo写文章使用说明</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                如何使用hexo作文章
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Hexo/" class="post-category">
+                                    Hexo
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/hexo/">
+                            <span class="chip bg-color">hexo</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%86%99%E4%BD%9C/">
+                            <span class="chip bg-color">写作</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+        </div>
+    </article>
+
+</main>
 
 
-<h3 id="Start-the-build"><a href="#Start-the-build" class="headerlink" title="Start the build"></a>Start the build</h3><p>Time to start building! Now, type:</p>
-<pre class="line-numbers language-none"><code class="language-none">croot
-mka bacon -j$(nproc --all)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-<h3 id="Install-the-build"><a href="#Install-the-build" class="headerlink" title="Install the build"></a>Install the build</h3><p>Assuming the build completed without errors (it will be obvious when it finishes), type the following in the terminal window the build ran in:</p>
-<pre class="line-numbers language-none"><code class="language-none">cd $OUT<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<p>There you’ll find all the files that were created. The two files of more interest are:</p>
-<p>recovery.img, which is the PixelExperience recovery image.</p>
-<p>A zip file whose name starts with ‘PixelExperience_’, which is the PixelExperience installer package.</p>
-<p>Success! So… what’s next?<br>You’ve done it! Welcome to the elite club of self-builders. You’ve built your operating system from scratch, from the ground up. You are the master/mistress of your domain… and hopefully you’ve learned a bit on the way and had some fun too.</p>
-<h3 id="Submitting-Patches"><a href="#Submitting-Patches" class="headerlink" title="Submitting Patches"></a>Submitting Patches</h3><p>Patches are always welcome! Please submit your patches to our Gerrit.</p>
-<p><a target="_blank" rel="noopener" href="https://wiki.pixelexperience.org/help/submit-patch/">Gerrit push guide</a></p>
-<pre class="line-numbers language-none"><code class="language-none">
-unzip platform-tools-latest-linux.zip -d ~
-
-# Now you have to add adb and fastboot to your PATH. Open ~/.profile and add the following:
-# add Android SDK platform tools to path
-if [ -d "$HOME/platform-tools" ] ; then
-    PATH="$HOME/platform-tools:$PATH"
-fi
-
-curl https://storage.googleapis.com/git-repo-downloads/repo &gt; /root/code/twelve/repo
-chmod a+x /root/code/twelve/repo
-curl https://storage.googleapis.com/git-repo-downloads/repo &gt; /media/psf/aosp/twelve/repo
-chmod a+x /media/psf/aosp/twelve/repo
-
-./repo init -u https://github.com/PixelExperience/manifest -b twelve
-
-repo init -u https://github.com/PixelExperience/manifest -b twelve
-
-
-git config --global user.email "xiaoli.xia@uuxiclife.cn"
-git config --global user.name "uuxia"
-
-./repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
-
-# Running configuration script:
-cd ~/
-git clone https://github.com/akhilnarang/scripts
-cd scripts
-./setup/android_build_env.sh
-
-
-./repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
-
-source build/envsetup.sh
-lunch aosp_cepheus-userdebug
-
-export USE_CCACHE=1
-export CCACHE_EXEC=/usr/bin/ccache
-
-# and adding that line to your ~/.bashrc file. Then, specify the maximum amount of disk space you want ccache to use by typing this:
-ccache -M 50G
-
-ccache -o compression=true
-
-croot
-mka bacon -j$(nproc --all)
-
-
-export http_proxy=http://127.0.0.1:1087
-export https_proxy=http://127.0.0.1:1087
-git config --global http.proxy http://127.0.0.1:1087
-git config --global https.proxy http://127.0.0.1:1087
-git config --global core.gitproxy http://127.0.0.1:1087
-
-
-export http_proxy=http://127.0.0.1:1080
-export https_proxy=http://127.0.0.1:1080
-git config --global http.proxy http://127.0.0.1:1080
-git config --global https.proxy http://127.0.0.1:1080
-git config --global core.gitproxy http://127.0.0.1:1080
-
-git config --global --get http.proxy
-git config --global --get https.proxy
-git config --global --get core.gitproxy
-
-git config --global --unset http.proxy
-git config --global --unset https.proxy
-git config --global --unset core.gitproxy
-
-
-https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/
-
-
-https://android.googlesource.com
-
-sudo chown -R root:root /root/cepheus
-
-
-
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-      
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a href="/"
+               class="left btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">2 / 4</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a href="/page/3/"
+               class="right btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-right"></i>
+            </a>
+            
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="https://uuxia.cn/post/cepheus.html" data-id="clbaebzad000hzkw06d0iad7r" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cepheus/" rel="tag">cepheus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/proxy/" rel="tag">proxy</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
+</div>
 
 
-  
-    <article id="post-proxysetting" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post/proxysetting.html" class="article-date">
-  <time datetime="2022-04-28T14:54:33.000Z" itemprop="datePublished">2022-04-28</time>
-</a>
+
+
+    <footer class="page-footer bg-color">
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/proxy/">proxy</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/proxysetting.html">terminal代理设置</a>
-    </h1>
-  
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
 
-      </header>
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>ubuntu、linux下terminal终端http和git代理设置</p>
-        
-          <p class="article-more-link">
-            <a href="/post/proxysetting.html#more">Read More</a>
-          </p>
-        
-      
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
     </div>
-    <footer class="article-footer">
-      <a data-url="https://uuxia.cn/post/proxysetting.html" data-id="clbaebzb70024zkw0dytc319g" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/proxy/" rel="tag">proxy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+</div>
 
-    </footer>
-  </div>
-  
-</article>
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
 
-
-  
-    <article id="post-car-start" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post/car-start.html" class="article-date">
-  <time datetime="2022-03-24T07:15:46.000Z" itemprop="datePublished">2022-03-24</time>
-</a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/car-start.html">汽车搭火教程</a>
-    </h1>
-  
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <a href="/about" target="_blank">uuxia</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
+                        class="white-color">30.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;Total visits:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;Total visitors:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>汽车搭火教程</p>
-<img src="/post/car-start/start.png" class="" title="car-start.png">
-        
-          <p class="article-more-link">
-            <a href="/post/car-start.html#more">Read More</a>
-          </p>
-        
-      
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2019";
+                        var startMonth = "6";
+                        var startDate = "28";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'en';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="http://beian.miit.gov.cn" target="_blank">工业和信息化部备案管理系统网站 粤ICP备2022014941号-1</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xxl6097" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:263996097@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=263996097" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 263996097" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="http://cloud.uuxia.cn" class="tooltipped" target="_blank" data-tooltip="关注我的网盘: http://cloud.uuxia.cn" data-position="top" data-delay="50">
+        <i class="fab fa-cloudpan">云</i>
+    </a>
+
+
+
+    <a href="http://uuxia.cn/admin" class="tooltipped" target="_blank" data-tooltip="IoT后台管理: http://uuxia.cn/admin" data-position="top" data-delay="50">
+        <i class="fab fa-admin">后</i>
+    </a>
+
+
+
+
+</div>
     </div>
-    <footer class="article-footer">
-      <a data-url="https://uuxia.cn/post/car-start.html" data-id="clbaebza30006zkw0fpx85y8n" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%AD%E7%81%AB/" rel="tag">搭火</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B1%BD%E8%BD%A6/" rel="tag">汽车</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-gradle-maven" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post/gradle-maven.html" class="article-date">
-  <time datetime="2022-03-21T10:46:12.000Z" itemprop="datePublished">2022-03-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/gradle/">gradle</a>►<a class="article-category-link" href="/categories/maven/">maven</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/gradle-maven.html">Gradle发布MavenCenter和Nexus私服插件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>基于<code>Java</code>语言与<code>Gradle Api</code>开发的<code>Gradle Plugin</code>，本<code>Gradle插件</code>可以让你的<code>library</code>发布到<code>MavenCenter</code>和自己的<code>nexus</code>私服变得非常容易。<br>内置了阿里云<code>Maven</code>中央仓库，其中配置了<code>aliyun</code>代理的<code>central</code>、<code>jcenter</code>、<code>google</code>。</p>
-<img src="/post/gradle-maven/gradle-publish-plugin.png" class="" title="gradle-publish-plugin.png">
-        
-          <p class="article-more-link">
-            <a href="/post/gradle-maven.html#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://uuxia.cn/post/gradle-maven.html" data-id="clbaebzan000yzkw02bf6b7nd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/" rel="tag">Kotlin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/" rel="tag">gradle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/" rel="tag">maven</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-netty-tcp-packet-decoder" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post/netty-tcp-packet-decoder.html" class="article-date">
-  <time datetime="2022-02-18T05:22:58.000Z" itemprop="datePublished">2022-02-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/netty/">netty</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/netty-tcp-packet-decoder.html">netty粘包断包处理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>基于Netty的TCP Server，处理二进制数据断包和粘包，以及tcp发送字符串的截取处理！</p>
-        
-          <p class="article-more-link">
-            <a href="/post/netty-tcp-packet-decoder.html#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://uuxia.cn/post/netty-tcp-packet-decoder.html" data-id="clbaebzaw001ozkw01j8b4iti" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/netty/" rel="tag">netty</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/server/" rel="tag">server</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tcp/" rel="tag">tcp</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-pi-proxy" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post/pi-proxy.html" class="article-date">
-  <time datetime="2022-02-14T03:54:21.000Z" itemprop="datePublished">2022-02-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Raspberry/">Raspberry</a>►<a class="article-category-link" href="/categories/proxy/">proxy</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/pi-proxy.html">树莓派设置proxy</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>树莓派设置proxy</p>
-        
-          <p class="article-more-link">
-            <a href="/post/pi-proxy.html#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://uuxia.cn/post/pi-proxy.html" data-id="clbaebzb50020zkw09g7ye5zc" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/proxy/" rel="tag">proxy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raspberry/" rel="tag">raspberry</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shadowsocks/" rel="tag">shadowsocks</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-gitssh" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post/gitssh.html" class="article-date">
-  <time datetime="2022-02-11T09:23:20.000Z" itemprop="datePublished">2022-02-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Git/">Git</a>►<a class="article-category-link" href="/categories/Git/SSH/">SSH</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/gitssh.html">git使用SSH进行无密码身份验证</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>git使用SSH进行无密码身份验证</p>
-        
-          <p class="article-more-link">
-            <a href="/post/gitssh.html#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://uuxia.cn/post/gitssh.html" data-id="clbaebzak000rzkw02rph5ls8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding/" rel="tag">coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gitee/" rel="tag">gitee</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/" rel="tag">github</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-centos-server" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post/centos-server.html" class="article-date">
-  <time datetime="2022-02-11T07:34:03.000Z" itemprop="datePublished">2022-02-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/frp/">frp</a>►<a class="article-category-link" href="/categories/hexo/">hexo</a>►<a class="article-category-link" href="/categories/nginx/">nginx</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/centos-server.html">centos服务器程序安装指南</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>主要记录我的centos服务器上的服务环境安装，frp、nginx配置、java程序、mysql安装、个人博客hexo。</p>
-        
-          <p class="article-more-link">
-            <a href="/post/centos-server.html#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://uuxia.cn/post/centos-server.html" data-id="clbaebza50009zkw0e5484xik" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/" rel="tag">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frp/" rel="tag">frp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/" rel="tag">gradle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="hexo-使用说明" class="article article-type-hexo" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post/shi-yong-shuo-ming.html" class="article-date">
-  <time datetime="2022-02-09T06:08:49.000Z" itemprop="datePublished">2022-02-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/shi-yong-shuo-ming.html">hexo写文章使用说明</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>如何使用hexo作文章</p>
-        
-          <p class="article-more-link">
-            <a href="/post/shi-yong-shuo-ming.html#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://uuxia.cn/post/shi-yong-shuo-ming.html" data-id="clbaebzbg002izkw0b6b18a8d" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%99%E4%BD%9C/" rel="tag">写作</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&amp;laquo; __(&#39;prev&#39;)</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">__(&#39;next&#39;) &amp;raquo;</a>
-  </nav>
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AOSP/">AOSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C/">C/C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Centos/">Centos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/SSH/">SSH</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IoT/">IoT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ios/">Ios</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PixelExperience/">PixelExperience</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Raspberry/">Raspberry</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/VPN/">VPN</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/centos6/">centos6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/centos7/">centos7</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frp/">frp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frpc/">frpc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/">go</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/i2c/">i2c</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ipv6/">ipv6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/logcat/">logcat</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mao/">mao</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mqtt/">mqtt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ndk/">ndk</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/netty/">netty</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/openssl/">openssl</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/openwrt/">openwrt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/proxy/">proxy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/shadowsocks/">shadowsocks</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ssh/">ssh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%8F%E7%B1%B39/">小米9</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%85%E8%A1%8C/">旅行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Andorid/" rel="tag">Andorid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C&#x2F;C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HomeAssistant/" rel="tag">HomeAssistant</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IoT/" rel="tag">IoT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iot/" rel="tag">Iot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jar/" rel="tag">Jar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/" rel="tag">Kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PixelExperience/" rel="tag">PixelExperience</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recovery/" rel="tag">Recovery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Service/" rel="tag">Service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/a/" rel="tag">a</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/" rel="tag">centos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos6/" rel="tag">centos6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cepheus/" rel="tag">cepheus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coding/" rel="tag">coding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cross/" rel="tag">cross</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/" rel="tag">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frpc/" rel="tag">frpc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitee/" rel="tag">gitee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/het/" rel="tag">het</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hobby/" rel="tag">hobby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i2c/" rel="tag">i2c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipv6/" rel="tag">ipv6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logcat/" rel="tag">logcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mao/" rel="tag">mao</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ndk/" rel="tag">ndk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netty/" rel="tag">netty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/okhttp/" rel="tag">okhttp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openssl/" rel="tag">openssl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openwrt/" rel="tag">openwrt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pi/" rel="tag">pi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pubkey/" rel="tag">pubkey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/raspberry/" rel="tag">raspberry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/" rel="tag">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shadowsocks/" rel="tag">shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/so/" rel="tag">so</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tcp/" rel="tag">tcp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%99%E4%BD%9C/" rel="tag">写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E6%9C%BA/" rel="tag">刷机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%97%E7%96%86/" rel="tag">北疆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85/" rel="tag">喜马拉雅</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%AD%E7%81%AB/" rel="tag">搭火</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E7%96%86/" rel="tag">新疆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" rel="tag">智能家居</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B1%BD%E8%BD%A6/" rel="tag">汽车</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="tag">腾讯云</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E5%8A%A8/" rel="tag">运动</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A9%B1%E8%9A%8A-life/" rel="tag">驱蚊  life</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Andorid/" style="font-size: 13.33px;">Andorid</a> <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/HomeAssistant/" style="font-size: 10px;">HomeAssistant</a> <a href="/tags/IoT/" style="font-size: 10px;">IoT</a> <a href="/tags/Iot/" style="font-size: 10px;">Iot</a> <a href="/tags/Jar/" style="font-size: 10px;">Jar</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/PixelExperience/" style="font-size: 10px;">PixelExperience</a> <a href="/tags/Recovery/" style="font-size: 10px;">Recovery</a> <a href="/tags/Service/" style="font-size: 10px;">Service</a> <a href="/tags/a/" style="font-size: 10px;">a</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/centos/" style="font-size: 13.33px;">centos</a> <a href="/tags/centos6/" style="font-size: 10px;">centos6</a> <a href="/tags/cepheus/" style="font-size: 13.33px;">cepheus</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/cross/" style="font-size: 10px;">cross</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/frpc/" style="font-size: 10px;">frpc</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/gitee/" style="font-size: 10px;">gitee</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/go/" style="font-size: 10px;">go</a> <a href="/tags/gradle/" style="font-size: 13.33px;">gradle</a> <a href="/tags/het/" style="font-size: 10px;">het</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/hobby/" style="font-size: 10px;">hobby</a> <a href="/tags/i2c/" style="font-size: 10px;">i2c</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/ipv6/" style="font-size: 10px;">ipv6</a> <a href="/tags/java/" style="font-size: 13.33px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/logcat/" style="font-size: 10px;">logcat</a> <a href="/tags/mao/" style="font-size: 10px;">mao</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/ndk/" style="font-size: 13.33px;">ndk</a> <a href="/tags/netty/" style="font-size: 10px;">netty</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/okhttp/" style="font-size: 10px;">okhttp</a> <a href="/tags/openssl/" style="font-size: 10px;">openssl</a> <a href="/tags/openwrt/" style="font-size: 10px;">openwrt</a> <a href="/tags/pi/" style="font-size: 10px;">pi</a> <a href="/tags/proxy/" style="font-size: 16.67px;">proxy</a> <a href="/tags/pubkey/" style="font-size: 10px;">pubkey</a> <a href="/tags/raspberry/" style="font-size: 10px;">raspberry</a> <a href="/tags/server/" style="font-size: 10px;">server</a> <a href="/tags/shadowsocks/" style="font-size: 20px;">shadowsocks</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tcp/" style="font-size: 10px;">tcp</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/%E5%86%99%E4%BD%9C/" style="font-size: 10px;">写作</a> <a href="/tags/%E5%88%B7%E6%9C%BA/" style="font-size: 10px;">刷机</a> <a href="/tags/%E5%8C%97%E7%96%86/" style="font-size: 10px;">北疆</a> <a href="/tags/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85/" style="font-size: 10px;">喜马拉雅</a> <a href="/tags/%E6%90%AD%E7%81%AB/" style="font-size: 10px;">搭火</a> <a href="/tags/%E6%96%B0%E7%96%86/" style="font-size: 10px;">新疆</a> <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" style="font-size: 13.33px;">智能家居</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 10px;">树莓派</a> <a href="/tags/%E6%B1%BD%E8%BD%A6/" style="font-size: 10px;">汽车</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 13.33px;">生活</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a> <a href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" style="font-size: 10px;">腾讯云</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 10px;">运动</a> <a href="/tags/%E9%A9%B1%E8%9A%8A-life/" style="font-size: 10px;">驱蚊  life</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/post/openwrt-ipv6.html">家庭宽带开启IPV6</a>
-          </li>
-        
-          <li>
-            <a href="/post/mao-config.html">家庭光猫配置</a>
-          </li>
-        
-          <li>
-            <a href="/post/go-cross-compile.html">GoLang 全平台编译</a>
-          </li>
-        
-          <li>
-            <a href="/post/openwet-i2c.html">OpenWrt开启i2c功能，并顺利编译风扇驱动</a>
-          </li>
-        
-          <li>
-            <a href="/post/frpc-install-autostart.html">Windows下Frpc安装与自启动</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 uuxia<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    
 
+    <!-- 雪花特效 -->
+    
 
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+    <!-- 鼠标星星特效 -->
+    
 
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
 
+    <!-- Baidu Analytics -->
 
+    <!-- Baidu Push -->
 
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
 
-<script src="/js/script.js"></script>
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
 
+    
 
-  </div>
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
 </body>
+
 </html>
