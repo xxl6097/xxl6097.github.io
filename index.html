@@ -1,1244 +1,1631 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-
-    
-
-    <title>uuxia</title>
-    <meta name="author" content="uuxia">
-    
-    <meta name="description" content="在浮躁的世界安安静静地敲代码">
-    
-    
+  <meta charset="utf-8">
+  
+  <title>悠悠博客</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
-    
-    <meta property="og:site_name" content="悠悠博客"/>
-
-    
-    <meta property="og:image" content=""/>
-    
-
-    <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="description" content="在浮躁的世界安安静静地敲代码">
+<meta property="og:type" content="website">
+<meta property="og:title" content="悠悠博客">
+<meta property="og:url" content="https://uuxia.cn/index.html">
+<meta property="og:site_name" content="悠悠博客">
+<meta property="og:description" content="在浮躁的世界安安静静地敲代码">
+<meta property="og:locale">
+<meta property="article:author" content="uuxia">
+<meta name="twitter:card" content="summary">
+  
     <link rel="alternate" href="/atom.xml" title="悠悠博客" type="application/atom+xml">
-    <link rel="stylesheet" href="/css/lib/materialize.min.css">
-    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-    
-        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
-    
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
 <meta name="generator" content="Hexo 6.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
-
 <body>
-    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
-
-    <nav class="indigo">
-    <div class="nav-wrapper">
-        <a href="#" data-activates="main-menu" class="button-collapse">
-            <i class="fa fa-navicon"></i>
-        </a>
-        <div class="">
-            <a href="/" class="brand-logo hide-on-med-and-down">悠悠博客</a>
-            <ul class="right hide-on-med-and-down">
-                
-                    <li>
-                        <a class="menu-home " href="/" >
-                            <i class="fa fa-home "></i>
-                            
-                            Home
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-archive " href="/archives" >
-                            <i class="fa fa-archive "></i>
-                            
-                            Archives
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
-                            <i class="fa fa-bookmark "></i>
-                            
-                            Categories
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-reading " href="/reading" >
-                            <i class="fa fa-book "></i>
-                            
-                            Reading
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-about " href="/about" >
-                            <i class="fa fa-user "></i>
-                            
-                            About
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-search modal-trigger " href="#search" >
-                            <i class="fa fa-search "></i>
-                            
-                            Search
-                        </a>
-                    </li>
-                
-            </ul>
-            <div>
-    <ul class="side-nav indigo darken-1" id="main-menu">
-        
-        <li class="side-user">
-            <div class="row">
-                <div class="col s4 no-padding">
-                    <img class="avatar-image circle responsive-img" src="http://uuxia.cn/file/hexo/image/icon.png" alt="User Avatar">
-                </div>
-                <div class="info col s8 valign-wrapper no-padding">
-                    <div class="valign">
-                        <p class="name">uuxia</p>
-                        <p class="desc">前端/Android/Java/C++/技术宅</p>
-                    </div>
-                </div>
-            </div>
-        </li>
-        
-
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-home " href="/" >
-                    <i class="fa fa-home "></i>
-                    
-                    Home
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-archive " href="/archives" >
-                    <i class="fa fa-archive "></i>
-                    
-                    Archives
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
-                    <i class="fa fa-bookmark "></i>
-                    
-                    Categories
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-reading " href="/reading" >
-                    <i class="fa fa-book "></i>
-                    
-                    Reading
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-about " href="/about" >
-                    <i class="fa fa-user "></i>
-                    
-                    About
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-search modal-trigger " href="#search" >
-                    <i class="fa fa-search "></i>
-                    
-                    Search
-                </a>
-            </li>
-        
-    </ul>
-
-    <ul class="side-nav indigo darken-1" id="category-menu">
-    
-
-            
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/VPN/">
-                    VPN <span class="right">3</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/Android/">
-                    Android <span class="right">3</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/生活/">
-                    生活 <span class="right">4</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/hexo/">
-                    hexo <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/Centos/">
-                    Centos <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/PixelExperience/">
-                    PixelExperience <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/AOSP/">
-                    AOSP <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/linux/">
-                    linux <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/frpc/">
-                    frpc <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/Git/">
-                    Git <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/Git/SSH/">
-                    SSH <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/go/">
-                    go <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/nginx/">
-                    nginx <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/gradle/">
-                    gradle <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/IoT/">
-                    IoT <span class="right">4</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/小米9/">
-                    小米9 <span class="right">2</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/shadowsocks/">
-                    shadowsocks <span class="right">2</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/Ios/">
-                    Ios <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/android/">
-                    android <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/frp/">
-                    frp <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/maven/">
-                    maven <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/centos6/">
-                    centos6 <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/mqtt/">
-                    mqtt <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/logcat/">
-                    logcat <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/mao/">
-                    mao <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/netty/">
-                    netty <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/ndk/">
-                    ndk <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/openwrt/">
-                    openwrt <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/ipv6/">
-                    ipv6 <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/Raspberry/">
-                    Raspberry <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/proxy/">
-                    proxy <span class="right">2</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/openssl/">
-                    openssl <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/C-C/">
-                    C-C <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/ssh/">
-                    ssh <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/i2c/">
-                    i2c <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/旅行/">
-                    旅行 <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/centos7/">
-                    centos7 <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/Hexo/">
-                    Hexo <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/树莓派/">
-                    树莓派 <span class="right">1</span></a>
-                </a>
-            </li>
-
-        
-
-    </ul>
-</div>
-
-        </div>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">悠悠博客</a>
+      </h1>
+      
     </div>
-</nav>
-
-<div id="search" class="modal search-modal">
-    <div class="row">
-        <div class="input-field col s12">
-              <input id="search-input" type="text">
-              <label for="search-input">Search</label>
-        </div>
-
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://uuxia.cn"></form>
+      </div>
     </div>
-    <div id="search-result" class="search-result col s12">
-
-    </div>
-</div>
-
-
-    <main>
-        
-
-
-
-<div id="article-list" class="container main-container">
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-clashx" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post/clashx.html" class="article-date">
+  <time datetime="2022-12-05T06:56:16.000Z" itemprop="datePublished">2022-12-05</time>
+</a>
     
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/post/clashx.html">Clash 基本配置记录</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2022-12-05T06:56:16.000Z"><a href="/post/clashx.html">2022-12-05</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/clashx/" class="chip pink lighten-1">clashx</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/post/openwrt-ipv6.html">家庭宽带开启IPV6</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2022-11-24T13:20:30.000Z"><a href="/post/openwrt-ipv6.html">2022-11-24</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/ipv6/" class="chip pink lighten-1">ipv6</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/post/mao-config.html">家庭光猫配置</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2022-11-24T12:07:17.000Z"><a href="/post/mao-config.html">2022-11-24</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/mao/" class="chip pink lighten-1">mao</a>
-        
-    </div>
-
-
-
-            
-                <div class="entry pink-link-context">
-                    Here's something encrypted, password is required to continue reading.
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a target="_blank" rel="noopener" href="//post/mao-config.html">READ MORE</a>
-        </ div>
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/post/go-cross-compile.html">GoLang 全平台编译</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2022-11-23T11:16:38.000Z"><a href="/post/go-cross-compile.html">2022-11-23</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/go/" class="chip pink lighten-1">go</a>
-        
-            <a href="/tags/cross/" class="chip pink lighten-1">cross</a>
-        
-    </div>
-
-
-
-            
-                <div class="entry pink-link-context">
-                    <p>Golang的全平台编译简直太爽了，真的太适合我了，平时编译一些不同设备的跨平台程序，真的是爽的不行。<br>拥有一台windows电脑就能开发出在Linux、Windows、Mac上面直接运行的程序。</p>
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a target="_blank" rel="noopener" href="//post/go-cross-compile.html">READ MORE</a>
-        </ div>
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/post/openwet-i2c.html">OpenWrt开启i2c功能，并顺利编译风扇驱动</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2022-11-21T06:11:56.000Z"><a href="/post/openwet-i2c.html">2022-11-21</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/openwrt/" class="chip pink lighten-1">openwrt</a>
-        
-            <a href="/tags/i2c/" class="chip pink lighten-1">i2c</a>
-        
-            <a href="/tags/pi/" class="chip pink lighten-1">pi</a>
-        
-    </div>
-
-
-
-            
-                <div class="entry pink-link-context">
-                    <p>树莓派安装OpenWrt作为家庭主路由，并开启i2c编译风扇、led等驱动，cpu温度骤降！～～～</p>
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a target="_blank" rel="noopener" href="//post/openwet-i2c.html">READ MORE</a>
-        </ div>
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/post/frpc-install-autostart.html">Windows下Frpc安装与自启动</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2022-10-27T09:00:57.000Z"><a href="/post/frpc-install-autostart.html">2022-10-27</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/frpc/" class="chip pink lighten-1">frpc</a>
-        
-    </div>
-
-
-
-            
-                <div class="entry pink-link-context">
-                    <p>Windows下安装Frpc，并在windows的任务计划程序里设置Frpc自启动。</p>
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a target="_blank" rel="noopener" href="//post/frpc-install-autostart.html">READ MORE</a>
-        </ div>
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/post/cepheus-lock-rom.html">小米9刷 PixelExperience ROM教程</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2022-10-13T05:16:07.000Z"><a href="/post/cepheus-lock-rom.html">2022-10-13</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/cepheus/" class="chip pink lighten-1">cepheus</a>
-        
-            <a href="/tags/PixelExperience/" class="chip pink lighten-1">PixelExperience</a>
-        
-            <a href="/tags/刷机/" class="chip pink lighten-1">刷机</a>
-        
-            <a href="/tags/Recovery/" class="chip pink lighten-1">Recovery</a>
-        
-    </div>
-
-
-
-            
-                <div class="entry pink-link-context">
-                    <p>小米9刷入官方rom</p>
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a target="_blank" rel="noopener" href="//post/cepheus-lock-rom.html">READ MORE</a>
-        </ div>
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/post/opensslforandroid.html">Android 编译 openssl 的注意事项</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2022-07-21T02:01:47.000Z"><a href="/post/opensslforandroid.html">2022-07-21</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/ndk/" class="chip pink lighten-1">ndk</a>
-        
-            <a href="/tags/Android/" class="chip pink lighten-1">Android</a>
-        
-            <a href="/tags/openssl/" class="chip pink lighten-1">openssl</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/post/iot-used.html">IoT接入文档</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2022-07-19T11:42:09.000Z"><a href="/post/iot-used.html">2022-07-19</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/Iot/" class="chip pink lighten-1">Iot</a>
-        
-            <a href="/tags/mqtt/" class="chip pink lighten-1">mqtt</a>
-        
-            <a href="/tags/c/" class="chip pink lighten-1">c++</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/post/ssh-pub-login.html">SSH公钥免密登录</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2022-07-01T12:23:16.000Z"><a href="/post/ssh-pub-login.html">2022-07-01</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/ssh/" class="chip pink lighten-1">ssh</a>
-        
-            <a href="/tags/pubkey/" class="chip pink lighten-1">pubkey</a>
-        
-            <a href="/tags/shell/" class="chip pink lighten-1">shell</a>
-        
-    </div>
-
-
-
-            
-                <div class="entry pink-link-context">
-                    Here's something encrypted, password is required to continue reading.
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a target="_blank" rel="noopener" href="//post/ssh-pub-login.html">READ MORE</a>
-        </ div>
-        
-    </div>
-</article>
-
-    
-
-    <ul class="pagination center-align">
-    <li class="disabled">
-        <a href="/"><i class="fa fa-angle-left"></i></a>
-    </li>
-    
-    
-        <li class="active pink"><a href="/">1</a></li>
-    
-        <li class="waves-effect"><a href="/page/2">2</a></li>
-    
-        <li class="waves-effect"><a href="/page/3">3</a></li>
-    
-        <li class="waves-effect"><a href="/page/4">4</a></li>
-    
-    
-    <li class="">
-        <a href="/page/2/"><i class="fa fa-angle-right"></i></a>
-    </li>
- </ul>
-
-</div>
-
-        <div class="fixed-action-btn float-sitemap">
-    <a class="btn-floating btn-large pink">
-      <i class="fa fa-caret-square-o-up"></i>
-    </a>
-    <ul>
-      <li><a class="btn-return-top btn-floating waves-effect green" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
-      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="Menu"><i class="fa fa-navicon"></i></a></li>
-    </ul>
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
   </div>
 
-    </main>
-    <footer class="page-footer indigo darken-1">
+  </div>
+  <div class="article-inner">
     
-    <div class="footer-container container">
-        <div class="row">
-            
-            <div class="social-group col m4 s12">
-                <h5 class="white-text">Social</h5>
-                
-                    <a class="social-link" href="http://weibo.com/" target="_blank">
-                        <i class="fa fa-2x fa-weibo"></i>
-                    </a>
-                
-                    <a class="social-link" href="https://github.com/xxl6097" target="_blank">
-                        <i class="fa fa-2x fa-github"></i>
-                    </a>
-                
-                    <a class="social-link" href="/atom.xml" target="_blank">
-                        <i class="fa fa-2x fa-rss"></i>
-                    </a>
-                
-                
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-    <div class="site-visitors-container white-text">
-        <span>
-            <i class="fa fa-user"></i>
-            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-        </span>
-        <span>&nbsp;|&nbsp;</span>
-        <span>
-            <i class="fa fa-eye"></i>
-            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-        </span>
-    </div>
-
-
-            </div>
-            
-
-            
-            <div class="col m8 s12">
-                <h5 class="white-text">Links</h5>
-                
-                    <a class="social-link" href="http://raytaylorlin.com/" target="_blank">raytaylorism主题作者的技术博客</a>
-                
-                    <a class="social-link" href="http://cloud.uuxia.cn" target="_blank">个人网盘</a>
-                
-                <tr></tr>
-                <a class="beian-link" href="http://beian.miit.gov.cn" target="_blank">工业和信息化部备案管理系统网站 粤ICP备2022014941号-1</a>
-            </div>
-            
-
-
-        </div>
-    </div>
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/clashx.html">Clash 基本配置记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、规则解释"><a href="#一、规则解释" class="headerlink" title="一、规则解释"></a>一、规则解释</h3><ul>
+<li>DOMAIN-SUFFIX：域名后缀匹配</li>
+<li>DOMAIN：域名匹配</li>
+<li>DOMAIN-KEYWORD：域名关键字匹配</li>
+<li>IP-CIDR：IP段匹配</li>
+<li>SRC-IP-CIDR：源IP段匹配</li>
+<li>GEOIP：GEOIP数据库（国家代码）匹配</li>
+<li>DST-PORT：目标端口匹配</li>
+<li>SRC-PORT：源端口匹配</li>
+<li>MATCH：全匹配（一般放在最后）</li>
+</ul>
+<h3 id="二、基本配置"><a href="#二、基本配置" class="headerlink" title="二、基本配置"></a>二、基本配置</h3><p>:::tip<br>Normal Tips Container<br>:::</p>
+<pre class="line-numbers language-YAML" data-language="YAML"><code class="language-YAML">#---------------------------------------------------#
+    ## 配置文件需要放置在 $HOME/.config/clash/config.yml
+    ## 
+    ## 如果您不知道如何操作，请参阅 SS-Rule-Snippet 的 Wiki：
+    ## https://github.com/Hackl0us/SS-Rule-Snippet/wiki/clash(X)
+    #---------------------------------------------------#
+
+    # HTTP 代理端口
+    port: 7890
+
+    # SOCKS5 代理端口
+    socks-port: 7891
+
+    # Linux 和 macOS 的 redir 代理端口 (如需使用此功能，请取消注释)
+    # redir-port: 7892
+
+    # 允许局域网的连接（可用来共享代理）
+    allow-lan: false
+    # bind-address: "*"
+    # 此功能仅在 allow-lan 设置为 true 时生效，支持三种参数：
+    # "*"                           绑定所有的 IP 地址
+    # 192.168.122.11                绑定一个的 IPv4 地址
+    # "[aaaa::a8aa:ff:fe09:57d8]"   绑定一个 IPv6 地址
+
+    # 规则模式：Rule（规则） / Global（全局代理）/ Direct（全局直连）
+    mode: Rule
+
+    # 设置日志输出级别 (默认级别：silent，即不输出任何内容，以避免因日志内容过大而导致程序内存溢出）。
+    # 5 个级别：silent / info / warning / error / debug。级别越高日志输出量越大，越倾向于调试，若需要请自行开启。
+    log-level: silent
+
+    # clash 的 RESTful API
+    external-controller: 127.0.0.1:9090
+
+    # 您可以将静态网页资源（如 clash-dashboard）放置在一个目录中，clash 将会服务于 `${API}/ui`
+    # 参数应填写配置目录的相对路径或绝对路径。
+    # external-ui: folder
+
+    # RESTful API 的口令 (可选)
+    # secret: ""
+
+    # 实验性功能
+    experimental:
+      ignore-resolve-fail: true # 忽略 DNS 解析失败，默认值为 true
+
+    # 本地 SOCKS5 / HTTP(S) 服务认证
+    # authentication:
+    #  - "user1:pass1"
+    #  - "user2:pass2"
+
+    # # 实验性功能 hosts, 支持通配符 (例如 *.clash.dev 甚至 *.foo.*.example.com)
+    # # 静态的域名 比 通配域名 具有更高的优先级 (foo.example.com 优先于 *.example.com)
+    # # 注意: hosts 在 fake-ip 模式下不生效
+    # hosts:
+    #   '*.clash.dev': 127.0.0.1
+    #   'alpha.clash.dev': '::1'
+
+    dns:
+      enable: true
+      ipv6: false
+      # listen: 0.0.0.0:53
+      # enhanced-mode: redir-host # 或 fake-ip
+      # # fake-ip-range: 198.18.0.1/16 # 如果你不知道这个参数的作用，请勿修改
+      # fake-ip-filter: # fake-ip 白名单列表
+      #   - '*.lan'
+      #   - localhost.ptlogin2.qq.com
+
+      nameserver:
+        - 1.2.4.8
+        - 114.114.114.114
+        - 223.5.5.5
+        - tls://13800000000.rubyfish.cn:853
+        #- https://13800000000.rubyfish.cn/
+
+      fallback: # 与 nameserver 内的服务器列表同时发起请求，当规则符合 GEOIP 在 CN 以外时，fallback 列表内的域名服务器生效。
+        - tls://13800000000.rubyfish.cn:853
+        - tls://1.0.0.1:853
+        - tls://dns.google:853
+
+        #- https://13800000000.rubyfish.cn/
+        #- https://cloudflare-dns.com/dns-query
+        #- https://dns.google/dns-query
+
+      fallback-filter:
+        geoip: true # 默认
+        ipcidr: # 在这个网段内的 IP 地址会被考虑为被污染的 IP
+          - 240.0.0.0/4
+
+    # 1. clash DNS 请求逻辑：
+    #   (1) 当访问一个域名时， nameserver 与 fallback 列表内的所有服务器并发请求，得到域名对应的 IP 地址。
+    #   (2) clash 将选取 nameserver 列表内，解析最快的结果。
+    #   (3) 若解析结果中，IP 地址属于 国外，那么 clash 将选择 fallback 列表内，解析最快的结果。
+    #
+    #   因此，我在 nameserver 和 fallback 内都放置了无污染、解析速度较快的国内 DNS 服务器，以达到最快的解析速度。
+    #   但是 fallback 列表内服务器会用在解析境外网站，为了结果绝对无污染，我仅保留了支持 DoT/DoH 的两个服务器。
+    # 
+    # 2. clash DNS 配置注意事项：
+    #   (1) 如果您为了确保 DNS 解析结果无污染，请仅保留列表内以 tls:// 或 https:// 开头的 DNS 服务器，但是通常对于国内域名没有必要。
+    #   (2) 如果您不在乎可能解析到污染的结果，更加追求速度。请将 nameserver 列表的服务器插入至 fallback 列表内，并移除重复项。
+    # 
+    # 3. 关于 DNS over HTTPS (DoH) 和 DNS over TLS (DoT) 的选择：
+    #   对于两项技术双方各执一词，而且会无休止的争论，各有利弊。各位请根据具体需求自行选择，但是配置文件内默认启用 DoT，因为目前国内没有封锁或管制。
+    #   DoH: 以 https:// 开头的 DNS 服务器。拥有更好的伪装性，且几乎不可能被运营商或网络管理封锁，但查询效率和安全性可能略低。
+    #   DoT: 以 tls:// 开头的 DNS 服务器。拥有更高的安全性和查询效率，但端口有可能被管制或封锁。
+    #   若要了解更多关于 DoH/DoT 相关技术，请自行查阅规范文档。
 
 
+    Proxy:
+    # shadowsocks
+    # 所支持的加密方式与 go-shadowsocks2 保持一致
+    # 支持加密方式： 
+    #   aes-128-gcm aes-192-gcm aes-256-gcm
+    #   aes-128-cfb aes-192-cfb aes-256-cfb
+    #   aes-128-ctr aes-192-ctr aes-256-ctr
+    #   rc4-md5 chacha20 chacha20-ietf xchacha20
+    #   chacha20-ietf-poly1305 xchacha20-ietf-poly1305
 
+      - name: "ss1"
+        type: ss
+        server: server
+        port: 443
+        cipher: chacha20-ietf-poly1305
+        password: "password"
+        # udp: true  
 
+      - name: "ss2"
+        type: ss
+        server: server
+        port: 443
+        cipher: AEAD_CHACHA20_POLY1305
+        password: "password"
+        plugin: obfs
+        plugin-opts:
+          mode: tls # 混淆模式，可以选择 http 或 tls
+          host: bing.com # 混淆域名，需要和服务器配置保持一致
 
-    <div class="footer-copyright pink-link-context">
-        <div class="container">
-            © 2018~2022 uuxia.cn, All rights reserved.
+      - name: "ss3"
+        type: ss
+        server: server
+        port: 443
+        cipher: AEAD_CHACHA20_POLY1305
+        password: "password"
+        plugin: v2ray-plugin
+        plugin-opts:
+          mode: websocket # 暂时不支持 QUIC 协议
+          # tls: true # wss
+          # skip-cert-verify: true
+          # host: bing.com
+          # path: "/"
+          # headers:
+          #   custom: value
 
-            <p class="right" style="margin-top: 0;">
-            Blog powered by
-            <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
-            | Theme
-            <a target="_blank" rel="noopener" href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a>
-            </p>
+    # vmess
+    # 支持加密方式：auto / aes-128-gcm / chacha20-poly1305 / none
+      - name: "vmess"
+        type: vmess
+        server: server
+        port: 443
+        uuid: uuid
+        alterId: 32
+        cipher: auto
+        # udp: true
+        # tls: true
+        # skip-cert-verify: true
+        # network: ws
+        # ws-path: /path
+        # ws-headers:
+        #   Host: v2ray.com
 
+      # socks5
+      - name: "socks"
+        type: socks5
+        server: server
+        port: 443
+        # username: username
+        # password: password
+        # tls: true
+        # skip-cert-verify: true
+        # udp: true
 
-        </div>
+      # http
+      - name: "http"
+        type: http
+        server: server
+        port: 443
+        # username: username
+        # password: password
+        # tls: true # https
+        # skip-cert-verify: true
+
+      # snell
+      - name: "snell"
+        type: snell
+        server: server
+        port: 44046
+        psk: yourpsk
+        # obfs-opts:
+          # mode: http # 或 tls
+          # host: bing.com
+
+    Proxy Group:
+    # url-test 可以自动选择与指定 URL 测速后，延迟最短的服务器
+      - name: "auto"
+        type: url-test
+        proxies:
+          - ss1
+          - ss2
+          - vmess1
+        url: 'http://www.gstatic.com/generate_204'
+        interval: 300
+
+    # fallback 可以尽量按照用户书写的服务器顺序，在确保服务器可用的情况下，自动选择服务器
+      - name: "fallback-auto"
+        type: fallback
+        proxies:
+          - ss1
+          - ss2
+          - vmess1
+        url: 'http://www.gstatic.com/generate_204'
+        interval: 300
+
+    # load-balance 可以使相同 eTLD 请求在同一条代理线路上
+      - name: "load-balance"
+        type: load-balance
+        proxies:
+          - ss1
+          - ss2
+          - vmess1
+        url: 'http://www.gstatic.com/generate_204'
+        interval: 300
+
+    # select 用来允许用户手动选择 代理服务器 或 服务器组
+    # 您也可以使用 RESTful API 去切换服务器，这种方式推荐在 GUI 中使用
+      - name: Proxy
+        type: select
+        proxies:
+          - ss1
+          - ss2
+          - vmess1
+          - auto
+
+    Rule:
+    # 抗 DNS 污染 
+      - DOMAIN-KEYWORD,amazon,Proxy
+      - DOMAIN-KEYWORD,google,Proxy
+      - DOMAIN-KEYWORD,gmail,Proxy
+      - DOMAIN-KEYWORD,youtube,Proxy
+      - DOMAIN-KEYWORD,facebook,Proxy
+      - DOMAIN-SUFFIX,fb.me,Proxy
+      - DOMAIN-SUFFIX,fbcdn.net,Proxy
+      - DOMAIN-KEYWORD,twitter,Proxy
+      - DOMAIN-KEYWORD,instagram,Proxy
+      - DOMAIN-KEYWORD,dropbox,Proxy
+      - DOMAIN-SUFFIX,twimg.com,Proxy
+      - DOMAIN-KEYWORD,blogspot,Proxy
+      - DOMAIN-SUFFIX,youtu.be,Proxy
+      - DOMAIN-KEYWORD,whatsapp,Proxy
+
+    # 常见广告域名屏蔽
+      - DOMAIN-KEYWORD,admarvel,REJECT
+      - DOMAIN-KEYWORD,admaster,REJECT
+      - DOMAIN-KEYWORD,adsage,REJECT
+      - DOMAIN-KEYWORD,adsmogo,REJECT
+      - DOMAIN-KEYWORD,adsrvmedia,REJECT
+      - DOMAIN-KEYWORD,adwords,REJECT
+      - DOMAIN-KEYWORD,adservice,REJECT
+      - DOMAIN-KEYWORD,domob,REJECT
+      - DOMAIN-KEYWORD,duomeng,REJECT
+      - DOMAIN-KEYWORD,dwtrack,REJECT
+      - DOMAIN-KEYWORD,guanggao,REJECT
+      - DOMAIN-KEYWORD,lianmeng,REJECT
+      - DOMAIN-SUFFIX,mmstat.com,REJECT
+      - DOMAIN-KEYWORD,omgmta,REJECT
+      - DOMAIN-KEYWORD,openx,REJECT
+      - DOMAIN-KEYWORD,partnerad,REJECT
+      - DOMAIN-KEYWORD,pingfore,REJECT
+      - DOMAIN-KEYWORD,supersonicads,REJECT
+      - DOMAIN-KEYWORD,uedas,REJECT
+      - DOMAIN-KEYWORD,umeng,REJECT
+      - DOMAIN-KEYWORD,usage,REJECT
+      - DOMAIN-KEYWORD,wlmonitor,REJECT
+      - DOMAIN-KEYWORD,zjtoolbar,REJECT
+
+    # LAN
+      - DOMAIN-SUFFIX,local,DIRECT
+      - IP-CIDR,127.0.0.0/8,DIRECT
+      - IP-CIDR,172.16.0.0/12,DIRECT
+      - IP-CIDR,192.168.0.0/16,DIRECT
+      - IP-CIDR,10.0.0.0/8,DIRECT
+      - IP-CIDR,17.0.0.0/8,DIRECT
+      - IP-CIDR,100.64.0.0/10,DIRECT
+
+    # 最终规则
+      - GEOIP,CN,DIRECT
+      - MATCH,Proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="三、绕过系统代理"><a href="#三、绕过系统代理" class="headerlink" title="三、绕过系统代理"></a>三、绕过系统代理</h3><p>Clash for Windows在v 0.4.5 版本后可以自定义系统代理需要绕过的域名或IP</p>
+<p>部分应用检测到系统代理会拒绝响应（例如网易云音乐uwp），此功能用于解决此类问题</p>
+<p>设置方式<br>config.yaml</p>
+<pre class="line-numbers language-YAML" data-language="YAML"><code class="language-YAML">port: 8888
+    socks-port: 8889
+    redir-port: 0
+    allow-lan: true
+    mode: Rule
+    log-level: info
+    external-controller: '0.0.0.0:6170'
+    secret: ''
+    Proxy:
+      ...
+    Proxy Group:
+      ...
+    Rule:
+      ...
+    cfw-bypass:
+      ... # 原有字段不用删除
+      - 'music.163.com' # 网易云域名1
+      - '*.music.126.net' # 网易云域名2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>cfw-bypass类型为数组，item为需要绕过的域名或节点，支持通配符*</p>
+<blockquote>
+<p>最后一行对应系统中“请勿将代理服务器用于本地(Intranet)地址”选项，请确保此项在最底部</p>
+</blockquote>
+
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://uuxia.cn/post/clashx.html" data-id="clbakpcfm000ks7w04ik3ax5t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/clashx/" rel="tag">clashx</a></li></ul>
 
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-openwrt-ipv6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post/openwrt-ipv6.html" class="article-date">
+  <time datetime="2022-11-24T13:20:30.000Z" itemprop="datePublished">2022-11-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ipv6/">ipv6</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/openwrt-ipv6.html">家庭宽带开启IPV6</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="常见的运营商超级管理员账号"><a href="#常见的运营商超级管理员账号" class="headerlink" title="常见的运营商超级管理员账号"></a>常见的运营商超级管理员账号</h1><h2 id="中国移动"><a href="#中国移动" class="headerlink" title="中国移动"></a>中国移动</h2><ul>
+<li>移动光猫账号∶CMCCAdmin 密码∶ aDm8H%MdA </li>
+<li>华为的∶telecomadmin 密码∶ admintelecom</li>
+<li>中国移动光纤宽带ip∶192.168.100.1的超级账号∶telecomadmin 密码∶nE7jA%5m</li>
+</ul>
+<h2 id="中国电信"><a href="#中国电信" class="headerlink" title="中国电信"></a>中国电信</h2><ul>
+<li>账号∶telecomadmin 密码∶ nE7jA%5m</li>
+</ul>
+<h1 id="设置光猫为桥接模式"><a href="#设置光猫为桥接模式" class="headerlink" title="设置光猫为桥接模式"></a>设置光猫为桥接模式</h1><p>打开IPV4/IPV6，如果设置不了，请截图保存，然后删除，再新建，然后按原来的设置（如何连接光猫，可观看前面的视频）</p>
+<p><img src="/post/openwrt-ipv6/ipv6-1.png" alt="ipv6-1.png"></p>
+<h1 id="然后设置软路由或者路由器"><a href="#然后设置软路由或者路由器" class="headerlink" title="然后设置软路由或者路由器"></a>然后设置软路由或者路由器</h1><h2 id="有软路由情况下："><a href="#有软路由情况下：" class="headerlink" title="有软路由情况下："></a>有软路由情况下：</h2><ul>
+<li>网络——接口——IPV6 ULA清空</li>
+<li>网络——接口——WAN口——使用内置IPV6管理取消勾选——Obtain IPv6-Address项目确保是自动状态</li>
+<li>网络——接口——lan口——DHCP——IPV6设置——高级设置——取消勾选使用内置IPV6管理——取消勾选强制链路</li>
+<li>通告的DNS服务器（添加谷歌IPV6DNS）：<ol>
+<li>2001:4860:4860::8888</li>
+<li>2001:4860:4860::8844</li>
+</ol>
+</li>
+</ul>
+<p><img src="/post/openwrt-ipv6/ipv6-2.png" alt="ipv6-2.png"></p>
+<p>混合模式会根据配置自动选择使用中继还是服务器模式。<font color="red">（这里如果是主路由请选择服务器模式，旁路由选择中继模式）</font><br>何时采用无状态、何时采用有状态，关键看应用场景。核心在于是否需要控制IP地址，比如保持IP不变，如果需要控制，就采用有状态;如果无需控制，就采用无状态。</p>
+<ul>
+<li><p>在DHCP/DNS——高级设置——取消勾选禁止解析IPV6 DNS记录</p>
+</li>
+<li><p>设置完成后一定要重启软路由</p>
+</li>
+<li><p>只有路由器的情况下：直接打开路由器的IPV6即可，如果有多个路由器，每个路由器都要打开</p>
+</li>
+<li><p>设置完成后，电脑要禁用网络然后重新启用（目的是为了获取IPV6地址）</p>
+</li>
+<li><p>测试IPV6：<br> <a target="_blank" rel="noopener" href="https://ipv6-test.com/">https://ipv6-test.com/</a><br> <a target="_blank" rel="noopener" href="https://test-ipv6.com/index.html.zh_CN">https://test-ipv6.com/index.html.zh_CN</a></p>
+</li>
+</ul>
+<p> <video src="ipv6.mp4" style="width: 100%; height: 100%;" controls="controls"></video></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://uuxia.cn/post/openwrt-ipv6.html" data-id="clbakpcgc0021s7w01r0adq7r" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ipv6/" rel="tag">ipv6</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mao-config" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post/mao-config.html" class="article-date">
+  <time datetime="2022-11-24T12:07:17.000Z" itemprop="datePublished">2022-11-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/mao/">mao</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/mao-config.html">家庭光猫配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        Here's something encrypted, password is required to continue reading.
+        
+          <p class="article-more-link">
+            <a href="/post/mao-config.html#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://uuxia.cn/post/mao-config.html" data-id="clbakpcg3001os7w0gb3qeraq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mao/" rel="tag">mao</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-go-cross-compile" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post/go-cross-compile.html" class="article-date">
+  <time datetime="2022-11-23T11:16:38.000Z" itemprop="datePublished">2022-11-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/go/">go</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/go-cross-compile.html">GoLang 全平台编译</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Golang的全平台编译简直太爽了，真的太适合我了，平时编译一些不同设备的跨平台程序，真的是爽的不行。<br>拥有一台windows电脑就能开发出在Linux、Windows、Mac上面直接运行的程序。</p>
+        
+          <p class="article-more-link">
+            <a href="/post/go-cross-compile.html#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://uuxia.cn/post/go-cross-compile.html" data-id="clbakpcft000vs7w08e4cgwrk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cross/" rel="tag">cross</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/" rel="tag">go</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-openwet-i2c" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post/openwet-i2c.html" class="article-date">
+  <time datetime="2022-11-21T06:11:56.000Z" itemprop="datePublished">2022-11-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/i2c/">i2c</a>►<a class="article-category-link" href="/categories/openwrt/">openwrt</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/openwet-i2c.html">OpenWrt开启i2c功能，并顺利编译风扇驱动</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>树莓派安装OpenWrt作为家庭主路由，并开启i2c编译风扇、led等驱动，cpu温度骤降！～～～</p>
+        
+          <p class="article-more-link">
+            <a href="/post/openwet-i2c.html#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://uuxia.cn/post/openwet-i2c.html" data-id="clbakpcgb001zs7w01q9fgwxm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/i2c/" rel="tag">i2c</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openwrt/" rel="tag">openwrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pi/" rel="tag">pi</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-frpc-install-autostart" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post/frpc-install-autostart.html" class="article-date">
+  <time datetime="2022-10-27T09:00:57.000Z" itemprop="datePublished">2022-10-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/frpc/">frpc</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/frpc-install-autostart.html">Windows下Frpc安装与自启动</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Windows下安装Frpc，并在windows的任务计划程序里设置Frpc自启动。</p>
+        
+          <p class="article-more-link">
+            <a href="/post/frpc-install-autostart.html#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://uuxia.cn/post/frpc-install-autostart.html" data-id="clbakpcfr000rs7w088282upk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frpc/" rel="tag">frpc</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-cepheus-lock-rom" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post/cepheus-lock-rom.html" class="article-date">
+  <time datetime="2022-10-13T05:16:07.000Z" itemprop="datePublished">2022-10-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PixelExperience/">PixelExperience</a>►<a class="article-category-link" href="/categories/%E5%B0%8F%E7%B1%B39/">小米9</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/cepheus-lock-rom.html">小米9刷 PixelExperience ROM教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>小米9刷入官方rom</p>
+        
+          <p class="article-more-link">
+            <a href="/post/cepheus-lock-rom.html#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://uuxia.cn/post/cepheus-lock-rom.html" data-id="clbakpcfi000fs7w02sn58ht8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PixelExperience/" rel="tag">PixelExperience</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Recovery/" rel="tag">Recovery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cepheus/" rel="tag">cepheus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%B7%E6%9C%BA/" rel="tag">刷机</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-opensslforandroid" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post/opensslforandroid.html" class="article-date">
+  <time datetime="2022-07-21T02:01:47.000Z" itemprop="datePublished">2022-07-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ndk/">ndk</a>►<a class="article-category-link" href="/categories/openssl/">openssl</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/opensslforandroid.html">Android 编译 openssl 的注意事项</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <span id="more"></span>
+
+
+<p>以下载链接<a target="_blank" rel="noopener" href="https://www.openssl.org/source/openssl-1.1.1o.tar.gz%E4%B8%BA%E4%BE%8B">https://www.openssl.org/source/openssl-1.1.1o.tar.gz为例</a><br><br>下载解压之后，查看根目录的 NOTES.ANDROID，其中有</p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+export ANDROID_NDK_HOME=/home/whoever/Android/android-sdk/ndk/20.0.5594570
+PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_HOME/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
+./Configure android-arm64 -D__ANDROID_API__=29
+make
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里就是最直接的编译方式了。但是这样编译之后，会有一个坑<br></p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+lrwxrwxrwx  1 ubuntu ubuntu      16 Jun  9 21:23 libcrypto.so -&gt; libcrypto.so.1.1
+-rwxrwxr-x  1 ubuntu ubuntu 2754216 Jun  9 21:23 libcrypto.so.1.1
+lrwxrwxrwx  1 ubuntu ubuntu      13 Jun  9 21:23 libssl.so -&gt; libssl.so.1.1
+-rwxrwxr-x  1 ubuntu ubuntu  596600 Jun  9 21:23 libssl.so.1.1
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>编译时尝试链接 libssl.so ，实际上会链接到 libssl.so.1.1 ，但是当你尝试将 libssl.so.1.1 集成到 Android studio 工程内时，会发现 libssl.so.1.1 这种命名格式so，Android studio 是不会自动将其打包到 apk 内的，即使将 libssl.so.1.1 改名为 libssl.so 可以集成到 apk ，app运行时仍然会去找 libssl.so.1.1。因为 so 内部有其文件名信息</p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+$objdump -p libssl.so | grep SONAME
+  SONAME               libssl.so.1.1
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>对于Android来说，我们更希望，编译之后，so 本身名字就叫 libssl.so。<br>具体做法是解压 openssl-1.1.1o.tar.gz 之后，修改 15-android.conf<br>大概 193 行</p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+my %targets = (
+    "android" =&gt; {
+        inherit_from     =&gt; [ "linux-generic32" ],
+        template         =&gt; 1,
+        ################################################################
+        # Special note about -pie. The underlying reason is that
+        # Lollipop refuses to run non-PIE. But what about older systems
+        # and NDKs? -fPIC was never problem, so the only concern is -pie.
+        # Older toolchains, e.g. r4, appear to handle it and binaries
+        # turn out mostly functional. "Mostly" means that oldest
+        # Androids, such as Froyo, fail to handle executable, but newer
+        # systems are perfectly capable of executing binaries targeting
+        # Froyo. Keep in mind that in the nutshell Android builds are
+        # about JNI, i.e. shared libraries, not applications.
+        cflags           =&gt; add(sub { android_ndk()-&gt;{cflags} }),
+        cppflags         =&gt; add(sub { android_ndk()-&gt;{cppflags} }),
+        cxxflags         =&gt; add(sub { android_ndk()-&gt;{cflags} }),
+        bn_ops           =&gt; sub { android_ndk()-&gt;{bn_ops} },
+        bin_cflags       =&gt; "-pie",
+        enable           =&gt; [ ],
+        shared_extension =&gt; ".so",  ### 这一行是新加的
+    },
+    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样可以编译出来不带版本后缀的 libssl.so 和 libcrypto.so</p>
+<p>可以参考下边的懒人脚本来自行编译</p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+#!/bin/bash
+
+function buildopenssl()
+{
+    androidarch=$1
+    toolchain=$2
+    if [ ! -f openssl-1.1.1o.tar.gz ]; then
+        wget https://www.openssl.org/source/openssl-1.1.1o.tar.gz
+    fi
+    if [ !-d openssl-1.1.1o ]; then
+        tar -xf openssl-1.1.1o.tar.gz
+    fi
+    if [ -z $ANDROID_NDK_HOME ]; then
+        echo "missing ANDROID_NDK_HOME"
+        exit
+    fi
+    pushd openssl-1.1.1o
+    PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_HOME/toolchains/${toolchain}-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
+    ./Configure android-$androidarch -D__ANDROID_API__=26
+    make clean
+    make
+    popd
+}
+
+buildopenssl arm64 aarch64
+#buildopenssl arm arm
+#buildopenssl x86 x86
+#buildopenssl x86_64 x86_64
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用时，将 NDK_HOME传入，例如，脚本保存为 build.sh，则执行命令</p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">ANDROID_NDK_HOME=/home/whoever/android-ndk-r21e ./build_android_openssl.sh
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>想为 Android (arm/x86/x86_64)编译时，修改脚本末尾的 buildopenssl 注释</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/SupperMary/p/16361303.html?share_token=D86811DE-FA19-49BF-A4AB-B50D1D50C467&amp;tt_from=copy_link&amp;utm_source=copy_link&amp;utm_medium=toutiao_ios&amp;utm_campaign=client_share">友情链接</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://uuxia.cn/post/opensslforandroid.html" data-id="clbakpcg9001ws7w044o95faz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ndk/" rel="tag">ndk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openssl/" rel="tag">openssl</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-iot-used" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post/iot-used.html" class="article-date">
+  <time datetime="2022-07-19T11:42:09.000Z" itemprop="datePublished">2022-07-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IoT/">IoT</a>►<a class="article-category-link" href="/categories/mqtt/">mqtt</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/iot-used.html">IoT接入文档</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="4-3-设备与平台通信接口"><a href="#4-3-设备与平台通信接口" class="headerlink" title="4.3 设备与平台通信接口"></a>4.3 设备与平台通信接口</h1><h3 id="4-3-1-注册"><a href="#4-3-1-注册" class="headerlink" title="4.3.1 注册"></a>4.3.1 注册</h3><p>接口描述：设备上电联网后，检测本地是没有登录信息和注册标志，<br>设备需要到平台进行注册激活，注册地址固定 URL，且分为测试和正<br>式服务器地址（域名或 IP、端口）。<br>正式服务器地址（OPENHOST）：open.clife.cn<br>测试服务器地址（TESTHOST）：test.clife.cn<br>正式或者测试服务器请求 URL 只需要对服务器地址进行互换即可。</p>
+<h4 id="4-3-1-1-请求"><a href="#4-3-1-1-请求" class="headerlink" title="4.3.1.1 请求"></a>4.3.1.1 请求</h4><p>请求 URL：http(s)://OPENHOST/device/register</p>
+<p>请求参数：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> authLevel=安全认证级别（0 高级，1 中级，2 初级）</li>
+<li><input checked="" disabled="" type="checkbox"> productCode=产品编码（初、中级认证级别必选）</li>
+<li><input checked="" disabled="" type="checkbox"> devId=设备 ID 号（高级认证级别必选）</li>
+</ul>
+<p>请求头：Content-Type: application/json<br><br>请求类型：POST <br><br>请求方向：设备-&gt;平台<br></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th align="center">类型</th>
+<th align="left">类型</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cmd</td>
+<td align="center">Number</td>
+<td align="left">功能码，取值 2000</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>ver</td>
+<td align="center">String</td>
+<td align="left">通讯协议版本，通讯双方需要比对版本号，高版本向下兼容，格式示例：1.0</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>dir</td>
+<td align="center">String</td>
+<td align="left">传递方向，同 4.1.1.1</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>msgId</td>
+<td align="center">Number</td>
+<td align="left">帧序号，回复帧与请求帧中值相同，否则作为异常处理（丢包、错误）。帧序号由请求方管理，确保帧的唯一性，可做累加计算。</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>prio</td>
+<td align="center">Number</td>
+<td align="left">功能优先级，高优先级数据报文优先处理，默认中等优先级。优先级等级：<br>0：低优先级<br>1：中优先级<br>&gt;=2：高优先级</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td align="center">String</td>
+<td align="left">时间戳，最小单位毫秒，UTC-8 时区。设备首次注册使用设备本地时间做时间戳，通过平台回复内容再同步时间戳。</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>data</td>
+<td align="center">Object</td>
+<td align="left">关键数据对象体，HTTP 请求时需要对此数据内容作加密并使用 base64 编码处理，加解密密钥需平台申请 devKey</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>productCode</td>
+<td align="center">String</td>
+<td align="left">data 中成员，产品编码，平台申请，初、中级认证必选</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td></td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="4-3-2-8-文件操作"><a href="#4-3-2-8-文件操作" class="headerlink" title="4.3.2.8 文件操作"></a>4.3.2.8 文件操作</h4><p>接口描述：平台通知设备下载文件，或者请求设备上传文件。<br>该接口主要分为升级、日志调试、收发文件三大功能。</p>
+<h5 id="4-3-2-8-1-请求"><a href="#4-3-2-8-1-请求" class="headerlink" title="4.3.2.8.1 请求"></a>4.3.2.8.1 请求</h5><p>请求方向：平台-&gt;设备</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th align="center">类型</th>
+<th align="left">类型</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cmd</td>
+<td align="center">Number</td>
+<td align="left">功能码，取值 2000</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>ver</td>
+<td align="center">String</td>
+<td align="left">通讯协议版本，通讯双方需要比对版本号，高版本向下兼容，格式示例：1.0</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>dir</td>
+<td align="center">String</td>
+<td align="left">传递方向，同 4.1.1.1</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>msgId</td>
+<td align="center">Number</td>
+<td align="left">帧序号，回复帧与请求帧中值相同，否则作为异常处理（丢包、错误）。帧序号由请求方管理，确保帧的唯一性，可做累加计算。</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>prio</td>
+<td align="center">Number</td>
+<td align="left">功能优先级，高优先级数据报文优先处理，默认中等优先级。优先级等级：<br>0：低优先级<br>1：中优先级<br>&gt;=2：高优先级</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td align="center">String</td>
+<td align="left">时间戳，最小单位毫秒，UTC-8 时区。设备首次注册使用设备本地时间做时间戳，通过平台回复内容再同步时间戳。</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>data</td>
+<td align="center">Object</td>
+<td align="left">关键数据对象体，HTTP 请求时需要对此数据内容作加密并使用 base64 编码处理，加解密密钥需平台申请 devKey</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>fileMode</td>
+<td align="center">String</td>
+<td align="left">data 中成员，文件操作模式，取值：<br>“DOWN”：下载模式<br>“UP”：上传模式<br>“QUERY”：查询文件信息（主要是版本号）</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>productVer</td>
+<td align="center">Number</td>
+<td align="left">data 中成员，产品版本（总版本号），基础版本从 1 开始，<strong>下载模式为升级时必选</strong></td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>fileInfo</td>
+<td align="center">Array of Object</td>
+<td align="left">data 中成员，文件信息列表，包括 Url、软硬件版本等</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>fileType</td>
+<td align="center">String</td>
+<td align="left">fileInfo 中成员，文件作用类型，取值：<br>1. 升级功能<br>“FIRM”： 设备升级固件，下载模式<br>“SUBFIRM”： 子设备（插件）的升级固件， 下载模式<br>“PROFILE”：设备 profile 文件<br>2. 日志调试<br>“LOG”：设备日志文件，上传模式<br>（3）文件收发<br>“PHOTO”：照片文件<br>“VIDEO”：视频文件<br>“VOICE”：音频文件 <br>“DATA”：记录数据文件</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>devNum</td>
+<td align="center">Number</td>
+<td align="left">fileInfo 内部成员，设备（插件）ID 号，当 “<strong>fileType</strong>”为“<strong>SUBFIRM</strong>”时必选</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>software</td>
+<td align="center">String</td>
+<td align="left">fileInfo 内部成员，软件版本号，fileType 为 “<strong>FIRM</strong>”、“<strong>SUBFIRM</strong>”升级固件时必选</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>hardware</td>
+<td align="center">String</td>
+<td align="left">fileInfo 内部成员，硬件版本号，fileType 为 “<strong>FIRM</strong>”、“<strong>SUBFIRM</strong>”升级固件时必选</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>url</td>
+<td align="center">String</td>
+<td align="left">fileInfo 内部成员，下载或者上传文件的 Url文件地址</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>md5</td>
+<td align="center">String</td>
+<td align="left">fileInfo 内部成员，下载文件的 MD5 校验码，16 进制字符串格式，<strong>升级必选</strong></td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>checkSum</td>
+<td align="center">Number</td>
+<td align="left">fileInfo 内部成员，下载文件的累加和，<strong>升级必选</strong></td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>startTime</td>
+<td align="center">Number</td>
+<td align="left">data 中成员，文件操作相对当前系统时间的<br>开始时间偏移，单位秒，三种情况：<br>&lt;0：当前时间之前的时间点<br>0：当前时间点<br>&gt;0：当前时间后的时间点</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>stopTime</td>
+<td align="center">Number</td>
+<td align="left">data 中成员，文件操作相对当前系统时间的<br>结束时间偏移，单位秒，三种情况：<br>&lt;0：当前时间之前的时间点<br>0：当前时间点<br>&gt;0：当前时间后的时间点<br>且满足 fileStopTime &gt;= fileStartTime</td>
+<td align="center">N</td>
+</tr>
+</tbody></table>
+<p>示例：<br><br>文件下载模式：<br><br>加密前：<br></p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+{
+    "cmd": 2019,
+    "ver": "1.0",
+    "dir": "30",
+    "timestamp": 1617787651542,
+    "msgId": 23454,
+    "data": {
+        "fileMode": "DOWN",
+        "productVer": 2,
+        "fileInfo": [
+            {
+                "fileType": "FIRM",
+                "devNum": 0,
+                "software": "1.0.2.0",
+                "hardware": "02",
+                "checkSum": 34458424,
+                "md5": "6d348c902ace4d09b6d62ce982dc8ace",
+                "url": "http://clife.open.cn/device/ota/esp8266.bin"
+            },
+            {
+                "fileType": "SUBFIRM",
+                " devNum": 1,
+                "software": "01",
+                "hardware": "02",
+                "checkSum": 764234235,
+                "md5": "6d348c902ace4d09b6d62ce982dc8ace",
+                "url": "http://clife.open.cn/device/ota/esp8266_1.bin"
+            }
+        ],
+        "startTime": 0,
+        "stopTime": 600
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>文件上传模式：</p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+ {
+    "cmd": 2019,
+    "ver": "1.0",
+    "dir": "30",
+    "timestamp": 1617787651542,
+    "msgId": 231,
+    "data": {
+        "fileMode": "UP",
+        "fileInfo": [
+            {
+                "fileType": "PHOTO",
+                "url": "http://clife.open.cn/device/storage"
+            }
+        ],
+        "startTime": 0,
+        "stopTime": 60
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h5 id="4-3-2-8-2-响应"><a href="#4-3-2-8-2-响应" class="headerlink" title="4.3.2.8.2 响应"></a>4.3.2.8.2 响应</h5><p>用于升级回复、查询回复（升级后版本主动上报）或者主动升级查询。<br><br>请求方向：设备-&gt;平台<br></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th align="center">类型</th>
+<th align="left">类型</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cmd</td>
+<td align="center">Number</td>
+<td align="left">功能码，取值 2000</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>ver</td>
+<td align="center">String</td>
+<td align="left">通讯协议版本，通讯双方需要比对版本号，高版本向下兼容，格式示例：1.0</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>dir</td>
+<td align="center">String</td>
+<td align="left">传递方向，同 4.1.1.1</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>msgId</td>
+<td align="center">Number</td>
+<td align="left">帧序号，回复帧与请求帧中值相同，否则作为异常处理（丢包、错误）。帧序号由请求方管理，确保帧的唯一性，可做累加计算。</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>prio</td>
+<td align="center">Number</td>
+<td align="left">功能优先级，高优先级数据报文优先处理，默认中等优先级。优先级等级：<br>0：低优先级<br>1：中优先级<br>&gt;=2：高优先级</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td align="center">String</td>
+<td align="left">时间戳，最小单位毫秒，UTC-8 时区。设备首次注册使用设备本地时间做时间戳，通过平台回复内容再同步时间戳。</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>data</td>
+<td align="center">Object</td>
+<td align="left">关键数据对象体，HTTP 请求时需要对此数据内容作加密并使用 base64 编码处理，加解密密钥需平台申请 devKey</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>respCode</td>
+<td align="center">Number</td>
+<td align="left">data 中成员，升级结果码，详见表 5.4-1</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>respCont</td>
+<td align="center">String</td>
+<td align="left">data 中成员，升级结果描述，详见表 5.4-1</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>productVer</td>
+<td align="center">Number</td>
+<td align="left">data 中成员，产品版本（总版本号），基础版本从 1 开始, <strong>respCode 为 3 是必选</strong></td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>devVer</td>
+<td align="center">Array of Object</td>
+<td align="left">data 中成员，设备版本，包括软件版本、硬件版本、设备编号, <strong>respCode 为 3 是必选</strong></td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>software</td>
+<td align="center">String</td>
+<td align="left">devVer 中成员，设备软件（固件）版本，格式“主版本.次版本.修订版本.修复版本”，如1.0.0.0，<strong>详见 5.1</strong></td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>hardware</td>
+<td align="center">String</td>
+<td align="left">devVer 中成员，设备硬件版本，格式“主版本.次版本”，如 1.0</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>devNum</td>
+<td align="center">Number</td>
+<td align="left">devVer 中成员，设备编号，特别的，0 代表通信模组</td>
+<td align="center">N</td>
+</tr>
+</tbody></table>
+<p>示例：<br><br>文件升级（下载模式）回复：<br></p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">{
+    "cmd": 2018,
+    "ver": "1.0",
+    "dir": "03",
+    "timestamp": 1617787651542,
+    "msgId": 23454,
+    "data": {
+        "respCode": 3,
+        "respCont": "ver",
+        "productVer": 2,
+        "devVer": [
+            {
+                "software": "1.0.0.0",
+                "hardware": "1.0",
+                "devNum": 0
+            },
+            {
+                "software": "01",
+                "hardware": "02",
+                "devNum": 1
+            }
+        ]
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>主动升级查询：</p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">
+{
+    "cmd": 2018,
+    "ver": "1.0",
+    "dir": "03",
+    "timestamp": 1617787651542,
+    "msgId": 23454,
+    "data": {
+        "respCode": 2,
+        "respCont": "SUBFIRM"
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="5-1-版本号约定"><a href="#5-1-版本号约定" class="headerlink" title="5.1 版本号约定"></a>5.1 版本号约定</h2><p>格式：主版本.次版本.修订版本.修复版本<br><br>版本号变化说明如表 5.1-1：<br></p>
+<table>
+<thead>
+<tr>
+<th><strong>版本号</strong></th>
+<th align="left"><strong>软件</strong></th>
+<th align="center">硬件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主版本</td>
+<td align="left">软件兼容性变化时递增</td>
+<td align="center">硬件大改动时递增</td>
+</tr>
+<tr>
+<td>次版本</td>
+<td align="left">软件增加新功能，不影响兼容性时递增</td>
+<td align="center">硬件小改动时递增，非必需</td>
+</tr>
+<tr>
+<td>修订版本</td>
+<td align="left">BUG 修复时递增</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td>修订版本</td>
+<td align="left">优化记录或者测试时递增，非必需</td>
+<td align="center">无</td>
+</tr>
+</tbody></table>
+<ul>
+<li>表 5.1-1 版本号变化说明</li>
+</ul>
+<p>版本级别：主版本 &gt; 次版本 &gt; 修订版本 &gt; 修复版本<br><br>当低一级别的版本号累计到 100 时，递增上一级版本，低一级版本号 归零。<br></p>
+<h2 id="5-3-功能-ID"><a href="#5-3-功能-ID" class="headerlink" title="5.3 功能 ID"></a>5.3 功能 ID</h2><table>
+<thead>
+<tr>
+<th><strong>版本号</strong></th>
+<th align="left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2000</td>
+<td align="left">注册请求</td>
+</tr>
+<tr>
+<td>2001</td>
+<td align="left">注册响应</td>
+</tr>
+<tr>
+<td>2004</td>
+<td align="left">连接请求</td>
+</tr>
+<tr>
+<td>2005</td>
+<td align="left">连接响应</td>
+</tr>
+<tr>
+<td>2006</td>
+<td align="left">数据上报请求</td>
+</tr>
+<tr>
+<td>2009</td>
+<td align="left">数据查询请求</td>
+</tr>
+<tr>
+<td>2011</td>
+<td align="left">数据控制请求</td>
+</tr>
+<tr>
+<td>2012</td>
+<td align="left">解绑回复</td>
+</tr>
+<tr>
+<td>2013</td>
+<td align="left">设备解绑</td>
+</tr>
+<tr>
+<td>2014</td>
+<td align="left">遗嘱</td>
+</tr>
+<tr>
+<td>2017</td>
+<td align="left">强制下线</td>
+</tr>
+<tr>
+<td>2018</td>
+<td align="left">文件操作响应</td>
+</tr>
+<tr>
+<td>2019</td>
+<td align="left">文件操作请求</td>
+</tr>
+</tbody></table>
+<ul>
+<li>表 5.3-1 功能 ID 统计<br>说明：<br><br>     功能码在 2000 及以上范围表示设备与服务器使用的功能码；<br><br>     功能码 2000 以下范围属于本地通信使用，其中 1100 以下范围功 能码用作配网，1100 及以上范围用作设备与网关通信使用。<br></li>
+</ul>
+<h2 id="5-4-升级结果码"><a href="#5-4-升级结果码" class="headerlink" title="5.4 升级结果码"></a>5.4 升级结果码</h2><table>
+<thead>
+<tr>
+<th><strong>响应码(respCode)</strong></th>
+<th align="left"><strong>描述(respCont)</strong></th>
+<th align="left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td align="left">[1,100]</td>
+<td align="left">升级进度信息:<br>1:版本下载完成,开始升级<br>100:升级完成</td>
+</tr>
+<tr>
+<td>1</td>
+<td align="left">[1,100]</td>
+<td align="left">下载进度信息:<br>1:开始下载<br>100:完成下载</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="left">[ALL,FIRM,SUBFIRM]</td>
+<td align="left">设备主动请求升级：<br>ALL：设备所有升级固件（默认）<br>FIRM: 设备升级固件新版本请求<br>SUBFIRM: 子设备（插件）的升级固<br>件新版本请求</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="left">描述信息</td>
+<td align="left">查询响应信息：<br>服务器查询时回复</td>
+</tr>
+<tr>
+<td>-1</td>
+<td align="left">[0,1,2,X]</td>
+<td align="left">过程异常信息：<br>0:URL非法或设备忙;<br>1:升级中断;<br>2:版本下载完成,校验异常取消升级;<br>X:其他异常信息(可为具体描述)</td>
+</tr>
+</tbody></table>
+<ul>
+<li>表 5.4-1 升级结果码表<br></li>
+</ul>
+<p>具体为：<br><br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;正常升级：{1,1},{1,100},{0,1},{0,100}上报至少 4 个事件<br><br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;升级异常：{-1,0};{-1,1};{-1,2}上报三种情况之一的若干事件<br><br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;主动（重新）请求升级：{2,FIRM} 或者 {2,SUBFIRM}<br></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://uuxia.cn/post/iot-used.html" data-id="clbakpcg0001fs7w0cz0iebil" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Iot/" rel="tag">Iot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ssh-pub-login" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post/ssh-pub-login.html" class="article-date">
+  <time datetime="2022-07-01T12:23:16.000Z" itemprop="datePublished">2022-07-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ssh/">ssh</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/ssh-pub-login.html">SSH公钥免密登录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        Here's something encrypted, password is required to continue reading.
+        
+          <p class="article-more-link">
+            <a href="/post/ssh-pub-login.html#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://uuxia.cn/post/ssh-pub-login.html" data-id="clbakpcgk002cs7w0e4kjb1zh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pubkey/" rel="tag">pubkey</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">__(&#39;next&#39;) &amp;raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AOSP/">AOSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C/">C/C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Centos/">Centos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/SSH/">SSH</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IoT/">IoT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ios/">Ios</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PixelExperience/">PixelExperience</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Raspberry/">Raspberry</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/VPN/">VPN</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/centos6/">centos6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/centos7/">centos7</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frp/">frp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frpc/">frpc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/">go</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/i2c/">i2c</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ipv6/">ipv6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/logcat/">logcat</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mao/">mao</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mqtt/">mqtt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ndk/">ndk</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/netty/">netty</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/openssl/">openssl</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/openwrt/">openwrt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/proxy/">proxy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/shadowsocks/">shadowsocks</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ssh/">ssh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%8F%E7%B1%B39/">小米9</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%85%E8%A1%8C/">旅行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Andorid/" rel="tag">Andorid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C&#x2F;C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HomeAssistant/" rel="tag">HomeAssistant</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IoT/" rel="tag">IoT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iot/" rel="tag">Iot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jar/" rel="tag">Jar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/" rel="tag">Kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PixelExperience/" rel="tag">PixelExperience</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recovery/" rel="tag">Recovery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Service/" rel="tag">Service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/a/" rel="tag">a</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/" rel="tag">centos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos6/" rel="tag">centos6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cepheus/" rel="tag">cepheus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clashx/" rel="tag">clashx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coding/" rel="tag">coding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cross/" rel="tag">cross</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/" rel="tag">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frpc/" rel="tag">frpc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitee/" rel="tag">gitee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/het/" rel="tag">het</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hobby/" rel="tag">hobby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i2c/" rel="tag">i2c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipv6/" rel="tag">ipv6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logcat/" rel="tag">logcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mao/" rel="tag">mao</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ndk/" rel="tag">ndk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netty/" rel="tag">netty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/okhttp/" rel="tag">okhttp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openssl/" rel="tag">openssl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openwrt/" rel="tag">openwrt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pi/" rel="tag">pi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pubkey/" rel="tag">pubkey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/raspberry/" rel="tag">raspberry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/" rel="tag">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shadowsocks/" rel="tag">shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/so/" rel="tag">so</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tcp/" rel="tag">tcp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%99%E4%BD%9C/" rel="tag">写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E6%9C%BA/" rel="tag">刷机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%97%E7%96%86/" rel="tag">北疆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85/" rel="tag">喜马拉雅</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%AD%E7%81%AB/" rel="tag">搭火</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E7%96%86/" rel="tag">新疆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" rel="tag">智能家居</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B1%BD%E8%BD%A6/" rel="tag">汽车</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="tag">腾讯云</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E5%8A%A8/" rel="tag">运动</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A9%B1%E8%9A%8A-life/" rel="tag">驱蚊  life</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Andorid/" style="font-size: 13.33px;">Andorid</a> <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/HomeAssistant/" style="font-size: 10px;">HomeAssistant</a> <a href="/tags/IoT/" style="font-size: 10px;">IoT</a> <a href="/tags/Iot/" style="font-size: 10px;">Iot</a> <a href="/tags/Jar/" style="font-size: 10px;">Jar</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/PixelExperience/" style="font-size: 10px;">PixelExperience</a> <a href="/tags/Recovery/" style="font-size: 10px;">Recovery</a> <a href="/tags/Service/" style="font-size: 10px;">Service</a> <a href="/tags/a/" style="font-size: 10px;">a</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/centos/" style="font-size: 13.33px;">centos</a> <a href="/tags/centos6/" style="font-size: 10px;">centos6</a> <a href="/tags/cepheus/" style="font-size: 13.33px;">cepheus</a> <a href="/tags/clashx/" style="font-size: 10px;">clashx</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/cross/" style="font-size: 10px;">cross</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/frpc/" style="font-size: 10px;">frpc</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/gitee/" style="font-size: 10px;">gitee</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/go/" style="font-size: 10px;">go</a> <a href="/tags/gradle/" style="font-size: 13.33px;">gradle</a> <a href="/tags/het/" style="font-size: 10px;">het</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/hobby/" style="font-size: 10px;">hobby</a> <a href="/tags/i2c/" style="font-size: 10px;">i2c</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/ipv6/" style="font-size: 10px;">ipv6</a> <a href="/tags/java/" style="font-size: 13.33px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/logcat/" style="font-size: 10px;">logcat</a> <a href="/tags/mao/" style="font-size: 10px;">mao</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/ndk/" style="font-size: 13.33px;">ndk</a> <a href="/tags/netty/" style="font-size: 10px;">netty</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/okhttp/" style="font-size: 10px;">okhttp</a> <a href="/tags/openssl/" style="font-size: 10px;">openssl</a> <a href="/tags/openwrt/" style="font-size: 10px;">openwrt</a> <a href="/tags/pi/" style="font-size: 10px;">pi</a> <a href="/tags/proxy/" style="font-size: 16.67px;">proxy</a> <a href="/tags/pubkey/" style="font-size: 10px;">pubkey</a> <a href="/tags/raspberry/" style="font-size: 10px;">raspberry</a> <a href="/tags/server/" style="font-size: 10px;">server</a> <a href="/tags/shadowsocks/" style="font-size: 20px;">shadowsocks</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tcp/" style="font-size: 10px;">tcp</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/%E5%86%99%E4%BD%9C/" style="font-size: 10px;">写作</a> <a href="/tags/%E5%88%B7%E6%9C%BA/" style="font-size: 10px;">刷机</a> <a href="/tags/%E5%8C%97%E7%96%86/" style="font-size: 10px;">北疆</a> <a href="/tags/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85/" style="font-size: 10px;">喜马拉雅</a> <a href="/tags/%E6%90%AD%E7%81%AB/" style="font-size: 10px;">搭火</a> <a href="/tags/%E6%96%B0%E7%96%86/" style="font-size: 10px;">新疆</a> <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" style="font-size: 13.33px;">智能家居</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 10px;">树莓派</a> <a href="/tags/%E6%B1%BD%E8%BD%A6/" style="font-size: 10px;">汽车</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 13.33px;">生活</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a> <a href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" style="font-size: 10px;">腾讯云</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 10px;">运动</a> <a href="/tags/%E9%A9%B1%E8%9A%8A-life/" style="font-size: 10px;">驱蚊  life</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post/clashx.html">Clash 基本配置记录</a>
+          </li>
+        
+          <li>
+            <a href="/post/openwrt-ipv6.html">家庭宽带开启IPV6</a>
+          </li>
+        
+          <li>
+            <a href="/post/mao-config.html">家庭光猫配置</a>
+          </li>
+        
+          <li>
+            <a href="/post/go-cross-compile.html">GoLang 全平台编译</a>
+          </li>
+        
+          <li>
+            <a href="/post/openwet-i2c.html">OpenWrt开启i2c功能，并顺利编译风扇驱动</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 uuxia<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
 </footer>
-
-
-    <noscript>
-    <div class="noscript">
-        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
     </div>
-</noscript>
-<div class="noscript">
-    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
-</div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/materialize.min.js"></script>
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
-<script>
-    (function($) {
-        $(document).ready(function() {
-            // 隐藏禁用javascript（针对微信内置浏览器）的提示
-            $('.noscript').hide();
-
-            // 图片缩放效果
-            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
-
-            // 给图片加上点击放大效果（materialbox插件）
-            $imgs.addClass('materialboxed').each(function(i, el) {
-                $(this).attr('data-caption', $(this).attr('alt') || ' ');
-            }).materialbox();
-
-            // 优化表格的显示
-            $('table').each(function() {
-                var $table = $(this);
-                // 除去多行代码的情况
-                if ($table.find('pre').length == 0) {
-                    $table.addClass('responsive-table striped bordered');
-                }
-            });
-
-            // 首页幻灯片
-            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
-
-            $(".button-collapse").sideNav();
-            $(".category-menu").sideNav();
-
-            // 针对gallery post
-            $('.carousel').carousel({full_width: true});
-            $('.carousel-control.prev').click(function() {
-                $('.carousel').carousel('prev');
-            });
-            $('.carousel-control.next').click(function() {
-                $('.carousel').carousel('next');
-            });
-
-            // 文章目录
-            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
-
-            // 目录随屏幕滚动（防止目录过长越过footer）
-            var $toc = $('.toc');
-            var scrollTargetTop = 0;
-            $(window).scroll(function() {
-                var $activeLink = $toc.find('a.active.section');
-                if ($(window).scrollTop() < 100) {
-                    scrollTargetTop = 0;
-                } else {
-                    if ($activeLink[0]) {
-                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
-                    }
-                }
-                $toc.css('top', '-' + scrollTargetTop + 'px');
-            });
-
-            // 修正文章目录的left-border颜色
-            var color = $('.table-of-contents-text').css('color');
-            $('.table-of-contents-link').css('border-left-color', color);
-
-            // 针对移动端做的优化：FAB按钮点击一下收回
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                $('.fixed-action-btn').addClass('click-to-toggle');
-            }
-            // 回到顶部
-            $('.btn-return-top').click(function() {
-                $('body, html').animate({
-                    scrollTop: 0
-                }, 500);
-            });
-
-            // 重置读书页面的Tab标签页的颜色
-            $('li.tab a').hover(function() {
-                $(this).toggleClass('text-lighten-4');
-            });
-            $('.indicator').addClass('pink lighten-2');
-
-            
-            // 添加new标签
-            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
-            
-
-            // 搜索功能
-            $('.modal-trigger').leanModal({
-                // 打开搜索框时自动聚焦
-                ready: function() {
-                    if ($('#search').is(":visible")) {
-                        $('#search-input').focus();
-                    }
-                }
-            });
-            var searchXml = "search.xml";
-            if (searchXml.length == 0) {
-             	searchXml = "search.xml";
-            }
-            var searchPath = "/" + searchXml;
-            initSearch(searchPath, 'search-input', 'search-result');
-        });
-
-        // 初始化搜索与匹配函数
-        var initSearch = function(path, search_id, content_id) {
-            'use strict';
-            $.ajax({
-                url: path,
-                dataType: "xml",
-                success: function(xmlResponse) {
-                    // get the contents from search data
-                    var datas = $("entry", xmlResponse).map(function() {
-                        return {
-                            title: $("title", this).text(),
-                            content: $("content", this).text(),
-                            url: $("url", this).text()
-                        };
-                    }).get();
-                    var $input = document.getElementById(search_id);
-                    var $resultContent = document.getElementById(content_id);
-                    $input.addEventListener('input', function() {
-                        var str = '<ul class=\"search-result-list\">';
-                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                        $resultContent.innerHTML = "";
-                        if (this.value.trim().length <= 0) {
-                            return;
-                        }
-                        // perform local searching
-                        datas.forEach(function(data) {
-                            var isMatch = true;
-                            var content_index = [];
-                            var data_title = data.title.trim().toLowerCase();
-                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                            var data_url = data.url;
-                            var index_title = -1;
-                            var index_content = -1;
-                            var first_occur = -1;
-                            // only match artiles with not empty titles and contents
-                            if (data_title != '' && data_content != '') {
-                                keywords.forEach(function(keyword, i) {
-                                    index_title = data_title.indexOf(keyword);
-                                    index_content = data_content.indexOf(keyword);
-                                    if (index_title < 0 && index_content < 0) {
-                                        isMatch = false;
-                                    } else {
-                                        if (index_content < 0) {
-                                            index_content = 0;
-                                        }
-                                        if (i == 0) {
-                                            first_occur = index_content;
-                                        }
-                                    }
-                                });
-                            }
-                            // show search results
-                            if (isMatch) {
-                                keywords.forEach(function(keyword) {
-                                    var regS = new RegExp(keyword, "gi");
-                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
-                                });
-
-                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
-                                var content = data.content.trim().replace(/<[^>]+>/g, "");
-                                if (first_occur >= 0) {
-                                    // cut out 100 characters
-                                    var start = first_occur - 20;
-                                    var end = first_occur + 80;
-                                    if (start < 0) {
-                                        start = 0;
-                                    }
-                                    if (start == 0) {
-                                        end = 100;
-                                    }
-                                    if (end > content.length) {
-                                        end = content.length;
-                                    }
-                                    var match_content = content.substring(start, end);
-                                    // highlight all keywords
-                                    keywords.forEach(function(keyword) {
-                                        var regS = new RegExp(keyword, "gi");
-                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
-                                    });
-
-                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
-                                }
-                                str += "</li>";
-                            }
-                        });
-                        str += "</ul>";
-                        $resultContent.innerHTML = str;
-                    });
-                }
-            });
-        }
-    })(jQuery);
-</script>
-
-
-<script src="/js/prettify.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("pre").addClass("prettyprint");
-        prettyPrint();
-    });
-</script>
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
 
-<script type="text/javascript" src="http://tajs.qq.com/stats?sId=56133145" charset="UTF-8"></script>
+<script src="/js/script.js"></script>
 
 
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-});
-</script>
-<script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
-
-
+  </div>
 </body>
 </html>
