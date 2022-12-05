@@ -1,3 +1,870 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><link href="/static/css/chunk-libs.eebac533.css" rel="stylesheet"><link href="/static/css/app.0d31776f.css" rel="stylesheet"><meta name="generator" content="Hexo 6.2.0">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head><body id="body-container"><noscript><strong>We're sorry but Aurora Blog doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script>(function(e){function t(t){for(var a,n,u=t[0],i=t[1],c=t[2],l=0,p=[];l<u.length;l++)n=u[l],Object.prototype.hasOwnProperty.call(o,n)&&o[n]&&p.push(o[n][0]),o[n]=0;for(a in i)Object.prototype.hasOwnProperty.call(i,a)&&(e[a]=i[a]);f&&f(t);while(p.length)p.shift()();return s.push.apply(s,c||[]),r()}function r(){for(var e,t=0;t<s.length;t++){for(var r=s[t],a=!0,n=1;n<r.length;n++){var u=r[n];0!==o[u]&&(a=!1)}a&&(s.splice(t--,1),e=i(i.s=r[0]))}return e}var a={},n={runtime:0},o={runtime:0},s=[];function u(e){return i.p+"static/js/"+({404:"404",about:"about",archives:"archives",categories:"categories",page:"page",post:"post",result:"result",tags:"tags"}[e]||e)+"."+{404:"00d640a8",about:"024aacd1",archives:"574ac664",categories:"90aa5475",page:"a02618ad",post:"cebfbaa4",result:"39470350",tags:"2ad613f5"}[e]+".js"}function i(t){if(a[t])return a[t].exports;var r=a[t]={i:t,l:!1,exports:{}};return e[t].call(r.exports,r,r.exports,i),r.l=!0,r.exports}i.e=function(e){var t=[],r={404:1,about:1,archives:1,categories:1,page:1,post:1,result:1,tags:1};n[e]?t.push(n[e]):0!==n[e]&&r[e]&&t.push(n[e]=new Promise((function(t,r){for(var a="static/css/"+({404:"404",about:"about",archives:"archives",categories:"categories",page:"page",post:"post",result:"result",tags:"tags"}[e]||e)+"."+{404:"1a6cd5bd",about:"32dfa3b0",archives:"c0d49bd5",categories:"10e2be12",page:"749ad047",post:"9f951a60",result:"10e2be12",tags:"10e2be12"}[e]+".css",o=i.p+a,s=document.getElementsByTagName("link"),u=0;u<s.length;u++){var c=s[u],l=c.getAttribute("data-href")||c.getAttribute("href");if("stylesheet"===c.rel&&(l===a||l===o))return t()}var p=document.getElementsByTagName("style");for(u=0;u<p.length;u++){c=p[u],l=c.getAttribute("data-href");if(l===a||l===o)return t()}var f=document.createElement("link");f.rel="stylesheet",f.type="text/css",f.onload=t,f.onerror=function(t){var a=t&&t.target&&t.target.src||o,s=new Error("Loading CSS chunk "+e+" failed.\n("+a+")");s.code="CSS_CHUNK_LOAD_FAILED",s.request=a,delete n[e],f.parentNode.removeChild(f),r(s)},f.href=o;var d=document.getElementsByTagName("head")[0];d.appendChild(f)})).then((function(){n[e]=0})));var a=o[e];if(0!==a)if(a)t.push(a[2]);else{var s=new Promise((function(t,r){a=o[e]=[t,r]}));t.push(a[2]=s);var c,l=document.createElement("script");l.charset="utf-8",l.timeout=120,i.nc&&l.setAttribute("nonce",i.nc),l.src=u(e);var p=new Error;c=function(t){l.onerror=l.onload=null,clearTimeout(f);var r=o[e];if(0!==r){if(r){var a=t&&("load"===t.type?"missing":t.type),n=t&&t.target&&t.target.src;p.message="Loading chunk "+e+" failed.\n("+a+": "+n+")",p.name="ChunkLoadError",p.type=a,p.request=n,r[1](p)}o[e]=void 0}};var f=setTimeout((function(){c({type:"timeout",target:l})}),12e4);l.onerror=l.onload=c,document.head.appendChild(l)}return Promise.all(t)},i.m=e,i.c=a,i.d=function(e,t,r){i.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},i.r=function(e){"undefined"!==typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(e,t){if(1&t&&(e=i(e)),8&t)return e;if(4&t&&"object"===typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(i.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var a in e)i.d(r,a,function(t){return e[t]}.bind(null,a));return r},i.n=function(e){var t=e&&e.__esModule?function(){return e["default"]}:function(){return e};return i.d(t,"a",t),t},i.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},i.p="/",i.oe=function(e){throw console.error(e),e};var c=window["webpackJsonp"]=window["webpackJsonp"]||[],l=c.push.bind(c);c.push=t,c=c.slice();for(var p=0;p<c.length;p++)t(c[p]);var f=l;r()})([]);</script><script src="/static/js/chunk-libs.dc6146cd.js"></script><script src="/static/js/app.6d2c358d.js"></script></body></html>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-tencent-shadowsocks" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/09/08/tencent-shadowsocks/" class="article-date">
+  <time datetime="2021-09-08T09:29:21.000Z" itemprop="datePublished">2021-09-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/VPN/">VPN</a>►<a class="article-category-link" href="/categories/centos7/">centos7</a>►<a class="article-category-link" href="/categories/shadowsocks/">shadowsocks</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/08/tencent-shadowsocks/">腾讯云【centos7/8】一键安装 shadowsocks-libev</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CentOS 7/8 一键安装 shadowsocks-libev, 本教程仅提供学习，请勿用于商业用途和不法行为。</p>
+<p>由于 Google BBR 需要内核版本 4.9 以上，如果安装时内核版本低于 4.9 建议先升级内核版本。</p>
+<p>提示：CentOS 7 自带内核版本为 3.10，CentOS 8 自带内核版本为 4.18。</p>
+<p>查看内核版本命令：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -r</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="1、下载脚本"><a href="#1、下载脚本" class="headerlink" title="1、下载脚本"></a>1、下载脚本</h3><p>一键脚本已集成TCP优化、自动开启Google BBR（限 4.9 或更高版本内核）、自动安装 shadowsocks-libev</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://down.24kplus.com/linux/shadowsocks/centos-shadowsocks-libev.sh</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="2、执行脚本进行安装"><a href="#2、执行脚本进行安装" class="headerlink" title="2、执行脚本进行安装"></a>2、执行脚本进行安装</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x centos-shadowsocks-libev.sh &amp;&amp; ./centos-shadowsocks-libev.sh</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="3、根据shell脚本提示输入相关信息"><a href="#3、根据shell脚本提示输入相关信息" class="headerlink" title="3、根据shell脚本提示输入相关信息"></a>3、根据shell脚本提示输入相关信息</h3><p>1、提示设置SS密码，输入自定义密码后按回车，也可以直接按回车使用默认密码<br>2、接下来选择SS要使用的服务器端口，输入自己喜欢的端口， 也可以直接按回车使用默认端口<br>3、 然后选择加密方式（仅保留相对安全的加密方式），如果选择chacha20的话，就输入对应序号3，按回车继续<br>4、 安装完成后，会有如下图安装成功的提示，记住各项信息，在客户端连接时需要用到</p>
+<h3 id="4、shadowsocks管理"><a href="#4、shadowsocks管理" class="headerlink" title="4、shadowsocks管理"></a>4、shadowsocks管理</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">status</span></span>() {</span><br><span class="line">    systemctl status shadowsocks-libev.service</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">restart</span></span>() {</span><br><span class="line">    systemctl restart shadowsocks-libev.service</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">log</span></span>() {</span><br><span class="line">    journalctl -f -u shadowsocks-libev.service</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">m</span></span>() {</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"1. 重启"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"2. 重看状态"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"3. 查看日志"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"请输入编号:"</span></span><br><span class="line">    <span class="built_in">read</span> index</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="string">"<span class="variable">$index</span>"</span> <span class="keyword">in</span></span><br><span class="line">    [1]) (restart);;</span><br><span class="line">    [2]) (status);;</span><br><span class="line">    [3]) (<span class="built_in">log</span>);;</span><br><span class="line">    *) <span class="built_in">echo</span> <span class="string">"exit"</span> ;;</span><br><span class="line">  <span class="keyword">esac</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">m</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/08/tencent-shadowsocks/" data-id="clbad6v600053fqw05wd699md" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/" rel="tag">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shadowsocks/" rel="tag">shadowsocks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="tag">腾讯云</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-xj-north-circle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/21/xj-north-circle/" class="article-date">
+  <time datetime="2019-10-21T08:57:49.000Z" itemprop="datePublished">2019-10-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%85%E8%A1%8C/">旅行</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/21/xj-north-circle/">国庆长假新疆旅行-北疆环游</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="行程速览"><a href="#行程速览" class="headerlink" title="行程速览"></a>行程速览</h1>
+
+
+
+<h1 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h1><ol>
+<li>日照强烈日夜温差大，做好防晒带好冲锋衣或羽绒服（特别是喀纳斯地区，观鱼亭山顶大风变幻莫测）;</li>
+<li>新疆各景点之间距离较远，基本每天换酒店，一次性生活用品带足（建议内裤袜子毛巾也最好买一次性）;</li>
+<li>自驾比较随性，建议当天订隔天酒店即可（最好订景区附近城镇，性价比高又干净;</li>
+<li><font color="red">车子油箱少于一半见到加油站就满上;</font></li>
+<li>开车要注意区间限速，哪怕前面一望无际，也只能慢慢的开;</li>
+<li>新疆买东西是按公斤计算，吃饭菜量很大，北方人可能没感觉，南方去的点菜要注意量;</li>
+<li>治安绝对可靠安全，各种检查，当地百姓纯朴善良（详细后文会说）;</li>
+<li>外地卡去新疆只有克拉玛依有4G，其他地区一概没有，建议到新疆第一天办张当地上网卡.</li>
+</ol>
+<h4 id="D1-9月27号-深圳-乌鲁木齐"><a href="#D1-9月27号-深圳-乌鲁木齐" class="headerlink" title="D1(9月27号):深圳-乌鲁木齐"></a>D1(9月27号):深圳-乌鲁木齐</h4><h5 id="行程安排："><a href="#行程安排：" class="headerlink" title="行程安排："></a>行程安排：</h5><ol>
+<li>去酒店放下行李；</li>
+<li>时间充足的话，可以去【新疆博物馆】，感怀西域历史的沧桑变化；</li>
+<li>如果想要体验感受浓郁异域风情，推荐可以去【二道桥国际大巴扎】，独特的西域文化，琳琅满目的商品及各种新疆特色美食，说不定还能淘到不少好货；</li>
+<li>找超市备货；</li>
+<li>预定好下一站可可托海的住宿；</li>
+</ol>
+
+
+
+<h5 id="注意事项：-1"><a href="#注意事项：-1" class="headerlink" title="注意事项："></a>注意事项：</h5><ol>
+<li>晚上21:00以后才会天黑；</li>
+</ol>
+<h4 id="D2-9月28号-乌鲁木齐-准噶尔盆地-可可苏里湖-可可托海镇"><a href="#D2-9月28号-乌鲁木齐-准噶尔盆地-可可苏里湖-可可托海镇" class="headerlink" title="D2(9月28号):乌鲁木齐-准噶尔盆地-可可苏里湖-可可托海镇"></a>D2(9月28号):乌鲁木齐-准噶尔盆地-可可苏里湖-可可托海镇</h4><h5 id="行程安排：-1"><a href="#行程安排：-1" class="headerlink" title="行程安排："></a>行程安排：</h5><ol>
+<li>途中小镇午餐；</li>
+<li>继续北上穿越准噶尔盆地，驶向阿勒泰山腹地；</li>
+<li>路经古尔班0烤馕、凉皮、炒面、烤串，地道的羊羔肉;</li>
+<li>一路上大概过了十几个安检站</li>
+</ol>
+<h5 id="车程："><a href="#车程：" class="headerlink" title="车程："></a>车程：</h5><ol>
+<li>约520KM（高速、国道为主）;</li>
+<li>区间测速80km；</li>
+<li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Bid%5D=B03DF0668Z-to&amp;from%5Bname%5D=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%9C%B0%E7%AA%9D%E5%A0%A1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&amp;from%5Blnglat%5D=87.479742,43.905808&amp;from%5Bmodxy%5D=87.478441,43.902829&amp;from%5Bpoitype%5D=150104&amp;from%5Badcode%5D=650104&amp;to%5Badcode%5D=654322&amp;to%5Bname%5D=%E5%8F%AF%E5%8F%AF%E6%89%98%E6%B5%B7%E9%95%87&amp;to%5Bid%5D=B038A0LO1U&amp;to%5Bpoitype%5D=190106&amp;to%5Blnglat%5D=89.81118900000001,47.221611&amp;to%5Bmodxy%5D=&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
+</ol>
+
+
+<hr>
+<h4 id="D3-9月29号-可可托海镇-可可托海国家地质公园-五彩滩-布尔津"><a href="#D3-9月29号-可可托海镇-可可托海国家地质公园-五彩滩-布尔津" class="headerlink" title="D3(9月29号):可可托海镇-可可托海国家地质公园-五彩滩-布尔津"></a>D3(9月29号):可可托海镇-可可托海国家地质公园-五彩滩-布尔津</h4><h5 id="费用："><a href="#费用：" class="headerlink" title="费用："></a>费用：</h5><ol>
+<li>可可托海风景区（门票：90，区间车：36）；</li>
+<li>五彩滩景区（门票：50，建议游玩2小时）；</li>
+</ol>
+<h5 id="行程安排：-2"><a href="#行程安排：-2" class="headerlink" title="行程安排："></a>行程安排：</h5><ol>
+<li>早餐后，前往“世界地质公园”【可可托海国家地质公园】，又称额尔齐斯河大峡谷；</li>
+<li>进景区需要办理“边境通行证”，在购票处出示身份证办理即可；</li>
+<li>景区车一路沿额尔齐斯河河谷前行；</li>
+<li>沿途欣赏金秋的白桦林、石门、夫妻树等，游玩拍摄可可托海著名的标志【神钟山】；</li>
+<li>之后可以沿着额尔齐斯河峡谷往里徒步深入一段；</li>
+<li>驾车到富蕴县继续大众点评找午餐，午餐后富蕴县——北屯——布尔津——五彩滩；</li>
+<li>游览五彩滩景区后返回布尔津，晚餐并游览著名的布尔津美食街；</li>
+<li>9点回布尔津市区，入住布尔津国际酒店</li>
+</ol>
+<h5 id="注意事项：-2"><a href="#注意事项：-2" class="headerlink" title="注意事项："></a>注意事项：</h5><ol>
+<li><font color="red">进景区需要办理“边境通行证”，在购票处出示身份证办理即可</font></li>
+<li>景区不必走到山顶中蒙边境，后半程风景和前半程类似，另外可以沿中间河边的石子路走，景色更美；</li>
+</ol>
+<h5 id="车程：-1"><a href="#车程：-1" class="headerlink" title="车程："></a>车程：</h5><ol>
+<li>自驾全程350公里，6小时左右。</li>
+<li>布尔津-五彩滩：距离40KM，车程50分钟（此段有区间测速，60）；</li>
+<li><font color="red">富蕴县-布尔津 全程国道，有测速，而且还有流动测速（路边放个临时测速器，CT就停在暗处）</font>；</li>
+<li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Badcode%5D=654322&amp;from%5Bname%5D=%E5%8F%AF%E5%8F%AF%E6%89%98%E6%B5%B7%E9%95%87&amp;from%5Bid%5D=B038A0LO1U-from&amp;from%5Bpoitype%5D=190106&amp;from%5Blnglat%5D=89.81118900000001,47.221611&amp;from%5Bmodxy%5D=&amp;to%5Bid%5D=B038A0LR4U&amp;to%5Bname%5D=%E5%B8%83%E5%B0%94%E6%B4%A5%E5%8E%BF&amp;to%5Blnglat%5D=86.874897,47.701850&amp;to%5Bmodxy%5D=86.874897,47.701850&amp;to%5Bpoitype%5D=190105&amp;to%5Badcode%5D=654321&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
+</ol>
+
+
+
+<hr>
+<h4 id="D4-9月30号-布尔津-喀纳斯-贾登峪"><a href="#D4-9月30号-布尔津-喀纳斯-贾登峪" class="headerlink" title="D4(9月30号):布尔津-喀纳斯-贾登峪"></a>D4(9月30号):布尔津-喀纳斯-贾登峪</h4><p>#####费用：</p>
+<ol>
+<li>门票185元/人，门票站到游客中心100元/人，游客中心到观景台120元/人，游船120元/人</li>
+</ol>
+<h5 id="行程安排：-3"><a href="#行程安排：-3" class="headerlink" title="行程安排："></a>行程安排：</h5><ol>
+<li>布尔津到贾登峪门票站，135公里，区间测速必须要开3个小时；</li>
+<li>买喀纳斯景区门票坐景区大巴1小时到游客中心；</li>
+<li>在游客中心用餐，然后分头行动，上观鱼台的上观鱼台（要爬1068步梯坎才能到观鱼台，去湖边的去湖边</li>
+<li>耍了2个多小时后回游客中心坐大巴出景区；</li>
+<li>返程沿途游览三湾（三湾里就月亮湾最为有代表性，另外两个需要清晨漫步才有感觉，这样就必须在喀纳斯景区里住）；</li>
+<li>回贾登峪后自驾1个小时前往禾木门票站，转大巴1小时到禾木村入住；</li>
+</ol>
+<h5 id="注意事项：-3"><a href="#注意事项：-3" class="headerlink" title="注意事项："></a>注意事项：</h5><ol>
+<li><font color="red">去喀纳斯之前请在布尔津把油箱加满，这来回路上没有加油站</font></li>
+<li>进去喀纳斯一定要裹严实了，冲锋衣羽绒服都穿起来;</li>
+<li>区间车要坐在面向车头的右手边，区间车要坐半个小时，右手边会看到山谷，左手边就只能看堡坎了..</li>
+<li>布尔津到喀纳斯后半截的路上，大客车巨多，越往后面山路也最多，安检站也多</li>
+</ol>
+<h5 id="车程：-2"><a href="#车程：-2" class="headerlink" title="车程："></a>车程：</h5><ol>
+<li>自驾全程135公里，3小时左右。</li>
+<li>全程区县测速限速：60km；</li>
+<li>去程走大路，返程走小路；</li>
+<li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Bid%5D=B038A0LR4U-from&amp;from%5Bname%5D=%E5%B8%83%E5%B0%94%E6%B4%A5%E5%8E%BF&amp;from%5Blnglat%5D=86.874897,47.701850&amp;from%5Bmodxy%5D=86.874897,47.701850&amp;from%5Bpoitype%5D=190105&amp;from%5Badcode%5D=654321&amp;to%5Bid%5D=B0FFL2UMIZ&amp;to%5Bname%5D=%E8%B4%BE%E7%99%BB%E5%B3%AA%E9%97%A8%E7%A5%A8%E7%AB%99&amp;to%5Blnglat%5D=87.130721,48.507338&amp;to%5Bmodxy%5D=87.130721,48.507338&amp;to%5Bpoitype%5D=070000&amp;to%5Badcode%5D=654321&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
+</ol>
+
+
+
+<hr>
+<h4 id="D5-10月1号-贾登峪-禾木一日游-禾木村"><a href="#D5-10月1号-贾登峪-禾木一日游-禾木村" class="headerlink" title="D5(10月1号):贾登峪-禾木一日游-禾木村"></a>D5(10月1号):贾登峪-禾木一日游-禾木村</h4><p>到达禾木村差不多上午10点左右。</p>
+<h5 id="费用：-1"><a href="#费用：-1" class="headerlink" title="费用："></a>费用：</h5><h5 id="行程安排：-4"><a href="#行程安排：-4" class="headerlink" title="行程安排："></a>行程安排：</h5><ol>
+<li>上午游览村庄北面的白桦林、草原；</li>
+<li>中午回去睡了个午觉；</li>
+<li>下午骑马到村庄南面观景台，河边游玩（强烈推荐3小时的美丽峰骑马游，200元/人，其实性价比非常之高，谁骑谁知道）；</li>
+<li>傍晚大家可以前往【禾木日落观景台】，俯瞰禾木村全景</li>
+<li>晚上，可以干点想干的事。。。</li>
+</ol>
+<h5 id="注意事项：-4"><a href="#注意事项：-4" class="headerlink" title="注意事项："></a>注意事项：</h5><ol>
+<li>下午4、5点钟的时候太阳巨大巨晒，注意选择时间</li>
+</ol>
+<h5 id="车程：-3"><a href="#车程：-3" class="headerlink" title="车程："></a>车程：</h5><ol>
+<li>距离70KM，2个半小时车程；</li>
+<li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Bid%5D=B0FFL2UMIZ-from&amp;from%5Bname%5D=%E8%B4%BE%E7%99%BB%E5%B3%AA%E9%97%A8%E7%A5%A8%E7%AB%99&amp;from%5Blnglat%5D=87.130721,48.507338&amp;from%5Bmodxy%5D=87.130721,48.507338&amp;from%5Bpoitype%5D=070000&amp;from%5Badcode%5D=654321&amp;to%5Bid%5D=B0FFIPUO59&amp;to%5Bname%5D=%E7%A6%BE%E6%9C%A8%E6%9D%91&amp;to%5Blnglat%5D=87.432910,48.568561&amp;to%5Bmodxy%5D=87.432910,48.568561&amp;to%5Bpoitype%5D=190108&amp;to%5Badcode%5D=654321&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
+</ol>
+
+
+
+<hr>
+<h4 id="D6-10月2号-禾木村-乌尔禾胡杨林-魔鬼城-乌尔禾"><a href="#D6-10月2号-禾木村-乌尔禾胡杨林-魔鬼城-乌尔禾" class="headerlink" title="D6(10月2号):禾木村-乌尔禾胡杨林-魔鬼城-乌尔禾"></a>D6(10月2号):禾木村-乌尔禾胡杨林-魔鬼城-乌尔禾</h4><h5 id="费用：-2"><a href="#费用：-2" class="headerlink" title="费用："></a>费用：</h5><ol>
+<li>门票+观光车 98/人</li>
+</ol>
+<h5 id="行程安排：-5"><a href="#行程安排：-5" class="headerlink" title="行程安排："></a>行程安排：</h5><ol>
+<li>6点半起床上观景台拍日出，是否能看到晨雾美景就需要点运气了；</li>
+<li>驾车回布尔津午餐；</li>
+<li>魔鬼城景区里坐小火车一路前行</li>
+</ol>
+<h5 id="注意事项：-5"><a href="#注意事项：-5" class="headerlink" title="注意事项："></a>注意事项：</h5><ol>
+<li>禾木景区出来的这段景色超美，路边设有多个观景台，可供停车拍照；</li>
+<li>魔鬼城合适摄影，特别是日出和日落的时候，景区是24小时开放，但日落要10点过，不要去太早 注意选择时间</li>
+<li><font color="red">乌尔禾，入住博玉大酒店，性价比相当高哦,附近美食也超多;</font></li>
+<li><a target="_blank" rel="noopener" href="https://go.cqmmgo.com/forum-2466-thread-47141499934173209-7-1.html" title="在马路对面吃到最好吃的一家大盘鸡！还有塔城的特色风干牛肉、特色拉条子">在马路对面吃到最好吃的一家大盘鸡！还有塔城的特色风干牛肉、特色拉条子</a>;</li>
+</ol>
+<h5 id="车程：-4"><a href="#车程：-4" class="headerlink" title="车程："></a>车程：</h5><ol>
+<li>禾木-布尔津-克拉玛依：距离470KM，10小时车程（前半段国道有区间测速，后半段高速）；</li>
+<li>布尔津-克拉玛依这段横风很大，开车要双手握紧方向盘；</li>
+<li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Bid%5D=B0FFIPUO59-from&amp;from%5Bname%5D=%E7%A6%BE%E6%9C%A8%E6%9D%91&amp;from%5Blnglat%5D=87.432910,48.568561&amp;from%5Bmodxy%5D=87.432910,48.568561&amp;from%5Bpoitype%5D=190108&amp;from%5Badcode%5D=654321&amp;to%5Bid%5D=B03DE0004L&amp;to%5Bname%5D=%E4%B8%96%E7%95%8C%E9%AD%94%E9%AC%BC%E5%9F%8E&amp;to%5Blnglat%5D=85.746798,46.129675&amp;to%5Bmodxy%5D=85.735517,46.137257&amp;to%5Bpoitype%5D=110202&amp;to%5Badcode%5D=650205&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
+</ol>
+
+
+
+<hr>
+<h4 id="D7-10月3号-乌尔禾-果子沟大桥-赛里木湖"><a href="#D7-10月3号-乌尔禾-果子沟大桥-赛里木湖" class="headerlink" title="D7(10月3号):乌尔禾-果子沟大桥-赛里木湖"></a>D7(10月3号):乌尔禾-果子沟大桥-赛里木湖</h4><h5 id="费用：-3"><a href="#费用：-3" class="headerlink" title="费用："></a>费用：</h5><ol>
+<li>门票70一人</li>
+</ol>
+<h5 id="行程安排：-6"><a href="#行程安排：-6" class="headerlink" title="行程安排："></a>行程安排：</h5><ol>
+<li>中午下道去乌苏市区找大众点评美食（要稍早到达赛里木，后面景点较多，不建议在乌苏就餐）；</li>
+<li>大约下午5点才到赛里木湖，环湖一圈玩了3个小时后；</li>
+<li>入住果子沟大桥绝佳观景台唯一的山庄；</li>
+<li>早点的话，可以上观景台看全景。</li>
+</ol>
+
+
+<h5 id="注意事项：-6"><a href="#注意事项：-6" class="headerlink" title="注意事项："></a>注意事项：</h5><ol>
+<li><a target="_blank" rel="noopener" href="https://go.cqmmgo.com/forum-2466-thread-47141499934173209-8-1.html" title="可入住龙岭山庄，山顶北可观赛里木湖全景，南可俯揽果子沟大桥全景">可入住龙岭山庄，山顶北可观赛里木湖全景，南可俯揽果子沟大桥全景</a>；</li>
+<li><font color="red">龙岭山庄</font>8点半开始供应早餐</li>
+</ol>
+<h5 id="车程：-5"><a href="#车程：-5" class="headerlink" title="车程："></a>车程：</h5><ol>
+<li>自驾全程600公里，不耽误只要6个小时；</li>
+<li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Bid%5D=B03DE0004L-from&amp;from%5Bname%5D=%E4%B8%96%E7%95%8C%E9%AD%94%E9%AC%BC%E5%9F%8E&amp;from%5Blnglat%5D=85.746798,46.129675&amp;from%5Bmodxy%5D=85.735517,46.137257&amp;from%5Bpoitype%5D=110202&amp;from%5Badcode%5D=650205&amp;to%5Bid%5D=B038D0LN33&amp;to%5Bname%5D=%E8%B5%9B%E9%87%8C%E6%9C%A8%E6%B9%96%E6%B8%B8%E5%AE%A2%E4%B8%AD%E5%BF%83&amp;to%5Blnglat%5D=81.394494,44.601962&amp;to%5Bmodxy%5D=81.394578,44.601789&amp;to%5Bpoitype%5D=070000&amp;to%5Badcode%5D=652701&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
+</ol>
+
+
+
+<hr>
+<h4 id="D8-10月4号-赛里木湖-九曲十八弯日落-巴音布鲁克镇"><a href="#D8-10月4号-赛里木湖-九曲十八弯日落-巴音布鲁克镇" class="headerlink" title="D8(10月4号):赛里木湖-九曲十八弯日落-巴音布鲁克镇"></a>D8(10月4号):赛里木湖-九曲十八弯日落-巴音布鲁克镇</h4><h5 id="费用：-4"><a href="#费用：-4" class="headerlink" title="费用："></a>费用：</h5><h5 id="行程安排：-7"><a href="#行程安排：-7" class="headerlink" title="行程安排："></a>行程安排：</h5><ol>
+<li>早起去拍赛里木湖日出全景；</li>
+<li>出发，路径伊犁看薰衣草；</li>
+<li>午餐可以在高速服务区用餐；</li>
+<li>看巴音布鲁克景区欣赏九曲十八弯的日落</li>
+</ol>
+<h5 id="注意事项：-7"><a href="#注意事项：-7" class="headerlink" title="注意事项："></a>注意事项：</h5><ol>
+<li>巴音布鲁克景区过了晚上8点不准进；</li>
+<li>到达巴音布鲁克镇上，可以<font color="red">入住龙兴国际大酒店</font></li>
+<li><font color="red">如果到的比较早，那么就今天游玩完巴音布鲁克景点</font></li>
+</ol>
+<h5 id="车程：-6"><a href="#车程：-6" class="headerlink" title="车程："></a>车程：</h5><ol>
+<li>自驾全程450公里，7小时左右。</li>
+<li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Bid%5D=B038D0LN33-from&amp;from%5Bname%5D=%E8%B5%9B%E9%87%8C%E6%9C%A8%E6%B9%96%E6%B8%B8%E5%AE%A2%E4%B8%AD%E5%BF%83&amp;from%5Blnglat%5D=81.394494,44.601962&amp;from%5Bmodxy%5D=81.394578,44.601789&amp;from%5Bpoitype%5D=070000&amp;from%5Badcode%5D=652701&amp;to%5Badcode%5D=652827&amp;to%5Bname%5D=%E5%B7%B4%E9%9F%B3%E5%B8%83%E9%B2%81%E5%85%8B%E9%95%87&amp;to%5Bid%5D=B0FFIITRO1&amp;to%5Bpoitype%5D=190106&amp;to%5Blnglat%5D=84.15197999999998,43.033831&amp;to%5Bmodxy%5D=&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
+</ol>
+
+
+
+<hr>
+<h4 id="D9-10月5号-巴音布鲁克镇-天鹅湖-九曲十八弯-独库公路-乌鲁木齐"><a href="#D9-10月5号-巴音布鲁克镇-天鹅湖-九曲十八弯-独库公路-乌鲁木齐" class="headerlink" title="D9(10月5号):巴音布鲁克镇-天鹅湖-九曲十八弯-独库公路-乌鲁木齐"></a>D9(10月5号):巴音布鲁克镇-天鹅湖-九曲十八弯-独库公路-乌鲁木齐</h4><h5 id="费用：-5"><a href="#费用：-5" class="headerlink" title="费用："></a>费用：</h5><ol>
+<li>景区门票+保险+观光车，170一人</li>
+</ol>
+<h5 id="行程安排：-8"><a href="#行程安排：-8" class="headerlink" title="行程安排："></a>行程安排：</h5><p>1.上午进巴音布鲁克景区游览天鹅湖和九曲十八弯；<br>2.中午在巴音布鲁克镇上撸了本次行程最美味的羊肉串后出发；<br>3.下午：号称中国最美公路的天山天路——独库公路，欣赏沿途一日四季美景；<br>4.直接杀到乌鲁木齐。</p>
+<h5 id="注意事项：-8"><a href="#注意事项：-8" class="headerlink" title="注意事项："></a>注意事项：</h5><ol>
+<li>晚上8点加油站关门</li>
+<li><font color="red">尽量早点出发，因为去乌鲁木齐有500km，最晚不能超过13点</font></li>
+</ol>
+<h5 id="车程：-7"><a href="#车程：-7" class="headerlink" title="车程："></a>车程：</h5><ol>
+<li><a target="_blank" rel="noopener" href="https://www.amap.com/dir?from%5Badcode%5D=652827&amp;from%5Bname%5D=%E5%B7%B4%E9%9F%B3%E5%B8%83%E9%B2%81%E5%85%8B%E9%95%87&amp;from%5Bid%5D=B0FFIITRO1-from&amp;from%5Bpoitype%5D=190106&amp;from%5Blnglat%5D=84.15197999999998,43.033831&amp;from%5Bmodxy%5D=&amp;to%5Bid%5D=B03DF0668Z&amp;to%5Bname%5D=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%9C%B0%E7%AA%9D%E5%A0%A1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&amp;to%5Blnglat%5D=87.479742,43.905808&amp;to%5Bmodxy%5D=87.478441,43.902829&amp;to%5Bpoitype%5D=150104&amp;to%5Badcode%5D=650104&amp;type=car&amp;policy=1" title="行车路线">行车路线</a></li>
+</ol>
+
+
+
+<hr>
+<h4 id="D10-10月6号-乌鲁木齐一日游"><a href="#D10-10月6号-乌鲁木齐一日游" class="headerlink" title="D10(10月6号):乌鲁木齐一日游"></a>D10(10月6号):乌鲁木齐一日游</h4><p>待定。。。。</p>
+<hr>
+<h4 id="D11-10月7号-乌鲁木齐一深圳"><a href="#D11-10月7号-乌鲁木齐一深圳" class="headerlink" title="D11(10月7号):乌鲁木齐一深圳"></a>D11(10月7号):乌鲁木齐一深圳</h4><p>乌鲁木齐—-飞–深圳</p>
+<hr>
+<h4 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h4><ol>
+<li><p><a target="_blank" rel="noopener" href="https://go.cqmmgo.com/forum-2466-thread-47141499934173209-1-1.html" title="【2017自驾游】有一种诗和远方叫新疆！北疆9日环线落地自驾游记">【2017自驾游】有一种诗和远方叫新疆！北疆9日环线落地自驾游记</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://post.smzdm.com/p/779744/" title="说走就走的北疆自驾十日游（攻略+建议）">说走就走的北疆自驾十日游（攻略+建议）</a>；</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/10/21/xj-north-circle/" data-id="clbad6v650059fqw0ct39f8qc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%97%E7%96%86/" rel="tag">北疆</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%B0%E7%96%86/" rel="tag">新疆</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-lifehealth" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/21/lifehealth/" class="article-date">
+  <time datetime="2018-05-21T06:00:14.000Z" itemprop="datePublished">2018-05-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/21/lifehealth/">健身运动</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>健身圈从来就是一个强者的舞台，有的人通过健身强健了体魄，有的人通过健身找到了自信。正所谓“一入健身深似海”，健身就是有这样的魔力让你欲罢不能。</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/05/21/lifehealth/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/05/21/lifehealth/" data-id="clbad6v4t0042fqw078faag63" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BF%90%E5%8A%A8/" rel="tag">运动</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-homeassistant" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/02/homeassistant/" class="article-date">
+  <time datetime="2018-05-02T04:14:57.000Z" itemprop="datePublished">2018-05-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IoT/">IoT</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/02/homeassistant/">树莓派3B(Raspberry 3B)搭建HomeAssistant</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Home Assistant 是一款基于 Python 的智能家居开源系统，支持众多品牌的智能家居设备，可以轻松实现设备的语音控制、自动化等。本文档全站内容基于 Home Assistant 官方网站 本地化而成，具有以下特点：</p>
+<p>整合『组件』与『文档』页，采用更直观清晰、符合中文阅读的展现形式；<br>剔除国内用户较少接触的组件说明，提高常用智能家居平台的层级和权重；<br>跳出 Home Assistant 原生框架，一并纳入 Floorplan、HADashboard 等相关衍生项目；<br>本文将讲述树莓派3B搭建HomeAssistant和小米设备的接入。</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/05/02/homeassistant/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/05/02/homeassistant/" data-id="clbad6v42003wfqw0bzh87hs0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HomeAssistant/" rel="tag">HomeAssistant</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IoT/" rel="tag">IoT</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-centos_run_jar" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/05/centos_run_jar/" class="article-date">
+  <time datetime="2018-04-05T08:24:57.000Z" itemprop="datePublished">2018-04-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Centos/">Centos</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/05/centos_run_jar/">Centos后台运行jar</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>jar后台运行</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/04/05/centos_run_jar/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/04/05/centos_run_jar/" data-id="clbad6v0i000bfqw0bzpzdw1k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jar/" rel="tag">Jar</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hobby" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/04/hobby/" class="article-date">
+  <time datetime="2018-04-04T02:24:57.000Z" itemprop="datePublished">2018-04-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/04/hobby/">业余时间做什么，决定了你的生活品质</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>业余时间做什么，决定了你的生活品质</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/04/04/hobby/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/04/04/hobby/" data-id="clbad6v1p0010fqw036q79xby" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hobby/" rel="tag">hobby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-L2TP-IPSec_sh" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/02/L2TP-IPSec_sh/" class="article-date">
+  <time datetime="2018-04-02T03:04:50.000Z" itemprop="datePublished">2018-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/VPN/">VPN</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/02/L2TP-IPSec_sh/">L2TP/IPSec一键安装脚本</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基于 OpenVZ 虚拟化技术的 VPS 需要开启TUN/TAP才能正常使用，购买 VPS 时请先咨询服务商是否支持开启 TUN/TAP。</p>
+<p>OpenVZ 虚拟的 VPS 需要系统内核支持 IPSec 才行。也就是说，母服务器的内核如果不支持的话那就没办法，只能换 VPS。<br>因此，一般不建议在 OpenVZ 的 VPS 上安装本脚本。脚本如果检测到该 VPS 为 OpenVZ 架构，会出现警告提醒。</p>
+<p>如何检测是否支持TUN模块？<br>执行命令：<br>cat /dev/net/tun<br>如果返回信息为：cat: /dev/net/tun: File descriptor in bad state 说明正常</p>
+<p>如何检测是否支持ppp模块？<br>执行命令：<br>cat /dev/ppp<br>如果返回信息为：cat: /dev/ppp: No such device or address 说明正常<br>当然，脚本在安装时也会执行检查，如果不适用于安装，脚本会予以提示。</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/04/02/L2TP-IPSec_sh/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/04/02/L2TP-IPSec_sh/" data-id="clbad6uzl0001fqw06wnp16u4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shadowsocks/" rel="tag">shadowsocks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-android-ndk-so-a" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/11/android-ndk-so-a/" class="article-date">
+  <time datetime="2016-05-11T15:08:51.000Z" itemprop="datePublished">2016-05-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/11/android-ndk-so-a/">Android导入第三方静态库.a编译成动态库.so</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Android导入第三方静态库.a编译成动态库.so</p>
+        
+          <p class="article-more-link">
+            <a href="/2016/05/11/android-ndk-so-a/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2016/05/11/android-ndk-so-a/" data-id="clbad6v010003fqw01d9r95l6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Andorid/" rel="tag">Andorid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/a/" rel="tag">a</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ndk/" rel="tag">ndk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/so/" rel="tag">so</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ximalaya" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/11/ximalaya/" class="article-date">
+  <time datetime="2016-05-11T14:54:48.000Z" itemprop="datePublished">2016-05-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IoT/">IoT</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/11/ximalaya/">喜马拉雅WiFi音响绑定及通讯协议初稿</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>喜马拉雅WiFi音响绑定及通讯协议初稿</p>
+        
+          <p class="article-more-link">
+            <a href="/2016/05/11/ximalaya/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2016/05/11/ximalaya/" data-id="clbad6v630056fqw0bitfa0of" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Andorid/" rel="tag">Andorid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85/" rel="tag">喜马拉雅</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" rel="tag">智能家居</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-public-bind" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/11/public-bind/" class="article-date">
+  <time datetime="2016-05-10T22:35:25.000Z" itemprop="datePublished">2016-05-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IoT/">IoT</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/11/public-bind/">绑定界面动资源画动态替换</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>由于公共模块绑定满足不了TOB项目以及其他项目特殊需求，现对公共模块绑定界面的资源做成可配置，本文介绍一下哪些资源可配置以及如何配置。</p>
+        
+          <p class="article-more-link">
+            <a href="/2016/05/11/public-bind/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2016/05/11/public-bind/" data-id="clbad6v5j004xfqw00rd4celz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/het/" rel="tag">het</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" rel="tag">智能家居</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; __(&#39;prev&#39;)</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">__(&#39;next&#39;) &amp;raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AOSP/">AOSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C/">C/C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Centos/">Centos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/SSH/">SSH</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IoT/">IoT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ios/">Ios</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PixelExperience/">PixelExperience</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Raspberry/">Raspberry</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/VPN/">VPN</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/centos6/">centos6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/centos7/">centos7</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frp/">frp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frpc/">frpc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/">go</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/i2c/">i2c</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ipv6/">ipv6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/logcat/">logcat</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mao/">mao</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mqtt/">mqtt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ndk/">ndk</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/netty/">netty</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/openssl/">openssl</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/openwrt/">openwrt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/proxy/">proxy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/shadowsocks/">shadowsocks</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ssh/">ssh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%8F%E7%B1%B39/">小米9</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%85%E8%A1%8C/">旅行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Andorid/" rel="tag">Andorid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C&#x2F;C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HomeAssistant/" rel="tag">HomeAssistant</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IoT/" rel="tag">IoT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iot/" rel="tag">Iot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jar/" rel="tag">Jar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/" rel="tag">Kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PixelExperience/" rel="tag">PixelExperience</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recovery/" rel="tag">Recovery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Service/" rel="tag">Service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/a/" rel="tag">a</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/" rel="tag">centos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos6/" rel="tag">centos6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cepheus/" rel="tag">cepheus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coding/" rel="tag">coding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cross/" rel="tag">cross</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/" rel="tag">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frpc/" rel="tag">frpc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitee/" rel="tag">gitee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/het/" rel="tag">het</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hobby/" rel="tag">hobby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i2c/" rel="tag">i2c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipv6/" rel="tag">ipv6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logcat/" rel="tag">logcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mao/" rel="tag">mao</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ndk/" rel="tag">ndk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netty/" rel="tag">netty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/okhttp/" rel="tag">okhttp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openssl/" rel="tag">openssl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openwrt/" rel="tag">openwrt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pi/" rel="tag">pi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pubkey/" rel="tag">pubkey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/raspberry/" rel="tag">raspberry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/" rel="tag">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shadowsocks/" rel="tag">shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/so/" rel="tag">so</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tcp/" rel="tag">tcp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%99%E4%BD%9C/" rel="tag">写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E6%9C%BA/" rel="tag">刷机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%97%E7%96%86/" rel="tag">北疆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85/" rel="tag">喜马拉雅</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%AD%E7%81%AB/" rel="tag">搭火</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E7%96%86/" rel="tag">新疆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" rel="tag">智能家居</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B1%BD%E8%BD%A6/" rel="tag">汽车</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="tag">腾讯云</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E5%8A%A8/" rel="tag">运动</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A9%B1%E8%9A%8A-life/" rel="tag">驱蚊  life</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Andorid/" style="font-size: 13.33px;">Andorid</a> <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/HomeAssistant/" style="font-size: 10px;">HomeAssistant</a> <a href="/tags/IoT/" style="font-size: 10px;">IoT</a> <a href="/tags/Iot/" style="font-size: 10px;">Iot</a> <a href="/tags/Jar/" style="font-size: 10px;">Jar</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/PixelExperience/" style="font-size: 10px;">PixelExperience</a> <a href="/tags/Recovery/" style="font-size: 10px;">Recovery</a> <a href="/tags/Service/" style="font-size: 10px;">Service</a> <a href="/tags/a/" style="font-size: 10px;">a</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/centos/" style="font-size: 13.33px;">centos</a> <a href="/tags/centos6/" style="font-size: 10px;">centos6</a> <a href="/tags/cepheus/" style="font-size: 13.33px;">cepheus</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/cross/" style="font-size: 10px;">cross</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/frpc/" style="font-size: 10px;">frpc</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/gitee/" style="font-size: 10px;">gitee</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/go/" style="font-size: 10px;">go</a> <a href="/tags/gradle/" style="font-size: 13.33px;">gradle</a> <a href="/tags/het/" style="font-size: 10px;">het</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/hobby/" style="font-size: 10px;">hobby</a> <a href="/tags/i2c/" style="font-size: 10px;">i2c</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/ipv6/" style="font-size: 10px;">ipv6</a> <a href="/tags/java/" style="font-size: 13.33px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/logcat/" style="font-size: 10px;">logcat</a> <a href="/tags/mao/" style="font-size: 10px;">mao</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/ndk/" style="font-size: 13.33px;">ndk</a> <a href="/tags/netty/" style="font-size: 10px;">netty</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/okhttp/" style="font-size: 10px;">okhttp</a> <a href="/tags/openssl/" style="font-size: 10px;">openssl</a> <a href="/tags/openwrt/" style="font-size: 10px;">openwrt</a> <a href="/tags/pi/" style="font-size: 10px;">pi</a> <a href="/tags/proxy/" style="font-size: 16.67px;">proxy</a> <a href="/tags/pubkey/" style="font-size: 10px;">pubkey</a> <a href="/tags/raspberry/" style="font-size: 10px;">raspberry</a> <a href="/tags/server/" style="font-size: 10px;">server</a> <a href="/tags/shadowsocks/" style="font-size: 20px;">shadowsocks</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tcp/" style="font-size: 10px;">tcp</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/%E5%86%99%E4%BD%9C/" style="font-size: 10px;">写作</a> <a href="/tags/%E5%88%B7%E6%9C%BA/" style="font-size: 10px;">刷机</a> <a href="/tags/%E5%8C%97%E7%96%86/" style="font-size: 10px;">北疆</a> <a href="/tags/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85/" style="font-size: 10px;">喜马拉雅</a> <a href="/tags/%E6%90%AD%E7%81%AB/" style="font-size: 10px;">搭火</a> <a href="/tags/%E6%96%B0%E7%96%86/" style="font-size: 10px;">新疆</a> <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" style="font-size: 13.33px;">智能家居</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 10px;">树莓派</a> <a href="/tags/%E6%B1%BD%E8%BD%A6/" style="font-size: 10px;">汽车</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 13.33px;">生活</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a> <a href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" style="font-size: 10px;">腾讯云</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 10px;">运动</a> <a href="/tags/%E9%A9%B1%E8%9A%8A-life/" style="font-size: 10px;">驱蚊  life</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/24/openwrt-ipv6/">家庭宽带开启IPV6</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/24/mao-config/">家庭光猫配置</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/go-cross-compile/">GoLang 全平台编译</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/21/openwet-i2c/">OpenWrt开启i2c功能，并顺利编译风扇驱动</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/27/frpc-install-autostart/">Windows下Frpc安装与自启动</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>
