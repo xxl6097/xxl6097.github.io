@@ -1,3 +1,514 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><link href="/static/css/chunk-libs.eebac533.css" rel="stylesheet"><link href="/static/css/app.0d31776f.css" rel="stylesheet"><!-- hexo injector head_end start --><script rel="prefetch" async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/components/prism-core.js" data-manual></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/toolbar/prism-toolbar.min.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/themes/prism.min.css"/><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/toolbar/prism-toolbar.min.css"/><link rel="stylesheet" href="https://fonts.loli.net/css?family=Rubik" /><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.2/gitalk.min.js"></script><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.2/gitalk.min.css"/><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>树莓派3B(Raspberry 3B)搭建HomeAssistant | 悠悠博客</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+  <meta name="description" content="Home Assistant 是一款基于 Python 的智能家居开源系统，支持众多品牌的智能家居设备，可以轻松实现设备的语音控制、自动化等。本文档全站内容基于 Home Assistant 官方网站 本地化而成，具有以下特点： 整合『组件』与『文档』页，采用更直观清晰、符合中文阅读的展现形式；剔除国内用户较少接触的组件说明，提高常用智能家居平台的层级和权重；跳出 Home Assistant 原">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派3B(Raspberry 3B)搭建HomeAssistant">
+<meta property="og:url" content="https://uuxia.cn/post/homeassistant.html">
+<meta property="og:site_name" content="悠悠博客">
+<meta property="og:description" content="Home Assistant 是一款基于 Python 的智能家居开源系统，支持众多品牌的智能家居设备，可以轻松实现设备的语音控制、自动化等。本文档全站内容基于 Home Assistant 官方网站 本地化而成，具有以下特点： 整合『组件』与『文档』页，采用更直观清晰、符合中文阅读的展现形式；剔除国内用户较少接触的组件说明，提高常用智能家居平台的层级和权重；跳出 Home Assistant 原">
+<meta property="og:locale">
+<meta property="og:image" content="https://uuxia.cn/post/homeassistant/1.png">
+<meta property="og:image" content="https://uuxia.cn/post/homeassistant/2.png">
+<meta property="og:image" content="https://uuxia.cn/post/homeassistant/3.png">
+<meta property="og:image" content="https://uuxia.cn/post/homeassistant/4.png">
+<meta property="og:image" content="https://uuxia.cn/post/homeassistant/5.png">
+<meta property="og:image" content="https://uuxia.cn/post/homeassistant/6.png">
+<meta property="og:image" content="https://uuxia.cn/post/homeassistant/8.png">
+<meta property="og:image" content="https://uuxia.cn/post/homeassistant/9.png">
+<meta property="og:image" content="https://uuxia.cn/post/homeassistant/10.png">
+<meta property="article:published_time" content="2018-05-02T04:14:57.000Z">
+<meta property="article:modified_time" content="2022-02-18T10:17:37.000Z">
+<meta property="article:author" content="uuxia">
+<meta property="article:tag" content="IoT">
+<meta property="article:tag" content="HomeAssistant">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://uuxia.cn/post/homeassistant/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="悠悠博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head><body id="body-container"><noscript><strong>We're sorry but Aurora Blog doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script>(function(e){function t(t){for(var a,n,u=t[0],i=t[1],c=t[2],l=0,p=[];l<u.length;l++)n=u[l],Object.prototype.hasOwnProperty.call(o,n)&&o[n]&&p.push(o[n][0]),o[n]=0;for(a in i)Object.prototype.hasOwnProperty.call(i,a)&&(e[a]=i[a]);f&&f(t);while(p.length)p.shift()();return s.push.apply(s,c||[]),r()}function r(){for(var e,t=0;t<s.length;t++){for(var r=s[t],a=!0,n=1;n<r.length;n++){var u=r[n];0!==o[u]&&(a=!1)}a&&(s.splice(t--,1),e=i(i.s=r[0]))}return e}var a={},n={runtime:0},o={runtime:0},s=[];function u(e){return i.p+"static/js/"+({404:"404",about:"about",archives:"archives",categories:"categories",page:"page",post:"post",result:"result",tags:"tags"}[e]||e)+"."+{404:"00d640a8",about:"024aacd1",archives:"574ac664",categories:"90aa5475",page:"a02618ad",post:"cebfbaa4",result:"39470350",tags:"2ad613f5"}[e]+".js"}function i(t){if(a[t])return a[t].exports;var r=a[t]={i:t,l:!1,exports:{}};return e[t].call(r.exports,r,r.exports,i),r.l=!0,r.exports}i.e=function(e){var t=[],r={404:1,about:1,archives:1,categories:1,page:1,post:1,result:1,tags:1};n[e]?t.push(n[e]):0!==n[e]&&r[e]&&t.push(n[e]=new Promise((function(t,r){for(var a="static/css/"+({404:"404",about:"about",archives:"archives",categories:"categories",page:"page",post:"post",result:"result",tags:"tags"}[e]||e)+"."+{404:"1a6cd5bd",about:"32dfa3b0",archives:"c0d49bd5",categories:"10e2be12",page:"749ad047",post:"9f951a60",result:"10e2be12",tags:"10e2be12"}[e]+".css",o=i.p+a,s=document.getElementsByTagName("link"),u=0;u<s.length;u++){var c=s[u],l=c.getAttribute("data-href")||c.getAttribute("href");if("stylesheet"===c.rel&&(l===a||l===o))return t()}var p=document.getElementsByTagName("style");for(u=0;u<p.length;u++){c=p[u],l=c.getAttribute("data-href");if(l===a||l===o)return t()}var f=document.createElement("link");f.rel="stylesheet",f.type="text/css",f.onload=t,f.onerror=function(t){var a=t&&t.target&&t.target.src||o,s=new Error("Loading CSS chunk "+e+" failed.\n("+a+")");s.code="CSS_CHUNK_LOAD_FAILED",s.request=a,delete n[e],f.parentNode.removeChild(f),r(s)},f.href=o;var d=document.getElementsByTagName("head")[0];d.appendChild(f)})).then((function(){n[e]=0})));var a=o[e];if(0!==a)if(a)t.push(a[2]);else{var s=new Promise((function(t,r){a=o[e]=[t,r]}));t.push(a[2]=s);var c,l=document.createElement("script");l.charset="utf-8",l.timeout=120,i.nc&&l.setAttribute("nonce",i.nc),l.src=u(e);var p=new Error;c=function(t){l.onerror=l.onload=null,clearTimeout(f);var r=o[e];if(0!==r){if(r){var a=t&&("load"===t.type?"missing":t.type),n=t&&t.target&&t.target.src;p.message="Loading chunk "+e+" failed.\n("+a+": "+n+")",p.name="ChunkLoadError",p.type=a,p.request=n,r[1](p)}o[e]=void 0}};var f=setTimeout((function(){c({type:"timeout",target:l})}),12e4);l.onerror=l.onload=c,document.head.appendChild(l)}return Promise.all(t)},i.m=e,i.c=a,i.d=function(e,t,r){i.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},i.r=function(e){"undefined"!==typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(e,t){if(1&t&&(e=i(e)),8&t)return e;if(4&t&&"object"===typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(i.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var a in e)i.d(r,a,function(t){return e[t]}.bind(null,a));return r},i.n=function(e){var t=e&&e.__esModule?function(){return e["default"]}:function(){return e};return i.d(t,"a",t),t},i.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},i.p="/",i.oe=function(e){throw console.error(e),e};var c=window["webpackJsonp"]=window["webpackJsonp"]||[],l=c.push.bind(c);c.push=t,c=c.slice();for(var p=0;p<c.length;p++)t(c[p]);var f=l;r()})([]);</script><script src="/static/js/chunk-libs.dc6146cd.js"></script><script src="/static/js/app.6d2c358d.js"></script></body></html>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">悠悠博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://uuxia.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-homeassistant" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post/homeassistant.html" class="article-date">
+  <time datetime="2018-05-02T04:14:57.000Z" itemprop="datePublished">2018-05-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IoT/">IoT</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      树莓派3B(Raspberry 3B)搭建HomeAssistant
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Home Assistant 是一款基于 Python 的智能家居开源系统，支持众多品牌的智能家居设备，可以轻松实现设备的语音控制、自动化等。本文档全站内容基于 Home Assistant 官方网站 本地化而成，具有以下特点：</p>
+<h2 id="整合『组件』与『文档』页，采用更直观清晰、符合中文阅读的展现形式；剔除国内用户较少接触的组件说明，提高常用智能家居平台的层级和权重；跳出-Home-Assistant-原生框架，一并纳入-Floorplan、HADashboard-等相关衍生项目；本文将讲述树莓派3B搭建HomeAssistant和小米设备的接入。-一、系统要求和硬件配置"><a href="#整合『组件』与『文档』页，采用更直观清晰、符合中文阅读的展现形式；剔除国内用户较少接触的组件说明，提高常用智能家居平台的层级和权重；跳出-Home-Assistant-原生框架，一并纳入-Floorplan、HADashboard-等相关衍生项目；本文将讲述树莓派3B搭建HomeAssistant和小米设备的接入。-一、系统要求和硬件配置" class="headerlink" title="整合『组件』与『文档』页，采用更直观清晰、符合中文阅读的展现形式；剔除国内用户较少接触的组件说明，提高常用智能家居平台的层级和权重；跳出 Home Assistant 原生框架，一并纳入 Floorplan、HADashboard 等相关衍生项目；本文将讲述树莓派3B搭建HomeAssistant和小米设备的接入。# 一、系统要求和硬件配置"></a>整合『组件』与『文档』页，采用更直观清晰、符合中文阅读的展现形式；<br>剔除国内用户较少接触的组件说明，提高常用智能家居平台的层级和权重；<br>跳出 Home Assistant 原生框架，一并纳入 Floorplan、HADashboard 等相关衍生项目；<br>本文将讲述树莓派3B搭建HomeAssistant和小米设备的接入。<br><span id="more"></span><br># 一、系统要求和硬件配置</h2><ul>
+<li>树莓派3B（Raspberry 3B）;</li>
+<li>一张16G的TF存储卡；</li>
+<li>一台电脑（windowns or mac）；</li>
+<li>若干小米设备（小米网关、小米插座、小米吸顶灯等）；</li>
+<li>TF卡读卡器；</li>
+<li>原生 <a target="_blank" rel="noopener" href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a> 系统；</li>
+<li>xshell工具；</li>
+<li><a target="_blank" rel="noopener" href="http://www.upantool.com/hfxf/sd/3137.html">SDFormatter</a>；</li>
+<li><a target="_blank" rel="noopener" href="http://www.onlinedown.net/soft/110173.htm">Win32 Disk Imager</a>。</li>
+<li><a target="_blank" rel="noopener" href="http://www.pc6.com/mac/248733.html">Etcher Mac版</a>（MacOs下烧录工具）；</li>
+<li>Fing工具（Android端或者ios端都行）。</li>
+</ul>
+<h1 id="二、系统安装"><a href="#二、系统安装" class="headerlink" title="二、系统安装"></a>二、系统安装</h1><hr>
+<ol>
+<li>SDFormatter格式化TF存储卡</li>
+<li>使用Win32 Disk Imager工具烧录Raspbian系统到TF卡</li>
+<li>如果是在MacOs系统下，请用mac自带工具格式化TF卡，然后使用Etcher烧录系统；</li>
+</ol>
+<h1 id="三、树莓派配置"><a href="#三、树莓派配置" class="headerlink" title="三、树莓派配置"></a>三、树莓派配置</h1><hr>
+<ol>
+<li><p>烧录完毕后，TF卡自动命名为boot，<strong>在boot根目录新建ssh文件以便ss登录</strong>；</p>
+</li>
+<li><p>在TF卡根目录新建<code>wpa_supplicant.conf</code>文件，用于连接WiFi，配置如下：</p>
+ <pre class="line-numbers language-none"><code class="language-none">
+country=CN
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+network={
+    ssid="路由器的ssid"
+    psk="路由器的密码"
+    key_mgmt=WPA-PSK
+    priority=1
+}
+</code></pre>
+
+</li>
+<li><p>将TF卡插在树莓派后上电启动；</p>
+</li>
+<li><p>使用Fing查询树莓派的IP地址；</p>
+</li>
+<li><p>树莓派默认用户名<strong>pi</strong>，密码<strong>raspberry</strong>;</p>
+</li>
+<li><p>使用xshell连接树莓派，MacOs方式：<code>ssh pi@192.168.x.x -p 22</code>；</p>
+</li>
+</ol>
+<h2 id="3-1-启用root用户（由于本人天性爱自由，所以必须要绝对权限）"><a href="#3-1-启用root用户（由于本人天性爱自由，所以必须要绝对权限）" class="headerlink" title="3.1 启用root用户（由于本人天性爱自由，所以必须要绝对权限）"></a>3.1 启用root用户（由于本人天性爱自由，所以必须要绝对权限）</h2><ol>
+<li>设置root用户密码</li>
+</ol>
+<blockquote>
+<p>sudo passwd root</p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">
+pi@raspberrypi:~$ sudo passwd root
+Enter new UNIX password:   #输入第一遍密码
+Retype new UNIX password:  #输入第二遍密码</code></pre>
+<ol start="2">
+<li>启用 root 账号登录<blockquote>
+<p>sudo passwd –unlock root</p>
+</blockquote>
+</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">
+pi@raspberrypi:~$ sudo passwd --unlock root
+passwd: password expiry information changed.</code></pre>
+<ol start="3">
+<li>设置root登陆</li>
+</ol>
+<blockquote>
+<p>sudo nano /etc/ssh/sshd_config  </p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">
+pi@raspberrypi:~$ sudo nano /etc/ssh/sshd_config    
+</code></pre>
+<blockquote>
+<p><code>Ctrl + W</code> 快捷键 搜索 <code>PermitRootLogin without-password</code><br>修改 <code>PermitRootLogin without-password</code> 为 <code>PermitRootLogin yes</code><br>执行完之后，用 <code>reboot</code> 命令重启，这样就可以解锁<code>root</code>账户。</p>
+</blockquote>
+<h1 id="四、HomeAssistant安装"><a href="#四、HomeAssistant安装" class="headerlink" title="四、HomeAssistant安装"></a>四、HomeAssistant安装</h1><hr>
+<h2 id="4-1-源替换"><a href="#4-1-源替换" class="headerlink" title="4.1 源替换"></a>4.1 源替换</h2><p>由于默认都是从国外服务器下载安装，为了避免安装失败所以先替换成阿里的源。</p>
+<ul>
+<li><p>在此目录新建此文件：<code> ~/.pip/pip.conf</code></p>
+</li>
+<li><p>复制粘贴以下内容并保存：</p>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">
+[global]
+trusted-host=mirrors.aliyun.com
+index-url=https://mirrors.aliyun.com/pypi/simple/
+</code></pre>
+
+
+<h2 id="4-2-安装Python3"><a href="#4-2-安装Python3" class="headerlink" title="4.2 安装Python3"></a>4.2 安装Python3</h2><p>打开<code>Linux</code>系统命令行窗口，输入：<code>sudo apt-get install python3.5</code></p>
+<p>应系统要求输入<code>root</code>账号的密码。</p>
+<img src="/post/homeassistant/1.png" class="" title="img1">
+
+<p>安装资源准备好后提问是否继续安装，打回车确认。<br>然后等待安装完成。</p>
+<img src="/post/homeassistant/2.png" class="" title="img1">
+
+
+<h2 id="4-3-安装Python3开发资源"><a href="#4-3-安装Python3开发资源" class="headerlink" title="4.3 安装Python3开发资源"></a>4.3 安装Python3开发资源</h2><p>在第一步安装完成后，继续输入命令：<code>sudo apt-get install python3.5-dev</code><br>在系统提问是否继续安装时打回车确认。<br>然后等待安装完成。</p>
+<img src="/post/homeassistant/3.png" class="" title="img1">
+
+<img src="/post/homeassistant/4.png" class="" title="img1">
+
+
+<h2 id="4-4-安装Pip3"><a href="#4-4-安装Pip3" class="headerlink" title="4.4 安装Pip3"></a>4.4 安装Pip3</h2><p>继续在命令行中输入：<code>sudo apt install python3-pip</code><br>回车确认安装。<br>等待安装完成。</p>
+<img src="/post/homeassistant/5.png" class="" title="img1">
+
+
+<h2 id="4-5-验证安装结果"><a href="#4-5-验证安装结果" class="headerlink" title="4.5 验证安装结果"></a>4.5 验证安装结果</h2><p>在命令行中输入<code>python3 --version</code>，看到显示版本。<br>在命令行中输入<code>pip3 --version</code>，看到显示版本。<br>说明Python3环境及Pip3工具安装成功。</p>
+<img src="/post/homeassistant/6.png" class="" title="img1">
+
+
+<h2 id="4-6-使用Pip工具安装Home-Assistant"><a href="#4-6-使用Pip工具安装Home-Assistant" class="headerlink" title="4.6 使用Pip工具安装Home Assistant"></a>4.6 使用Pip工具安装Home Assistant</h2><p>在此步之前建议设置国内的安装源，可以提升后续的速度，参见这篇文档。<br>打开命令行窗口，输入：<code>sudo pip3 install homeassistant</code> （<font color="red">此步骤若失败，请重复操作</font>）<br>等待安装过程完成。</p>
+<img src="/post/homeassistant/8.png" class="" title="img1">
+
+
+<h2 id="4-7-验证安装结果"><a href="#4-7-验证安装结果" class="headerlink" title="4.7 验证安装结果"></a>4.7 验证安装结果</h2><p>在命令行窗口，输入：<code>hass --debug</code> 参数<code>--debug</code>可以查看启动的日志。<br>首次启动需要初始化配置文件，也会自动下载一些所需的文件，会需要一些时间。有时因网络质量问题还会出现文件下载失败情况，导致启动过程受阻。此时可以关闭命令行窗口，再重新执行启动命令。</p>
+<img src="/post/homeassistant/9.png" class="" title="img1">
+
+<p>继续等待启动过程完成，直到浏览器自动打开<code>Home Assistant</code>系统首页，即表明软件安装成功。</p>
+<img src="/post/homeassistant/10.png" class="" title="img1">
+
+
+<h1 id="五、HomeAssistant设置自动启动"><a href="#五、HomeAssistant设置自动启动" class="headerlink" title="五、HomeAssistant设置自动启动"></a>五、HomeAssistant设置自动启动</h1><hr>
+<p>Home Assistant 针对树莓派的发行版（手动安装除外）中都已经自带自启任务，其余系统安装的用户需要自行配置自启。</p>
+<h2 id="5-1-配置自启动文件"><a href="#5-1-配置自启动文件" class="headerlink" title="5.1 配置自启动文件"></a>5.1 配置自启动文件</h2><p>如果你未使用 <code>Python</code> 虚拟环境安装 <code>Home Assistant</code>，请使用以下方法</p>
+<pre><code>sudo nano -w /etc/systemd/system/home-assistant@root.service
+</code></pre>
+<p>复制粘贴</p>
+<pre><code>[Unit]
+Description=Home Assistant
+After=network-online.target
+
+[Service]
+Type=simple
+User=%i
+ExecStart=/usr/local/bin/hass 
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<blockquote>
+<p>注意<code>ExecStart=/usr/local/bin/hass</code>  这个路径使用<code>whereis hass</code>查看路径</p>
+</blockquote>
+<h2 id="5-2-启动自启服务"><a href="#5-2-启动自启服务" class="headerlink" title="5.2 启动自启服务"></a>5.2 启动自启服务</h2><p>完成上述步骤后，请重新加载进程管理。</p>
+<pre><code>sudo systemctl --system daemon-reload
+</code></pre>
+<p>启用服务：</p>
+<pre><code>sudo systemctl enable home-assistant@root
+</code></pre>
+<h1 id="六、HomeAssistant的一些常用命令"><a href="#六、HomeAssistant的一些常用命令" class="headerlink" title="六、HomeAssistant的一些常用命令"></a>六、HomeAssistant的一些常用命令</h1><hr>
+<h2 id="6-1-systemd相关的控制命令"><a href="#6-1-systemd相关的控制命令" class="headerlink" title="6.1 systemd相关的控制命令"></a>6.1 systemd相关的控制命令</h2><pre><code>sudo systemctl --system daemon-reload：重新加载systemd的配置文件。
+sudo systemctl enable home-assistant@root：设置home-assitant服务为自启动。
+sudo systemctl disable home-assistant@root：从自启动中去除home-assitant服务。
+sudo systemctl start home-assistant@root：手工启动home-assitant服务（命令中start可以替换成stop、restart、status，完成停止、重启、查看服务状态等功能）。
+sudo journalctl -f -u home-assistant@root：查看hass的日志输出。
+sudo journalctl -f -u home-assistant@[your user] | grep -i 'error'：查看hass的日志输出中的error部分
+
+sudo systemctl restart home-assistant@root
+</code></pre>
+<h2 id="6-2-使用脚本控制HomeAssistant"><a href="#6-2-使用脚本控制HomeAssistant" class="headerlink" title="6.2 使用脚本控制HomeAssistant"></a>6.2 使用脚本控制HomeAssistant</h2><pre><code>#!/bin/bash
+
+function check()
+{
+    echo "检查配置文件是否有错误"
+    sudo hass --script check_config
+}
+
+function dis()
+{
+    echo "显示所有组件的配置信息"
+    sudo hass --script check_config --info all
+}
+
+function hass()
+{
+    echo "启动hass"
+    sudo systemctl start home-assistant@root
+}
+function rehass()
+{
+    echo "重启hass"
+    sudo systemctl restart home-assistant@root
+}
+
+function stophass()
+{
+    echo "停止hass"
+    sudo systemctl stop home-assistant@root
+}
+
+function log(){
+    echo "查看hass日志"
+    sudo journalctl -f -u home-assistant@root
+}
+
+function debug(){
+    echo "debug hass"
+    sudo hass --debug
+}
+
+
+
+echo "输入编号选择"
+echo "1. 检查配置文件是否有错误"
+echo "2. 显示所有组件的配置信息"
+echo "3. 启动hass"
+echo "4. 查看hass日志"
+echo "5. 重启hass"
+echo "6. 停止hass"
+echo "7. debug hass"
+echo "******Enter nothing to exit*****"
+read num
+
+case "$num" in
+[1] ) (check);;
+[2] ) (dis);;
+[3] ) (hass);;
+[4] ) (log);;
+[5] ) (rehass);;
+[6] ) (stophass);;
+[7] ) (debug);;
+*) echo "nothing,exit";;
+esac
+</code></pre>
+<h1 id="七、小米设备接入"><a href="#七、小米设备接入" class="headerlink" title="七、小米设备接入"></a>七、小米设备接入</h1><hr>
+<ul>
+<li><p>安装米家App（最新版本获取获取不到<code>Token</code>，使用【<a href="http://uuxia.cn:8123/file/com.xiaomi.smarthome.apk">MI Home5.0.19</a>】此版本OK）;</p>
+</li>
+<li><p>使用<a href="http://uuxia.cn:8123/file/RE.apk">RE文件管理器</a>，打开<code>/data/data/com.xiaomi.smarthome/databases/miio2.db</code></p>
+</li>
+<li><p>记录设备的<code>token</code></p>
+</li>
+<li><p><a href="http://uuxia.cn:8123/file/configuration.yaml">configuration.yaml</a>配置文件</p>
+</li>
+</ul>
+<h1 id="八、遇到的一些问题"><a href="#八、遇到的一些问题" class="headerlink" title="八、遇到的一些问题"></a>八、遇到的一些问题</h1><hr>
+<ol>
+<li>urllib3与chardet不兼容解决方案</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">
+pip3 uninstall urllib3
+pip3 uninstall  chardet
+ip3 install requests
+</code></pre>
+
+
+<p>2.执行sh ./xxx.sh出现：“Syntax error: “(” unexpected”的解决方法</p>
+<pre><code>sudo dpkg-reconfigure dash
+在选择项中选No，搞定了！
+</code></pre>
+<ol start="3">
+<li>nodejs安装</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xiongtm/article/details/77620005">https://blog.csdn.net/xiongtm/article/details/77620005</a><br><a target="_blank" rel="noopener" href="https://nodejs.org/dist/latest-v9.x/">https://nodejs.org/dist/latest-v9.x/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://uuxia.cn/post/homeassistant.html" data-id="clbbr79on001436w0c8kfaqra" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HomeAssistant/" rel="tag">HomeAssistant</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IoT/" rel="tag">IoT</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/post/lifehealth.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          健身运动
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/centos-run-jar.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Centos后台运行jar</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AOSP/">AOSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C/">C/C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Centos/">Centos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/SSH/">SSH</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IoT/">IoT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ios/">Ios</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PixelExperience/">PixelExperience</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Raspberry/">Raspberry</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/VPN/">VPN</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/centos6/">centos6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/centos7/">centos7</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frp/">frp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frpc/">frpc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/">go</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/i2c/">i2c</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ipv6/">ipv6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/logcat/">logcat</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mao/">mao</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mqtt/">mqtt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ndk/">ndk</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/netty/">netty</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/openssl/">openssl</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/openwrt/">openwrt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/proxy/">proxy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/shadowsocks/">shadowsocks</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ssh/">ssh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%8F%E7%B1%B39/">小米9</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%85%E8%A1%8C/">旅行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Andorid/" rel="tag">Andorid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C&#x2F;C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HomeAssistant/" rel="tag">HomeAssistant</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IoT/" rel="tag">IoT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iot/" rel="tag">Iot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jar/" rel="tag">Jar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/" rel="tag">Kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PixelExperience/" rel="tag">PixelExperience</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recovery/" rel="tag">Recovery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Service/" rel="tag">Service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/a/" rel="tag">a</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/" rel="tag">centos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos6/" rel="tag">centos6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cepheus/" rel="tag">cepheus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clashx/" rel="tag">clashx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coding/" rel="tag">coding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cross/" rel="tag">cross</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/" rel="tag">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frpc/" rel="tag">frpc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitee/" rel="tag">gitee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/het/" rel="tag">het</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hobby/" rel="tag">hobby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i2c/" rel="tag">i2c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipv6/" rel="tag">ipv6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logcat/" rel="tag">logcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ndk/" rel="tag">ndk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netty/" rel="tag">netty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/okhttp/" rel="tag">okhttp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openssl/" rel="tag">openssl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openwrt/" rel="tag">openwrt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pi/" rel="tag">pi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/" rel="tag">proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pubkey/" rel="tag">pubkey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/raspberry/" rel="tag">raspberry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/" rel="tag">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shadowsocks/" rel="tag">shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/so/" rel="tag">so</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tcp/" rel="tag">tcp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%99%E4%BD%9C/" rel="tag">写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E6%9C%BA/" rel="tag">刷机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%97%E7%96%86/" rel="tag">北疆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85/" rel="tag">喜马拉雅</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%AD%E7%81%AB/" rel="tag">搭火</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E7%96%86/" rel="tag">新疆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" rel="tag">智能家居</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B1%BD%E8%BD%A6/" rel="tag">汽车</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="tag">腾讯云</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E5%8A%A8/" rel="tag">运动</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A9%B1%E8%9A%8A-life/" rel="tag">驱蚊  life</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Andorid/" style="font-size: 13.33px;">Andorid</a> <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/HomeAssistant/" style="font-size: 10px;">HomeAssistant</a> <a href="/tags/IoT/" style="font-size: 10px;">IoT</a> <a href="/tags/Iot/" style="font-size: 10px;">Iot</a> <a href="/tags/Jar/" style="font-size: 10px;">Jar</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/PixelExperience/" style="font-size: 10px;">PixelExperience</a> <a href="/tags/Recovery/" style="font-size: 10px;">Recovery</a> <a href="/tags/Service/" style="font-size: 10px;">Service</a> <a href="/tags/a/" style="font-size: 10px;">a</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/centos/" style="font-size: 13.33px;">centos</a> <a href="/tags/centos6/" style="font-size: 10px;">centos6</a> <a href="/tags/cepheus/" style="font-size: 13.33px;">cepheus</a> <a href="/tags/clashx/" style="font-size: 10px;">clashx</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/cross/" style="font-size: 10px;">cross</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/frpc/" style="font-size: 10px;">frpc</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/gitee/" style="font-size: 10px;">gitee</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/go/" style="font-size: 10px;">go</a> <a href="/tags/gradle/" style="font-size: 13.33px;">gradle</a> <a href="/tags/het/" style="font-size: 10px;">het</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/hobby/" style="font-size: 10px;">hobby</a> <a href="/tags/i2c/" style="font-size: 10px;">i2c</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/ipv6/" style="font-size: 10px;">ipv6</a> <a href="/tags/java/" style="font-size: 13.33px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/logcat/" style="font-size: 10px;">logcat</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/ndk/" style="font-size: 13.33px;">ndk</a> <a href="/tags/netty/" style="font-size: 10px;">netty</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/okhttp/" style="font-size: 10px;">okhttp</a> <a href="/tags/openssl/" style="font-size: 10px;">openssl</a> <a href="/tags/openwrt/" style="font-size: 10px;">openwrt</a> <a href="/tags/pi/" style="font-size: 10px;">pi</a> <a href="/tags/proxy/" style="font-size: 16.67px;">proxy</a> <a href="/tags/pubkey/" style="font-size: 10px;">pubkey</a> <a href="/tags/raspberry/" style="font-size: 10px;">raspberry</a> <a href="/tags/server/" style="font-size: 10px;">server</a> <a href="/tags/shadowsocks/" style="font-size: 20px;">shadowsocks</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tcp/" style="font-size: 10px;">tcp</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/%E5%86%99%E4%BD%9C/" style="font-size: 10px;">写作</a> <a href="/tags/%E5%88%B7%E6%9C%BA/" style="font-size: 10px;">刷机</a> <a href="/tags/%E5%8C%97%E7%96%86/" style="font-size: 10px;">北疆</a> <a href="/tags/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85/" style="font-size: 10px;">喜马拉雅</a> <a href="/tags/%E6%90%AD%E7%81%AB/" style="font-size: 10px;">搭火</a> <a href="/tags/%E6%96%B0%E7%96%86/" style="font-size: 10px;">新疆</a> <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" style="font-size: 13.33px;">智能家居</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 10px;">树莓派</a> <a href="/tags/%E6%B1%BD%E8%BD%A6/" style="font-size: 10px;">汽车</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 13.33px;">生活</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a> <a href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" style="font-size: 10px;">腾讯云</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 10px;">运动</a> <a href="/tags/%E9%A9%B1%E8%9A%8A-life/" style="font-size: 10px;">驱蚊  life</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post/clashx.html">Clash 基本配置记录</a>
+          </li>
+        
+          <li>
+            <a href="/post/openwrt-ipv6.html">家庭宽带开启IPV6</a>
+          </li>
+        
+          <li>
+            <a href="/post/mao-config.html">家庭光猫配置</a>
+          </li>
+        
+          <li>
+            <a href="/post/go-cross-compile.html">GoLang 全平台编译</a>
+          </li>
+        
+          <li>
+            <a href="/post/openwet-i2c.html">OpenWrt开启i2c功能，并顺利编译风扇驱动</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 uuxia<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>
