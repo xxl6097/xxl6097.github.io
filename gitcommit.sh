@@ -5,7 +5,7 @@ function todir() {
 
 function pull() {
   todir
-  echo "git pull"
+  echo "gitpull....."
   git pull
 }
 
@@ -18,6 +18,7 @@ function forcepull() {
 
 # shellcheck disable=SC2120
 function gitpush() {
+  echo "gitpush....."
   commit=""
   if [ ! -n "$1" ]; then
     commit="$(date '+%Y-%m-%d %H:%M:%S') by ${USER}"
